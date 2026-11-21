@@ -3,277 +3,934 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANGOMODS GAMING</title>
-<meta name="description" content="Packs de sensibilidade Free Fire, DPI, HUD e gaming.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07110c">
+<title>ANGOMODS GAMING | FF HUB</title>
+<meta name="description" content="Angomods Gaming - Free Fire skins freestyle, sensi, DPI, HUD, otimização Android, nicks e códigos de perfil.">
+
 <style>
+*{box-sizing:border-box;scroll-behavior:smooth}
 :root{
- --bg:#080b0a;--card:#111815;--green:#00ff88;
- --text:#f1f5f3;--muted:#9ba9a2;--line:#25352d;
+--bg:#050807;
+--panel:#0d1511;
+--panel2:#101c15;
+--green:#00ff87;
+--green2:#8cffba;
+--text:#f2f7f3;
+--muted:#a0b0a5;
+--border:#1c3628;
+--red:#ff4d68;
 }
-*{box-sizing:border-box}
 body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:Arial,sans-serif;scroll-behavior:smooth;
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.6;
 }
 header{
- padding:25px 15px;text-align:center;
- background:linear-gradient(145deg,#071b12,#101810);
- border-bottom:1px solid var(--line);
+padding:35px 15px 25px;
+text-align:center;
+background:radial-gradient(ellipse at top,#123522,#050807 75%);
+border-bottom:1px solid var(--border);
 }
-header h1{color:var(--green);margin:0;font-size:28px}
+.logo{
+font-size:clamp(25px,6vw,42px);
+font-weight:900;
+color:var(--green);
+letter-spacing:2px;
+text-shadow:0 0 18px #00ff8740;
+}
 header p{color:var(--muted)}
+.tag{
+display:inline-block;
+border:1px solid var(--green);
+padding:4px 12px;
+border-radius:50px;
+color:var(--green);
+font-size:12px;
+}
 nav{
- display:flex;justify-content:center;gap:15px;flex-wrap:wrap;
- padding:14px;background:#0c100e;position:sticky;top:0;z-index:10;
- border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:99;
+background:#07100beF;
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+display:flex;
+overflow-x:auto;
+gap:8px;
+padding:12px;
 }
-nav a{color:var(--green);text-decoration:none;font-weight:bold;font-size:14px}
-main{max-width:950px;margin:auto;padding:20px}
+nav a{
+flex-shrink:0;
+text-decoration:none;
+color:var(--green2);
+font-size:13px;
+font-weight:bold;
+padding:8px 12px;
+border-radius:10px;
+}
+nav a:hover{background:#153322}
+main{max-width:1100px;margin:auto;padding:18px}
+section{padding:18px 0;scroll-margin-top:80px}
+.hero,.card{
+background:linear-gradient(145deg,var(--panel),#08100b);
+border:1px solid var(--border);
+border-radius:18px;
+padding:20px;
+margin:15px 0;
+}
 .hero{
- padding:25px 18px;border:1px solid var(--line);
- border-radius:18px;background:var(--card);margin-bottom:22px;
+padding:25px;
+background:linear-gradient(135deg,#10271a,#09110c);
 }
-.hero h2{color:var(--green)}
-.card{
- background:var(--card);padding:18px;border-radius:16px;
- border:1px solid var(--line);margin:15px 0;
+.hero h1{color:var(--green)}
+h2{color:var(--green);font-size:23px}
+h3{color:var(--green2)}
+p{margin:10px 0}
+.small{font-size:13px;color:var(--muted)}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:15px;
 }
-h2,h3{margin-top:0}
-h3{color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.item{
+background:var(--panel2);
+border:1px solid var(--border);
+border-radius:14px;
+padding:16px;
+}
 button{
- background:var(--green);color:#04130b;border:0;border-radius:10px;
- padding:12px 15px;font-weight:bold;cursor:pointer;
+border:0;
+background:var(--green);
+color:#06130b;
+font-weight:bold;
+padding:12px 16px;
+border-radius:10px;
+cursor:pointer;
+margin:5px 3px;
+transition:.15s;
 }
-button:hover{filter:brightness(.9)}
-input,select{
- width:100%;padding:12px;border:1px solid var(--line);
- background:#080d0a;color:white;border-radius:10px;margin:8px 0;
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+button.secondary{
+background:#16251b;color:var(--green);
+border:1px solid var(--border);
 }
-label{display:block;margin-top:10px;color:var(--muted)}
-.pack{
- border:1px solid var(--line);padding:14px;border-radius:12px;
- background:#0b100d;
+input,select,textarea{
+width:100%;
+background:#060c08;
+color:white;
+border:1px solid var(--border);
+border-radius:10px;
+padding:12px;
+margin:8px 0;
+font-size:15px;
 }
-.pack p{margin:8px 0}
-.value{color:var(--green);font-weight:bold}
-.small{color:var(--muted);font-size:13px}
-footer{text-align:center;color:var(--muted);padding:30px}
-hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+label{color:var(--muted);font-size:14px}
+hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+.badge{
+background:#11271a;
+color:var(--green);
+border:1px solid var(--border);
+padding:4px 8px;
+border-radius:7px;
+font-size:12px;
+}
+ul{padding-left:20px}
+li{margin:8px 0}
+.copybox{
+background:#050a07;
+padding:12px;
+border:1px solid var(--border);
+border-radius:10px;
+word-break:break-word;
+}
+footer{
+padding:40px 15px;
+text-align:center;
+border-top:1px solid var(--border);
+color:var(--muted);
+}
+a{color:var(--green2)}
+.hidden{display:none!important}
+#toast{
+position:fixed;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+background:#00ff87;
+color:#06130b;
+padding:12px 20px;
+border-radius:12px;
+font-weight:bold;
+display:none;
+z-index:999;
+}
+table{width:100%;border-collapse:collapse}
+td,th{border-bottom:1px solid var(--border);padding:10px;text-align:left}
+th{color:var(--green)}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>ANGOMODS GAMING</h1>
-<p>O teu universo Free Fire 🔥</p>
+<div class="logo">ANGOMODS GAMING</div>
+<p>Free Fire • Freestyle • Sensi • Android • Nick Lab</p>
+<span class="tag">ULTRA EDITION</span>
 </header>
 
 <nav>
-<a href="#packs">PACKS</a>
-<a href="#gerador">GERADOR</a>
-<a href="#hud">HUD</a>
-<a href="#android">ANDROID</a>
-<a href="#edits">EDITS</a>
+<a href="#skins">SKINS</a>
+<a href="#sensi">SENSI</a>
+<a href="#opt">OPTIMIZAÇÃO</a>
+<a href="#shizuku">SHIZUKU</a>
+<a href="#nick">NICKS</a>
+<a href="#perfil">PERFIL</a>
+<a href="#tiktok">TIKTOK</a>
 </nav>
 
 <main>
 
-<section class="hero">
-<h2>🔥 Central de Sensibilidade</h2>
+<div class="hero">
+<h1>🔥 Bem-vindo ao ANGOMODS</h1>
 <p>
-Packs de sensibilidade, DPI e botão de atirar.
-Encontra o teu estilo e copia as configurações.
+A central de Free Fire para combinações freestyle,
+sensibilidade, personalização, Android e muito mais.
 </p>
-</section>
-
-<section id="packs">
-<h2>🎯 Packs de Sensi</h2>
-
-<input id="pesquisa" placeholder="Pesquisar packs..." oninput="filtrar()">
-
-<div class="grid" id="listaPacks">
-
-<div class="pack" data-search="full capa arrasto rapido ump mp40">
-<h3>FULL CAPA</h3>
-<p>Estilo: <span class="value">Arrasto rápido</span></p>
-<p>Geral: <span class="value">195</span></p>
-<p>Ponto Vermelho: <span class="value">190</span></p>
-<p>Mira 2x: <span class="value">185</span></p>
-<p>Mira 4x: <span class="value">180</span></p>
-<p>Mira AWM: <span class="value">120</span></p>
-<p>Olhadinha: <span class="value">200</span></p>
-<p>DPI: <span class="value">440</span></p>
-<p>Botão: <span class="value">48%</span></p>
-<button onclick="copiarPack(this)">COPIAR PACK</button>
+<p class="small">
+Escolhe uma categoria, copia o conteúdo e experimenta.
+</p>
 </div>
 
-<div class="pack" data-search="equilibrada estabilidade">
-<h3>PACK EQUILIBRADO</h3>
-<p>Estilo: <span class="value">Equilibrado</span></p>
-<p>Geral: <span class="value">180</span></p>
-<p>Ponto Vermelho: <span class="value">175</span></p>
-<p>Mira 2x: <span class="value">170</span></p>
-<p>Mira 4x: <span class="value">160</span></p>
-<p>Mira AWM: <span class="value">110</span></p>
-<p>Olhadinha: <span class="value">180</span></p>
-<p>DPI: <span class="value">400</span></p>
-<p>Botão: <span class="value">45%</span></p>
-<button onclick="copiarPack(this)">COPIAR PACK</button>
+<!-- SKINS -->
+
+<section id="skins">
+<h2>👕 SKINS FREESTYLE</h2>
+<p>Combinações para diferentes estilos.</p>
+
+<div class="grid">
+
+<div class="item">
+<h3>💎 Versão podre de rico</h3>
+<p class="small">Combinações com itens raros, evolutivos e premium.</p>
+<div class="copybox">
+<strong>FREESTYLE LUXO 01</strong><br>
+Cabeça: máscara rara ou lendária<br>
+Parte superior: jaqueta premium<br>
+Parte inferior: calça lendária<br>
+Calçado: botas raras<br>
+Mochila: evolutiva<br>
+Prancha: premium
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
 </div>
 
-<div class="pack" data-search="alta sensibilidade rapido">
-<h3>PACK RÁPIDO</h3>
-<p>Estilo: <span class="value">Arrasto veloz</span></p>
-<p>Geral: <span class="value">200</span></p>
-<p>Ponto Vermelho: <span class="value">195</span></p>
-<p>Mira 2x: <span class="value">190</span></p>
-<p>Mira 4x: <span class="value">185</span></p>
-<p>Mira AWM: <span class="value">130</span></p>
-<p>Olhadinha: <span class="value">200</span></p>
-<p>DPI: <span class="value">460</span></p>
-<p>Botão: <span class="value">50%</span></p>
-<button onclick="copiarPack(this)">COPIAR PACK</button>
+<div class="item">
+<h3>💎 Freestyle evolutivo</h3>
+<div class="copybox">
+Cabeça: item raro<br>
+Camisa: coleção evolutiva<br>
+Calça: coleção exclusiva<br>
+Sapatos: coleção premium<br>
+Mochila: nível máximo<br>
+Pet: combinação temática
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
 </div>
 
+<div class="item">
+<h3>💰 Versão pobre</h3>
+<p class="small">Combinações com peças básicas, grátis ou mais acessíveis.</p>
+<div class="copybox">
+FREESTYLE BASIC<br>
+Cabeça: bandana ou boné<br>
+Camisa: camiseta simples<br>
+Calça: calça padrão<br>
+Calçado: ténis básico<br>
+Mochila: mochila comum<br>
+Tema: preto + branco
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
+</div>
+
+<div class="item">
+<h3>🖤 Freestyle dark</h3>
+<div class="copybox">
+Cabeça: máscara escura<br>
+Camisa: preta<br>
+Calça: cargo escura<br>
+Calçado: preto<br>
+Mochila: escura<br>
+Tema: BLACK STYLE
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
+</div>
+
+<div class="item">
+<h3>💚 Freestyle verde</h3>
+<div class="copybox">
+Cabeça: máscara verde<br>
+Camisa: verde ou preta<br>
+Calça: verde escuro<br>
+Calçado: preto<br>
+Mochila: temática verde
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
+</div>
+
+<div class="item">
+<h3>⚪ Freestyle branco</h3>
+<div class="copybox">
+Cabeça: branca<br>
+Camisa: branca<br>
+Calça: cinza ou branca<br>
+Calçado: branco<br>
+Mochila: branca
+</div>
+<button onclick="copiarTexto(this)">COPIAR COMBO</button>
+</div>
+
+</div>
+
+<div class="card">
+<h3>Como montar o freestyle</h3>
+<ul>
+<li>Evita misturar muitas cores.</li>
+<li>Escolhe uma cor principal.</li>
+<li>Usa uma peça que destaque a combinação.</li>
+<li>Combina mochila, máscara e calçado.</li>
+<li>Experimenta contrastes.</li>
+</ul>
 </div>
 </section>
 
 <hr>
 
-<section id="gerador">
-<h2>⚡ Gerador de Packs</h2>
-<div class="card">
-<p class="small">Monta um pack personalizado. Os valores de sensibilidade são limitados a 200.</p>
+<!-- SENSI -->
 
-<label>Nome do pack</label>
-<input id="nome" value="Meu Pack">
+<section id="sensi">
+<h2>🎯 PACKS DE SENSI</h2>
+<p>Escala atual: 0 a 200.</p>
+
+<div class="grid">
+
+<div class="item">
+<h3>🔥 Full capa</h3>
+<div class="copybox">
+Geral: 195<br>
+Ponto Vermelho: 190<br>
+Mira 2x: 185<br>
+Mira 4x: 180<br>
+Mira AWM: 120<br>
+Olhadinha: 200<br>
+DPI: 440<br>
+Botão: 48%
+</div>
+<button onclick="copiarTexto(this)">COPIAR PACK</button>
+</div>
+
+<div class="item">
+<h3>⚡ Arrasto rápido</h3>
+<div class="copybox">
+Geral: 200<br>
+Ponto Vermelho: 195<br>
+Mira 2x: 190<br>
+Mira 4x: 185<br>
+Mira AWM: 130<br>
+Olhadinha: 200<br>
+DPI: 460<br>
+Botão: 50%
+</div>
+<button onclick="copiarTexto(this)">COPIAR PACK</button>
+</div>
+
+<div class="item">
+<h3>🎮 Equilibrada</h3>
+<div class="copybox">
+Geral: 180<br>
+Ponto Vermelho: 175<br>
+Mira 2x: 170<br>
+Mira 4x: 160<br>
+Mira AWM: 110<br>
+Olhadinha: 180<br>
+DPI: 400<br>
+Botão: 45%
+</div>
+<button onclick="copiarTexto(this)">COPIAR PACK</button>
+</div>
+
+<div class="item">
+<h3>🛡️ Controlo</h3>
+<div class="copybox">
+Geral: 170<br>
+Ponto Vermelho: 165<br>
+Mira 2x: 160<br>
+Mira 4x: 150<br>
+Mira AWM: 100<br>
+Olhadinha: 170<br>
+DPI: 380<br>
+Botão: 43%
+</div>
+<button onclick="copiarTexto(this)">COPIAR PACK</button>
+</div>
+
+</div>
+
+<div class="card">
+<h3>🎯 Gerador de sensibilidade</h3>
+
+<label>Nome</label>
+<input id="snome" value="Meu Pack">
 
 <label>Geral</label>
-<input id="geral" type="number" min="0" max="200" value="195">
+<input id="sg" type="number" min="0" max="200" value="195">
 
 <label>Ponto Vermelho</label>
-<input id="red" type="number" min="0" max="200" value="190">
+<input id="sr" type="number" min="0" max="200" value="190">
 
 <label>Mira 2x</label>
-<input id="m2" type="number" min="0" max="200" value="185">
+<input id="s2" type="number" min="0" max="200" value="185">
 
 <label>Mira 4x</label>
-<input id="m4" type="number" min="0" max="200" value="180">
+<input id="s4" type="number" min="0" max="200" value="180">
 
 <label>Mira AWM</label>
-<input id="awm" type="number" min="0" max="200" value="120">
+<input id="sa" type="number" min="0" max="200" value="120">
 
 <label>Olhadinha</label>
-<input id="olho" type="number" min="0" max="200" value="200">
+<input id="so" type="number" min="0" max="200" value="200">
 
 <label>DPI</label>
-<input id="dpi" type="number" min="1" max="1000" value="440">
+<input id="sd" type="number" value="440" min="1" max="1000">
 
 <label>Botão de atirar (%)</label>
-<input id="botao" type="number" min="1" max="100" value="48">
+<input id="sb" type="number" value="48" min="1" max="100">
 
-<button onclick="gerar()">GERAR MEU PACK</button>
-
-<div id="resultado" class="card" style="display:none"></div>
+<button onclick="gerarSensi()">GERAR</button>
+<div id="sresultado"></div>
 </div>
 </section>
 
 <hr>
 
-<section id="hud">
-<h2>🎮 HUD</h2>
+<!-- OPTIMIZAÇÃO -->
+
+<section id="opt">
+<h2>📱 OPTIMIZAÇÃO ANDROID</h2>
+
+<div class="grid">
+
+<div class="item">
+<h3>🧹 Limpeza</h3>
+<ul>
+<li>Limpa o cache de aplicações pesadas.</li>
+<li>Apaga ficheiros desnecessários.</li>
+<li>Evita aplicações a funcionar em segundo plano.</li>
+<li>Deixa espaço livre na memória interna.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>⚡ Desempenho</h3>
+<ul>
+<li>Fecha aplicações antes de jogar.</li>
+<li>Desativa gravação de ecrã se não estiveres a usar.</li>
+<li>Evita jogar enquanto carregas.</li>
+<li>Reduz gráficos se o telefone aquecer.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>🌡️ Temperatura</h3>
+<ul>
+<li>Evita sol direto.</li>
+<li>Faz pausas quando o telefone aquece.</li>
+<li>Evita aplicações de arrefecimento falsas.</li>
+<li>Não bloqueies a ventilação do aparelho.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>🎮 Free Fire</h3>
+<ul>
+<li>Testa gráficos baixos.</li>
+<li>Desliga efeitos que não precisas.</li>
+<li>Testa uma sensibilidade de cada vez.</li>
+<li>Reinicia o jogo se começar a ficar lento.</li>
+</ul>
+</div>
+
+</div>
+
 <div class="card">
-<h3>Biblioteca HUD</h3>
-<p>Em breve: HUDs de 2, 3 e 4 dedos, com códigos e dicas.</p>
+<h3>Checklist de optimização</h3>
+<label><input type="checkbox"> Limpar cache</label>
+<label><input type="checkbox"> Fechar apps em segundo plano</label>
+<label><input type="checkbox"> Verificar espaço livre</label>
+<label><input type="checkbox"> Reduzir gráficos</label>
+<label><input type="checkbox"> Verificar temperatura</label>
+<label><input type="checkbox"> Reiniciar telefone</label>
+</div>
+
+</section>
+
+<hr>
+
+<!-- SHIZUKU -->
+
+<section id="shizuku">
+<h2>🧪 SHIZUKU LAB</h2>
+<p>Combinações de ferramentas Android com Shizuku.</p>
+
+<div class="grid">
+
+<div class="item">
+<h3>🛠️ Shizuku + Canta</h3>
+<p>Combinação para gerir aplicações que suportam operações avançadas de gestão de apps.</p>
+<p class="small">Confirma as permissões antes de desativar ou remover aplicações.</p>
+</div>
+
+<div class="item">
+<h3>📂 Shizuku + FV File Explorer</h3>
+<p>Exploração e gestão de ficheiros e pastas em locais suportados, conforme as permissões disponíveis.</p>
+</div>
+
+<div class="item">
+<h3>⚙️ Shizuku + App Ops</h3>
+<p>Gestão e análise de permissões de aplicações através de ferramentas compatíveis.</p>
+</div>
+
+<div class="item">
+<h3>📊 Shizuku + ferramentas de diagnóstico</h3>
+<p>Usa ferramentas de diagnóstico para analisar o comportamento do sistema. Shizuku não aumenta FPS automaticamente.</p>
+</div>
+
+</div>
+
+<div class="card">
+<h3>Como iniciar o Shizuku</h3>
+<ol>
+<li>Instala Shizuku da fonte oficial.</li>
+<li>Abre as instruções de arranque para o teu Android.</li>
+<li>Segue o método de depuração sem fios, se suportado.</li>
+<li>Confirma o estado de execução no Shizuku.</li>
+<li>Autoriza apenas aplicações que conheces.</li>
+</ol>
+<p class="small">
+O método de arranque varia conforme a versão Android.
+Não concedas permissões indiscriminadamente.
+</p>
+<a href="https://shizuku.rikka.app/" target="_blank" rel="noopener">Site oficial do Shizuku</a>
+</div>
+
+<div class="card">
+<h3>⚠️ Não faças isto</h3>
+<ul>
+<li>Não desactives serviços críticos do Android.</li>
+<li>Não executes scripts aleatórios de FPS.</li>
+<li>Não concedas acesso a apps desconhecidas.</li>
+<li>Não alteres valores do sistema sem saber como restaurá-los.</li>
+</ul>
 </div>
 </section>
 
-<section id="android">
-<h2>📱 Android</h2>
+<hr>
+
+<!-- NICKNAME GENERATOR -->
+
+<section id="nick">
+<h2>✍️ NICKNAME LAB</h2>
+<p>Cria, personaliza e copia nomes para o Free Fire.</p>
+
 <div class="card">
-<h3>Otimização</h3>
-<p>Dicas para melhorar a estabilidade, reduzir aquecimento e otimizar o desempenho nos jogos.</p>
+
+<label>Escreve o teu nome</label>
+<input id="nickbase" maxlength="20" placeholder="Ex: Ango">
+
+<label>Estilo</label>
+<select id="nickstyle">
+<option value="1">Símbolos</option>
+<option value="2">Estilo pro</option>
+<option value="3">Estilo dark</option>
+<option value="4">Estilo feminino</option>
+<option value="5">Estilo minimalista</option>
+</select>
+
+<button onclick="gerarNick()">GERAR NICKS</button>
+
+<div id="nicks" class="grid"></div>
+</div>
+
+<div class="card">
+<h3>ㅤㅤㅤ Espaço invisível</h3>
+<p class="small">
+Espaço invisível para experimentar em nomes, conforme o jogo permite.
+</p>
+
+<div class="copybox" id="invisivel">ㅤㅤㅤㅤㅤㅤㅤ</div>
+
+<button onclick="copiarElemento('invisivel')">COPIAR ESPAÇO INVISÍVEL</button>
+
+<p class="small">Carácter utilizado: U+3164 (Hangul Filler).</p>
+</div>
+
+<div class="card">
+<h3>✨ Caracteres especiais</h3>
+
+<div class="grid">
+<div class="item">
+<div class="copybox">亗</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">ツ</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">〆</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">么</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">乂</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">★</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">シ</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">々</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">♛</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">᭄</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">ツㅤ</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<div class="copybox">×͜×</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+</div>
 </div>
 </section>
 
-<section id="edits">
-<h2>🎬 CapCut & Edits</h2>
-<div class="card">
-<h3>Zona de edição</h3>
-<p>Tutoriais, efeitos, qualidade de exportação e ideias para edits Free Fire.</p>
+<hr>
+
+<!-- COLOR PROFILE -->
+
+<section id="perfil">
+<h2>🌈 PERFIL COLORIDO</h2>
+<p>Exemplos de códigos de cores para testar em campos compatíveis do Free Fire.</p>
+
+<div class="grid">
+
+<div class="item">
+<h3>Vermelho</h3>
+<div class="copybox">[FF0000]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
 </div>
+
+<div class="item">
+<h3>Verde</h3>
+<div class="copybox">[00FF00]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Azul</h3>
+<div class="copybox">[0000FF]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Amarelo</h3>
+<div class="copybox">[FFFF00]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Ciano</h3>
+<div class="copybox">[00FFFF]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Rosa</h3>
+<div class="copybox">[FF00FF]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Branco</h3>
+<div class="copybox">[FFFFFF]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+<div class="item">
+<h3>Laranja</h3>
+<div class="copybox">[FFA500]ANGOMODS</div>
+<button onclick="copiarTexto(this)">COPIAR</button>
+</div>
+
+</div>
+
+<div class="card">
+<h3>🎨 Personaliza o texto do perfil</h3>
+
+<label>Texto</label>
+<input id="ptexto" value="ANGOMODS">
+
+<label>Cor</label>
+<select id="pcor">
+<option value="FF0000">Vermelho</option>
+<option value="00FF00">Verde</option>
+<option value="0000FF">Azul</option>
+<option value="FFFF00">Amarelo</option>
+<option value="00FFFF">Ciano</option>
+<option value="FF00FF">Rosa</option>
+<option value="FFFFFF">Branco</option>
+<option value="FFA500">Laranja</option>
+</select>
+
+<button onclick="gerarPerfil()">GERAR CÓDIGO</button>
+
+<div id="perfilresult"></div>
+</div>
+
+<div class="card">
+<h3>Notas</h3>
+<p class="small">
+Os códigos de cores e símbolos podem ser aceites ou rejeitados
+dependendo do campo, versão e limitações do Free Fire.
+Não existe garantia de que todos funcionem em todos os campos.
+</p>
+</div>
+</section>
+
+<hr>
+
+<!-- TIKTOK -->
+
+<section id="tiktok">
+<h2>🎬 TIKTOK</h2>
+
+<div class="card">
+<h3>@ANGOMODS</h3>
+<p>Segue os edits, packs, freestyle e novidades da ANGOMODS GAMING.</p>
+
+<a href="https://www.tiktok.com/@angomods" target="_blank" rel="noopener">
+<button>ABRIR TIKTOK</button>
+</a>
+
+<button class="secondary" onclick="copiarTikTok()">COPIAR @ANGOMODS</button>
+</div>
+
 </section>
 
 </main>
 
 <footer>
-<p>ANGOMODS GAMING 💚</p>
-<p>Gaming • Sensi • HUD • Android • Edits</p>
+<h3>ANGOMODS GAMING</h3>
+<p>O freestyle é teu. A configuração é tua. O jogo é teu.</p>
+<p>Free Fire • Android • Sensi • Nick Lab</p>
+<p>© ANGOMODS GAMING</p>
 </footer>
 
+<div id="toast">Copiado! 💚</div>
+
 <script>
-function copiarPack(btn){
-const card=btn.parentElement;
-const texto=card.innerText.replace("COPIAR PACK","");
-navigator.clipboard.writeText(texto).then(()=>{
-btn.textContent="COPIADO!";
-setTimeout(()=>btn.textContent="COPIAR PACK",1500);
-}).catch(()=>{
-alert("Não foi possível copiar automaticamente.");
-});
+
+/* COPIAR TEXTO */
+
+function mostrarToast(msg){
+const toast=document.getElementById("toast");
+toast.textContent=msg||"Copiado! 💚";
+toast.style.display="block";
+clearTimeout(window.toastTimer);
+window.toastTimer=setTimeout(()=>{
+toast.style.display="none";
+},1800);
 }
 
-function filtrar(){
-const termo=document.getElementById("pesquisa").value.toLowerCase();
-document.querySelectorAll("#listaPacks .pack").forEach(pack=>{
-pack.style.display=pack.dataset.search.toLowerCase().includes(termo)?"block":"none";
-});
+async function copiar(txt){
+try{
+await navigator.clipboard.writeText(txt);
+mostrarToast("Copiado! 💚");
+}catch(e){
+const ta=document.createElement("textarea");
+ta.value=txt;
+document.body.appendChild(ta);
+ta.select();
+document.execCommand("copy");
+ta.remove();
+mostrarToast("Copiado! 💚");
+}
 }
 
-function gerar(){
-const ids=["geral","red","m2","m4","awm","olho"];
-const valores=ids.map(id=>{
+function copiarTexto(btn){
+const box=btn.parentElement.querySelector(".copybox");
+if(box)copiar(box.innerText);
+}
+
+function copiarElemento(id){
 const el=document.getElementById(id);
-let v=Number(el.value);
-if(!Number.isFinite(v))v=0;
-v=Math.max(0,Math.min(200,v));
-el.value=v;
-return v;
-});
+copiar(el.innerText);
+}
 
-let dpi=Math.max(1,Math.min(1000,Number(document.getElementById("dpi").value)||1));
-let botao=Math.max(1,Math.min(100,Number(document.getElementById("botao").value)||1));
+/* SENSIBILIDADE */
 
-document.getElementById("dpi").value=dpi;
-document.getElementById("botao").value=botao;
+function limitar(id,min,max){
+const el=document.getElementById(id);
+let n=Number(el.value);
+if(!Number.isFinite(n))n=min;
+n=Math.max(min,Math.min(max,n));
+el.value=n;
+return n;
+}
 
-const nome=document.getElementById("nome").value||"Meu Pack";
+function gerarSensi(){
+const g=limitar("sg",0,200);
+const r=limitar("sr",0,200);
+const m2=limitar("s2",0,200);
+const m4=limitar("s4",0,200);
+const a=limitar("sa",0,200);
+const o=limitar("so",0,200);
+const d=limitar("sd",1,1000);
+const b=limitar("sb",1,100);
+
+const nome=document.getElementById("snome").value||"Meu Pack";
 
 const texto=
-"ANGOMODS GAMING\n"+nome+"\n\n"+
-"Geral: "+valores[0]+"\n"+
-"Ponto Vermelho: "+valores[1]+"\n"+
-"Mira 2x: "+valores[2]+"\n"+
-"Mira 4x: "+valores[3]+"\n"+
-"Mira AWM: "+valores[4]+"\n"+
-"Olhadinha: "+valores[5]+"\n"+
-"DPI: "+dpi+"\n"+
-"Botão de atirar: "+botao+"%";
+"ANGOMODS GAMING - "+nome+"\n"+
+"Geral: "+g+"\n"+
+"Ponto Vermelho: "+r+"\n"+
+"Mira 2x: "+m2+"\n"+
+"Mira 4x: "+m4+"\n"+
+"Mira AWM: "+a+"\n"+
+"Olhadinha: "+o+"\n"+
+"DPI: "+d+"\n"+
+"Botão de atirar: "+b+"%";
 
-const resultado=document.getElementById("resultado");
-resultado.style.display="block";
-resultado.innerHTML="<h3>🔥 "+nome+"</h3><pre style='white-space:pre-wrap;color:#00ff88'></pre><button id='copiarGerado'>COPIAR PACK</button>";
+document.getElementById("sresultado").innerHTML=
+"<div class='card'><h3>PACK GERADO</h3>"+
+"<pre style='white-space:pre-wrap'></pre>"+
+"<button id='scopy'>COPIAR PACK</button></div>";
 
-resultado.querySelector("pre").textContent=texto;
+document.querySelector("#sresultado pre").textContent=texto;
 
-document.getElementById("copiarGerado").onclick=()=>{
-navigator.clipboard.writeText(texto).then(()=>{
-document.getElementById("copiarGerado").textContent="COPIADO!";
-}).catch(()=>alert("Não foi possível copiar."));
-};
+document.getElementById("scopy").onclick=()=>copiar(texto);
 }
+
+/* NICKNAME */
+
+function gerarNick(){
+const base=document.getElementById("nickbase").value.trim();
+if(!base){
+mostrarToast("Escreve um nome primeiro");
+return;
+}
+
+const style=document.getElementById("nickstyle").value;
+let a=[];
+
+if(style==="1"){
+a=[ "亗"+base+"ツ", "〆"+base+"々", "么"+base+"★",
+"乂"+base+"乂", "᭄"+base+"࿐", "『"+base+"』" ];
+}
+
+if(style==="2"){
+a=[ "ᴾᴿᴼ"+base, base+"✓", "『ᴾᴿᴼ』"+base,
+"亗"+base, base+"メ", "乂"+base ];
+}
+
+if(style==="3"){
+a=[ "☠"+base+"☠", "乂"+base+"乂",
+"༒"+base+"༒", "『DARK』"+base,
+"†"+base+"†", "×͜×"+base ];
+}
+
+if(style==="4"){
+a=[ "♡"+base+"♡", "꧁"+base+"꧂",
+"✿"+base+"✿", "୨"+base+"୧",
+"『♡』"+base, "ꕥ"+base ];
+}
+
+if(style==="5"){
+a=[ base, base+".", "_"+base,
+base+"ツ", base+"ㅤ", base+"々" ];
+}
+
+const container=document.getElementById("nicks");
+container.innerHTML="";
+
+a.forEach(n=>{
+const div=document.createElement("div");
+div.className="item";
+
+const text=document.createElement("div");
+text.className="copybox";
+text.textContent=n;
+
+const btn=document.createElement("button");
+btn.textContent="COPIAR NICK";
+btn.onclick=()=>copiar(n);
+
+div.appendChild(text);
+div.appendChild(btn);
+container.appendChild(div);
+});
+}
+
+/* CÓDIGO DE PERFIL */
+
+function gerarPerfil(){
+const texto=document.getElementById("ptexto").value;
+const cor=document.getElementById("pcor").value;
+const code="["+cor+"]"+texto;
+
+const div=document.getElementById("perfilresult");
+div.innerHTML="<div class='card'><div class='copybox'></div><button>COPIAR CÓDIGO</button></div>";
+
+div.querySelector(".copybox").textContent=code;
+div.querySelector("button").onclick=()=>copiar(code);
+}
+
+/* TIKTOK */
+
+function copiarTikTok(){
+copiar("@angomods");
+}
+
+/* PESQUISA DE ELEMENTOS */
 </script>
 
 </body>
