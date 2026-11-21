@@ -1,134 +1,280 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANGOMODS GAMING</title>
+<meta name="description" content="Packs de sensibilidade Free Fire, DPI, HUD e gaming.">
 <style>
+:root{
+ --bg:#080b0a;--card:#111815;--green:#00ff88;
+ --text:#f1f5f3;--muted:#9ba9a2;--line:#25352d;
+}
 *{box-sizing:border-box}
-body{margin:0;background:#080b12;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px;background:#101722;border-bottom:1px solid #263444}
-.logo{font-size:23px;font-weight:bold}
-.logo span{color:#a3ff12}
-nav{margin-top:15px;display:flex;gap:16px;flex-wrap:wrap}
-nav a{color:#aaa;text-decoration:none}
-.hero{padding:60px 20px}
-.hero small{color:#a3ff12;letter-spacing:3px}
-h1{font-size:55px;line-height:1.1}
-h1 span{color:#a3ff12}
-p{color:#a9b4c5;line-height:1.6}
-.btn{display:inline-block;background:#a3ff12;color:#111;padding:13px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
-section{padding:25px 20px}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,sans-serif;scroll-behavior:smooth;
+}
+header{
+ padding:25px 15px;text-align:center;
+ background:linear-gradient(145deg,#071b12,#101810);
+ border-bottom:1px solid var(--line);
+}
+header h1{color:var(--green);margin:0;font-size:28px}
+header p{color:var(--muted)}
+nav{
+ display:flex;justify-content:center;gap:15px;flex-wrap:wrap;
+ padding:14px;background:#0c100e;position:sticky;top:0;z-index:10;
+ border-bottom:1px solid var(--line);
+}
+nav a{color:var(--green);text-decoration:none;font-weight:bold;font-size:14px}
+main{max-width:950px;margin:auto;padding:20px}
+.hero{
+ padding:25px 18px;border:1px solid var(--line);
+ border-radius:18px;background:var(--card);margin-bottom:22px;
+}
+.hero h2{color:var(--green)}
+.card{
+ background:var(--card);padding:18px;border-radius:16px;
+ border:1px solid var(--line);margin:15px 0;
+}
+h2,h3{margin-top:0}
+h3{color:var(--green)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:#101722;border:1px solid #263444;border-radius:14px;padding:20px}
-.card:hover{border-color:#a3ff12}
-.card h3{margin-top:12px}
-.icon{font-size:28px}
-footer{text-align:center;padding:25px;border-top:1px solid #263444;color:#888}
+button{
+ background:var(--green);color:#04130b;border:0;border-radius:10px;
+ padding:12px 15px;font-weight:bold;cursor:pointer;
+}
+button:hover{filter:brightness(.9)}
+input,select{
+ width:100%;padding:12px;border:1px solid var(--line);
+ background:#080d0a;color:white;border-radius:10px;margin:8px 0;
+}
+label{display:block;margin-top:10px;color:var(--muted)}
+.pack{
+ border:1px solid var(--line);padding:14px;border-radius:12px;
+ background:#0b100d;
+}
+.pack p{margin:8px 0}
+.value{color:var(--green);font-weight:bold}
+.small{color:var(--muted);font-size:13px}
+footer{text-align:center;color:var(--muted);padding:30px}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">ANGO<span>MODS</span></div>
-<nav>
-<a href="#sensi">Sensi</a>
-<a href="#hud">HUD</a>
-<a href="#android">Android</a>
-<a href="#edits">Edits</a>
-</nav>
+<h1>ANGOMODS GAMING</h1>
+<p>O teu universo Free Fire 🔥</p>
 </header>
 
-<div class="hero">
-<small>FREE FIRE GAMING HUB</small>
-<h1>DOMINA.<br><span>EVOLUI.</span><br>JOGA.</h1>
-<p>O teu espaço gaming para configurações,
-HUDs, desempenho e conteúdo.</p>
-<a class="btn" href="#sensi">EXPLORAR</a>
+<nav>
+<a href="#packs">PACKS</a>
+<a href="#gerador">GERADOR</a>
+<a href="#hud">HUD</a>
+<a href="#android">ANDROID</a>
+<a href="#edits">EDITS</a>
+</nav>
+
+<main>
+
+<section class="hero">
+<h2>🔥 Central de Sensibilidade</h2>
+<p>
+Packs de sensibilidade, DPI e botão de atirar.
+Encontra o teu estilo e copia as configurações.
+</p>
+</section>
+
+<section id="packs">
+<h2>🎯 Packs de Sensi</h2>
+
+<input id="pesquisa" placeholder="Pesquisar packs..." oninput="filtrar()">
+
+<div class="grid" id="listaPacks">
+
+<div class="pack" data-search="full capa arrasto rapido ump mp40">
+<h3>FULL CAPA</h3>
+<p>Estilo: <span class="value">Arrasto rápido</span></p>
+<p>Geral: <span class="value">195</span></p>
+<p>Ponto Vermelho: <span class="value">190</span></p>
+<p>Mira 2x: <span class="value">185</span></p>
+<p>Mira 4x: <span class="value">180</span></p>
+<p>Mira AWM: <span class="value">120</span></p>
+<p>Olhadinha: <span class="value">200</span></p>
+<p>DPI: <span class="value">440</span></p>
+<p>Botão: <span class="value">48%</span></p>
+<button onclick="copiarPack(this)">COPIAR PACK</button>
 </div>
 
-<section id="sensi">
-<h2>🔥 Packs de sensi</h2>
-<div class="grid">
-<div class="card">
-<div class="icon">🔥</div>
-<h3>Full Capa</h3>
-<p>Treino de arrasto e configurações.</p>
+<div class="pack" data-search="equilibrada estabilidade">
+<h3>PACK EQUILIBRADO</h3>
+<p>Estilo: <span class="value">Equilibrado</span></p>
+<p>Geral: <span class="value">180</span></p>
+<p>Ponto Vermelho: <span class="value">175</span></p>
+<p>Mira 2x: <span class="value">170</span></p>
+<p>Mira 4x: <span class="value">160</span></p>
+<p>Mira AWM: <span class="value">110</span></p>
+<p>Olhadinha: <span class="value">180</span></p>
+<p>DPI: <span class="value">400</span></p>
+<p>Botão: <span class="value">45%</span></p>
+<button onclick="copiarPack(this)">COPIAR PACK</button>
 </div>
-<div class="card">
-<div class="icon">⚡</div>
-<h3>UMP</h3>
-<p>Configurações para trocação.</p>
+
+<div class="pack" data-search="alta sensibilidade rapido">
+<h3>PACK RÁPIDO</h3>
+<p>Estilo: <span class="value">Arrasto veloz</span></p>
+<p>Geral: <span class="value">200</span></p>
+<p>Ponto Vermelho: <span class="value">195</span></p>
+<p>Mira 2x: <span class="value">190</span></p>
+<p>Mira 4x: <span class="value">185</span></p>
+<p>Mira AWM: <span class="value">130</span></p>
+<p>Olhadinha: <span class="value">200</span></p>
+<p>DPI: <span class="value">460</span></p>
+<p>Botão: <span class="value">50%</span></p>
+<button onclick="copiarPack(this)">COPIAR PACK</button>
 </div>
-<div class="card">
-<div class="icon">🎯</div>
-<h3>Precisão</h3>
-<p>Treina consistência e controlo.</p>
-</div>
+
 </div>
 </section>
 
+<hr>
+
+<section id="gerador">
+<h2>⚡ Gerador de Packs</h2>
+<div class="card">
+<p class="small">Monta um pack personalizado. Os valores de sensibilidade são limitados a 200.</p>
+
+<label>Nome do pack</label>
+<input id="nome" value="Meu Pack">
+
+<label>Geral</label>
+<input id="geral" type="number" min="0" max="200" value="195">
+
+<label>Ponto Vermelho</label>
+<input id="red" type="number" min="0" max="200" value="190">
+
+<label>Mira 2x</label>
+<input id="m2" type="number" min="0" max="200" value="185">
+
+<label>Mira 4x</label>
+<input id="m4" type="number" min="0" max="200" value="180">
+
+<label>Mira AWM</label>
+<input id="awm" type="number" min="0" max="200" value="120">
+
+<label>Olhadinha</label>
+<input id="olho" type="number" min="0" max="200" value="200">
+
+<label>DPI</label>
+<input id="dpi" type="number" min="1" max="1000" value="440">
+
+<label>Botão de atirar (%)</label>
+<input id="botao" type="number" min="1" max="100" value="48">
+
+<button onclick="gerar()">GERAR MEU PACK</button>
+
+<div id="resultado" class="card" style="display:none"></div>
+</div>
+</section>
+
+<hr>
+
 <section id="hud">
-<h2>🕹️ HUDs</h2>
-<div class="grid">
+<h2>🎮 HUD</h2>
 <div class="card">
-<div class="icon">🖐️</div>
-<h3>2 dedos</h3>
-<p>Layout simples.</p>
-</div>
-<div class="card">
-<div class="icon">✌️</div>
-<h3>3 dedos</h3>
-<p>Mais controlo.</p>
-</div>
-<div class="card">
-<div class="icon">🤟</div>
-<h3>4 dedos</h3>
-<p>Layout avançado.</p>
-</div>
+<h3>Biblioteca HUD</h3>
+<p>Em breve: HUDs de 2, 3 e 4 dedos, com códigos e dicas.</p>
 </div>
 </section>
 
 <section id="android">
 <h2>📱 Android</h2>
-<div class="grid">
 <div class="card">
-<div class="icon">🚀</div>
-<h3>FPS</h3>
-<p>Dicas de desempenho.</p>
-</div>
-<div class="card">
-<div class="icon">🛠️</div>
-<h3>Diagnóstico</h3>
-<p>Analisa o teu dispositivo.</p>
-</div>
-<div class="card">
-<div class="icon">📐</div>
-<h3>DPI</h3>
-<p>Configuração de ecrã.</p>
-</div>
+<h3>Otimização</h3>
+<p>Dicas para melhorar a estabilidade, reduzir aquecimento e otimizar o desempenho nos jogos.</p>
 </div>
 </section>
 
 <section id="edits">
-<h2>🎬 Edits</h2>
-<div class="grid">
+<h2>🎬 CapCut & Edits</h2>
 <div class="card">
-<div class="icon">🎞️</div>
-<h3>CapCut</h3>
-<p>Efeitos e transições.</p>
-</div>
-<div class="card">
-<div class="icon">✨</div>
-<h3>Qualidade TTK</h3>
-<p>Exportação de vídeos.</p>
-</div>
+<h3>Zona de edição</h3>
+<p>Tutoriais, efeitos, qualidade de exportação e ideias para edits Free Fire.</p>
 </div>
 </section>
 
+</main>
+
 <footer>
-ANGOMODS GAMING • 2026
+<p>ANGOMODS GAMING 💚</p>
+<p>Gaming • Sensi • HUD • Android • Edits</p>
 </footer>
+
+<script>
+function copiarPack(btn){
+const card=btn.parentElement;
+const texto=card.innerText.replace("COPIAR PACK","");
+navigator.clipboard.writeText(texto).then(()=>{
+btn.textContent="COPIADO!";
+setTimeout(()=>btn.textContent="COPIAR PACK",1500);
+}).catch(()=>{
+alert("Não foi possível copiar automaticamente.");
+});
+}
+
+function filtrar(){
+const termo=document.getElementById("pesquisa").value.toLowerCase();
+document.querySelectorAll("#listaPacks .pack").forEach(pack=>{
+pack.style.display=pack.dataset.search.toLowerCase().includes(termo)?"block":"none";
+});
+}
+
+function gerar(){
+const ids=["geral","red","m2","m4","awm","olho"];
+const valores=ids.map(id=>{
+const el=document.getElementById(id);
+let v=Number(el.value);
+if(!Number.isFinite(v))v=0;
+v=Math.max(0,Math.min(200,v));
+el.value=v;
+return v;
+});
+
+let dpi=Math.max(1,Math.min(1000,Number(document.getElementById("dpi").value)||1));
+let botao=Math.max(1,Math.min(100,Number(document.getElementById("botao").value)||1));
+
+document.getElementById("dpi").value=dpi;
+document.getElementById("botao").value=botao;
+
+const nome=document.getElementById("nome").value||"Meu Pack";
+
+const texto=
+"ANGOMODS GAMING\n"+nome+"\n\n"+
+"Geral: "+valores[0]+"\n"+
+"Ponto Vermelho: "+valores[1]+"\n"+
+"Mira 2x: "+valores[2]+"\n"+
+"Mira 4x: "+valores[3]+"\n"+
+"Mira AWM: "+valores[4]+"\n"+
+"Olhadinha: "+valores[5]+"\n"+
+"DPI: "+dpi+"\n"+
+"Botão de atirar: "+botao+"%";
+
+const resultado=document.getElementById("resultado");
+resultado.style.display="block";
+resultado.innerHTML="<h3>🔥 "+nome+"</h3><pre style='white-space:pre-wrap;color:#00ff88'></pre><button id='copiarGerado'>COPIAR PACK</button>";
+
+resultado.querySelector("pre").textContent=texto;
+
+document.getElementById("copiarGerado").onclick=()=>{
+navigator.clipboard.writeText(texto).then(()=>{
+document.getElementById("copiarGerado").textContent="COPIADO!";
+}).catch(()=>alert("Não foi possível copiar."));
+};
+}
+</script>
 
 </body>
 </html>
