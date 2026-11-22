@@ -654,6 +654,32 @@ status.textContent="Pack publicado com sucesso! 💚";
 document.getElementById("pack-title").value="";
 document.getElementById("pack-content").value="";
 
+if(typeof carregarPacks === "function"){
+await carregarPacks();
+}
+
+}
+status.textContent="A publicar...";
+
+const {data,error} = await adminSupabase
+.from("packs")
+.insert([{
+titulo:titulo,
+categoria:categoria,
+conteudo:conteudo
+}])
+.select();
+
+if(error){
+status.textContent="Erro: "+error.message;
+return;
+}
+
+status.textContent="Pack publicado com sucesso! 💚";
+
+document.getElementById("pack-title").value="";
+document.getElementById("pack-content").value="";
+
 }
 
 async function adminLogout(){
