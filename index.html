@@ -1041,74 +1041,159 @@ startAngomods();
   </div>
 </section>
 <script>
-async function enviarAngomodsAI() {
-  const input = document.getElementById("ai-message");
+<script>
+let angomodsHistorico = [];
+
+function novaConversaAI(){
+  angomodsHistorico = [];
+
   const chat = document.getElementById("ai-chat");
-  const status = document.getElementById("ai-status");
 
-  const mensagem = input.value.trim();
-  if (!mensagem) return;
+  chat.innerHTML = `
+    <div class="ai-welcome" id="ai-welcome">
+      <h2 style="color:#00ff88">✦ ANGOMODS AI</h2>
+      <p>O que vamos criar hoje?</p>
+      <p style="color:#82988a;font-size:13px">
+        Gaming · Tecnologia · Criatividade · Programação
+      </p>
+    </div>
+  `;
 
-  input.value = "";
+  document.getElementById("ai-status").textContent =
+    "✦ Motor Groq";
 
-  const usuario = document.createElement("div");
-  usuario.style.cssText = "color:white;margin:12px 0;";
-  usuario.textContent = "Tu: " + mensagem;
-  chat.appendChild(usuario);
+  document.getElementById("ai-message").focus();
+}
 
-  status.textContent = "ANGOMODS AI está a pensar...";
+function adicionarMensagemAI(tipo, texto){
+  const chat = document.getElementById("ai-chat");
 
-  const carregando = document.createElement("div");
-  carregando.style.cssText = "color:#00ff88;margin:12px 0;";
-  carregando.textContent = "ANGOMODS AI: A pensar...";
-  chat.appendChild(carregando);
+  document.getElementById("ai-welcome")?.remove();
+
+  const linha = document.createElement("div");
+  linha.className = "ai-msg " + tipo;
+
+  const balao = document.createElement("div");
+  balao.className = "ai-bubble";
+  balao.textContent = texto;
+
+  linha.appendChild(balao);
+  chat.appendChild(linha);
 
   chat.scrollTop = chat.scrollHeight;
 
-  try {
+  return linha;
+}
+
+async function enviarAngomodsAI(){
+
+  const input = document.getElementById("ai-message");
+  const botao = document.getElementById("ai-send");
+  const status = document.getElementById("ai-status");
+
+  const mensagem = input.value.trim();
+
+  if(!mensagem || botao.disabled) return;
+
+  input.value = "";
+  input.style.height = "auto";
+
+  adicionarMensagemAI("user",mensagem);
+
+  angomodsHistorico.push({
+    role:"user",
+    content:mensagem
+  });
+
+  botao.disabled = true;
+  status.textContent = "ANGOMODS AI está a pensar...";
+
+  const carregando = adicionarMensagemAI(
+    "bot",
+    "✦ A pensar..."
+  );
+
+  try{
+
+    const contexto = angomodsHistorico
+      .slice(-12)
+      .map(m =>
+        (m.role === "user" ? "Utilizador: " : "ANGOMODS AI: ") +
+        m.content
+      )
+      .join("\n\n");
+
     const resposta = await fetch(
       "https://llgqbzteoqjiyrwwylwk.supabase.co/functions/v1/angomods-ai",
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU"
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "apikey":"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU"
         },
-        body: JSON.stringify({
-          mensagem: mensagem
+        body:JSON.stringify({
+          mensagem:contexto
         })
       }
     );
 
     const dados = await resposta.json();
+
     carregando.remove();
 
-    const bot = document.createElement("div");
-    bot.style.cssText = "color:#00ff88;margin:12px 0;white-space:pre-wrap;";
+    if(!resposta.ok || !dados.sucesso){
+      throw new Error(
+        dados.detalhes || dados.erro || "Erro na resposta"
+      );
+    }
 
-    bot.textContent = dados.resposta
-      ? "ANGOMODS AI: " + dados.resposta
-      : "ANGOMODS AI: " + (dados.erro || "Erro desconhecido.");
+    angomodsHistorico.push({
+      role:"assistant",
+      content:dados.resposta
+    });
 
-    chat.appendChild(bot);
+    adicionarMensagemAI("bot",dados.resposta);
 
-    status.textContent = dados.sucesso
-      ? "Motor: Groq | Ligado"
-      : "Motor: Groq | Erro";
+    status.textContent = "✦ Groq · Ligado";
 
-  } catch (erro) {
+  }catch(erro){
+
     carregando.remove();
 
-    const bot = document.createElement("div");
-    bot.style.cssText = "color:#ff5555;margin:12px 0;";
-    bot.textContent = "Falha na ligação ao motor AI.";
+    adicionarMensagemAI(
+      "bot",
+      "Não consegui responder agora. Tenta novamente."
+    );
 
-    chat.appendChild(bot);
-    status.textContent = "Sem ligação.";
+    status.textContent = "Falha na ligação.";
+
+  }finally{
+
+    botao.disabled = false;
+    input.focus();
+
+  }
+}
+
+const campoAI = document.getElementById("ai-message");
+
+campoAI.addEventListener("keydown",function(e){
+
+  if(e.key === "Enter" && !e.shiftKey){
+    e.preventDefault();
+    enviarAngomodsAI();
   }
 
-  chat.scrollTop = chat.scrollHeight;
-}
+});
+
+campoAI.addEventListener("input",function(){
+
+  this.style.height = "auto";
+
+  this.style.height =
+    Math.min(this.scrollHeight,140) + "px";
+
+});
 </script>
 </body>
 </html>
