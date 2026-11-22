@@ -3,724 +3,716 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07110d">
-<title>ANGOMODS GAMING</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07110b">
+<title>ANGOMODS GAMING | Free Fire</title>
+<meta name="description" content="ANGOMODS GAMING - Sensibilidades Free Fire, skins freestyle, otimização Android, nicknames e packs.">
 <style>
 :root{
---bg:#07110d;--panel:#101e17;--green:#39f28b;
---text:#effff5;--muted:#a8c0b1;--line:#254333;
+--bg:#050b07;
+--panel:#0d1911;
+--panel2:#12251a;
+--green:#00ff88;
+--green2:#00bd65;
+--text:#effff4;
+--muted:#9bb4a3;
+--border:#20452e;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-margin:0;background:var(--bg);color:var(--text);
-font-family:Arial,sans-serif;line-height:1.6;
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
 }
-.wrap{width:92%;max-width:1100px;margin:auto}
-header{background:#0b1911;border-bottom:1px solid var(--line);
-position:sticky;top:0;z-index:5}
-nav{display:flex;justify-content:space-between;align-items:center;
-flex-wrap:wrap;padding:12px 0;gap:10px}
-.logo{color:var(--green);font-size:20px;font-weight:bold}
-nav a{color:white;text-decoration:none;font-size:13px;margin:4px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{
+position:sticky;
+top:0;
+z-index:10;
+background:#07110bf2;
+border-bottom:1px solid var(--border);
+padding:14px;
+backdrop-filter:blur(12px);
+}
+.nav{
+max-width:1050px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+}
+.logo{font-weight:900;font-size:21px;color:var(--green)}
+.logo span{color:white}
+nav{display:flex;gap:13px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:13px}
 nav a:hover{color:var(--green)}
-.hero{text-align:center;padding:60px 10px;
-background:radial-gradient(circle,#123c25,#07110d 75%)}
-.hero h1{font-size:clamp(38px,8vw,65px);line-height:1.1}
-.hero span{color:var(--green)}
-h2{color:var(--green)}
-section{padding:28px 0;scroll-margin-top:80px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:var(--panel);border:1px solid var(--line);
-border-radius:14px;padding:18px}
-.card h3{color:var(--green)}
-.card p{color:var(--muted)}
-.btn{background:var(--green);color:#07110d;border:0;
-border-radius:9px;padding:11px 16px;font-weight:bold;cursor:pointer;margin:5px}
-.btn2{background:#173b28;color:white;border:1px solid var(--green);
-border-radius:9px;padding:10px;cursor:pointer;margin:5px}
-.tag{background:#173b28;color:var(--green);padding:3px 9px;border-radius:20px}
-.value{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px}
-input,select,textarea{width:100%;padding:12px;border-radius:9px;
-border:1px solid var(--line);background:#07110d;color:white;margin:7px 0 12px}
-.result{background:#07110d;border:1px dashed var(--green);
-padding:13px;border-radius:10px;overflow-wrap:anywhere;white-space:pre-wrap}
-.small{font-size:12px;color:var(--muted)}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:orange;margin-right:6px}
-.dot.ok{background:var(--green)}
-.dot.bad{background:#ff5555}
-footer{text-align:center;border-top:1px solid var(--line);
-padding:25px;color:var(--muted)}
+.container{max-width:1050px;margin:auto;padding:18px}
+.hero{
+text-align:center;
+padding:55px 18px 40px;
+background:radial-gradient(ellipse at top,#124d2b 0%,#07110b 65%);
+}
+.hero h1{font-size:clamp(30px,7vw,55px);margin:0 0 12px}
+.hero h1 span{color:var(--green)}
+.hero p{color:var(--muted);line-height:1.6}
+.btn{
+border:0;
+border-radius:10px;
+padding:12px 17px;
+font-weight:bold;
+background:var(--green);
+color:#001b0c;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn.secondary{background:#1b3324;color:white;border:1px solid var(--border)}
+section{scroll-margin-top:80px}
+.section-title{font-size:24px;margin:0 0 8px}
+.section-desc{color:var(--muted);line-height:1.5;margin:0 0 18px}
+.panel,.card{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:15px;
+padding:17px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:13px;
+}
+.card h3{margin:0 0 9px;color:var(--green)}
+.card p{color:var(--muted);line-height:1.55}
+.tag{
+display:inline-block;
+font-size:11px;
+color:var(--green);
+border:1px solid var(--border);
+padding:5px 8px;
+border-radius:20px;
+margin-bottom:10px;
+}
+pre{
+white-space:pre-wrap;
+overflow-wrap:anywhere;
+background:#050b07;
+border:1px solid var(--border);
+padding:12px;
+border-radius:9px;
+color:#d9ffe6;
+font-family:monospace;
+}
+input,select,textarea{
+width:100%;
+background:#050d08;
+border:1px solid var(--border);
+color:white;
+padding:12px;
+border-radius:9px;
+margin:6px 0 12px;
+}
+textarea{min-height:120px;resize:vertical}
+label{font-size:13px;color:var(--muted)}
+.status{font-size:13px;color:var(--muted);padding:8px 0}
+.good{color:var(--green)}
+.bad{color:#ff7777}
+.pack{margin-top:12px}
+.pack h3{color:var(--green);margin:0 0 7px}
+.pack small{color:var(--muted)}
+.tools{display:grid;gap:10px}
+footer{
+text-align:center;
+color:var(--muted);
+padding:35px 15px;
+border-top:1px solid var(--border);
+margin-top:35px;
+}
+footer a{color:var(--green)}
+hr{border:0;border-top:1px solid var(--border);margin:20px 0}
+.hidden{display:none!important}
+@media(max-width:550px){
+header{position:relative}
+nav{gap:10px}
+nav a{font-size:12px}
+.container{padding:14px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="wrap">
+<div class="nav">
+<div class="logo">ANGO<span>MODS</span> 💚</div>
 <nav>
-<div class="logo">ANGOMODS 💚</div>
-<div>
 <a href="#skins">Skins</a>
 <a href="#sensi">Sensi</a>
-<a href="#gerador">Gerador</a>
 <a href="#android">Android</a>
-<a href="#nick">Nick</a>
-<a href="#packs">Packs</a>
-</div>
+<a href="#nicks">Nicknames</a>
+<a href="#comunidade">Packs</a>
+<a href="#admin-panel">Admin</a>
 </nav>
 </div>
 </header>
 
-<main>
-
 <div class="hero">
-<div class="wrap">
 <h1>ANGOMODS <span>GAMING</span></h1>
-<p>O teu universo Free Fire começa aqui.</p>
-<a href="#sensi"><button class="btn">EXPLORAR</button></a>
-</div>
+<p>O teu espaço Free Fire: skins, sensibilidade, otimização e ferramentas.</p>
+<a href="#sensi"><button class="btn">EXPLORAR PACKS</button></a>
 </div>
 
-<section class="wrap" id="skins">
-<h2>💎 SKINS FREESTYLE</h2>
+<main class="container">
+
+<section id="skins">
+<h2 class="section-title">🔥 Skins Freestyle</h2>
+<p class="section-desc">Combinações para criares o teu próprio estilo.</p>
 <div class="grid">
 <div class="card">
 <span class="tag">PREMIUM</span>
-<h3>👑 Podre de rico</h3>
-<p>Combinações gemadas, roupas raras, máscaras exclusivas e acessórios lendários.</p>
+<h3>Versão podre de rico</h3>
+<p>Combinações gemadas, visuais raros e estilos chamativos para montares um personagem de respeito.</p>
 </div>
 <div class="card">
-<span class="tag">GRÁTIS</span>
-<h3>🔥 Versão pobre</h3>
-<p>Combinações freestyle usando roupas gratuitas e peças de eventos.</p>
+<span class="tag">FREE</span>
+<h3>Versão pobre</h3>
+<p>Combinações criativas com peças gratuitas e itens que já tens no inventário.</p>
 </div>
 <div class="card">
-<h3>🖤 Dark Style</h3>
-<p>Preto, vermelho, máscaras e acessórios sombrios.</p>
-</div>
-<div class="card">
-<h3>💚 Toxic Style</h3>
-<p>Combinações verdes, pretas e brancas.</p>
-</div>
-<div class="card">
-<h3>⚡ Street Style</h3>
-<p>Roupas urbanas e acessórios modernos.</p>
-</div>
-<div class="card">
-<h3>👻 Ghost Style</h3>
-<p>Combinações misteriosas para um visual diferente.</p>
+<span class="tag">FREESTYLE</span>
+<h3>Estilo street</h3>
+<p>Looks escuros, urbanos e combinações com personalidade.</p>
 </div>
 </div>
 </section>
 
-<section class="wrap" id="sensi">
-<h2>🎯 PACKS DE SENSIBILIDADE</h2>
-<p class="small">Escala atual de 0 a 200.</p>
-<div class="grid">
+<hr>
 
-<div class="card">
-<h3>⚡ Arrasto rápido</h3>
-<div class="value">Geral <b>195</b></div>
-<div class="value">Ponto vermelho <b>190</b></div>
-<div class="value">Mira 2x <b>185</b></div>
-<div class="value">Mira 4x <b>175</b></div>
-<div class="value">AWM <b>80</b></div>
-<div class="value">Olhadinha <b>150</b></div>
-</div>
+<section id="sensi">
+<h2 class="section-title">🎯 Sensibilidade Free Fire</h2>
+<p class="section-desc">Escala atual de 0 a 200. Ajusta conforme o teu aparelho e o teu arrasto.</p>
 
-<div class="card">
-<h3>🎯 Equilibrada</h3>
-<div class="value">Geral <b>180</b></div>
-<div class="value">Ponto vermelho <b>175</b></div>
-<div class="value">Mira 2x <b>165</b></div>
-<div class="value">Mira 4x <b>155</b></div>
-<div class="value">AWM <b>65</b></div>
-<div class="value">Olhadinha <b>130</b></div>
-</div>
-
-<div class="card">
-<h3>🔥 UMP / Trocação</h3>
-<div class="value">Geral <b>200</b></div>
-<div class="value">Ponto vermelho <b>195</b></div>
-<div class="value">Mira 2x <b>185</b></div>
-<div class="value">Mira 4x <b>170</b></div>
-<div class="value">AWM <b>75</b></div>
-<div class="value">Olhadinha <b>145</b></div>
-</div>
-
-<div class="card">
-<h3>🛡️ Controlo</h3>
-<div class="value">Geral <b>165</b></div>
-<div class="value">Ponto vermelho <b>160</b></div>
-<div class="value">Mira 2x <b>150</b></div>
-<div class="value">Mira 4x <b>140</b></div>
-<div class="value">AWM <b>55</b></div>
-<div class="value">Olhadinha <b>120</b></div>
-</div>
-</div>
-</section>
-
-<section class="wrap" id="gerador">
-<h2>⚙️ GERADOR DE SENSI</h2>
-<div class="card">
-<label>Estilo</label>
-<select id="estilo">
-<option value="rapido">Arrasto rápido</option>
-<option value="controle">Controlo</option>
-<option value="ump">UMP / Trocação</option>
-</select>
-<label>DPI</label>
-<input id="dpi" type="number" placeholder="Ex: 480">
-<label>Botão de atirar (%)</label>
-<input id="botao" type="number" placeholder="Ex: 50">
-<button class="btn" onclick="gerarSensi()">GERAR SENSI</button>
-<div class="result" id="resultadoSensi">Resultado aparecerá aqui.</div>
-<button class="btn2" onclick="copiar('resultadoSensi')">COPIAR</button>
-</div>
-</section>
-
-<section class="wrap" id="android">
-<h2>📱 OTIMIZAÇÃO ANDROID</h2>
 <div class="grid">
 <div class="card">
-<h3>🚀 Desempenho</h3>
-<p>Fecha aplicações desnecessárias antes de jogar.</p>
-<p>Liberta espaço de armazenamento.</p>
-<p>Evita jogar com o aparelho excessivamente quente.</p>
+<span class="tag">PACK 01</span>
+<h3>Arrasto rápido</h3>
+<pre>Geral: 190
+Ponto vermelho: 185
+Mira 2x: 180
+Mira 4x: 175
+AWM: 120
+Olhadinha: 150</pre>
+<button class="btn secondary" onclick="copyText('Geral: 190\\nPonto vermelho: 185\\nMira 2x: 180\\nMira 4x: 175\\nAWM: 120\\nOlhadinha: 150')">Copiar pack</button>
 </div>
 <div class="card">
-<h3>🔋 Bateria</h3>
-<p>Verifica se a poupança de bateria limita o desempenho.</p>
-<p>Reduz aplicações em segundo plano.</p>
+<span class="tag">PACK 02</span>
+<h3>Equilibrada</h3>
+<pre>Geral: 180
+Ponto vermelho: 175
+Mira 2x: 170
+Mira 4x: 165
+AWM: 110
+Olhadinha: 140</pre>
+<button class="btn secondary" onclick="copyText('Geral: 180\\nPonto vermelho: 175\\nMira 2x: 170\\nMira 4x: 165\\nAWM: 110\\nOlhadinha: 140')">Copiar pack</button>
 </div>
 <div class="card">
-<h3>🧰 Shizuku</h3>
-<p>Permite que aplicações compatíveis usem algumas funções do sistema através de permissões ADB.</p>
-<p>Usa apenas aplicações confiáveis.</p>
+<span class="tag">PACK 03</span>
+<h3>Precisão</h3>
+<pre>Geral: 170
+Ponto vermelho: 165
+Mira 2x: 160
+Mira 4x: 155
+AWM: 100
+Olhadinha: 130</pre>
+<button class="btn secondary" onclick="copyText('Geral: 170\\nPonto vermelho: 165\\nMira 2x: 160\\nMira 4x: 155\\nAWM: 100\\nOlhadinha: 130')">Copiar pack</button>
 </div>
-<div class="card">
-<h3>📊 Diagnóstico</h3>
-<p>Observa temperatura, memória e comportamento do jogo.</p>
-<p>Evita comandos desconhecidos.</p>
 </div>
-</div>
-</section>
 
-<section class="wrap" id="nick">
-<h2>✍️ CRIADOR DE NICK</h2>
-<div class="card">
-<label>Nome</label>
-<input id="nomeNick" placeholder="Escreve o teu nome">
-<label>Estilo</label>
-<select id="estiloNick">
-<option value="1">꧁ Nome ꧂</option>
-<option value="2">亗 Nome 亗</option>
-<option value="3">『Nome』</option>
-<option value="4">★ Nome ★</option>
-<option value="5">么 Nome 么</option>
-<option value="6">×͜× Nome</option>
+<div class="panel" style="margin-top:14px">
+<h3>⚙️ Gerador de sensibilidade</h3>
+<label>Estilo de jogo</label>
+<select id="sensi-style">
+<option value="fast">Arrasto rápido</option>
+<option value="balanced">Equilibrado</option>
+<option value="precision">Precisão</option>
 </select>
-<button class="btn" onclick="gerarNick()">GERAR NICK</button>
-<div class="result" id="resultadoNick">O nick aparecerá aqui.</div>
-<button class="btn2" onclick="copiar('resultadoNick')">COPIAR NICK</button>
-</div>
-
-<div class="card">
-<h3>👻 Espaço invisível</h3>
-<button class="btn" onclick="copiarTexto('ㅤ')">COPIAR ESPAÇO</button>
-</div>
-
-<div class="card">
-<h3>🌈 Códigos de cores</h3>
-<div class="value">Vermelho <b>[FF0000]</b></div>
-<div class="value">Verde <b>[00FF00]</b></div>
-<div class="value">Azul <b>[0000FF]</b></div>
-<div class="value">Amarelo <b>[FFFF00]</b></div>
-<div class="value">Roxo <b>[A020F0]</b></div>
-<button class="btn2" onclick="copiarTexto('[00FF00]ANGOMODS')">COPIAR EXEMPLO</button>
+<label>Sensibilidade Geral</label>
+<input id="sensi-value" type="number" min="0" max="200" value="190">
+<button class="btn" onclick="generateSensi()">GERAR CONFIGURAÇÃO</button>
+<pre id="sensi-result">A tua configuração aparecerá aqui.</pre>
+<button class="btn secondary" onclick="copyElement('sensi-result')">Copiar configuração</button>
 </div>
 </section>
 
-<section class="wrap" id="packs">
-<h2>🌐 PACKS DA COMUNIDADE</h2>
+<hr>
+
+<section id="android">
+<h2 class="section-title">📱 Otimização Android</h2>
+<p class="section-desc">Dicas para melhorar a experiência de jogo sem promessas falsas de FPS.</p>
+<div class="grid">
 <div class="card">
-<p><span class="dot" id="dbDot"></span><span id="dbStatus">A verificar ligação...</span></p>
-<button class="btn2" onclick="carregarPacks()">ATUALIZAR</button>
-<p class="small">Packs carregados da base de dados Supabase.</p>
+<h3>Antes de jogar</h3>
+<p>Fecha aplicações desnecessárias, liberta espaço, evita jogar enquanto o aparelho carrega e deixa o telefone arrefecer.</p>
 </div>
-<div class="grid" id="packsLista">
-<div class="card">A carregar...</div>
+<div class="card">
+<h3>Configurações</h3>
+<p>Experimenta gráficos suaves, desativa efeitos desnecessários e testa uma taxa de FPS estável que o aparelho consiga manter.</p>
+</div>
+<div class="card">
+<h3>Shizuku</h3>
+<p>Ferramenta Android que permite a algumas aplicações usar permissões avançadas através de ADB ou depuração sem fios. Não é um acelerador mágico.</p>
+</div>
+<div class="card">
+<h3>Cuidados</h3>
+<p>Evita scripts desconhecidos, aplicações modificadas e alterações de sistema que possam causar instabilidade ou comprometer os teus dados.</p>
+</div>
 </div>
 </section>
 
-<section class="wrap">
-<h2>📢 COMUNIDADE</h2>
-<div class="card">
-<h3>🎮 TikTok</h3>
-<p>Segue @angomods para conteúdos Free Fire.</p>
-<a href="https://www.tiktok.com/@angomods" target="_blank">
-<button class="btn">VISITAR TIKTOK</button>
-</a>
+<hr>
+
+<section id="nicks">
+<h2 class="section-title">👑 Gerador de Nicknames</h2>
+<p class="section-desc">Cria nomes para o teu perfil Free Fire.</p>
+<div class="panel">
+<label>Escreve o teu nome</label>
+<input id="nick-input" placeholder="Ex.: Angomods">
+<button class="btn" onclick="generateNick()">GERAR NICK</button>
+<div id="nick-results" class="tools"></div>
+<hr>
+<h3>Espaço invisível</h3>
+<pre id="invisible-space">ㅤㅤㅤㅤㅤㅤㅤ</pre>
+<button class="btn secondary" onclick="copyElement('invisible-space')">Copiar espaço invisível</button>
+<hr>
+<h3>Códigos de cores para perfil</h3>
+<pre id="color-codes">[FF0000] Vermelho
+[00FF00] Verde
+[0000FF] Azul
+[FFFF00] Amarelo
+[FFFFFF] Branco
+[FF00FF] Rosa</pre>
+<button class="btn secondary" onclick="copyElement('color-codes')">Copiar códigos</button>
+</div>
+</section>
+
+<hr>
+
+<section id="comunidade">
+<h2 class="section-title">🌐 Packs da Comunidade</h2>
+<p class="section-desc">Publicações enviadas pelo painel ANGOMODS ADMIN.</p>
+<div id="connection-status" class="status">A verificar ligação...</div>
+<button class="btn secondary" onclick="loadPacks()">↻ ATUALIZAR PACKS</button>
+<div id="community-packs">
+<p class="status">A carregar packs...</p>
+</div>
+</section>
+
+<hr>
+
+<section id="admin-panel">
+<h2 class="section-title">🔐 ANGOMODS ADMIN</h2>
+<p class="section-desc">Área privada de administração.</p>
+
+<div id="admin-login" class="panel">
+<h3>Entrar no painel</h3>
+<label>E-mail</label>
+<input id="admin-email" type="email" autocomplete="username" placeholder="O teu e-mail">
+<label>Senha</label>
+<input id="admin-password" type="password" autocomplete="current-password" placeholder="A tua senha">
+<button class="btn" onclick="adminLogin()">ENTRAR</button>
+<p id="login-status" class="status"></p>
+</div>
+
+<div id="admin-dashboard" class="panel hidden">
+<h3>📦 Publicar novo pack</h3>
+<label>Título</label>
+<input id="pack-title" placeholder="Ex.: Sensi Angomods V2">
+<label>Categoria</label>
+<select id="pack-category">
+<option value="sensi">Sensibilidade</option>
+<option value="skin">Skins</option>
+<option value="android">Android</option>
+<option value="outro">Outro</option>
+</select>
+<label>Conteúdo</label>
+<textarea id="pack-content" placeholder="Escreve aqui o conteúdo do pack..."></textarea>
+<button class="btn" onclick="publishPack()">🚀 PUBLICAR PACK</button>
+<p id="admin-status" class="status"></p>
+<button class="btn secondary" onclick="adminLogout()">SAIR DA CONTA</button>
 </div>
 </section>
 
 </main>
 
 <footer>
-<p><b>ANGOMODS GAMING 💚</b></p>
-<p>Site independente, não oficial e sem afiliação à Garena.</p>
+<strong>ANGOMODS GAMING 💚</strong>
+<p>Free Fire • Sensibilidade • Skins • Android</p>
+<p>TikTok: <a href="https://www.tiktok.com/@angomods" target="_blank" rel="noopener">@angomods</a></p>
+<p>© 2026 ANGOMODS GAMING</p>
 </footer>
-
-<script>
-
-/* CONFIGURAÇÃO SUPABASE V2 */
-
-const SUPABASE_URL =
-"https://llgqbzteoqjiyrwwylwk.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
-
-/* CARREGAR PACKS */
-
-async function carregarPacks(){
-
-const lista=document.getElementById("packsLista");
-const status=document.getElementById("dbStatus");
-const dot=document.getElementById("dbDot");
-
-lista.innerHTML='<div class="card">A carregar...</div>';
-
-try{
-
-const resposta=await fetch(
-SUPABASE_URL+"/rest/v1/packs?select=id,titulo,categoria,conteudo,criado_em&order=id.desc",
-{
-headers:{
-apikey:SUPABASE_KEY,
-Authorization:"Bearer "+SUPABASE_KEY
-}
-}
-);
-
-if(!resposta.ok){
-throw new Error("HTTP "+resposta.status);
-}
-
-const packs=await resposta.json();
-
-dot.className="dot ok";
-status.textContent="Base de dados ligada!";
-
-if(!packs.length){
-lista.innerHTML='<div class="card">Ligação concluída! Ainda não existem packs.</div>';
-return;
-}
-
-lista.innerHTML="";
-
-packs.forEach(pack=>{
-
-const card=document.createElement("div");
-card.className="card";
-
-const categoria=document.createElement("span");
-categoria.className="tag";
-categoria.textContent=pack.categoria||"Geral";
-
-const titulo=document.createElement("h3");
-titulo.textContent=pack.titulo||"Pack";
-
-const conteudo=document.createElement("p");
-conteudo.textContent=pack.conteudo||"Sem descrição";
-
-const data=document.createElement("p");
-data.className="small";
-data.textContent=pack.criado_em
-?new Date(pack.criado_em).toLocaleDateString("pt-PT")
-:"";
-
-card.append(categoria,titulo,conteudo,data);
-lista.appendChild(card);
-
-});
-
-}catch(erro){
-
-dot.className="dot bad";
-status.textContent="Falha na ligação";
-
-lista.innerHTML="";
-
-const card=document.createElement("div");
-card.className="card";
-
-const mensagem=document.createElement("p");
-mensagem.textContent="Não foi possível carregar os packs.";
-
-const detalhe=document.createElement("p");
-detalhe.className="small";
-detalhe.textContent=erro.message;
-
-card.append(mensagem,detalhe);
-lista.appendChild(card);
-
-}
-}
-
-/* GERADOR DE SENSI */
-
-function limitar(v){
-return Math.max(0,Math.min(200,Math.round(v)));
-}
-
-function gerarSensi(){
-
-const estilo=document.getElementById("estilo").value;
-const dpi=Number(document.getElementById("dpi").value);
-const botao=Number(document.getElementById("botao").value);
-
-let valores;
-
-if(estilo==="rapido"){
-valores=[195,190,185,175,80,150];
-}else if(estilo==="controle"){
-valores=[165,160,150,140,55,120];
-}else{
-valores=[200,195,185,170,75,145];
-}
-
-const ajuste=dpi>0
-?Math.max(-8,Math.min(8,(dpi-440)/30))
-:0;
-
-valores=valores.map(v=>limitar(v+ajuste));
-
-const nomes=[
-"Geral","Ponto vermelho","Mira 2x",
-"Mira 4x","AWM","Olhadinha"
-];
-
-let resultado="ANGOMODS GAMING\n";
-
-nomes.forEach((nome,i)=>{
-resultado+=nome+": "+valores[i]+"\n";
-});
-
-resultado+="DPI: "+(dpi||"Não informado")+"\n";
-resultado+="Botão de atirar: "+(botao||"Não informado")+"%";
-
-document.getElementById("resultadoSensi").textContent=resultado;
-}
-
-/* GERADOR DE NICK */
-
-function gerarNick(){
-
-const nome=document.getElementById("nomeNick").value.trim();
-const estilo=document.getElementById("estiloNick").value;
-
-if(!nome){
-document.getElementById("resultadoNick").textContent="Escreve um nome!";
-return;
-}
-
-const modelos={
-1:"꧁ "+nome+" ꧂",
-2:"亗 "+nome+" 亗",
-3:"『"+nome+"』",
-4:"★ "+nome+" ★",
-5:"么 "+nome+" 么",
-6:"×͜× "+nome
-};
-
-document.getElementById("resultadoNick").textContent=modelos[estilo];
-}
-
-/* COPIAR */
-
-async function copiarTexto(texto){
-
-try{
-await navigator.clipboard.writeText(texto);
-alert("Copiado! 💚");
-}catch(e){
-
-const campo=document.createElement("textarea");
-campo.value=texto;
-document.body.appendChild(campo);
-campo.select();
-
-try{
-document.execCommand("copy");
-alert("Copiado! 💚");
-}catch(err){
-alert("Não foi possível copiar.");
-}
-
-campo.remove();
-}
-}
-
-function copiar(id){
-copiarTexto(document.getElementById(id).textContent);
-}
-
-/* INICIALIZAR */
-
-carregarPacks();
-
-</script>
-
-<!-- ANGOMODS ADMIN PANEL -->
-<section id="admin-panel" style="
-background:#07110b;
-border:1px solid #1c7542;
-border-radius:16px;
-padding:20px;
-margin:25px 12px;
-color:#fff;
-font-family:Arial,sans-serif;
-">
-
-<h2 style="color:#00ff88">🔐 ANGOMODS ADMIN</h2>
-
-<div id="admin-login">
-<p>Entrar no painel de administração</p>
-
-<input id="admin-email"
-type="email"
-placeholder="E-mail"
-style="width:100%;padding:12px;margin:8px 0;">
-
-<input id="admin-password"
-type="password"
-placeholder="Senha"
-style="width:100%;padding:12px;margin:8px 0;">
-
-<button onclick="alert(typeof adminLogin)"
-width:100%;
-padding:12px;
-background:#00cc66;
-color:#000;
-border:0;
-border-radius:10px;
-font-weight:bold;">
-ENTRAR
-</button>
-</div>
-
-<div id="admin-dashboard" style="display:none">
-
-<h3>📦 Publicar pack</h3>
-
-<input id="pack-title"
-placeholder="Título do pack"
-style="width:100%;padding:12px;margin:8px 0;">
-
-<select id="pack-category"
-style="width:100%;padding:12px;margin:8px 0;">
-<option value="sensi">Sensibilidade</option>
-<option value="skin">Skins</option>
-<option value="android">Android</option>
-<option value="outro">Outro</option>
-</select>
-
-<textarea id="pack-content"
-placeholder="Escreve o conteúdo do pack..."
-style="width:100%;min-height:130px;padding:12px;margin:8px 0;">
-</textarea>
-
-<button onclick="publishPack()" style="
-width:100%;
-padding:12px;
-background:#00ff88;
-color:#000;
-border:0;
-border-radius:10px;
-font-weight:bold;">
-🚀 PUBLICAR
-</button>
-
-<p id="admin-status"></p>
-
-<button onclick="adminLogout()" style="
-padding:10px;
-background:#222;
-color:white;
-border:0;
-border-radius:8px;">
-SAIR
-</button>
-
-</div>
-</section>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const ADMIN_SUPABASE_URL =
-"https://llgqbzteoqjiyrwwylwk.supabase.co";
+/* =================================
+   ANGOMODS - SUPABASE
+================================= */
 
-const ADMIN_SUPABASE_KEY =
-"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
+const SUPABASE_URL = "https://llgqbzteoqjiyrwwylwk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
 
-const adminSupabase = window.supabase.createClient(
-ADMIN_SUPABASE_URL,
-ADMIN_SUPABASE_KEY
-);
+let db = null;
 
-async function adminLogin(){
+function setConnection(message, good){
+const el = document.getElementById("connection-status");
+el.textContent = message;
+el.className = good ? "status good" : "status bad";
+}
 
-try {
+/* =================================
+   UTILITÁRIOS
+================================= */
 
+window.copyText = async function(text){
+try{
+await navigator.clipboard.writeText(text);
+alert("Copiado! 💚");
+}catch(e){
+const area = document.createElement("textarea");
+area.value = text;
+document.body.appendChild(area);
+area.select();
+document.execCommand("copy");
+area.remove();
+alert("Copiado! 💚");
+}
+};
+
+window.copyElement = function(id){
+const el = document.getElementById(id);
+copyText(el.innerText || el.textContent);
+};
+
+/* =================================
+   SENSIBILIDADE
+================================= */
+
+window.generateSensi = function(){
+const value = Math.max(0,Math.min(200,Number(document.getElementById("sensi-value").value)||0));
+const style = document.getElementById("sensi-style").value;
+let factors = [1,.97,.94,.90,.65,.80];
+
+if(style === "balanced") factors = [1,.96,.91,.86,.60,.76];
+if(style === "precision") factors = [.92,.88,.84,.80,.55,.70];
+
+const names = ["Geral","Ponto vermelho","Mira 2x","Mira 4x","AWM","Olhadinha"];
+const result = names.map((name,i)=>name+": "+Math.round(value*factors[i])).join("\n");
+document.getElementById("sensi-result").textContent = result;
+};
+
+/* =================================
+   NICKNAME
+================================= */
+
+window.generateNick = function(){
+const name = document.getElementById("nick-input").value.trim();
+const results = document.getElementById("nick-results");
+
+if(!name){
+results.textContent = "Escreve um nome primeiro.";
+return;
+}
+
+const options = [
+"亗"+name+"亗",
+"『"+name+"』",
+"乂"+name+"乂",
+"么"+name+"么",
+"★"+name+"★",
+"꧁"+name+"꧂",
+"メ"+name+"メ",
+"ツ"+name+"ツ"
+];
+
+results.replaceChildren();
+
+options.forEach(nick=>{
+const box = document.createElement("div");
+box.className = "card";
+
+const text = document.createElement("strong");
+text.textContent = nick;
+
+const button = document.createElement("button");
+button.className = "btn secondary";
+button.textContent = "COPIAR";
+button.onclick = ()=>copyText(nick);
+
+box.append(text,document.createElement("br"),button);
+results.appendChild(box);
+});
+};
+
+/* =================================
+   CARREGAR PACKS PÚBLICOS
+================================= */
+
+window.loadPacks = async function(){
+
+const area = document.getElementById("community-packs");
+
+if(!db){
+setConnection("Biblioteca Supabase indisponível.",false);
+area.textContent = "Não foi possível iniciar a ligação.";
+return;
+}
+
+setConnection("A consultar a base de dados...",false);
+area.textContent = "A carregar packs...";
+
+try{
+
+const {data,error} = await db
+.from("packs")
+.select("id,titulo,categoria,conteudo,criado_em")
+.order("id",{ascending:false});
+
+if(error) throw error;
+
+setConnection("💚 Base de dados ligada.",true);
+
+area.replaceChildren();
+
+if(!data || data.length === 0){
+area.textContent = "Ainda não existem packs publicados.";
+return;
+}
+
+data.forEach(pack=>{
+
+const card = document.createElement("article");
+card.className = "card pack";
+
+const title = document.createElement("h3");
+title.textContent = pack.titulo;
+
+const category = document.createElement("small");
+category.textContent = "Categoria: "+pack.categoria;
+
+const content = document.createElement("pre");
+content.textContent = pack.conteudo;
+
+const button = document.createElement("button");
+button.className = "btn secondary";
+button.textContent = "COPIAR PACK";
+button.onclick = ()=>copyText(pack.conteudo);
+
+card.append(title,category,content,button);
+area.appendChild(card);
+
+});
+
+}catch(error){
+setConnection("Erro na ligação: "+error.message,false);
+area.textContent = "Não foi possível carregar os packs.";
+console.error("Erro ao carregar packs:",error);
+}
+
+};
+
+/* =================================
+   LOGIN E VERIFICAÇÃO DE ADMIN
+================================= */
+
+window.adminLogin = async function(){
+
+const status = document.getElementById("login-status");
 const email = document.getElementById("admin-email").value.trim();
 const password = document.getElementById("admin-password").value;
 
+if(!db){
+status.textContent = "Supabase ainda não está disponível.";
+return;
+}
+
 if(!email || !password){
-alert("Preenche o e-mail e a senha!");
+status.textContent = "Preenche o e-mail e a senha.";
 return;
 }
 
-const {data,error} = await adminSupabase.auth.signInWithPassword({
-email: email,
-password: password
-});
+status.textContent = "A verificar credenciais...";
 
-if(error){
-alert("ERRO NO LOGIN: " + error.message);
-return;
-}
+try{
 
-await checkAdmin();
-
-} catch(error) {
-
-alert("ERRO: " + error.message);
-
-}
-
-}
-
-const {data,error} = await adminSupabase.auth.signInWithPassword({
+const {data,error} = await db.auth.signInWithPassword({
 email:email,
 password:password
 });
 
-if(error){
-alert("Erro no login: "+error.message);
-return;
-}
+if(error) throw error;
 
 await checkAdmin();
+
+}catch(error){
+status.textContent = "Erro no login: "+error.message;
+console.error("Login:",error);
 }
 
-async function checkAdmin(){
+};
+
+window.checkAdmin = async function(){
 
 const login = document.getElementById("admin-login");
 const dashboard = document.getElementById("admin-dashboard");
+const loginStatus = document.getElementById("login-status");
 
-const {data:{user}} = await adminSupabase.auth.getUser();
+try{
+
+const {data:{user},error:userError} = await db.auth.getUser();
+
+if(userError) throw userError;
 
 if(!user){
-login.style.display="block";
-dashboard.style.display="none";
+login.classList.remove("hidden");
+dashboard.classList.add("hidden");
 return;
 }
 
-const {data,error} = await adminSupabase
+const {data,error} = await db
 .from("admins")
 .select("user_id")
 .eq("user_id",user.id)
 .maybeSingle();
 
-if(error || !data){
-await adminSupabase.auth.signOut();
-alert("Esta conta não é administradora.");
-login.style.display="block";
-dashboard.style.display="none";
+if(error) throw error;
+
+if(!data){
+await db.auth.signOut();
+loginStatus.textContent = "Esta conta não está registada como Admin.";
+login.classList.remove("hidden");
+dashboard.classList.add("hidden");
 return;
 }
 
-login.style.display="none";
-dashboard.style.display="block";
+login.classList.add("hidden");
+dashboard.classList.remove("hidden");
+document.getElementById("admin-status").textContent = "Bem-vindo, administrador! 💚";
+
+}catch(error){
+
+loginStatus.textContent = "Erro ao verificar Admin: "+error.message;
+login.classList.remove("hidden");
+dashboard.classList.add("hidden");
+console.error("Verificação Admin:",error);
+
 }
 
-async function publishPack(){
+};
 
+/* =================================
+   PUBLICAR PACK
+================================= */
+
+window.publishPack = async function(){
+
+const status = document.getElementById("admin-status");
 const titulo = document.getElementById("pack-title").value.trim();
 const categoria = document.getElementById("pack-category").value;
 const conteudo = document.getElementById("pack-content").value.trim();
-const status = document.getElementById("admin-status");
 
 if(!titulo || !conteudo){
-status.textContent="Preenche o título e o conteúdo.";
+status.textContent = "Preenche o título e o conteúdo.";
 return;
 }
 
-status.textContent="A publicar...";
+status.textContent = "A publicar pack...";
 
-const {data,error} = await adminSupabase
+try{
+
+const {data:{user},error:userError} = await db.auth.getUser();
+
+if(userError) throw userError;
+if(!user) throw new Error("A sessão expirou. Entra novamente.");
+
+const {error} = await db
 .from("packs")
 .insert([{
 titulo:titulo,
 categoria:categoria,
 conteudo:conteudo
-}])
-.select();
+}]);
 
-if(error){
-status.textContent="Erro: "+error.message;
+if(error) throw error;
+
+status.textContent = "💚 Pack publicado com sucesso!";
+
+document.getElementById("pack-title").value = "";
+document.getElementById("pack-content").value = "";
+
+await loadPacks();
+
+}catch(error){
+
+status.textContent = "Erro ao publicar: "+error.message;
+console.error("Publicação:",error);
+
+}
+
+};
+
+/* =================================
+   TERMINAR SESSÃO
+================================= */
+
+window.adminLogout = async function(){
+
+try{
+await db.auth.signOut();
+document.getElementById("admin-login").classList.remove("hidden");
+document.getElementById("admin-dashboard").classList.add("hidden");
+document.getElementById("login-status").textContent = "Sessão terminada.";
+}catch(error){
+alert("Erro ao sair: "+error.message);
+}
+
+};
+
+/* =================================
+   INICIALIZAÇÃO
+================================= */
+
+async function startAngomods(){
+
+try{
+
+if(!window.supabase){
+setConnection("Erro: biblioteca Supabase não carregou.",false);
+document.getElementById("community-packs").textContent = "Verifica a ligação à biblioteca Supabase.";
 return;
 }
 
-status.textContent="Pack publicado com sucesso! 💚";
+db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-document.getElementById("pack-title").value="";
-document.getElementById("pack-content").value="";
+await loadPacks();
+await checkAdmin();
 
-if(typeof carregarPacks === "function"){
-await carregarPacks();
-}
-
-}
-status.textContent="A publicar...";
-
-const {data,error} = await adminSupabase
-.from("packs")
-.insert([{
-titulo:titulo,
-categoria:categoria,
-conteudo:conteudo
-}])
-.select();
-
-if(error){
-status.textContent="Erro: "+error.message;
-return;
-}
-
-status.textContent="Pack publicado com sucesso! 💚";
-
-document.getElementById("pack-title").value="";
-document.getElementById("pack-content").value="";
-
-}
-
-async function adminLogout(){
-
-await adminSupabase.auth.signOut();
-
-document.getElementById("admin-login").style.display="block";
-document.getElementById("admin-dashboard").style.display="none";
-
-}
-
-adminSupabase.auth.onAuthStateChange((event,session)=>{
-if(session){
-setTimeout(checkAdmin,0);
-}
+db.auth.onAuthStateChange((event,session)=>{
+setTimeout(()=>{
+checkAdmin();
+},0);
 });
+
+}catch(error){
+setConnection("Erro ao iniciar: "+error.message,false);
+console.error("Inicialização:",error);
+}
+
+}
+
+startAngomods();
 </script>
+
 </body>
 </html>
