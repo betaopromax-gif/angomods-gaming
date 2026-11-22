@@ -789,5 +789,75 @@ font-family:Arial,sans-serif;
 
   </div>
 </section>
+<script>
+async function enviarAngomodsAI() {
+  const input = document.getElementById("ai-message");
+  const chat = document.getElementById("ai-chat");
+  const status = document.getElementById("ai-status");
+
+  const mensagem = input.value.trim();
+  if (!mensagem) return;
+
+  input.value = "";
+
+  const usuario = document.createElement("div");
+  usuario.style.cssText = "color:white;margin:12px 0;";
+  usuario.textContent = "Tu: " + mensagem;
+  chat.appendChild(usuario);
+
+  status.textContent = "ANGOMODS AI está a pensar...";
+
+  const carregando = document.createElement("div");
+  carregando.style.cssText = "color:#00ff88;margin:12px 0;";
+  carregando.textContent = "ANGOMODS AI: A pensar...";
+  chat.appendChild(carregando);
+
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    const resposta = await fetch(
+      "https://llgqbzteoqjiyrwwylwk.supabase.co/functions/v1/angomods-ai",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU"
+        },
+        body: JSON.stringify({
+          mensagem: mensagem
+        })
+      }
+    );
+
+    const dados = await resposta.json();
+    carregando.remove();
+
+    const bot = document.createElement("div");
+    bot.style.cssText = "color:#00ff88;margin:12px 0;white-space:pre-wrap;";
+
+    bot.textContent = dados.resposta
+      ? "ANGOMODS AI: " + dados.resposta
+      : "ANGOMODS AI: " + (dados.erro || "Erro desconhecido.");
+
+    chat.appendChild(bot);
+
+    status.textContent = dados.sucesso
+      ? "Motor: Groq | Ligado"
+      : "Motor: Groq | Erro";
+
+  } catch (erro) {
+    carregando.remove();
+
+    const bot = document.createElement("div");
+    bot.style.cssText = "color:#ff5555;margin:12px 0;";
+    bot.textContent = "Falha na ligação ao motor AI.";
+
+    chat.appendChild(bot);
+    status.textContent = "Sem ligação.";
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
 </body>
 </html>
