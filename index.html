@@ -572,10 +572,35 @@ ADMIN_SUPABASE_KEY
 
 async function adminLogin(){
 
-const email = document.getElementById("admin-email").value;
+try {
+
+const email = document.getElementById("admin-email").value.trim();
 const password = document.getElementById("admin-password").value;
 
-const status = document.getElementById("admin-status");
+if(!email || !password){
+alert("Preenche o e-mail e a senha!");
+return;
+}
+
+const {data,error} = await adminSupabase.auth.signInWithPassword({
+email: email,
+password: password
+});
+
+if(error){
+alert("ERRO NO LOGIN: " + error.message);
+return;
+}
+
+await checkAdmin();
+
+} catch(error) {
+
+alert("ERRO: " + error.message);
+
+}
+
+}
 
 const {data,error} = await adminSupabase.auth.signInWithPassword({
 email:email,
