@@ -470,6 +470,204 @@ copiarTexto(document.getElementById(id).textContent);
 
 carregarPacks();
 
+<!-- ANGOMODS ADMIN PANEL -->
+<section id="admin-panel" style="
+background:#07110b;
+border:1px solid #1c7542;
+border-radius:16px;
+padding:20px;
+margin:25px 12px;
+color:#fff;
+font-family:Arial,sans-serif;
+">
+
+<h2 style="color:#00ff88">🔐 ANGOMODS ADMIN</h2>
+
+<div id="admin-login">
+<p>Entrar no painel de administração</p>
+
+<input id="admin-email"
+type="email"
+placeholder="E-mail"
+style="width:100%;padding:12px;margin:8px 0;">
+
+<input id="admin-password"
+type="password"
+placeholder="Senha"
+style="width:100%;padding:12px;margin:8px 0;">
+
+<button onclick="adminLogin()" style="
+width:100%;
+padding:12px;
+background:#00cc66;
+color:#000;
+border:0;
+border-radius:10px;
+font-weight:bold;">
+ENTRAR
+</button>
+</div>
+
+<div id="admin-dashboard" style="display:none">
+
+<h3>📦 Publicar pack</h3>
+
+<input id="pack-title"
+placeholder="Título do pack"
+style="width:100%;padding:12px;margin:8px 0;">
+
+<select id="pack-category"
+style="width:100%;padding:12px;margin:8px 0;">
+<option value="sensi">Sensibilidade</option>
+<option value="skin">Skins</option>
+<option value="android">Android</option>
+<option value="outro">Outro</option>
+</select>
+
+<textarea id="pack-content"
+placeholder="Escreve o conteúdo do pack..."
+style="width:100%;min-height:130px;padding:12px;margin:8px 0;">
+</textarea>
+
+<button onclick="publishPack()" style="
+width:100%;
+padding:12px;
+background:#00ff88;
+color:#000;
+border:0;
+border-radius:10px;
+font-weight:bold;">
+🚀 PUBLICAR
+</button>
+
+<p id="admin-status"></p>
+
+<button onclick="adminLogout()" style="
+padding:10px;
+background:#222;
+color:white;
+border:0;
+border-radius:8px;">
+SAIR
+</button>
+
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const ADMIN_SUPABASE_URL =
+"https://llgqbzteoqjiyrwwylwk.supabase.co";
+
+const ADMIN_SUPABASE_KEY =
+"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
+
+const adminSupabase = window.supabase.createClient(
+ADMIN_SUPABASE_URL,
+ADMIN_SUPABASE_KEY
+);
+
+async function adminLogin(){
+
+const email = document.getElementById("admin-email").value;
+const password = document.getElementById("admin-password").value;
+
+const status = document.getElementById("admin-status");
+
+const {data,error} = await adminSupabase.auth.signInWithPassword({
+email:email,
+password:password
+});
+
+if(error){
+alert("Erro no login: "+error.message);
+return;
+}
+
+await checkAdmin();
+}
+
+async function checkAdmin(){
+
+const login = document.getElementById("admin-login");
+const dashboard = document.getElementById("admin-dashboard");
+
+const {data:{user}} = await adminSupabase.auth.getUser();
+
+if(!user){
+login.style.display="block";
+dashboard.style.display="none";
+return;
+}
+
+const {data,error} = await adminSupabase
+.from("admins")
+.select("user_id")
+.eq("user_id",user.id)
+.maybeSingle();
+
+if(error || !data){
+await adminSupabase.auth.signOut();
+alert("Esta conta não é administradora.");
+login.style.display="block";
+dashboard.style.display="none";
+return;
+}
+
+login.style.display="none";
+dashboard.style.display="block";
+}
+
+async function publishPack(){
+
+const titulo = document.getElementById("pack-title").value.trim();
+const categoria = document.getElementById("pack-category").value;
+const conteudo = document.getElementById("pack-content").value.trim();
+const status = document.getElementById("admin-status");
+
+if(!titulo || !conteudo){
+status.textContent="Preenche o título e o conteúdo.";
+return;
+}
+
+status.textContent="A publicar...";
+
+const {data,error} = await adminSupabase
+.from("packs")
+.insert([{
+titulo:titulo,
+categoria:categoria,
+conteudo:conteudo
+}])
+.select();
+
+if(error){
+status.textContent="Erro: "+error.message;
+return;
+}
+
+status.textContent="Pack publicado com sucesso! 💚";
+
+document.getElementById("pack-title").value="";
+document.getElementById("pack-content").value="";
+
+}
+
+async function adminLogout(){
+
+await adminSupabase.auth.signOut();
+
+document.getElementById("admin-login").style.display="block";
+document.getElementById("admin-dashboard").style.display="none";
+
+}
+
+adminSupabase.auth.onAuthStateChange((event,session)=>{
+if(session){
+setTimeout(checkAdmin,0);
+}
+});
 </script>
 </body>
 </html>
