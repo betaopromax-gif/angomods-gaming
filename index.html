@@ -714,5 +714,80 @@ console.error("Inicialização:",error);
 startAngomods();
 </script>
 
+<!-- ANGOMODS AI -->
+<section id="angomods-ai" style="
+padding:30px 15px;
+background:#08110d;
+color:white;
+font-family:Arial,sans-serif;
+">
+  <div style="
+  max-width:700px;
+  margin:auto;
+  border:1px solid #1c7d49;
+  border-radius:16px;
+  padding:20px;
+  background:#0c1712;
+  ">
+
+    <h2 style="color:#00ff88;text-align:center">
+      ANGOMODS AI
+    </h2>
+
+    <p style="text-align:center;color:#aaa">
+      O teu assistente inteligente.
+    </p>
+
+    <div id="ai-chat" style="
+    height:350px;
+    overflow-y:auto;
+    background:#050b08;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    ">
+
+      <div style="color:#00ff88;margin-bottom:12px">
+        ANGOMODS AI: Salve! Sou a ANGOMODS AI.
+        O que queres saber?
+      </div>
+
+    </div>
+
+    <div style="display:flex;gap:8px">
+
+      <input id="ai-message"
+      placeholder="Escreve a tua mensagem..."
+      style="
+      flex:1;
+      min-width:0;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #1c7d49;
+      background:#111;
+      color:white;
+      ">
+
+      <button onclick="enviarAngomodsAI()"
+      style="
+      background:#00cc66;
+      color:black;
+      border:none;
+      padding:12px;
+      border-radius:10px;
+      font-weight:bold;
+      ">
+        Enviar
+      </button>
+
+    </div>
+
+    <p id="ai-status"
+    style="font-size:12px;color:#888">
+    Motor: Groq
+    </p>
+
+  </div>
+</section>
 </body>
 </html>
