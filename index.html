@@ -3,150 +3,56 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07110d">
-<title>ANGOMODS GAMING | Free Fire</title>
-
+<title>ANGOMODS GAMING</title>
 <style>
 :root{
-  --bg:#07110d;
-  --panel:#101e17;
-  --green:#39f28b;
-  --text:#effff5;
-  --muted:#a8c0b1;
-  --line:#254333;
+--bg:#07110d;--panel:#101e17;--green:#39f28b;
+--text:#effff5;--muted:#a8c0b1;--line:#254333;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,sans-serif;
-  line-height:1.6;
+margin:0;background:var(--bg);color:var(--text);
+font-family:Arial,sans-serif;line-height:1.6;
 }
 .wrap{width:92%;max-width:1100px;margin:auto}
-header{
-  background:#0b1911;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-nav{
-  padding:14px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.logo{font-size:20px;font-weight:bold;color:var(--green)}
-nav a{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-  margin:4px;
-}
+header{background:#0b1911;border-bottom:1px solid var(--line);
+position:sticky;top:0;z-index:5}
+nav{display:flex;justify-content:space-between;align-items:center;
+flex-wrap:wrap;padding:12px 0;gap:10px}
+.logo{color:var(--green);font-size:20px;font-weight:bold}
+nav a{color:white;text-decoration:none;font-size:13px;margin:4px}
 nav a:hover{color:var(--green)}
-.hero{
-  text-align:center;
-  padding:65px 10px;
-  background:radial-gradient(circle,#123c25 0%,#07110d 70%);
-}
-.hero h1{
-  font-size:clamp(38px,8vw,68px);
-  line-height:1.1;
-  margin:10px;
-}
-.hero h1 span{color:var(--green)}
-.hero p{color:var(--muted)}
-.btn{
-  background:var(--green);
-  color:#07110d;
-  border:0;
-  border-radius:9px;
-  padding:11px 16px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:4px;
-}
-.btn:hover{filter:brightness(1.1)}
-.btn2{
-  background:#193b29;
-  color:white;
-  border:1px solid var(--green);
-  border-radius:9px;
-  padding:10px 14px;
-  cursor:pointer;
-}
-section{padding:28px 0;scroll-margin-top:85px}
-h2{color:var(--green);font-size:25px}
-h3{color:var(--green)}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:8px;
-}
+.hero{text-align:center;padding:60px 10px;
+background:radial-gradient(circle,#123c25,#07110d 75%)}
+.hero h1{font-size:clamp(38px,8vw,65px);line-height:1.1}
+.hero span{color:var(--green)}
+h2{color:var(--green)}
+section{padding:28px 0;scroll-margin-top:80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:var(--panel);border:1px solid var(--line);
+border-radius:14px;padding:18px}
+.card h3{color:var(--green)}
 .card p{color:var(--muted)}
-.tag{
-  display:inline-block;
-  color:var(--green);
-  background:#173b28;
-  padding:3px 9px;
-  border-radius:20px;
-  font-size:12px;
-}
-.value{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  padding:5px;
-}
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border-radius:9px;
-  border:1px solid var(--line);
-  background:#07110d;
-  color:white;
-  margin:7px 0 12px;
-}
-.result{
-  background:#07110d;
-  border:1px dashed var(--green);
-  padding:13px;
-  border-radius:10px;
-  overflow-wrap:anywhere;
-  margin:10px 0;
-}
-.status{font-size:13px;color:var(--muted)}
-.dot{
-  display:inline-block;
-  width:9px;height:9px;
-  background:orange;
-  border-radius:50%;
-  margin-right:6px;
-}
-.dot.ok{background:#39f28b}
-.dot.bad{background:#ff5555}
-footer{
-  text-align:center;
-  padding:30px 10px;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-}
+.btn{background:var(--green);color:#07110d;border:0;
+border-radius:9px;padding:11px 16px;font-weight:bold;cursor:pointer;margin:5px}
+.btn2{background:#173b28;color:white;border:1px solid var(--green);
+border-radius:9px;padding:10px;cursor:pointer;margin:5px}
+.tag{background:#173b28;color:var(--green);padding:3px 9px;border-radius:20px}
+.value{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px}
+input,select,textarea{width:100%;padding:12px;border-radius:9px;
+border:1px solid var(--line);background:#07110d;color:white;margin:7px 0 12px}
+.result{background:#07110d;border:1px dashed var(--green);
+padding:13px;border-radius:10px;overflow-wrap:anywhere;white-space:pre-wrap}
 .small{font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:orange;margin-right:6px}
+.dot.ok{background:var(--green)}
+.dot.bad{background:#ff5555}
+footer{text-align:center;border-top:1px solid var(--line);
+padding:25px;color:var(--muted)}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -169,58 +75,47 @@ footer{
 
 <div class="hero">
 <div class="wrap">
-<span class="tag">A TUA CENTRAL GAMING</span>
 <h1>ANGOMODS <span>GAMING</span></h1>
-<p>Skins, sensibilidade, otimização Android e muito mais.</p>
-<a href="#sensi"><button class="btn">EXPLORAR AGORA</button></a>
+<p>O teu universo Free Fire começa aqui.</p>
+<a href="#sensi"><button class="btn">EXPLORAR</button></a>
 </div>
 </div>
 
 <section class="wrap" id="skins">
 <h2>💎 SKINS FREESTYLE</h2>
-<p>Combinações para diferentes estilos de jogadores.</p>
-
 <div class="grid">
 <div class="card">
 <span class="tag">PREMIUM</span>
 <h3>👑 Podre de rico</h3>
 <p>Combinações gemadas, roupas raras, máscaras exclusivas e acessórios lendários.</p>
-<p><b>Estilo:</b> luxo, destaque e raridade.</p>
 </div>
-
 <div class="card">
 <span class="tag">GRÁTIS</span>
 <h3>🔥 Versão pobre</h3>
 <p>Combinações freestyle usando roupas gratuitas e peças de eventos.</p>
-<p><b>Estilo:</b> simples, mas cheio de atitude.</p>
 </div>
-
 <div class="card">
 <h3>🖤 Dark Style</h3>
 <p>Preto, vermelho, máscaras e acessórios sombrios.</p>
 </div>
-
 <div class="card">
 <h3>💚 Toxic Style</h3>
-<p>Combinações verdes, pretas e brancas para um visual agressivo.</p>
+<p>Combinações verdes, pretas e brancas.</p>
 </div>
-
 <div class="card">
 <h3>⚡ Street Style</h3>
-<p>Roupas urbanas, bonés, calças largas e acessórios modernos.</p>
+<p>Roupas urbanas e acessórios modernos.</p>
 </div>
-
 <div class="card">
 <h3>👻 Ghost Style</h3>
-<p>Combinações misteriosas para quem gosta de um visual diferente.</p>
+<p>Combinações misteriosas para um visual diferente.</p>
 </div>
 </div>
 </section>
 
 <section class="wrap" id="sensi">
 <h2>🎯 PACKS DE SENSIBILIDADE</h2>
-<p class="small">Escala de sensibilidade: 0 a 200. Ajusta conforme o teu aparelho e o teu controlo.</p>
-
+<p class="small">Escala atual de 0 a 200.</p>
 <div class="grid">
 
 <div class="card">
@@ -262,97 +157,81 @@ footer{
 <div class="value">AWM <b>55</b></div>
 <div class="value">Olhadinha <b>120</b></div>
 </div>
-
 </div>
 </section>
 
 <section class="wrap" id="gerador">
-<h2>⚙️ GERADOR DE SENSIBILIDADE</h2>
+<h2>⚙️ GERADOR DE SENSI</h2>
 <div class="card">
-<p>Gera uma sugestão de sensibilidade com base no teu estilo.</p>
-
-<label>Estilo de jogo</label>
+<label>Estilo</label>
 <select id="estilo">
 <option value="rapido">Arrasto rápido</option>
 <option value="controle">Controlo</option>
 <option value="ump">UMP / Trocação</option>
 </select>
-
-<label>DPI do telemóvel</label>
-<input id="dpi" type="number" placeholder="Exemplo: 480">
-
-<label>Tamanho do botão de atirar (%)</label>
-<input id="botao" type="number" placeholder="Exemplo: 50">
-
-<button class="btn" onclick="gerarSensi()">GERAR MINHA SENSI</button>
-
-<div id="resultadoSensi" class="result">A tua configuração aparecerá aqui.</div>
-<button class="btn2" onclick="copiar('resultadoSensi')">COPIAR RESULTADO</button>
+<label>DPI</label>
+<input id="dpi" type="number" placeholder="Ex: 480">
+<label>Botão de atirar (%)</label>
+<input id="botao" type="number" placeholder="Ex: 50">
+<button class="btn" onclick="gerarSensi()">GERAR SENSI</button>
+<div class="result" id="resultadoSensi">Resultado aparecerá aqui.</div>
+<button class="btn2" onclick="copiar('resultadoSensi')">COPIAR</button>
 </div>
 </section>
 
 <section class="wrap" id="android">
 <h2>📱 OTIMIZAÇÃO ANDROID</h2>
 <div class="grid">
-
 <div class="card">
 <h3>🚀 Desempenho</h3>
-<p>Fecha aplicações desnecessárias antes de abrir o Free Fire.</p>
-<p>Liberta espaço de armazenamento e mantém o sistema atualizado.</p>
-<p>Evita jogar enquanto o telemóvel está muito quente.</p>
+<p>Fecha aplicações desnecessárias antes de jogar.</p>
+<p>Liberta espaço de armazenamento.</p>
+<p>Evita jogar com o aparelho excessivamente quente.</p>
 </div>
-
 <div class="card">
 <h3>🔋 Bateria</h3>
-<p>Desativa a poupança de bateria durante o jogo, se ela limitar o desempenho.</p>
+<p>Verifica se a poupança de bateria limita o desempenho.</p>
 <p>Reduz aplicações em segundo plano.</p>
 </div>
-
 <div class="card">
 <h3>🧰 Shizuku</h3>
-<p>O Shizuku permite que aplicações compatíveis usem algumas funções do sistema através de permissões ADB.</p>
-<p>Concede apenas permissões necessárias e a aplicações confiáveis.</p>
+<p>Permite que aplicações compatíveis usem algumas funções do sistema através de permissões ADB.</p>
+<p>Usa apenas aplicações confiáveis.</p>
 </div>
-
 <div class="card">
 <h3>📊 Diagnóstico</h3>
-<p>Observa temperatura, memória disponível e comportamento do jogo.</p>
-<p>Não uses comandos desconhecidos que possam alterar o sistema.</p>
+<p>Observa temperatura, memória e comportamento do jogo.</p>
+<p>Evita comandos desconhecidos.</p>
 </div>
-
 </div>
 </section>
 
 <section class="wrap" id="nick">
-<h2>✍️ CRIADOR DE NICKNAME</h2>
+<h2>✍️ CRIADOR DE NICK</h2>
 <div class="card">
-<label>Escreve o teu nome</label>
-<input id="nomeNick" placeholder="Exemplo: Angomods">
-
+<label>Nome</label>
+<input id="nomeNick" placeholder="Escreve o teu nome">
 <label>Estilo</label>
 <select id="estiloNick">
-<option value="1"> ꧁ Nome ꧂ </option>
-<option value="2"> 亗 Nome 亗 </option>
-<option value="3"> 『Nome』 </option>
-<option value="4"> ★ Nome ★ </option>
-<option value="5"> 么 Nome 么 </option>
-<option value="6"> ×͜× Nome </option>
+<option value="1">꧁ Nome ꧂</option>
+<option value="2">亗 Nome 亗</option>
+<option value="3">『Nome』</option>
+<option value="4">★ Nome ★</option>
+<option value="5">么 Nome 么</option>
+<option value="6">×͜× Nome</option>
 </select>
-
-<button class="btn" onclick="gerarNick()">CRIAR NICK</button>
-<div class="result" id="resultadoNick">O teu nickname aparecerá aqui.</div>
+<button class="btn" onclick="gerarNick()">GERAR NICK</button>
+<div class="result" id="resultadoNick">O nick aparecerá aqui.</div>
 <button class="btn2" onclick="copiar('resultadoNick')">COPIAR NICK</button>
 </div>
 
 <div class="card">
 <h3>👻 Espaço invisível</h3>
-<p>Carrega para copiar um espaço invisível para nomes compatíveis.</p>
 <button class="btn" onclick="copiarTexto('ㅤ')">COPIAR ESPAÇO</button>
 </div>
 
 <div class="card">
-<h3>🌈 Cores para perfil</h3>
-<p>Exemplos de códigos de cor usados em formatos compatíveis:</p>
+<h3>🌈 Códigos de cores</h3>
 <div class="value">Vermelho <b>[FF0000]</b></div>
 <div class="value">Verde <b>[00FF00]</b></div>
 <div class="value">Azul <b>[0000FF]</b></div>
@@ -365,23 +244,22 @@ footer{
 <section class="wrap" id="packs">
 <h2>🌐 PACKS DA COMUNIDADE</h2>
 <div class="card">
-<p><span class="dot" id="dbDot"></span><span id="dbStatus">A verificar ligação à base de dados...</span></p>
-<p class="small">Os packs publicados na base de dados aparecem automaticamente aqui.</p>
-<button class="btn2" onclick="carregarPacks()">ATUALIZAR PACKS</button>
+<p><span class="dot" id="dbDot"></span><span id="dbStatus">A verificar ligação...</span></p>
+<button class="btn2" onclick="carregarPacks()">ATUALIZAR</button>
+<p class="small">Packs carregados da base de dados Supabase.</p>
 </div>
-
 <div class="grid" id="packsLista">
-<div class="card">A carregar packs...</div>
+<div class="card">A carregar...</div>
 </div>
 </section>
 
-<section class="wrap" id="comunidade">
-<h2>📢 COMUNIDADE ANGOMODS</h2>
+<section class="wrap">
+<h2>📢 COMUNIDADE</h2>
 <div class="card">
-<h3>🎮 TikTok oficial</h3>
-<p>Segue a página para acompanhar novidades, edits e conteúdos Free Fire.</p>
+<h3>🎮 TikTok</h3>
+<p>Segue @angomods para conteúdos Free Fire.</p>
 <a href="https://www.tiktok.com/@angomods" target="_blank">
-<button class="btn">VISITAR @ANGOMODS</button>
+<button class="btn">VISITAR TIKTOK</button>
 </a>
 </div>
 </section>
@@ -390,248 +268,208 @@ footer{
 
 <footer>
 <p><b>ANGOMODS GAMING 💚</b></p>
-<p>Feito para a comunidade Free Fire.</p>
-<p class="small">Site independente, não oficial e sem afiliação à Garena.</p>
+<p>Site independente, não oficial e sem afiliação à Garena.</p>
 </footer>
 
 <script>
-/* =====================================
-   CONFIGURAÇÃO SUPABASE
-===================================== */
+
+/* CONFIGURAÇÃO SUPABASE V2 */
 
 const SUPABASE_URL =
-"https://vhidhwxsjzpvlpwxjpmi.supabase.co";
+"https://llgqbzteoqjiyrwwylwk.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_AaQj1O0FFly8eHUhLM0b4w_PN9_Ig53";
+"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
 
-/* =====================================
-   CARREGAR PACKS DA BASE DE DADOS
-===================================== */
+/* CARREGAR PACKS */
 
 async function carregarPacks(){
 
-  const lista = document.getElementById("packsLista");
-  const status = document.getElementById("dbStatus");
-  const dot = document.getElementById("dbDot");
+const lista=document.getElementById("packsLista");
+const status=document.getElementById("dbStatus");
+const dot=document.getElementById("dbDot");
 
-  lista.innerHTML = '<div class="card">A carregar packs...</div>';
+lista.innerHTML='<div class="card">A carregar...</div>';
 
-  try{
+try{
 
-    const resposta = await fetch(
-      SUPABASE_URL +
-      "/rest/v1/packs?select=id,titulo,categoria,conteudo,criado_em&order=id.desc",
-      {
-        method:"GET",
-        headers:{
-          "apikey":SUPABASE_KEY,
-          "Authorization":"Bearer "+SUPABASE_KEY
-        }
-      }
-    );
+const resposta=await fetch(
+SUPABASE_URL+"/rest/v1/packs?select=id,titulo,categoria,conteudo,criado_em&order=id.desc",
+{
+headers:{
+apikey:SUPABASE_KEY,
+Authorization:"Bearer "+SUPABASE_KEY
+}
+}
+);
 
-    if(!resposta.ok){
-      throw new Error("Erro HTTP: "+resposta.status);
-    }
-
-    const packs = await resposta.json();
-
-    dot.className = "dot ok";
-    status.textContent = "Base de dados ligada!";
-
-    if(packs.length === 0){
-      lista.innerHTML =
-        '<div class="card">Ligação concluída! Ainda não existem packs publicados.</div>';
-      return;
-    }
-
-    lista.innerHTML = "";
-
-    packs.forEach(function(pack){
-
-      const card = document.createElement("article");
-      card.className = "card";
-
-      const tag = document.createElement("span");
-      tag.className = "tag";
-      tag.textContent = pack.categoria || "Geral";
-
-      const titulo = document.createElement("h3");
-      titulo.textContent = pack.titulo || "Pack sem título";
-
-      const conteudo = document.createElement("p");
-      conteudo.textContent = pack.conteudo || "Sem descrição.";
-
-      const data = document.createElement("p");
-      data.className = "small";
-
-      if(pack.criado_em){
-        data.textContent =
-          "Publicado: " +
-          new Date(pack.criado_em).toLocaleDateString("pt-PT");
-      }
-
-      card.appendChild(tag);
-      card.appendChild(titulo);
-      card.appendChild(conteudo);
-      card.appendChild(data);
-
-      lista.appendChild(card);
-
-    });
-
-  }catch(erro){
-
-    dot.className = "dot bad";
-    status.textContent = "Falha na ligação à base de dados.";
-
-    lista.innerHTML = "";
-
-    const erroCard = document.createElement("div");
-    erroCard.className = "card";
-
-    const mensagem = document.createElement("p");
-    mensagem.textContent =
-      "Não foi possível carregar os packs. Verifica a API e as permissões da tabela.";
-
-    const detalhe = document.createElement("p");
-    detalhe.className = "small";
-    detalhe.textContent = erro.message;
-
-    erroCard.appendChild(mensagem);
-    erroCard.appendChild(detalhe);
-    lista.appendChild(erroCard);
-  }
+if(!resposta.ok){
+throw new Error("HTTP "+resposta.status);
 }
 
-/* =====================================
-   GERADOR DE SENSIBILIDADE
-===================================== */
+const packs=await resposta.json();
 
-function limitar(valor){
-  return Math.max(0,Math.min(200,Math.round(valor)));
+dot.className="dot ok";
+status.textContent="Base de dados ligada!";
+
+if(!packs.length){
+lista.innerHTML='<div class="card">Ligação concluída! Ainda não existem packs.</div>';
+return;
+}
+
+lista.innerHTML="";
+
+packs.forEach(pack=>{
+
+const card=document.createElement("div");
+card.className="card";
+
+const categoria=document.createElement("span");
+categoria.className="tag";
+categoria.textContent=pack.categoria||"Geral";
+
+const titulo=document.createElement("h3");
+titulo.textContent=pack.titulo||"Pack";
+
+const conteudo=document.createElement("p");
+conteudo.textContent=pack.conteudo||"Sem descrição";
+
+const data=document.createElement("p");
+data.className="small";
+data.textContent=pack.criado_em
+?new Date(pack.criado_em).toLocaleDateString("pt-PT")
+:"";
+
+card.append(categoria,titulo,conteudo,data);
+lista.appendChild(card);
+
+});
+
+}catch(erro){
+
+dot.className="dot bad";
+status.textContent="Falha na ligação";
+
+lista.innerHTML="";
+
+const card=document.createElement("div");
+card.className="card";
+
+const mensagem=document.createElement("p");
+mensagem.textContent="Não foi possível carregar os packs.";
+
+const detalhe=document.createElement("p");
+detalhe.className="small";
+detalhe.textContent=erro.message;
+
+card.append(mensagem,detalhe);
+lista.appendChild(card);
+
+}
+}
+
+/* GERADOR DE SENSI */
+
+function limitar(v){
+return Math.max(0,Math.min(200,Math.round(v)));
 }
 
 function gerarSensi(){
 
-  const estilo = document.getElementById("estilo").value;
-  const dpi = Number(document.getElementById("dpi").value);
-  const botao = Number(document.getElementById("botao").value);
+const estilo=document.getElementById("estilo").value;
+const dpi=Number(document.getElementById("dpi").value);
+const botao=Number(document.getElementById("botao").value);
 
-  let valores;
+let valores;
 
-  if(estilo === "rapido"){
-    valores = [195,190,185,175,80,150];
-  }else if(estilo === "controle"){
-    valores = [165,160,150,140,55,120];
-  }else{
-    valores = [200,195,185,170,75,145];
-  }
-
-  const ajusteDPI = dpi > 0
-    ? Math.max(-8,Math.min(8,(dpi-440)/30))
-    : 0;
-
-  valores = valores.map(function(v){
-    return limitar(v+ajusteDPI);
-  });
-
-  const nomes = [
-    "Geral",
-    "Ponto vermelho",
-    "Mira 2x",
-    "Mira 4x",
-    "AWM",
-    "Olhadinha"
-  ];
-
-  let texto = "ANGOMODS GAMING - MINHA SENSI\n";
-
-  nomes.forEach(function(nome,i){
-    texto += nome+": "+valores[i]+"\n";
-  });
-
-  texto += "DPI: "+(dpi || "Não informado")+"\n";
-  texto += "Botão de atirar: "+(botao || "Não informado")+"%";
-
-  document.getElementById("resultadoSensi").textContent = texto;
+if(estilo==="rapido"){
+valores=[195,190,185,175,80,150];
+}else if(estilo==="controle"){
+valores=[165,160,150,140,55,120];
+}else{
+valores=[200,195,185,170,75,145];
 }
 
-/* =====================================
-   CRIADOR DE NICKNAME
-===================================== */
+const ajuste=dpi>0
+?Math.max(-8,Math.min(8,(dpi-440)/30))
+:0;
+
+valores=valores.map(v=>limitar(v+ajuste));
+
+const nomes=[
+"Geral","Ponto vermelho","Mira 2x",
+"Mira 4x","AWM","Olhadinha"
+];
+
+let resultado="ANGOMODS GAMING\n";
+
+nomes.forEach((nome,i)=>{
+resultado+=nome+": "+valores[i]+"\n";
+});
+
+resultado+="DPI: "+(dpi||"Não informado")+"\n";
+resultado+="Botão de atirar: "+(botao||"Não informado")+"%";
+
+document.getElementById("resultadoSensi").textContent=resultado;
+}
+
+/* GERADOR DE NICK */
 
 function gerarNick(){
 
-  const nome =
-    document.getElementById("nomeNick").value.trim();
+const nome=document.getElementById("nomeNick").value.trim();
+const estilo=document.getElementById("estiloNick").value;
 
-  const estilo =
-    document.getElementById("estiloNick").value;
-
-  if(!nome){
-    document.getElementById("resultadoNick").textContent =
-      "Escreve primeiro o teu nome!";
-    return;
-  }
-
-  const modelos = {
-    "1":"꧁ "+nome+" ꧂",
-    "2":"亗 "+nome+" 亗",
-    "3":"『"+nome+"』",
-    "4":"★ "+nome+" ★",
-    "5":"么 "+nome+" 么",
-    "6":"×͜× "+nome
-  };
-
-  document.getElementById("resultadoNick").textContent =
-    modelos[estilo];
+if(!nome){
+document.getElementById("resultadoNick").textContent="Escreve um nome!";
+return;
 }
 
-/* =====================================
-   FUNÇÕES DE CÓPIA
-===================================== */
+const modelos={
+1:"꧁ "+nome+" ꧂",
+2:"亗 "+nome+" 亗",
+3:"『"+nome+"』",
+4:"★ "+nome+" ★",
+5:"么 "+nome+" 么",
+6:"×͜× "+nome
+};
 
-function copiar(id){
-
-  const elemento = document.getElementById(id);
-
-  copiarTexto(elemento.textContent);
+document.getElementById("resultadoNick").textContent=modelos[estilo];
 }
+
+/* COPIAR */
 
 async function copiarTexto(texto){
 
-  try{
+try{
+await navigator.clipboard.writeText(texto);
+alert("Copiado! 💚");
+}catch(e){
 
-    await navigator.clipboard.writeText(texto);
-    alert("Copiado com sucesso! 💚");
+const campo=document.createElement("textarea");
+campo.value=texto;
+document.body.appendChild(campo);
+campo.select();
 
-  }catch(erro){
-
-    const campo = document.createElement("textarea");
-    campo.value = texto;
-    document.body.appendChild(campo);
-    campo.select();
-
-    try{
-      document.execCommand("copy");
-      alert("Copiado! 💚");
-    }catch(e){
-      alert("Não foi possível copiar automaticamente.");
-    }
-
-    campo.remove();
-  }
+try{
+document.execCommand("copy");
+alert("Copiado! 💚");
+}catch(err){
+alert("Não foi possível copiar.");
 }
 
-/* =====================================
-   INICIAR SITE
-===================================== */
+campo.remove();
+}
+}
+
+function copiar(id){
+copiarTexto(document.getElementById(id).textContent);
+}
+
+/* INICIALIZAR */
 
 carregarPacks();
 
 </script>
-
 </body>
 </html>
