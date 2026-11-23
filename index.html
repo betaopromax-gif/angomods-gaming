@@ -2,1365 +2,582 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090909">
 <title>ANGOMODS GAMING</title>
 <style>
 :root{
- --bg:#090909;
- --panel:#111111;
- --panel2:#181818;
- --red:#e50914;
- --red2:#ff3030;
- --white:#f5f5f5;
- --muted:#999;
- --border:#292929;
+--red:#ff2020;
+--bg:#090909;
+--card:#151515;
+--text:#fff;
+--muted:#aaa;
 }
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
- scroll-behavior:smooth;
-}
-body{
- background:var(--bg);
- color:var(--white);
- font-family:Arial,Helvetica,sans-serif;
- overflow-x:hidden;
-}
-body::before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:-1;
- background:
- radial-gradient(circle at 20% 10%,
- rgba(229,9,20,.09),transparent 35%);
-}
-a{
- text-decoration:none;
- color:inherit;
-}
-button,input,select,textarea{
- font:inherit;
-}
-button{
- cursor:pointer;
-}
-header{
- position:sticky;
- top:0;
- z-index:999;
- background:rgba(9,9,9,.94);
- backdrop-filter:blur(14px);
- border-bottom:1px solid var(--border);
-}
-.nav{
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:15px;
- max-width:1200px;
- margin:auto;
- gap:15px;
-}
-.logo{
- font-size:19px;
- font-weight:900;
- letter-spacing:1px;
-}
-.logo span{
- color:var(--red);
-}
-.navlinks{
- display:flex;
- gap:17px;
- align-items:center;
- flex-wrap:wrap;
-}
-.navlinks a{
- font-size:12px;
- color:#bbb;
- font-weight:bold;
- transition:.2s;
-}
-.navlinks a:hover{
- color:var(--red);
-}
-.menuBtn{
- display:none;
- background:var(--panel2);
- color:white;
- border:1px solid var(--border);
- padding:10px;
- border-radius:10px;
-}
-.hero{
- max-width:1200px;
- margin:auto;
- padding:80px 20px 55px;
- text-align:center;
-}
-.heroTag{
- display:inline-block;
- border:1px solid rgba(229,9,20,.4);
- background:rgba(229,9,20,.09);
- color:#ff5555;
- padding:8px 13px;
- border-radius:30px;
- font-size:11px;
- font-weight:bold;
- letter-spacing:2px;
- animation:pulse 2.5s infinite;
-}
-.hero h1{
- margin-top:25px;
- font-size:clamp(42px,8vw,85px);
- line-height:.95;
- font-weight:1000;
- letter-spacing:-3px;
-}
-.hero h1 span{
- color:var(--red);
- text-shadow:0 0 30px rgba(229,9,20,.3);
-}
-.hero p{
- color:var(--muted);
- max-width:600px;
- margin:20px auto;
- line-height:1.7;
- font-size:14px;
-}
-.actions{
- display:flex;
- justify-content:center;
- gap:12px;
- flex-wrap:wrap;
- margin-top:25px;
-}
-.btn{
- border:none;
- border-radius:12px;
- padding:14px 20px;
- font-weight:bold;
- transition:.25s;
-}
-.btnRed{
- background:var(--red);
- color:white;
-}
-.btnRed:hover{
- background:var(--red2);
- transform:translateY(-2px);
- box-shadow:0 8px 25px #e5091433;
-}
-.btnDark{
- background:var(--panel2);
- border:1px solid var(--border);
- color:white;
-}
-.btnDark:hover{
- border-color:var(--red);
-}
-section{
- max-width:1200px;
- margin:auto;
- padding:35px 20px;
-}
-.sectionTitle{
- font-size:25px;
- font-weight:900;
- margin-bottom:8px;
-}
-.sectionTitle span{
- color:var(--red);
-}
-.sectionDesc{
- color:var(--muted);
- font-size:13px;
- line-height:1.6;
- margin-bottom:25px;
-}
-.grid{
- display:grid;
- grid-template-columns:
- repeat(auto-fit,minmax(220px,1fr));
- gap:16px;
-}
-.card{
- background:var(--panel);
- border:1px solid var(--border);
- border-radius:17px;
- padding:20px;
- transition:.3s;
-}
-.card:hover{
- border-color:#e5091455;
- transform:translateY(-3px);
-}
-.card h3{
- font-size:16px;
- margin-bottom:10px;
-}
-.card p{
- color:var(--muted);
- font-size:13px;
- line-height:1.6;
-}
-input,select,textarea{
- width:100%;
- background:#0c0c0c;
- border:1px solid #333;
- color:white;
- padding:14px;
- border-radius:12px;
- outline:none;
- margin:7px 0;
-}
-input:focus,select:focus,textarea:focus{
- border-color:var(--red);
- box-shadow:0 0 0 2px #e5091420;
-}
-label{
- display:block;
- font-size:12px;
- color:#bbb;
- margin-top:12px;
-}
-.full{
- width:100%;
-}
-.result{
- background:#151515;
- border:1px solid #333;
- border-radius:12px;
- padding:15px;
- margin-top:15px;
- overflow-wrap:anywhere;
-}
-.redLine{
- height:2px;
- background:linear-gradient(90deg,
- transparent,var(--red),transparent);
- margin:20px 0;
-}
-.badge{
- display:inline-block;
- background:#e5091418;
- color:#ff5555;
- border:1px solid #e5091433;
- padding:5px 9px;
- border-radius:20px;
- font-size:10px;
- font-weight:bold;
-}
-footer{
- text-align:center;
- padding:35px 15px;
- border-top:1px solid var(--border);
- color:var(--muted);
- font-size:12px;
-}
-footer span{
- color:var(--red);
-}
-@keyframes pulse{
- 0%,100%{box-shadow:0 0 0 transparent}
- 50%{box-shadow:0 0 18px #e5091422}
-}
-@keyframes fadeIn{
- from{opacity:0;transform:translateY(12px)}
- to{opacity:1;transform:translateY(0)}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:var(--bg);color:var(--text);overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);border-bottom:1px solid #292929;backdrop-filter:blur(12px)}
+.nav{max-width:1100px;margin:auto;padding:15px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:900}
+.logo span{color:var(--red)}
+.menu{display:flex;gap:18px}
+.menu a{text-decoration:none;color:white;font-size:13px;font-weight:bold}
+.menu a:hover{color:var(--red)}
+.menuBtn{display:none;background:none;color:white;border:0;font-size:25px}
+.hero{min-height:330px;padding:60px 20px;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at center,#470000 0%,#170000 35%,#090909 75%)}
+.hero h1{font-size:clamp(32px,7vw,55px);font-weight:900}
+.hero h1 span{color:var(--red)}
+.hero p{max-width:600px;margin:15px auto;color:#bbb;line-height:1.6}
+.heroBtn{display:inline-block;margin-top:15px;padding:13px 25px;background:var(--red);color:white;border:0;border-radius:8px;font-weight:bold;text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:25px 15px}
+.section{margin:30px 0;scroll-margin-top:80px}
+.sectionTitle{font-size:23px;margin-bottom:18px}
+.sectionTitle span{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:var(--card);border:1px solid #262626;border-radius:14px;padding:18px;transition:.25s}
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card h3{margin-bottom:10px}
+.card p{color:#aaa;font-size:14px;line-height:1.5}
+.icon{font-size:30px;margin-bottom:12px}
+input,select,textarea{width:100%;padding:13px;background:#101010;color:white;border:1px solid #333;border-radius:8px;outline:none;margin:8px 0}
+input:focus,select:focus,textarea:focus{border-color:var(--red)}
+.btn{background:var(--red);color:white;border:0;padding:12px 16px;border-radius:8px;font-weight:bold;cursor:pointer;transition:.2s}
+.btn:hover{filter:brightness(1.2);transform:scale(1.02)}
+.btn.secondary{background:#292929}
+.result{background:#101010;border:1px solid #333;padding:15px;margin-top:15px;border-radius:10px;line-height:1.7;overflow-wrap:anywhere}
+.hidden{display:none!important}
+.badge{display:inline-block;background:#300000;color:#ff5555;padding:5px 10px;border-radius:20px;font-size:12px;margin-bottom:10px}
+.skinGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.skin{border-radius:12px;overflow:hidden;background:#151515;border:1px solid #292929;transition:.3s}
+.skin:hover{border-color:var(--red);transform:scale(1.02)}
+.skin img{width:100%;height:180px;object-fit:cover;background:#222}
+.skin div{padding:10px;font-weight:bold;font-size:13px}
+.chatBox{background:#111;border:1px solid #292929;border-radius:12px;padding:15px}
+.chatMessages{height:300px;overflow-y:auto;padding:5px;margin-bottom:10px}
+.message{padding:12px;border-radius:10px;margin:10px 0;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.userMessage{background:#320000;margin-left:15%}
+.aiMessage{background:#202020;margin-right:15%}
+.chatInput{display:flex;gap:8px}
+.chatInput input{margin:0}
+.pack{padding:15px;background:#111;border:1px solid #292929;border-radius:10px;margin-bottom:12px}
+.pack small{color:#999}
+footer{text-align:center;padding:35px 15px;color:#888;border-top:1px solid #222;margin-top:30px}
+footer span{color:var(--red)}
+.adminArea{border:1px dashed #444;padding:15px;border-radius:12px}
+.loading{color:#ff5555;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.4}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fade .5s ease}
 @media(max-width:700px){
- .navlinks{
-  display:none;
-  position:absolute;
-  top:65px;
-  left:10px;
-  right:10px;
-  background:#111;
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:18px;
-  flex-direction:column;
-  align-items:stretch;
- }
- .navlinks.show{
-  display:flex;
- }
- .navlinks a{
-  padding:10px;
- }
- .menuBtn{
-  display:block;
- }
- .hero{
-  padding-top:60px;
- }
- .hero h1{
-  letter-spacing:-2px;
- }
- section{
-  padding:28px 15px;
- }
+.menu{display:none;position:absolute;left:0;right:0;top:58px;background:#101010;padding:20px;flex-direction:column;border-bottom:1px solid #333}
+.menu.active{display:flex}
+.menuBtn{display:block}
+.hero{min-height:280px}
+.chatMessages{height:260px}
 }
 </style>
 </head>
 <body>
 
 <header>
- <nav class="nav">
-  <a class="logo" href="#inicio">
-   ANGO<span>MODS</span>
-  </a>
-
-  <button class="menuBtn" onclick="toggleMenu()">
-   ☰
-  </button>
-
-  <div class="navlinks" id="navlinks">
-   <a href="#skins">SKINS</a>
-   <a href="#sensi">SENSI</a>
-   <a href="#android">ANDROID</a>
-   <a href="#nicks">NICKS</a>
-   <a href="#packs">PACKS</a>
-   <a href="#ai">AI</a>
-  </div>
- </nav>
+<nav class="nav">
+<div class="logo">ANGO<span>MODS</span></div>
+<button class="menuBtn" onclick="toggleMenu()">☰</button>
+<div class="menu" id="menu">
+<a href="#skins" onclick="toggleMenu()">SKINS</a>
+<a href="#sensi" onclick="toggleMenu()">SENSI</a>
+<a href="#android" onclick="toggleMenu()">ANDROID</a>
+<a href="#nicks" onclick="toggleMenu()">NICKS</a>
+<a href="#packs" onclick="toggleMenu()">PACKS</a>
+<a href="#ai" onclick="toggleMenu()">AI</a>
+</div>
+</nav>
 </header>
 
-<main id="inicio">
-
-<div class="hero">
- <div class="heroTag">
-  ⚡ FREE FIRE COMMUNITY
- </div>
-
- <h1>
-  ANGO<span>MODS</span><br>
-  GAMING
- </h1>
-
- <p>
-  O universo Free Fire. Skins, sensibilidade,
-  optimização Android, comunidade e inteligência artificial.
- </p>
-
- <div class="actions">
-  <a href="#sensi" class="btn btnRed">
-   ⚡ SENSIBILIDADE
-  </a>
-
-  <a href="#ai" class="btn btnDark">
-   ⌘ ANGOMODS AI
-  </a>
- </div>
+<section class="hero">
+<div class="animate">
+<div class="badge">FREE FIRE COMMUNITY</div>
+<h1>ANGOMODS <span>GAMING</span></h1>
+<p>O universo Free Fire. Skins, sensibilidade, optimização Android, packs e inteligência artificial.</p>
+<a href="#sensi" class="heroBtn">EXPLORAR</a>
 </div>
-<!-- ================= SKINS ================= -->
-<section id="skins">
- <h2 class="sectionTitle">
-  🔥 SKINS <span>FREESTYLE</span>
- </h2>
- <p class="sectionDesc">
-  Explora estilos e combinações para o teu personagem.
- </p>
-
- <div class="grid">
-  <div class="card">
-   <div style="font-size:45px;text-align:center;padding:15px">💎</div>
-   <h3>Podre de Rico</h3>
-   <p>Combinações com estilo de jogador gemado.</p>
-   <span class="badge">GAMING</span>
-  </div>
-
-  <div class="card">
-   <div style="font-size:45px;text-align:center;padding:15px">🗿</div>
-   <h3>Versão Pobre</h3>
-   <p>Estilos simples, mas com muita presença.</p>
-   <span class="badge">STYLE</span>
-  </div>
-
-  <div class="card">
-   <div style="font-size:45px;text-align:center;padding:15px">⚡</div>
-   <h3>Freestyle</h3>
-   <p>Cria o teu próprio estilo de personagem.</p>
-   <span class="badge">CUSTOM</span>
-  </div>
-
-  <div class="card">
-   <div style="font-size:45px;text-align:center;padding:15px">👑</div>
-   <h3>Elite</h3>
-   <p>Combinações exclusivas para destacar no lobby.</p>
-   <span class="badge">ELITE</span>
-  </div>
- </div>
 </section>
 
-<div class="redLine"></div>
+<main class="container">
 
-<!-- ================= SENSI ================= -->
-<section id="sensi">
- <h2 class="sectionTitle">
-  🎯 GERADOR DE <span>SENSI</span>
- </h2>
- <p class="sectionDesc">
-  Configura uma sensibilidade baseada no teu
-  dispositivo, estilo de jogo e experiência.
- </p>
-
- <div class="card">
-  <label>Estilo de jogo</label>
-  <select id="estilo">
-   <option value="arrasto">Arrasto rápido / puxar capa</option>
-   <option value="precisao">Precisão</option>
-   <option value="equilibrado">Equilibrado</option>
-   <option value="agressivo">Agressivo</option>
-  </select>
-
-  <label>Sistema do dispositivo</label>
-  <select id="sistema">
-   <option value="android">Android</option>
-   <option value="ios">iPhone / iOS</option>
-  </select>
-
-  <label>Modelo do dispositivo</label>
-  <input id="dispositivo"
-   placeholder="Ex: OPPO A31, Redmi Note 12">
-
-  <label>DPI (Android, opcional)</label>
-  <input id="dpi" type="number"
-   placeholder="Ex: 450">
-
-  <button class="btn btnRed full"
-   onclick="gerarSensi()">
-   ⚡ GERAR SENSI
-  </button>
-
-  <div id="resultadoSensi"></div>
- </div>
+<section class="section" id="skins">
+<h2 class="sectionTitle">SKINS <span>FREE FIRE</span></h2>
+<div class="skinGrid">
+<div class="skin">
+<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80" alt="Gaming">
+<div>Gaming Style</div>
+</div>
+<div class="skin">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Gaming">
+<div>Battle Style</div>
+</div>
+<div class="skin">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Setup">
+<div>Elite Gaming</div>
+</div>
+<div class="skin">
+<img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Setup">
+<div>Pro Setup</div>
+</div>
+</div>
 </section>
 
-<div class="redLine"></div>
-
-<!-- ================= ANDROID ================= -->
-<section id="android">
- <h2 class="sectionTitle">
-  📱 OPTIMIZAÇÃO <span>ANDROID</span>
- </h2>
- <p class="sectionDesc">
-  Dicas para melhorar a experiência de jogo
-  sem aplicações milagrosas.
- </p>
-
- <div class="grid">
-
-  <div class="card">
-   <h3>⚡ Desempenho</h3>
-   <p>
-    Fecha aplicações desnecessárias e evita
-    multitarefa enquanto jogas.
-   </p>
-  </div>
-
-  <div class="card">
-   <h3>🌡️ Temperatura</h3>
-   <p>
-    Evita jogar enquanto carregas.
-    O calor excessivo pode reduzir o desempenho.
-   </p>
-  </div>
-
-  <div class="card">
-   <h3>🧹 Limpeza</h3>
-   <p>
-    Liberta espaço e limpa caches de aplicações
-    quando necessário.
-   </p>
-  </div>
-
-  <div class="card">
-   <h3>🎮 Gráficos</h3>
-   <p>
-    Reduz os gráficos e efeitos para priorizar
-    fluidez e estabilidade.
-   </p>
-  </div>
-
-  <div class="card">
-   <h3>🔋 Bateria</h3>
-   <p>
-    Evita modos de poupança de energia
-    durante partidas intensas.
-   </p>
-  </div>
-
-  <div class="card">
-   <h3>📡 Rede</h3>
-   <p>
-    Usa uma conexão estável e evita downloads
-    em segundo plano durante o jogo.
-   </p>
-  </div>
-
- </div>
+<section class="section" id="sensi">
+<h2 class="sectionTitle">GERADOR <span>SENSI</span></h2>
+<div class="card">
+<p>Cria uma sensibilidade adaptada ao teu dispositivo.</p>
+<label>Dispositivo</label>
+<select id="device">
+<option value="">Selecionar</option>
+<option value="android">Android</option>
+<option value="iphone">iPhone</option>
+</select>
+<label>Modelo</label>
+<input id="model" placeholder="Ex: OPPO A31">
+<label>DPI (Android)</label>
+<input id="dpi" type="number" placeholder="Ex: 400">
+<label>Estilo</label>
+<select id="style">
+<option value="fast">Arrasto rápido</option>
+<option value="balanced">Equilibrado</option>
+<option value="close">Trocação</option>
+<option value="precision">Precisão</option>
+</select>
+<button class="btn" onclick="generateSensi()">GERAR SENSI</button>
+<div id="sensiResult" class="result hidden"></div>
+</div>
 </section>
 
-<div class="redLine"></div>
-
-<!-- ================= NICKS ================= -->
-<section id="nicks">
- <h2 class="sectionTitle">
-  👑 GERADOR DE <span>NICKS</span>
- </h2>
- <p class="sectionDesc">
-  Cria nomes estilosos para Free Fire.
- </p>
-
- <div class="card">
-  <label>Nome base</label>
-  <input id="nomeNick"
-   placeholder="Escreve o teu nome">
-
-  <button class="btn btnRed full"
-   onclick="gerarNicks()">
-   👑 GERAR NICKS
-  </button>
-
-  <div id="resultadoNicks"></div>
- </div>
-
- <div class="card" style="margin-top:15px">
-  <h3>⚡ Extras</h3>
-
-  <p style="margin-top:15px">Espaço invisível</p>
-  <div class="result">
-   <span>ㅤ</span>
-   <button class="btn btnDark"
-    onclick="copiar('ㅤ')">
-    COPIAR
-   </button>
-  </div>
-
-  <p style="margin-top:15px">Código verde</p>
-  <div class="result">
-   <span>[00FF00]</span>
-   <button class="btn btnDark"
-    onclick="copiar('[00FF00]')">
-    COPIAR
-   </button>
-  </div>
-
-  <p style="margin-top:15px">Código vermelho</p>
-  <div class="result">
-   <span>[FF0000]</span>
-   <button class="btn btnDark"
-    onclick="copiar('[FF0000]')">
-    COPIAR
-   </button>
-  </div>
-
-  <p style="margin-top:15px">Código azul</p>
-  <div class="result">
-   <span>[0000FF]</span>
-   <button class="btn btnDark"
-    onclick="copiar('[0000FF]')">
-    COPIAR
-   </button>
-  </div>
- </div>
-</section>
-<!-- ================= PACKS ================= -->
-<section id="packs">
- <h2 class="sectionTitle">
-  🌍 PACKS <span>COMUNITÁRIOS</span>
- </h2>
- <p class="sectionDesc">
-  Descobre e partilha configurações da comunidade.
- </p>
-
- <div id="listaPacks">
-  <div class="card">
-   <p>⌛ A carregar packs...</p>
-  </div>
- </div>
+<section class="section" id="android">
+<h2 class="sectionTitle">ANDROID <span>OPTIMIZER</span></h2>
+<div class="grid">
+<div class="card"><div class="icon">⚡</div><h3>Desempenho</h3><p>Reduz processos desnecessários durante a jogatina.</p></div>
+<div class="card"><div class="icon">📱</div><h3>Configuração</h3><p>Conhece as opções do Android para melhorar a estabilidade.</p></div>
+<div class="card"><div class="icon">🎮</div><h3>Gaming</h3><p>Prepara o dispositivo antes de entrar no Free Fire.</p></div>
+</div>
+<div class="card" style="margin-top:15px">
+<label>Modelo</label>
+<input id="androidModel" placeholder="Ex: OPPO A31">
+<label>Problema</label>
+<select id="androidProblem">
+<option value="fps">FPS baixo</option>
+<option value="heat">Aquecimento</option>
+<option value="lag">Lag</option>
+<option value="touch">Touch lento</option>
+<option value="all">Todos</option>
+</select>
+<button class="btn" onclick="androidTips()">OPTIMIZAR</button>
+<div id="androidResult" class="result hidden"></div>
+</div>
 </section>
 
-<div class="redLine"></div>
-
-<!-- ================= ADM ================= -->
-<section id="adm">
- <h2 class="sectionTitle">
-  🔐 PAINEL <span>ADM</span>
- </h2>
- <p class="sectionDesc">
-  Área administrativa do Angomods Gaming.
- </p>
-
- <div class="card" id="admLogin">
-  <h3>🛡️ Acesso Administrativo</h3>
-
-  <label>Email</label>
-  <input id="admEmail"
-   type="email"
-   placeholder="Email do administrador">
-
-  <label>Palavra-passe</label>
-  <input id="admSenha"
-   type="password"
-   placeholder="Palavra-passe">
-
-  <button class="btn btnRed full"
-   onclick="entrarADM()">
-   🔐 ENTRAR
-  </button>
-
-  <p id="admEstado"
-   style="margin-top:12px;font-size:13px;color:#aaa">
-   Sessão encerrada.
-  </p>
- </div>
-
- <div class="card" id="admPainel"
-  style="display:none;margin-top:15px">
-
-  <h3>📦 Publicar Pack</h3>
-
-  <label>Nome do pack</label>
-  <input id="packNome"
-   placeholder="Ex: Sensi do Angomods">
-
-  <label>Autor</label>
-  <input id="packAutor"
-   placeholder="Nome do jogador">
-
-  <label>Descrição</label>
-  <textarea id="packDescricao"
-   placeholder="Descrição da configuração"></textarea>
-
-  <label>Geral</label>
-  <input id="packGeral"
-   type="number" placeholder="Geral">
-
-  <label>Red Dot</label>
-  <input id="packRed"
-   type="number" placeholder="Red Dot">
-
-  <label>2x</label>
-  <input id="packX2"
-   type="number" placeholder="2x">
-
-  <label>4x</label>
-  <input id="packX4"
-   type="number" placeholder="4x">
-
-  <label>AWM</label>
-  <input id="packAWM"
-   type="number" placeholder="AWM">
-
-  <label>Olhada</label>
-  <input id="packOlhada"
-   type="number" placeholder="Olhada">
-
-  <button class="btn btnRed full"
-   onclick="publicarPack()">
-   🚀 PUBLICAR PACK
-  </button>
-
-  <p id="packEstado"
-   style="margin-top:12px;font-size:13px"></p>
-
-  <button class="btn btnDark full"
-   onclick="sairADM()"
-   style="margin-top:15px">
-   SAIR DO ADM
-  </button>
- </div>
+<section class="section" id="nicks">
+<h2 class="sectionTitle">NICK <span>LAB</span></h2>
+<div class="card">
+<label>Nome</label>
+<input id="nickInput" placeholder="Escreve o teu nick">
+<button class="btn" onclick="generateNicks()">GERAR NICKS</button>
+<div id="nickResult" class="result hidden"></div>
+</div>
 </section>
 
-<div class="redLine"></div>
-
-<!-- ================= AI ================= -->
-<section id="ai">
- <h2 class="sectionTitle">
-  🤖 ANGOMODS <span>AI</span>
- </h2>
-
- <p class="sectionDesc">
-  Inteligência artificial para o universo Free Fire.
- </p>
-
- <div class="card">
-
-  <div style="display:flex;align-items:center;
-   gap:12px;margin-bottom:15px">
-
-   <div style="width:45px;height:45px;
-    background:#e5091422;border:1px solid #e50914;
-    border-radius:13px;display:flex;
-    align-items:center;justify-content:center;
-    color:#ff3030;font-weight:bold">
-    A
-   </div>
-
-   <div>
-    <h3>ANGOMODS AI</h3>
-    <p style="font-size:10px;color:#aaa">
-     GAMING INTELLIGENCE
-    </p>
-   </div>
-
-  </div>
-
-  <div style="font-size:11px;color:#ff5555;
-   margin-bottom:10px">
-   ● ONLINE
-  </div>
-
-  <div style="background:#080808;
-   border:1px solid #222;border-radius:12px;
-   padding:12px;margin-bottom:12px;
-   font-size:11px;color:#ff5555">
-   root@angomods:~# connection established<br>
-   GROQ ENGINE // SESSION
-  </div>
-
-  <div id="chatMensagens"
-   style="height:340px;overflow-y:auto;
-   background:#0b0b0b;border:1px solid #292929;
-   border-radius:14px;padding:12px;
-   margin-bottom:12px">
-
-   <div style="background:#171717;
-    border:1px solid #292929;
-    border-radius:12px;padding:13px;
-    font-size:13px;line-height:1.6">
-
-    <strong style="color:#ff3030">
-     ANGOMODS AI
-    </strong>
-
-    <p style="margin-top:8px">
-     Yo, jogador! 👾
-    </p>
-
-    <p style="margin-top:8px">
-     Sou a Angomods IA. Posso ajudar com
-     Free Fire, sensibilidade, HUD, estratégias
-     e optimização Android.
-    </p>
-
-    <p style="margin-top:8px">
-     Como podemos dominar hoje?
-    </p>
-   </div>
-  </div>
-
-  <div style="display:flex;gap:8px">
-   <input id="aiPergunta"
-    placeholder="Escreve uma mensagem..."
-    style="margin:0;flex:1">
-
-   <button class="btn btnRed"
-    onclick="enviarAI()">
-    ➤
-   </button>
-  </div>
-
-  <p style="margin-top:12px;
-   font-size:10px;color:#777">
-   ⚡ GROQ ENGINE
-  </p>
-
- </div>
+<section class="section" id="packs">
+<h2 class="sectionTitle">ADM <span>PACKS</span></h2>
+<div class="card">
+<p>Conteúdo publicado pelo ADM.</p>
+<button class="btn secondary" onclick="loadPacks()">ATUALIZAR PACKS</button>
+</div>
+<div id="packsList" style="margin-top:15px">
+<div class="result">Carrega em atualizar packs.</div>
+</div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer>
- <p>
-  ⚡ <span>ANGOMODS GAMING</span>
- </p>
-
- <p style="margin-top:8px">
-  Feito para a comunidade Free Fire.
- </p>
-
- <p style="margin-top:8px">
-  RED EDITION · 2026
- </p>
-</footer>
-<!-- ================= ENGINE ================= -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-/* ================= CONFIG ================= */
-
-const SUPABASE_URL =
- "https://llgqbzteoqjiyrwwylwk.supabase.co";
-
-const SUPABASE_KEY =
- "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
-
-const supabaseClient = window.supabase.createClient(
- SUPABASE_URL,
- SUPABASE_KEY
-);
-
-let aiHistorico = [];
-let adminAutorizado = false;
-
-/* ================= MENU ================= */
-
-function toggleMenu(){
- document.getElementById("navlinks")
-  .classList.toggle("show");
-}
-
-document.querySelectorAll(".navlinks a")
- .forEach(link=>{
-  link.addEventListener("click",()=>{
-   document.getElementById("navlinks")
-    .classList.remove("show");
-  });
- });
-
-/* ================= COPIAR ================= */
-
-async function copiar(texto){
- try{
-  await navigator.clipboard.writeText(texto);
-  alert("Copiado!");
- }catch(e){
-  const area=document.createElement("textarea");
-  area.value=texto;
-  document.body.appendChild(area);
-  area.select();
-  document.execCommand("copy");
-  area.remove();
-  alert("Copiado!");
- }
-}
-
-/* ================= SENSI ================= */
-
-function gerarSensi(){
-
- const estilo=document.getElementById("estilo").value;
- const sistema=document.getElementById("sistema").value;
- const dispositivo=document.getElementById("dispositivo").value.trim();
- const dpiInput=document.getElementById("dpi").value.trim();
- const out=document.getElementById("resultadoSensi");
-
- if(!dispositivo){
-  out.innerHTML="<div class='result'>Indica o teu dispositivo.</div>";
-  return;
- }
-
- let dpi=null;
-
- if(dpiInput!==""){
-  dpi=Number(dpiInput);
-
-  if(!Number.isFinite(dpi)||dpi<100||dpi>1000){
-   out.innerHTML="<div class='result'>DPI inválido. Verifica o valor.</div>";
-   return;
-  }
- }
-
- if(sistema==="ios"&&dpi!==null){
-  out.innerHTML="<div class='result'>No iPhone, não usamos DPI Android. Retira o DPI e gera novamente.</div>";
-  return;
- }
-
- if(sistema==="ios"&&/oppo|redmi|xiaomi|samsung|tecno|infinix|realme|motorola|huawei|vivo/i.test(dispositivo)){
-  out.innerHTML="<div class='result'>O modelo indicado parece ser Android. Seleciona Android.</div>";
-  return;
- }
-
- if(sistema==="android"&&/iphone|ipad/i.test(dispositivo)){
-  out.innerHTML="<div class='result'>O modelo indicado parece ser iOS. Seleciona iPhone / iOS.</div>";
-  return;
- }
-
- let base=160;
-
- if(estilo==="arrasto") base=185;
- if(estilo==="precisao") base=145;
- if(estilo==="equilibrado") base=165;
- if(estilo==="agressivo") base=190;
-
- if(dpi!==null){
-  if(dpi>=600) base-=15;
-  else if(dpi>=450) base-=8;
-  else if(dpi>=300) base-=3;
- }
-
- base=Math.max(100,Math.min(200,base));
-
- const geral=base;
- const red=Math.max(100,base-10);
- const x2=Math.max(90,base-20);
- const x4=Math.max(80,base-35);
- const awm=Math.max(60,base-60);
- const olhada=Math.max(80,base-25);
-
- out.innerHTML=`
- <div class="result" style="animation:fadeIn .4s">
-  <h3 style="color:#ff3030;margin-bottom:12px">
-   ⚡ SENSI GERADA
-  </h3>
-  <p style="margin-bottom:10px;color:#aaa">
-   ${dispositivo} · ${sistema==="ios"?"iOS":"Android"}
-  </p>
-
-  <div class="grid">
-   <div class="card"><p>Geral</p><h2>${geral}</h2></div>
-   <div class="card"><p>Red Dot</p><h2>${red}</h2></div>
-   <div class="card"><p>2x</p><h2>${x2}</h2></div>
-   <div class="card"><p>4x</p><h2>${x4}</h2></div>
-   <div class="card"><p>AWM</p><h2>${awm}</h2></div>
-   <div class="card"><p>Olhada</p><h2>${olhada}</h2></div>
-  </div>
-
-  <button class="btn btnDark full"
-   style="margin-top:12px"
-   onclick="copiar('Geral: ${geral}\\nRed Dot: ${red}\\n2x: ${x2}\\n4x: ${x4}\\nAWM: ${awm}\\nOlhada: ${olhada}')">
-   📋 COPIAR SENSI
-  </button>
-
-  <p style="font-size:11px;color:#888;margin-top:12px">
-   Configuração inicial estimada.
-   Ajusta conforme o teu controlo e dispositivo.
-  </p>
- </div>`;
-}
-
-/* ================= NICKS ================= */
-
-function gerarNicks(){
-
- const nome=document.getElementById("nomeNick").value.trim();
- const out=document.getElementById("resultadoNicks");
-
- if(!nome){
-  out.innerHTML="<div class='result'>Escreve um nome primeiro.</div>";
-  return;
- }
-
- const estilos=[
-  "亗 "+nome+" 亗",
-  "꧁"+nome+"꧂",
-  "『"+nome+"』",
-  "乂"+nome+"乂",
-  "★彡"+nome+"彡★",
-  "么"+nome+"么",
-  "ツ"+nome+"ツ",
-  "◥"+nome+"◤",
-  "亗『"+nome+"』",
-  "꧁༒"+nome+"༒꧂",
-  "乂『"+nome+"』乂",
-  "〆"+nome+"〆",
-  "メ"+nome+"メ",
-  "♛"+nome+"♛",
-  "◉"+nome+"◉"
- ];
-
- out.innerHTML=`
- <div class="result" style="animation:fadeIn .4s">
-  <h3 style="color:#ff3030;margin-bottom:12px">
-   👑 NICKS
-  </h3>
-  ${estilos.map(n=>`
-   <div style="display:flex;justify-content:space-between;
-    align-items:center;gap:8px;padding:10px;
-    border-bottom:1px solid #222">
-    <span style="overflow-wrap:anywhere">${escapeHTML(n)}</span>
-    <button class="btn btnDark"
-     onclick="copiar(${JSON.stringify(n).replace(/</g,'\\u003c')})">
-     Copiar
-    </button>
-   </div>
-  `).join("")}
- </div>`;
-}
-
-/* ================= HTML ESCAPE ================= */
-
-function escapeHTML(text){
- return String(text).replace(/[&<>"']/g,function(c){
-  return {
-   "&":"&amp;",
-   "<":"&lt;",
-   ">":"&gt;",
-   '"':"&quot;",
-   "'":"&#39;"
-  }[c];
- });
-}
-<script>
-/* ================= PACKS ================= */
-
-async function carregarPacks(){
-
- const out=document.getElementById("listaPacks");
-
- out.innerHTML="<div class='card'>⌛ A carregar packs...</div>";
-
- try{
-  const {data,error}=await supabaseClient
-   .from("packs")
-   .select("*");
-
-  if(error) throw error;
-
-  if(!data||data.length===0){
-   out.innerHTML=`
-    <div class="card">
-     <p>Ainda não existem packs publicados.</p>
-    </div>`;
-   return;
-  }
-
-  out.innerHTML=`
-   <div class="grid">
-    ${data.map(p=>`
-     <div class="card" style="animation:fadeIn .4s">
-      <span class="badge">PACK COMUNITÁRIO</span>
-      <h3 style="margin-top:12px">${escapeHTML(p.nome||"Pack")}</h3>
-      <p>Autor: ${escapeHTML(p.autor||"Anónimo")}</p>
-      <p style="margin-top:8px">${escapeHTML(p.descricao||"")}</p>
-
-      <div class="grid" style="margin-top:12px">
-       <div class="card"><p>Geral</p><h3>${escapeHTML(p.geral??"-")}</h3></div>
-       <div class="card"><p>Red Dot</p><h3>${escapeHTML(p.red_dot??"-")}</h3></div>
-       <div class="card"><p>2x</p><h3>${escapeHTML(p.x2??"-")}</h3></div>
-       <div class="card"><p>4x</p><h3>${escapeHTML(p.x4??"-")}</h3></div>
-       <div class="card"><p>AWM</p><h3>${escapeHTML(p.awm??"-")}</h3></div>
-       <div class="card"><p>Olhada</p><h3>${escapeHTML(p.olhada??"-")}</h3></div>
-      </div>
-
-      <button class="btn btnDark full"
-       style="margin-top:12px"
-       onclick="copiar(${JSON.stringify(
-        `Geral: ${p.geral??"-"}\nRed Dot: ${p.red_dot??"-"}\n2x: ${p.x2??"-"}\n4x: ${p.x4??"-"}\nAWM: ${p.awm??"-"}\nOlhada: ${p.olhada??"-"}`
-       ).replace(/</g,'\\u003c')})">
-       📋 COPIAR PACK
-      </button>
-     </div>
-    `).join("")}
-   </div>`;
- }catch(error){
-  console.error("Erro Packs:",error);
-
-  out.innerHTML=`
-   <div class="card" style="border-color:#e50914">
-    <p style="color:#ff5555">⚠️ Erro ao carregar packs.</p>
-    <p style="font-size:12px;margin-top:8px">
-     ${escapeHTML(error.message||"Erro desconhecido")}
-    </p>
-   </div>`;
- }
-}
-
-/* ================= ADM ================= */
-
-async function verificarADM(){
-
- const {data:{session},error:sessionError}=
-  await supabaseClient.auth.getSession();
-
- if(sessionError||!session){
-  adminAutorizado=false;
-  document.getElementById("admPainel").style.display="none";
-  document.getElementById("admLogin").style.display="block";
-  return false;
- }
-
- const {data,error}=await supabaseClient
-  .from("admins")
-  .select("user_id")
-  .eq("user_id",session.user.id)
-  .maybeSingle();
-
- if(error||!data){
-  adminAutorizado=false;
-  await supabaseClient.auth.signOut();
-  document.getElementById("admPainel").style.display="none";
-  document.getElementById("admLogin").style.display="block";
-  document.getElementById("admEstado").textContent=
-   "Esta conta não possui autorização administrativa.";
-  return false;
- }
-
- adminAutorizado=true;
-
- document.getElementById("admLogin").style.display="none";
- document.getElementById("admPainel").style.display="block";
- document.getElementById("admEstado").textContent="Administrador autenticado.";
-
- return true;
-}
-
-async function entrarADM(){
-
- const email=document.getElementById("admEmail").value.trim();
- const senha=document.getElementById("admSenha").value;
- const estado=document.getElementById("admEstado");
-
- if(!email||!senha){
-  estado.textContent="Preenche o email e a palavra-passe.";
-  return;
- }
-
- estado.textContent="A autenticar...";
-
- const {data,error}=await supabaseClient.auth.signInWithPassword({
-  email:email,
-  password:senha
- });
-
- if(error){
-  estado.textContent="Erro: "+error.message;
-  return;
- }
-
- const autorizado=await verificarADM();
-
- if(!autorizado){
-  estado.textContent="Conta sem autorização administrativa.";
- }
-}
-
-async function sairADM(){
-
- await supabaseClient.auth.signOut();
- adminAutorizado=false;
-
- document.getElementById("admPainel").style.display="none";
- document.getElementById("admLogin").style.display="block";
- document.getElementById("admEstado").textContent="Sessão encerrada.";
-}
-
-/* ================= PUBLICAR PACK ================= */
-
-async function publicarPack(){
-
- const estado=document.getElementById("packEstado");
-
- if(!adminAutorizado){
-  estado.textContent="Não estás autenticado como administrador.";
-  return;
- }
-
- const nome=document.getElementById("packNome").value.trim();
- const autor=document.getElementById("packAutor").value.trim();
- const descricao=document.getElementById("packDescricao").value.trim();
-
- if(!nome||!autor){
-  estado.textContent="Preenche o nome do pack e o autor.";
-  return;
- }
-
- const campos=[
-  ["packGeral","geral"],
-  ["packRed","red_dot"],
-  ["packX2","x2"],
-  ["packX4","x4"],
-  ["packAWM","awm"],
-  ["packOlhada","olhada"]
- ];
-
- const valores={};
-
- for(const [id,field] of campos){
-  const value=document.getElementById(id).value.trim();
-
-  if(value===""){
-   estado.textContent="Preenche todos os valores de sensibilidade.";
-   return;
-  }
-
-  const numero=Number(value);
-
-  if(!Number.isFinite(numero)||numero<0||numero>200){
-   estado.textContent="Os valores de sensibilidade devem estar entre 0 e 200.";
-   return;
-  }
-
-  valores[field]=numero;
- }
-
- estado.textContent="A publicar...";
-
- const {error}=await supabaseClient
-  .from("packs")
-  .insert([{
-   nome:nome,
-   autor:autor,
-   descricao:descricao,
-   geral:valores.geral,
-   red_dot:valores.red_dot,
-   x2:valores.x2,
-   x4:valores.x4,
-   awm:valores.awm,
-   olhada:valores.olhada
-  }]);
-
- if(error){
-  estado.textContent="Erro: "+error.message;
-  return;
- }
-
- estado.textContent="Pack publicado com sucesso! 🔥";
-
- ["packNome","packAutor","packDescricao",
-  "packGeral","packRed","packX2","packX4",
-  "packAWM","packOlhada"]
- .forEach(id=>document.getElementById(id).value="");
-
- await carregarPacks();
-}
-
-/* ================= AUTH LISTENER ================= */
-
-supabaseClient.auth.onAuthStateChange((event,session)=>{
- if(event==="SIGNED_OUT"){
-  adminAutorizado=false;
-  document.getElementById("admPainel").style.display="none";
-  document.getElementById("admLogin").style.display="block";
- }
-});
-</script>
-<script>
-/* ================= ANGOMODS AI ================= */
-
-function adicionarMensagem(tipo,texto){
-
- const chat=document.getElementById("chatMensagens");
- const div=document.createElement("div");
-
- div.style.cssText=
-  "background:#171717;border:1px solid #292929;border-radius:12px;padding:13px;margin-bottom:12px;animation:fadeIn .3s;";
-
- const titulo=document.createElement("strong");
- titulo.style.color=tipo==="ai"?"#ff3030":"#ffffff";
- titulo.textContent=tipo==="ai"?"ANGOMODS AI":"TU";
-
- const corpo=document.createElement("div");
- corpo.style.cssText="margin-top:8px;font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;";
- corpo.textContent=texto;
-
- div.appendChild(titulo);
- div.appendChild(corpo);
-
- chat.appendChild(div);
- chat.scrollTop=chat.scrollHeight;
-}
-
-async function enviarAI(){
-
- const input=document.getElementById("aiPergunta");
- const pergunta=input.value.trim();
-
- if(!pergunta)return;
-
- input.value="";
- adicionarMensagem("user",pergunta);
-
- aiHistorico.push({
-  role:"user",
-  content:pergunta
- });
-
- const chat=document.getElementById("chatMensagens");
- const loading=document.createElement("div");
-
- loading.id="aiLoading";
- loading.style.cssText="padding:12px;color:#ff3030;font-size:13px;";
- loading.textContent="ANGOMODS AI está a pensar...";
- chat.appendChild(loading);
- chat.scrollTop=chat.scrollHeight;
-
- try{
-
-  const response=await fetch(
-   SUPABASE_URL+"/functions/v1/angomods-ai",
-   {
-    method:"POST",
-    headers:{
-     "Content-Type":"application/json",
-     "apikey":SUPABASE_KEY,
-     "Authorization":"Bearer "+SUPABASE_KEY
-    },
-    body:JSON.stringify({
-     message:pergunta,
-     historico:aiHistorico.slice(-20)
-    })
-   }
-  );
-
-  const data=await response.json();
-
-  document.getElementById("aiLoading")?.remove();
-
-  if(!response.ok){
-   throw new Error(data.error||data.erro||data.message||"Erro na IA.");
-  }
-
-  const resposta=
-   data.resposta||
-   data.response||
-   data.message||
-   data.output||
-   data.content||
-   data.answer;
-
-  if(typeof resposta!=="string"){
-   throw new Error("A IA não devolveu uma resposta válida.");
-  }
-
-  adicionarMensagem("ai",resposta);
-
-  aiHistorico.push({
-   role:"assistant",
-   content:resposta
-  });
-
- }catch(error){
-
-  document.getElementById("aiLoading")?.remove();
-
-  adicionarMensagem(
-   "ai",
-   "Não consegui conectar neste momento. "+error.message
-  );
-
-  console.error("Angomods AI:",error);
- }
-}
-
-document.getElementById("aiPergunta")
- .addEventListener("keydown",function(e){
-  if(e.key==="Enter"){
-   e.preventDefault();
-   enviarAI();
-  }
- });
-
-/* ================= INICIALIZAÇÃO ================= */
-
-async function iniciarAngomods(){
-
- await carregarPacks();
- await verificarADM();
-
-}
-
-iniciarAngomods();
-
-</script>
+<section class="section" id="ai">
+<h2 class="sectionTitle">ANGOMODS <span>AI</span></h2>
+<div class="chatBox">
+<div class="chatMessages" id="chatMessages">
+<div class="message aiMessage">👋 Olá! Seu Buteco Da Garena. Pergunta-me sobre Free Fire, sensi, Android e gaming.</div>
+</div>
+<div class="chatInput">
+<input id="chatInput" placeholder="Escreve uma mensagem..." onkeydown="if(event.key==='Enter')sendAI()">
+<button class="btn" onclick="sendAI()">➤</button>
+</div>
+</div>
+</section>
+
+<section class="section" id="admin">
+<h2 class="sectionTitle">PAINEL <span>ADMIN</span></h2>
+<div class="adminArea">
+<div id="adminLogin">
+<label>Email</label>
+<input id="adminEmail" type="email" placeholder="Email">
+<label>Senha</label>
+<input id="adminPassword" type="password" placeholder="Senha">
+<button class="btn" onclick="adminLogin()">ENTRAR</button>
+<div id="adminStatus" class="result hidden"></div>
+</div>
+<div id="adminPanel" class="hidden">
+<h3>Publicar Pack</h3>
+<input id="packTitle" placeholder="Título">
+<select id="packCategory">
+<option value="Sensi">Sensi</option>
+<option value="Android">Android</option>
+<option value="Mods">Mods</option>
+<option value="Outros">Outros</option>
+</select>
+<textarea id="packContent" rows="4" placeholder="Conteúdo ou link"></textarea>
+<button class="btn" onclick="publishPack()">PUBLICAR</button>
+<div id="publishStatus" class="result hidden"></div>
+<button class="btn secondary" onclick="adminLogout()" style="margin-top:10px">SAIR</button>
+</div>
+</div>
+</section>
 
 </main>
+
+<footer>
+<p>ANGOMODS <span>GAMING</span></p>
+<p>Free Fire Community • Angola</p>
+<p>© 2026 ANGOMODS</p>
+</footer>
+
+<script>
+const SUPABASE_URL="https://vhidhwxsjzpvlpwxjpmi.supabase.co";
+const SUPABASE_KEY="sb_publishable_AaQj1O0FFly8eHUhLM0b4w_PN9_Ig53";
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
+function generateSensi(){
+  const device=document.getElementById("device").value;
+  const model=document.getElementById("model").value.trim();
+  const dpiInput=document.getElementById("dpi");
+  const dpi=dpiInput.value;
+  const style=document.getElementById("style").value;
+  const result=document.getElementById("sensiResult");
+
+  if(!device||!model){
+    result.classList.remove("hidden");
+    result.innerHTML="Preenche o dispositivo e o modelo.";
+    return;
+  }
+
+  if(device==="iphone"&&dpi){
+    result.classList.remove("hidden");
+    result.innerHTML="iPhone não utiliza o campo DPI Android. Retira o DPI.";
+    return;
+  }
+
+  if(device==="android"&&dpi&&
+    (Number(dpi)<100||Number(dpi)>1000)){
+    result.classList.remove("hidden");
+    result.innerHTML="DPI inválido. Introduz um valor entre 100 e 1000.";
+    return;
+  }
+
+  let values;
+
+  if(style==="fast"){
+    values=[195,190,185,180,175];
+  }else if(style==="balanced"){
+    values=[180,175,170,165,160];
+  }else if(style==="close"){
+    values=[195,185,180,170,165];
+  }else{
+    values=[165,155,145,135,125];
+  }
+
+  let labels=[
+    "Geral",
+    "Red Dot",
+    "2x",
+    "4x",
+    "AWM"
+  ];
+
+  let output="<h3>SENSI GERADA</h3>";
+  output+="<p><b>Modelo:</b> "+escapeHTML(model)+"</p>";
+
+  if(device==="android"&&dpi){
+    output+="<p><b>DPI:</b> "+escapeHTML(dpi)+"</p>";
+  }
+
+  for(let i=0;i<labels.length;i++){
+    output+="<p><b>"+labels[i]+":</b> "+values[i]+"</p>";
+  }
+
+  output+="<p><b>Botão:</b> 48%</p>";
+  output+="<p><small>Valores experimentais. Ajusta conforme o teu aparelho.</small></p>";
+
+  output+='<button class="btn" onclick="copyText('+JSON.stringify(labels.map((l,i)=>l+": "+values[i]).join("\n")+"\nBotão: 48%")+')">COPIAR SENSI</button>';
+
+  result.innerHTML=output;
+  result.classList.remove("hidden");
+}
+
+function androidTips(){
+  const model=document.getElementById("androidModel").value.trim();
+  const problem=document.getElementById("androidProblem").value;
+  const result=document.getElementById("androidResult");
+
+  if(!model){
+    result.classList.remove("hidden");
+    result.innerHTML="Introduz o modelo do teu aparelho.";
+    return;
+  }
+
+  let tips={
+    fps:[
+      "Reduz os gráficos do Free Fire.",
+      "Desativa sombras.",
+      "Fecha aplicações em segundo plano.",
+      "Evita jogar enquanto carregas.",
+      "Reinicia o telefone antes de sessões longas."
+    ],
+    heat:[
+      "Evita jogar durante o carregamento.",
+      "Retira capas muito grossas.",
+      "Evita sol e temperaturas elevadas.",
+      "Faz pausas entre partidas."
+    ],
+    lag:[
+      "Verifica a estabilidade da internet.",
+      "Fecha aplicações desnecessárias.",
+      "Evita VPNs durante a partida.",
+      "Mantém algum espaço livre no armazenamento."
+    ],
+    touch:[
+      "Limpa o ecrã.",
+      "Evita películas muito espessas ou danificadas.",
+      "Desativa aplicações de sobreposição.",
+      "Testa a sensibilidade em treino."
+    ],
+    all:[
+      "Reduz os gráficos.",
+      "Fecha aplicações em segundo plano.",
+      "Evita jogar enquanto carregas.",
+      "Verifica a ligação à internet.",
+      "Mantém espaço livre no armazenamento.",
+      "Reinicia o telefone antes de jogar.",
+      "Faz pausas para evitar aquecimento."
+    ]
+  };
+
+  result.innerHTML="<h3>Optimização: "+escapeHTML(model)+"</h3><ul>"+tips[problem].map(t=>"<li>"+t+"</li>").join("")+"</ul>";
+  result.classList.remove("hidden");
+}
+
+function generateNicks(){
+  const name=document.getElementById("nickInput").value.trim();
+  const result=document.getElementById("nickResult");
+
+  if(!name){
+    result.classList.remove("hidden");
+    result.innerHTML="Escreve um nome primeiro.";
+    return;
+  }
+
+  const styles=[
+    "亗 "+name+" 亗",
+    "『"+name+"』",
+    "乂"+name+"乂",
+    "么"+name+"么",
+    "★彡"+name+"彡★",
+    "メ"+name+"メ",
+    "〆"+name,
+    "꧁"+name+"꧂",
+    "ᴹᴿメ"+name,
+    "亗『"+name+"』"
+  ];
+
+  result.innerHTML="<h3>NICKS</h3>"+styles.map(n=>"<p>"+escapeHTML(n)+" <button class='btn secondary' onclick='copyText("+JSON.stringify(n)+")'>COPIAR</button></p>").join("");
+  result.classList.remove("hidden");
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,function(c){
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c];
+  });
+}
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    alert("Copiado!");
+  }catch(e){
+    const area=document.createElement("textarea");
+    area.value=text;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    alert("Copiado!");
+  }
+}
+
+let chatHistory=[];
+
+async function sendAI(){
+  const input=document.getElementById("chatInput");
+  const messages=document.getElementById("chatMessages");
+  const prompt=input.value.trim();
+
+  if(!prompt)return;
+
+  input.value="";
+
+  messages.innerHTML+='<div class="message userMessage">'+escapeHTML(prompt)+'</div>';
+  messages.scrollTop=messages.scrollHeight;
+
+  chatHistory.push({role:"user",content:prompt});
+
+  const loading=document.createElement("div");
+  loading.className="message aiMessage loading";
+  loading.textContent="ANGOMODS AI está a pensar...";
+  messages.appendChild(loading);
+
+  try{
+    const response=await fetch(SUPABASE_URL+"/functions/v1/angomods-ai",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer "+SUPABASE_KEY
+      },
+      body:JSON.stringify({
+        messages:chatHistory,
+        prompt:prompt
+      })
+    });
+
+    const data=await response.json();
+
+    loading.remove();
+
+    if(!response.ok){
+      throw new Error(data.error||data.message||"Erro na IA");
+    }
+
+    const answer=data.answer||data.response||data.message||data.reply||data.output||data.text||data.choices?.[0]?.message?.content||"Resposta não encontrada.";
+
+    chatHistory.push({role:"assistant",content:answer});
+
+    messages.innerHTML+='<div class="message aiMessage">'+escapeHTML(answer)+'</div>';
+  }catch(error){
+    loading.remove();
+    messages.innerHTML+='<div class="message aiMessage">Erro na ligação à IA. Verifica a configuração da API e a função Supabase.</div>';
+  }
+
+  messages.scrollTop=messages.scrollHeight;
+}
+
+let adminToken=null;
+
+async function adminLogin(){
+  const email=document.getElementById("adminEmail").value.trim();
+  const password=document.getElementById("adminPassword").value;
+  const status=document.getElementById("adminStatus");
+
+  status.classList.remove("hidden");
+  status.textContent="A autenticar...";
+
+  try{
+    const response=await fetch(SUPABASE_URL+"/auth/v1/token?grant_type=password",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "apikey":SUPABASE_KEY
+      },
+      body:JSON.stringify({
+        email:email,
+        password:password
+      })
+    });
+
+    const data=await response.json();
+
+    if(!response.ok){
+      throw new Error(data.error_description||data.msg||data.message||"Falha no login");
+    }
+
+    adminToken=data.access_token;
+
+    document.getElementById("adminLogin").classList.add("hidden");
+    document.getElementById("adminPanel").classList.remove("hidden");
+    status.textContent="Sessão iniciada.";
+  }catch(error){
+    status.textContent="Falha no login: "+error.message;
+  }
+}
+
+function adminLogout(){
+  adminToken=null;
+  document.getElementById("adminPanel").classList.add("hidden");
+  document.getElementById("adminLogin").classList.remove("hidden");
+}
+
+async function publishPack(){
+  const title=document.getElementById("packTitle").value.trim();
+  const category=document.getElementById("packCategory").value;
+  const content=document.getElementById("packContent").value.trim();
+  const status=document.getElementById("publishStatus");
+
+  status.classList.remove("hidden");
+
+  if(!adminToken){
+    status.textContent="Faz login primeiro.";
+    return;
+  }
+
+  if(!title||!content){
+    status.textContent="Preenche o título e o conteúdo.";
+    return;
+  }
+
+  status.textContent="A publicar...";
+
+  try{
+    const response=await fetch(SUPABASE_URL+"/rest/v1/packs",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer "+adminToken,
+        "Prefer":"return=representation"
+      },
+      body:JSON.stringify({
+        titulo:title,
+        categoria:category,
+        conteudo:content
+      })
+    });
+
+    const data=await response.json();
+
+    if(!response.ok){
+      throw new Error(data.message||data.details||JSON.stringify(data));
+    }
+
+    status.textContent="Pack publicado!";
+    document.getElementById("packTitle").value="";
+    document.getElementById("packContent").value="";
+    loadPacks();
+  }catch(error){
+    status.textContent="Erro ao publicar: "+error.message;
+  }
+}
+</script>
 </body>
 </html>
