@@ -999,6 +999,240 @@ function escapeHTML(text){
  });
 }
 <script>
+/* ================= PACKS ================= */
+
+async function carregarPacks(){
+
+ const out=document.getElementById("listaPacks");
+
+ out.innerHTML="<div class='card'>⌛ A carregar packs...</div>";
+
+ try{
+  const {data,error}=await supabaseClient
+   .from("packs")
+   .select("*");
+
+  if(error) throw error;
+
+  if(!data||data.length===0){
+   out.innerHTML=`
+    <div class="card">
+     <p>Ainda não existem packs publicados.</p>
+    </div>`;
+   return;
+  }
+
+  out.innerHTML=`
+   <div class="grid">
+    ${data.map(p=>`
+     <div class="card" style="animation:fadeIn .4s">
+      <span class="badge">PACK COMUNITÁRIO</span>
+      <h3 style="margin-top:12px">${escapeHTML(p.nome||"Pack")}</h3>
+      <p>Autor: ${escapeHTML(p.autor||"Anónimo")}</p>
+      <p style="margin-top:8px">${escapeHTML(p.descricao||"")}</p>
+
+      <div class="grid" style="margin-top:12px">
+       <div class="card"><p>Geral</p><h3>${escapeHTML(p.geral??"-")}</h3></div>
+       <div class="card"><p>Red Dot</p><h3>${escapeHTML(p.red_dot??"-")}</h3></div>
+       <div class="card"><p>2x</p><h3>${escapeHTML(p.x2??"-")}</h3></div>
+       <div class="card"><p>4x</p><h3>${escapeHTML(p.x4??"-")}</h3></div>
+       <div class="card"><p>AWM</p><h3>${escapeHTML(p.awm??"-")}</h3></div>
+       <div class="card"><p>Olhada</p><h3>${escapeHTML(p.olhada??"-")}</h3></div>
+      </div>
+
+      <button class="btn btnDark full"
+       style="margin-top:12px"
+       onclick="copiar(${JSON.stringify(
+        `Geral: ${p.geral??"-"}\nRed Dot: ${p.red_dot??"-"}\n2x: ${p.x2??"-"}\n4x: ${p.x4??"-"}\nAWM: ${p.awm??"-"}\nOlhada: ${p.olhada??"-"}`
+       ).replace(/</g,'\\u003c')})">
+       📋 COPIAR PACK
+      </button>
+     </div>
+    `).join("")}
+   </div>`;
+ }catch(error){
+  console.error("Erro Packs:",error);
+
+  out.innerHTML=`
+   <div class="card" style="border-color:#e50914">
+    <p style="color:#ff5555">⚠️ Erro ao carregar packs.</p>
+    <p style="font-size:12px;margin-top:8px">
+     ${escapeHTML(error.message||"Erro desconhecido")}
+    </p>
+   </div>`;
+ }
+}
+
+/* ================= ADM ================= */
+
+async function verificarADM(){
+
+ const {data:{session},error:sessionError}=
+  await supabaseClient.auth.getSession();
+
+ if(sessionError||!session){
+  adminAutorizado=false;
+  document.getElementById("admPainel").style.display="none";
+  document.getElementById("admLogin").style.display="block";
+  return false;
+ }
+
+ const {data,error}=await supabaseClient
+  .from("admins")
+  .select("user_id")
+  .eq("user_id",session.user.id)
+  .maybeSingle();
+
+ if(error||!data){
+  adminAutorizado=false;
+  await supabaseClient.auth.signOut();
+  document.getElementById("admPainel").style.display="none";
+  document.getElementById("admLogin").style.display="block";
+  document.getElementById("admEstado").textContent=
+   "Esta conta não possui autorização administrativa.";
+  return false;
+ }
+
+ adminAutorizado=true;
+
+ document.getElementById("admLogin").style.display="none";
+ document.getElementById("admPainel").style.display="block";
+ document.getElementById("admEstado").textContent="Administrador autenticado.";
+
+ return true;
+}
+
+async function entrarADM(){
+
+ const email=document.getElementById("admEmail").value.trim();
+ const senha=document.getElementById("admSenha").value;
+ const estado=document.getElementById("admEstado");
+
+ if(!email||!senha){
+  estado.textContent="Preenche o email e a palavra-passe.";
+  return;
+ }
+
+ estado.textContent="A autenticar...";
+
+ const {data,error}=await supabaseClient.auth.signInWithPassword({
+  email:email,
+  password:senha
+ });
+
+ if(error){
+  estado.textContent="Erro: "+error.message;
+  return;
+ }
+
+ const autorizado=await verificarADM();
+
+ if(!autorizado){
+  estado.textContent="Conta sem autorização administrativa.";
+ }
+}
+
+async function sairADM(){
+
+ await supabaseClient.auth.signOut();
+ adminAutorizado=false;
+
+ document.getElementById("admPainel").style.display="none";
+ document.getElementById("admLogin").style.display="block";
+ document.getElementById("admEstado").textContent="Sessão encerrada.";
+}
+
+/* ================= PUBLICAR PACK ================= */
+
+async function publicarPack(){
+
+ const estado=document.getElementById("packEstado");
+
+ if(!adminAutorizado){
+  estado.textContent="Não estás autenticado como administrador.";
+  return;
+ }
+
+ const nome=document.getElementById("packNome").value.trim();
+ const autor=document.getElementById("packAutor").value.trim();
+ const descricao=document.getElementById("packDescricao").value.trim();
+
+ if(!nome||!autor){
+  estado.textContent="Preenche o nome do pack e o autor.";
+  return;
+ }
+
+ const campos=[
+  ["packGeral","geral"],
+  ["packRed","red_dot"],
+  ["packX2","x2"],
+  ["packX4","x4"],
+  ["packAWM","awm"],
+  ["packOlhada","olhada"]
+ ];
+
+ const valores={};
+
+ for(const [id,field] of campos){
+  const value=document.getElementById(id).value.trim();
+
+  if(value===""){
+   estado.textContent="Preenche todos os valores de sensibilidade.";
+   return;
+  }
+
+  const numero=Number(value);
+
+  if(!Number.isFinite(numero)||numero<0||numero>200){
+   estado.textContent="Os valores de sensibilidade devem estar entre 0 e 200.";
+   return;
+  }
+
+  valores[field]=numero;
+ }
+
+ estado.textContent="A publicar...";
+
+ const {error}=await supabaseClient
+  .from("packs")
+  .insert([{
+   nome:nome,
+   autor:autor,
+   descricao:descricao,
+   geral:valores.geral,
+   red_dot:valores.red_dot,
+   x2:valores.x2,
+   x4:valores.x4,
+   awm:valores.awm,
+   olhada:valores.olhada
+  }]);
+
+ if(error){
+  estado.textContent="Erro: "+error.message;
+  return;
+ }
+
+ estado.textContent="Pack publicado com sucesso! 🔥";
+
+ ["packNome","packAutor","packDescricao",
+  "packGeral","packRed","packX2","packX4",
+  "packAWM","packOlhada"]
+ .forEach(id=>document.getElementById(id).value="");
+
+ await carregarPacks();
+}
+
+/* ================= AUTH LISTENER ================= */
+
+supabaseClient.auth.onAuthStateChange((event,session)=>{
+ if(event==="SIGNED_OUT"){
+  adminAutorizado=false;
+  document.getElementById("admPainel").style.display="none";
+  document.getElementById("admLogin").style.display="block";
+ }
+});
+</script>
+<script>
 /* ================= ANGOMODS AI ================= */
 
 function adicionarMensagem(tipo,texto){
