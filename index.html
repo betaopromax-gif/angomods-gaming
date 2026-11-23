@@ -1,143 +1,256 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angomods GAMING</title>
 <meta name="theme-color" content="#07110b">
-<title>ANGOMODS GAMING | Free Fire</title>
-<meta name="description" content="ANGOMODS GAMING - Sensibilidades Free Fire, skins freestyle, otimização Android, nicknames e packs.">
+
 <style>
 :root{
---bg:#050b07;
---panel:#0d1911;
---panel2:#12251a;
---green:#00ff88;
---green2:#00bd65;
---text:#effff4;
---muted:#9bb4a3;
---border:#20452e;
+  --bg:#07110b;
+  --panel:#101d14;
+  --panel2:#16251a;
+  --green:#39ff88;
+  --green2:#17c964;
+  --text:#f1f5f2;
+  --muted:#99a89d;
+  --border:rgba(57,255,136,.13);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
 body{
-margin:0;
-background:var(--bg);
-color:var(--text);
-font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+button,input,textarea{
+  font-family:inherit;
+}
+button{
+  cursor:pointer;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 header{
-position:sticky;
-top:0;
-z-index:10;
-background:#07110bf2;
-border-bottom:1px solid var(--border);
-padding:14px;
-backdrop-filter:blur(12px);
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(7,17,11,.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
 }
 .nav{
-max-width:1050px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-flex-wrap:wrap;
+  max-width:1200px;
+  margin:auto;
+  padding:15px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
 }
-.logo{font-weight:900;font-size:21px;color:var(--green)}
-.logo span{color:white}
-nav{display:flex;gap:13px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:13px}
-nav a:hover{color:var(--green)}
-.container{max-width:1050px;margin:auto;padding:18px}
+.logo{
+  font-weight:900;
+  font-size:20px;
+  color:var(--green);
+}
+.logo span{
+  color:white;
+}
+.navlinks{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.navlinks a{
+  font-size:12px;
+  color:var(--muted);
+  transition:.2s;
+}
+.navlinks a:hover{
+  color:var(--green);
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:25px 18px;
+}
 .hero{
-text-align:center;
-padding:55px 18px 40px;
-background:radial-gradient(ellipse at top,#124d2b 0%,#07110b 65%);
+  min-height:420px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:50px 20px;
 }
-.hero h1{font-size:clamp(30px,7vw,55px);margin:0 0 12px}
-.hero h1 span{color:var(--green)}
-.hero p{color:var(--muted);line-height:1.6}
+.glow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:rgba(57,255,136,.12);
+  filter:blur(100px);
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero h1{
+  font-size:clamp(35px,8vw,75px);
+  font-weight:1000;
+  line-height:1.1;
+  position:relative;
+}
+.hero h1 span{
+  color:var(--green);
+}
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin-top:20px;
+  line-height:1.7;
+}
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:25px;
+}
 .btn{
-border:0;
-border-radius:10px;
-padding:12px 17px;
-font-weight:bold;
-background:var(--green);
-color:#001b0c;
+  background:var(--green);
+  color:#07110b;
+  border:none;
+  border-radius:12px;
+  padding:13px 18px;
+  font-weight:bold;
+  transition:.25s;
 }
-.btn:hover{filter:brightness(1.1)}
-.btn.secondary{background:#1b3324;color:white;border:1px solid var(--border)}
-section{scroll-margin-top:80px}
-.section-title{font-size:24px;margin:0 0 8px}
-.section-desc{color:var(--muted);line-height:1.5;margin:0 0 18px}
-.panel,.card{
-background:var(--panel);
-border:1px solid var(--border);
-border-radius:15px;
-padding:17px;
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px rgba(57,255,136,.2);
+}
+.btn2{
+  background:var(--panel);
+  color:white;
+  border:1px solid var(--border);
+}
+.section-title{
+  margin-bottom:20px;
+}
+.section-title h2{
+  font-size:25px;
+}
+.section-title p{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:8px;
 }
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:13px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
-.card h3{margin:0 0 9px;color:var(--green)}
-.card p{color:var(--muted);line-height:1.55}
+.card{
+  background:linear-gradient(145deg,var(--panel),#0c1710);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  transition:.25s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(57,255,136,.4);
+}
+.card h3{
+  margin-bottom:10px;
+}
+.card p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:13px;
+}
 .tag{
-display:inline-block;
-font-size:11px;
-color:var(--green);
-border:1px solid var(--border);
-padding:5px 8px;
-border-radius:20px;
-margin-bottom:10px;
+  display:inline-block;
+  background:rgba(57,255,136,.09);
+  color:var(--green);
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:11px;
+  margin-bottom:12px;
 }
-pre{
-white-space:pre-wrap;
-overflow-wrap:anywhere;
-background:#050b07;
-border:1px solid var(--border);
-padding:12px;
-border-radius:9px;
-color:#d9ffe6;
-font-family:monospace;
+input,textarea{
+  width:100%;
+  background:#08120c;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+  margin:8px 0;
 }
-input,select,textarea{
-width:100%;
-background:#050d08;
-border:1px solid var(--border);
-color:white;
-padding:12px;
-border-radius:9px;
-margin:6px 0 12px;
+input:focus,textarea:focus{
+  border-color:var(--green);
 }
-textarea{min-height:120px;resize:vertical}
-label{font-size:13px;color:var(--muted)}
-.status{font-size:13px;color:var(--muted);padding:8px 0}
-.good{color:var(--green)}
-.bad{color:#ff7777}
-.pack{margin-top:12px}
-.pack h3{color:var(--green);margin:0 0 7px}
-.pack small{color:var(--muted)}
-.tools{display:grid;gap:10px}
+.section{
+  padding:35px 0;
+}
+.skin-img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:12px;
+  background:#0c1710;
+}
+.result{
+  background:#07110b;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:12px;
+  margin-top:12px;
+  overflow-wrap:anywhere;
+}
+.small{
+  font-size:12px;
+  color:var(--muted);
+}
+.hidden{
+  display:none!important;
+}
 footer{
-text-align:center;
-color:var(--muted);
-padding:35px 15px;
-border-top:1px solid var(--border);
-margin-top:35px;
+  border-top:1px solid var(--border);
+  padding:30px 18px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
 }
-footer a{color:var(--green)}
-hr{border:0;border-top:1px solid var(--border);margin:20px 0}
-.hidden{display:none!important}
-@media(max-width:550px){
-header{position:relative}
-nav{gap:10px}
-nav a{font-size:12px}
-.container{padding:14px}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.animate{
+  animation:fadeIn .6s ease both;
+}
+@media(max-width:600px){
+  .nav{
+    flex-direction:column;
+  }
+  .navlinks{
+    justify-content:center;
+  }
+  .hero{
+    min-height:350px;
+  }
 }
 </style>
 </head>
@@ -145,1055 +258,626 @@ nav a{font-size:12px}
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">ANGO<span>MODS</span> 💚</div>
-<nav>
-<a href="#skins">Skins</a>
-<a href="#sensi">Sensi</a>
-<a href="#android">Android</a>
-<a href="#nicks">Nicknames</a>
-<a href="#comunidade">Packs</a>
-<a href="#admin-panel">Admin</a>
-</nav>
-</div>
+  <nav class="nav">
+    <div class="logo">ANGO<span>MODS</span></div>
+    <div class="navlinks">
+      <a href="#skins">SKINS</a>
+      <a href="#sensibilidade">SENSI</a>
+      <a href="#android">ANDROID</a>
+      <a href="#nick">NICKS</a>
+      <a href="#comunidade">COMUNIDADE</a>
+      <a href="#angomods-ai">IA</a>
+    </div>
+  </nav>
 </header>
 
-<div class="hero">
-<h1>ANGOMODS <span>GAMING</span></h1>
-<p>O teu espaço Free Fire: skins, sensibilidade, otimização e ferramentas.</p>
-<a href="#sensi"><button class="btn">EXPLORAR PACKS</button></a>
-</div>
+<section class="hero">
+  <div class="glow"></div>
+  <h1>ANGO<span>MODS</span><br>GAMING</h1>
+  <p>
+    O teu universo Free Fire. Skins, sensibilidade,
+    optimização, nicks e inteligência artificial.
+    Tudo num único lugar.
+  </p>
+  <div class="hero-buttons">
+    <a href="#sensibilidade" class="btn">⚡ SENSIBILIDADE</a>
+    <a href="#angomods-ai" class="btn btn2">🤖 ANGOMODS IA</a>
+  </div>
+</section>
 
 <main class="container">
+<!-- SKINS -->
+<section class="section" id="skins">
+  <div class="section-title">
+    <h2>🔥 Skins Freestyle</h2>
+    <p>Combinações para diferentes estilos.</p>
+  </div>
 
-<section id="skins">
-  <h2 class="section-title">🔥 SKINS FREESTYLE</h2>
-  <p class="section-desc">Escolhe o teu estilo.</p>
-
-  <style>
-    .skin-gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:15px;
-    }
-
-    .skin-item{
-      position:relative;
-      overflow:hidden;
-      border-radius:18px;
-      background:#0d1911;
-      border:1px solid #20452e;
-      transition:transform .25s,box-shadow .25s;
-    }
-
-    .skin-item:hover{
-      transform:translateY(-6px);
-      box-shadow:0 0 22px #00ff8830;
-    }
-
-    .skin-item img{
-      display:block;
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      transition:transform .4s;
-    }
-
-    .skin-item:hover img{
-      transform:scale(1.05);
-    }
-
-    .skin-label{
-      position:absolute;
-      bottom:0;
-      width:100%;
-      padding:12px;
-      background:linear-gradient(transparent,#000e);
-      color:#00ff88;
-      font-weight:bold;
-    }
-  </style>
-
-  <div class="skin-gallery">
-
-    <div class="skin-item">
-      <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80"
-      alt="Estilo premium">
-      <div class="skin-label">PREMIUM</div>
+  <div class="grid">
+    <div class="card">
+      <img class="skin-img" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=500&q=80" alt="Estilo gaming">
+      <h3>💎 Versão Podre de Rico</h3>
+      <p>Combinações com estilo de jogador gemado.</p>
     </div>
 
-    <div class="skin-item">
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80"
-      alt="Estilo gratuito">
-      <div class="skin-label">FREE</div>
+    <div class="card">
+      <img class="skin-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80" alt="Estilo gaming">
+      <h3>🗿 Versão Pobre</h3>
+      <p>Combinações simples com presença no campo.</p>
     </div>
 
-    <div class="skin-item">
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
-      alt="Estilo freestyle">
-      <div class="skin-label">FREESTYLE</div>
+    <div class="card">
+      <img class="skin-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=80" alt="Gaming">
+      <h3>⚡ Freestyle</h3>
+      <p>Estilos para criar o teu visual personalizado.</p>
     </div>
-
-    <div class="skin-item">
-      <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=80"
-      alt="Estilo street">
-      <div class="skin-label">STREET</div>
-    </div>
-
   </div>
 </section>
-<hr>
 
-<section id="sensi">
-<h2 class="section-title">🎯 Sensibilidade Free Fire</h2>
-<p class="section-desc">Escala atual de 0 a 200. Ajusta conforme o teu aparelho e o teu arrasto.</p>
+<!-- SENSIBILIDADE -->
+<section class="section" id="sensibilidade">
+  <div class="section-title">
+    <h2>🎯 Gerador de Sensibilidade</h2>
+    <p>Cria uma configuração para o teu estilo de jogo.</p>
+  </div>
 
-<div class="grid">
-<div class="card">
-<span class="tag">PACK 01</span>
-<h3>Arrasto rápido</h3>
-<pre>Geral: 190
-Ponto vermelho: 185
-Mira 2x: 180
-Mira 4x: 175
-AWM: 120
-Olhadinha: 150</pre>
-<button class="btn secondary" onclick="copyText('Geral: 190\\nPonto vermelho: 185\\nMira 2x: 180\\nMira 4x: 175\\nAWM: 120\\nOlhadinha: 150')">Copiar pack</button>
-</div>
-<div class="card">
-<span class="tag">PACK 02</span>
-<h3>Equilibrada</h3>
-<pre>Geral: 180
-Ponto vermelho: 175
-Mira 2x: 170
-Mira 4x: 165
-AWM: 110
-Olhadinha: 140</pre>
-<button class="btn secondary" onclick="copyText('Geral: 180\\nPonto vermelho: 175\\nMira 2x: 170\\nMira 4x: 165\\nAWM: 110\\nOlhadinha: 140')">Copiar pack</button>
-</div>
-<div class="card">
-<span class="tag">PACK 03</span>
-<h3>Precisão</h3>
-<pre>Geral: 170
-Ponto vermelho: 165
-Mira 2x: 160
-Mira 4x: 155
-AWM: 100
-Olhadinha: 130</pre>
-<button class="btn secondary" onclick="copyText('Geral: 170\\nPonto vermelho: 165\\nMira 2x: 160\\nMira 4x: 155\\nAWM: 100\\nOlhadinha: 130')">Copiar pack</button>
-</div>
-</div>
+  <div class="card">
+    <label>Estilo de jogo</label>
+    <select id="estilo" style="width:100%;padding:12px;background:#08120c;color:white;border:1px solid var(--border);border-radius:12px">
+      <option value="rapido">Arrasto rápido / puxar capa</option>
+      <option value="preciso">Precisão</option>
+      <option value="equilibrado">Equilibrado</option>
+    </select>
 
-<div class="panel" style="margin-top:14px">
-<h3>⚙️ Gerador de sensibilidade</h3>
-<label>Estilo de jogo</label>
-<select id="sensi-style">
-<option value="fast">Arrasto rápido</option>
-<option value="balanced">Equilibrado</option>
-<option value="precision">Precisão</option>
-</select>
-<label>Sensibilidade Geral</label>
-<input id="sensi-value" type="number" min="0" max="200" value="190">
-<button class="btn" onclick="generateSensi()">GERAR CONFIGURAÇÃO</button>
-<pre id="sensi-result">A tua configuração aparecerá aqui.</pre>
-<button class="btn secondary" onclick="copyElement('sensi-result')">Copiar configuração</button>
-</div>
+    <label>Dispositivo</label>
+    <input id="dispositivo" placeholder="Ex: OPPO A31">
+
+    <label>DPI (opcional)</label>
+    <input id="dpi" type="number" placeholder="Ex: 500">
+
+    <button class="btn" onclick="gerarSensi()">⚡ GERAR SENSI</button>
+
+    <div id="sensiResultado" class="result hidden"></div>
+  </div>
 </section>
 
-<hr>
+<!-- ANDROID -->
+<section class="section" id="android">
+  <div class="section-title">
+    <h2>📱 Optimização Android</h2>
+    <p>Dicas para melhorar a fluidez do jogo.</p>
+  </div>
 
-<section id="android">
-<h2 class="section-title">📱 Otimização Android</h2>
-<p class="section-desc">Dicas para melhorar a experiência de jogo sem promessas falsas de FPS.</p>
-<div class="grid">
-<div class="card">
-<h3>Antes de jogar</h3>
-<p>Fecha aplicações desnecessárias, liberta espaço, evita jogar enquanto o aparelho carrega e deixa o telefone arrefecer.</p>
-</div>
-<div class="card">
-<h3>Configurações</h3>
-<p>Experimenta gráficos suaves, desativa efeitos desnecessários e testa uma taxa de FPS estável que o aparelho consiga manter.</p>
-</div>
-<div class="card">
-<h3>Shizuku</h3>
-<p>Ferramenta Android que permite a algumas aplicações usar permissões avançadas através de ADB ou depuração sem fios. Não é um acelerador mágico.</p>
-</div>
-<div class="card">
-<h3>Cuidados</h3>
-<p>Evita scripts desconhecidos, aplicações modificadas e alterações de sistema que possam causar instabilidade ou comprometer os teus dados.</p>
-</div>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ Desempenho</h3>
+      <p>Fecha aplicações desnecessárias antes de jogar e evita multitarefa durante partidas.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌡️ Temperatura</h3>
+      <p>Evita jogar enquanto carregas e mantém o aparelho numa temperatura confortável.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧹 Armazenamento</h3>
+      <p>Liberta espaço e elimina ficheiros temporários de aplicações.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎮 Gráficos</h3>
+      <p>Experimenta gráficos mais baixos e desliga efeitos pesados para priorizar fluidez.</p>
+    </div>
+  </div>
 </section>
 
-<hr>
+<!-- NICKNAME -->
+<section class="section" id="nick">
+  <div class="section-title">
+    <h2>👑 Gerador de Nicknames</h2>
+    <p>Cria nomes personalizados para Free Fire.</p>
+  </div>
 
-<section id="nicks">
-<h2 class="section-title">👑 Gerador de Nicknames</h2>
-<p class="section-desc">Cria nomes para o teu perfil Free Fire.</p>
-<div class="panel">
-<label>Escreve o teu nome</label>
-<input id="nick-input" placeholder="Ex.: Angomods">
-<button class="btn" onclick="generateNick()">GERAR NICK</button>
-<div id="nick-results" class="tools"></div>
-<hr>
-<h3>Espaço invisível</h3>
-<pre id="invisible-space">ㅤㅤㅤㅤㅤㅤㅤ</pre>
-<button class="btn secondary" onclick="copyElement('invisible-space')">Copiar espaço invisível</button>
-<hr>
-<h3>Códigos de cores para perfil</h3>
-<pre id="color-codes">[FF0000] Vermelho
-[00FF00] Verde
-[0000FF] Azul
-[FFFF00] Amarelo
-[FFFFFF] Branco
-[FF00FF] Rosa</pre>
-<button class="btn secondary" onclick="copyElement('color-codes')">Copiar códigos</button>
-</div>
+  <div class="card">
+    <input id="nickBase" placeholder="Escreve o teu nome">
+    <button class="btn" onclick="gerarNick()">GERAR NICKS</button>
+
+    <div id="nickResultado" class="result hidden"></div>
+
+    <button class="btn btn2" onclick="copiarEspaco()">Copiar espaço invisível</button>
+
+    <div class="result">
+      <p class="small">Espaço invisível:</p>
+      <code id="espacoInvisible">ㅤ</code>
+    </div>
+
+    <div class="result">
+      <p class="small">Código verde:</p>
+      <code>[00FF00]</code>
+    </div>
+
+    <div class="result">
+      <p class="small">Código vermelho:</p>
+      <code>[FF0000]</code>
+    </div>
+
+    <div class="result">
+      <p class="small">Código azul:</p>
+      <code>[0000FF]</code>
+    </div>
+  </div>
+</section>
+<!-- COMUNIDADE -->
+<section class="section" id="comunidade">
+  <div class="section-title">
+    <h2>🌍 Packs da Comunidade</h2>
+    <p>Descobre configurações partilhadas por jogadores.</p>
+  </div>
+
+  <div id="packsContainer" class="grid">
+    <div class="card">
+      <p>⏳ A carregar packs...</p>
+    </div>
+  </div>
 </section>
 
-<hr>
+<!-- ADMIN -->
+<section class="section" id="admin">
+  <div class="section-title">
+    <h2>🔐 Administração</h2>
+    <p>Painel de gestão Angomods.</p>
+  </div>
 
-<section id="comunidade">
-<h2 class="section-title">🌐 Packs da Comunidade</h2>
-<p class="section-desc">Publicações enviadas pelo painel ANGOMODS ADMIN.</p>
-<div id="connection-status" class="status">A verificar ligação...</div>
-<button class="btn secondary" onclick="loadPacks()">↻ ATUALIZAR PACKS</button>
-<div id="community-packs">
-<p class="status">A carregar packs...</p>
-</div>
+  <div class="card">
+    <div id="adminLogin">
+      <h3>Entrar</h3>
+      <input id="adminEmail" type="email" placeholder="Email de administrador">
+      <input id="adminPassword" type="password" placeholder="Palavra-passe">
+      <button class="btn" onclick="adminLogin()">Entrar</button>
+      <p id="adminStatus" class="small"></p>
+    </div>
+
+    <div id="adminPanel" class="hidden">
+      <h3>📦 Publicar Pack</h3>
+      <input id="packNome" placeholder="Nome do pack">
+      <input id="packAutor" placeholder="Nome do autor">
+      <textarea id="packDescricao" placeholder="Descrição do pack"></textarea>
+      <input id="packGeral" type="number" min="0" max="200" placeholder="Geral">
+      <input id="packRedDot" type="number" min="0" max="200" placeholder="Red Dot">
+      <input id="pack2x" type="number" min="0" max="200" placeholder="2x">
+      <input id="pack4x" type="number" min="0" max="200" placeholder="4x">
+      <input id="packSniper" type="number" min="0" max="200" placeholder="AWM">
+      <input id="packOlhada" type="number" min="0" max="200" placeholder="Olhada">
+      <button class="btn" onclick="publicarPack()">🚀 PUBLICAR PACK</button>
+      <button class="btn btn2" onclick="adminLogout()">Sair</button>
+      <p id="publishStatus" class="small"></p>
+    </div>
+  </div>
 </section>
 
-<hr>
+<!-- ANGOMODS IA -->
+<section class="section" id="angomods-ai">
+  <div class="section-title">
+    <h2>🤖 Angomods IA</h2>
+    <p>O teu assistente gaming. Pergunta sobre Free Fire, sensibilidade, Android e muito mais.</p>
+  </div>
 
-<section id="admin-panel">
-<h2 class="section-title">🔐 ANGOMODS ADMIN</h2>
-<p class="section-desc">Área privada de administração.</p>
+  <div class="card" id="aiCard">
+    <div id="aiChat" style="height:350px;overflow-y:auto;padding:12px;background:#07110b;border:1px solid var(--border);border-radius:15px">
 
-<div id="admin-login" class="panel">
-<h3>Entrar no painel</h3>
-<label>E-mail</label>
-<input id="admin-email" type="email" autocomplete="username" placeholder="O teu e-mail">
-<label>Senha</label>
-<input id="admin-password" type="password" autocomplete="current-password" placeholder="A tua senha">
-<button class="btn" onclick="adminLogin()">ENTRAR</button>
-<p id="login-status" class="status"></p>
-</div>
+      <div class="ai-message" style="margin-bottom:12px">
+        <div style="background:rgba(57,255,136,.09);padding:13px;border-radius:13px;display:inline-block;max-width:90%">
+          <strong style="color:var(--green)">Angomods IA</strong>
+          <p style="margin-top:8px;font-size:14px;line-height:1.6">
+            Yo! 🎮 Sou a Angomods IA. Bora falar de Free Fire, sensibilidade, skins ou Android?
+          </p>
+        </div>
+      </div>
 
-<div id="admin-dashboard" class="panel hidden">
-<h3>📦 Publicar novo pack</h3>
-<label>Título</label>
-<input id="pack-title" placeholder="Ex.: Sensi Angomods V2">
-<label>Categoria</label>
-<select id="pack-category">
-<option value="sensi">Sensibilidade</option>
-<option value="skin">Skins</option>
-<option value="android">Android</option>
-<option value="outro">Outro</option>
-</select>
-<label>Conteúdo</label>
-<textarea id="pack-content" placeholder="Escreve aqui o conteúdo do pack..."></textarea>
-<button class="btn" onclick="publishPack()">🚀 PUBLICAR PACK</button>
-<p id="admin-status" class="status"></p>
-<button class="btn secondary" onclick="adminLogout()">SAIR DA CONTA</button>
-</div>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <input id="aiInput" placeholder="Pergunta alguma coisa..." style="margin:0;flex:1">
+      <button class="btn" id="aiSend" onclick="enviarAI()">➤</button>
+    </div>
+
+    <p class="small" style="margin-top:10px">
+      Angomods IA • Powered by Groq
+    </p>
+  </div>
 </section>
-
-</main>
 
 <footer>
-<strong>ANGOMODS GAMING 💚</strong>
-<p>Free Fire • Sensibilidade • Skins • Android</p>
-<p>TikTok: <a href="https://www.tiktok.com/@angomods" target="_blank" rel="noopener">@angomods</a></p>
-<p>© 2026 ANGOMODS GAMING</p>
+  <p>ANGO<span style="color:var(--green)">MODS</span> GAMING</p>
+  <p style="margin-top:8px">Feito para a comunidade Free Fire 🇦🇴</p>
+  <p style="margin-top:8px">© 2026 Angomods Gaming</p>
 </footer>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-/* =================================
-   ANGOMODS - SUPABASE
-================================= */
+/* =========================
+   CONFIGURAÇÃO SUPABASE
+========================= */
 
 const SUPABASE_URL = "https://llgqbzteoqjiyrwwylwk.supabase.co";
-const SUPABASE_KEY = "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
+const SUPABASE_KEY = "sb_publishable_HyLeIQrov870USieHfBTNw_OzMfm8QU";
 
-let db = null;
+const sb = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
-function setConnection(message, good){
-const el = document.getElementById("connection-status");
-el.textContent = message;
-el.className = good ? "status good" : "status bad";
-}
-
-/* =================================
-   UTILITÁRIOS
-================================= */
-
-window.copyText = async function(text){
-try{
-await navigator.clipboard.writeText(text);
-alert("Copiado! 💚");
-}catch(e){
-const area = document.createElement("textarea");
-area.value = text;
-document.body.appendChild(area);
-area.select();
-document.execCommand("copy");
-area.remove();
-alert("Copiado! 💚");
-}
-};
-
-window.copyElement = function(id){
-const el = document.getElementById(id);
-copyText(el.innerText || el.textContent);
-};
-
-/* =================================
+/* =========================
    SENSIBILIDADE
-================================= */
-
-window.generateSensi = function(){
-const value = Math.max(0,Math.min(200,Number(document.getElementById("sensi-value").value)||0));
-const style = document.getElementById("sensi-style").value;
-let factors = [1,.97,.94,.90,.65,.80];
-
-if(style === "balanced") factors = [1,.96,.91,.86,.60,.76];
-if(style === "precision") factors = [.92,.88,.84,.80,.55,.70];
-
-const names = ["Geral","Ponto vermelho","Mira 2x","Mira 4x","AWM","Olhadinha"];
-const result = names.map((name,i)=>name+": "+Math.round(value*factors[i])).join("\n");
-document.getElementById("sensi-result").textContent = result;
-};
-
-/* =================================
-   NICKNAME
-================================= */
-
-window.generateNick = function(){
-const name = document.getElementById("nick-input").value.trim();
-const results = document.getElementById("nick-results");
-
-if(!name){
-results.textContent = "Escreve um nome primeiro.";
-return;
-}
-
-const options = [
-"亗"+name+"亗",
-"『"+name+"』",
-"乂"+name+"乂",
-"么"+name+"么",
-"★"+name+"★",
-"꧁"+name+"꧂",
-"メ"+name+"メ",
-"ツ"+name+"ツ"
-];
-
-results.replaceChildren();
-
-options.forEach(nick=>{
-const box = document.createElement("div");
-box.className = "card";
-
-const text = document.createElement("strong");
-text.textContent = nick;
-
-const button = document.createElement("button");
-button.className = "btn secondary";
-button.textContent = "COPIAR";
-button.onclick = ()=>copyText(nick);
-
-box.append(text,document.createElement("br"),button);
-results.appendChild(box);
-});
-};
-
-/* =================================
-   CARREGAR PACKS PÚBLICOS
-================================= */
-
-window.loadPacks = async function(){
-
-const area = document.getElementById("community-packs");
-
-if(!db){
-setConnection("Biblioteca Supabase indisponível.",false);
-area.textContent = "Não foi possível iniciar a ligação.";
-return;
-}
-
-setConnection("A consultar a base de dados...",false);
-area.textContent = "A carregar packs...";
-
-try{
-
-const {data,error} = await db
-.from("packs")
-.select("id,titulo,categoria,conteudo,criado_em")
-.order("id",{ascending:false});
-
-if(error) throw error;
-
-setConnection("💚 Base de dados ligada.",true);
-
-area.replaceChildren();
-
-if(!data || data.length === 0){
-area.textContent = "Ainda não existem packs publicados.";
-return;
-}
-
-data.forEach(pack=>{
-
-const card = document.createElement("article");
-card.className = "card pack";
-
-const title = document.createElement("h3");
-title.textContent = pack.titulo;
-
-const category = document.createElement("small");
-category.textContent = "Categoria: "+pack.categoria;
-
-const content = document.createElement("pre");
-content.textContent = pack.conteudo;
-
-const button = document.createElement("button");
-button.className = "btn secondary";
-button.textContent = "COPIAR PACK";
-button.onclick = ()=>copyText(pack.conteudo);
-
-card.append(title,category,content,button);
-area.appendChild(card);
-
-});
-
-}catch(error){
-setConnection("Erro na ligação: "+error.message,false);
-area.textContent = "Não foi possível carregar os packs.";
-console.error("Erro ao carregar packs:",error);
-}
-
-};
-
-/* =================================
-   LOGIN E VERIFICAÇÃO DE ADMIN
-================================= */
-
-window.adminLogin = async function(){
-
-const status = document.getElementById("login-status");
-const email = document.getElementById("admin-email").value.trim();
-const password = document.getElementById("admin-password").value;
-
-if(!db){
-status.textContent = "Supabase ainda não está disponível.";
-return;
-}
-
-if(!email || !password){
-status.textContent = "Preenche o e-mail e a senha.";
-return;
-}
-
-status.textContent = "A verificar credenciais...";
-
-try{
-
-const {data,error} = await db.auth.signInWithPassword({
-email:email,
-password:password
-});
-
-if(error) throw error;
-
-await checkAdmin();
-
-}catch(error){
-status.textContent = "Erro no login: "+error.message;
-console.error("Login:",error);
-}
-
-};
-
-window.checkAdmin = async function(){
-
-const login = document.getElementById("admin-login");
-const dashboard = document.getElementById("admin-dashboard");
-const loginStatus = document.getElementById("login-status");
-
-try{
-
-const {data:{user},error:userError} = await db.auth.getUser();
-
-if(userError) throw userError;
-
-if(!user){
-login.classList.remove("hidden");
-dashboard.classList.add("hidden");
-return;
-}
-
-const {data,error} = await db
-.from("admins")
-.select("user_id")
-.eq("user_id",user.id)
-.maybeSingle();
-
-if(error) throw error;
-
-if(!data){
-await db.auth.signOut();
-loginStatus.textContent = "Esta conta não está registada como Admin.";
-login.classList.remove("hidden");
-dashboard.classList.add("hidden");
-return;
-}
-
-login.classList.add("hidden");
-dashboard.classList.remove("hidden");
-document.getElementById("admin-status").textContent = "Bem-vindo, administrador! 💚";
-
-}catch(error){
-
-loginStatus.textContent = "Erro ao verificar Admin: "+error.message;
-login.classList.remove("hidden");
-dashboard.classList.add("hidden");
-console.error("Verificação Admin:",error);
-
-}
-
-};
-
-/* =================================
-   PUBLICAR PACK
-================================= */
-
-window.publishPack = async function(){
-
-const status = document.getElementById("admin-status");
-const titulo = document.getElementById("pack-title").value.trim();
-const categoria = document.getElementById("pack-category").value;
-const conteudo = document.getElementById("pack-content").value.trim();
-
-if(!titulo || !conteudo){
-status.textContent = "Preenche o título e o conteúdo.";
-return;
-}
-
-status.textContent = "A publicar pack...";
-
-try{
-
-const {data:{user},error:userError} = await db.auth.getUser();
-
-if(userError) throw userError;
-if(!user) throw new Error("A sessão expirou. Entra novamente.");
-
-const {error} = await db
-.from("packs")
-.insert([{
-titulo:titulo,
-categoria:categoria,
-conteudo:conteudo
-}]);
-
-if(error) throw error;
-
-status.textContent = "💚 Pack publicado com sucesso!";
-
-document.getElementById("pack-title").value = "";
-document.getElementById("pack-content").value = "";
-
-await loadPacks();
-
-}catch(error){
-
-status.textContent = "Erro ao publicar: "+error.message;
-console.error("Publicação:",error);
-
-}
-
-};
-
-/* =================================
-   TERMINAR SESSÃO
-================================= */
-
-window.adminLogout = async function(){
-
-try{
-await db.auth.signOut();
-document.getElementById("admin-login").classList.remove("hidden");
-document.getElementById("admin-dashboard").classList.add("hidden");
-document.getElementById("login-status").textContent = "Sessão terminada.";
-}catch(error){
-alert("Erro ao sair: "+error.message);
-}
-
-};
-
-/* =================================
-   INICIALIZAÇÃO
-================================= */
-
-async function startAngomods(){
-
-try{
-
-if(!window.supabase){
-setConnection("Erro: biblioteca Supabase não carregou.",false);
-document.getElementById("community-packs").textContent = "Verifica a ligação à biblioteca Supabase.";
-return;
-}
-
-db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-
-await loadPacks();
-await checkAdmin();
-
-db.auth.onAuthStateChange((event,session)=>{
-setTimeout(()=>{
-checkAdmin();
-},0);
-});
-
-}catch(error){
-setConnection("Erro ao iniciar: "+error.message,false);
-console.error("Inicialização:",error);
-}
-
-}
-
-startAngomods();
-</script>
-
-<!-- ANGOMODS AI V3 -->
-<section id="angomods-ai" class="ai-app">
-
-  <style>
-    .ai-app{
-      background:#070b09;
-      color:#fff;
-      min-height:550px;
-      padding:20px 10px;
-      font-family:Arial,sans-serif;
-    }
-
-    .ai-shell{
-      max-width:850px;
-      margin:auto;
-      border:1px solid #183b29;
-      border-radius:18px;
-      background:#0a100d;
-      overflow:hidden;
-    }
-
-    .ai-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px;
-      border-bottom:1px solid #183b29;
-    }
-
-    .ai-brand{
-      color:#00ff88;
-      font-weight:bold;
-      font-size:19px;
-    }
-
-    .ai-new{
-      background:#12251a;
-      border:1px solid #245b39;
-      color:#00ff88;
-      padding:10px;
-      border-radius:10px;
-      cursor:pointer;
-    }
-
-    .ai-messages{
-      height:420px;
-      overflow-y:auto;
-      padding:18px 12px;
-      scroll-behavior:smooth;
-    }
-
-    .ai-welcome{
-      text-align:center;
-      margin:65px 10px;
-      animation:aiFade .6s ease;
-    }
-
-    .ai-welcome h2{
-      color:#00ff88;
-    }
-
-    .ai-msg{
-      display:flex;
-      margin:18px 0;
-      animation:aiFade .3s ease;
-    }
-
-    .ai-msg.user{
-      justify-content:flex-end;
-    }
-
-    .ai-bubble{
-      max-width:90%;
-      padding:13px;
-      border-radius:15px;
-      line-height:1.6;
-      white-space:pre-wrap;
-      overflow-wrap:anywhere;
-    }
-
-    .ai-msg.user .ai-bubble{
-      background:#163c27;
-      color:white;
-      border-bottom-right-radius:4px;
-    }
-
-    .ai-msg.bot .ai-bubble{
-      background:#111a15;
-      border:1px solid #193b29;
-      border-bottom-left-radius:4px;
-    }
-
-    .ai-input-area{
-      padding:12px;
-      border-top:1px solid #183b29;
-    }
-
-    .ai-input-box{
-      display:flex;
-      gap:10px;
-      background:#111a15;
-      border:1px solid #245b39;
-      border-radius:16px;
-      padding:10px;
-    }
-
-    #ai-message{
-      flex:1;
-      min-width:0;
-      resize:none;
-      border:none;
-      outline:none;
-      background:transparent;
-      color:white;
-      font-size:16px;
-      padding:10px;
-      max-height:140px;
-    }
-
-    #ai-send{
-      background:#00cc66;
-      color:#041008;
-      border:none;
-      border-radius:12px;
-      padding:12px 15px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-
-    #ai-send:disabled{
-      opacity:.5;
-    }
-
-    .ai-status{
-      text-align:center;
-      color:#82988a;
-      font-size:12px;
-      padding:10px;
-    }
-
-    .ai-dots span{
-      animation:aiPulse 1.2s infinite;
-      display:inline-block;
-    }
-
-    .ai-dots span:nth-child(2){
-      animation-delay:.2s;
-    }
-
-    .ai-dots span:nth-child(3){
-      animation-delay:.4s;
-    }
-
-    @keyframes aiFade{
-      from{opacity:0;transform:translateY(10px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    @keyframes aiPulse{
-      0%,80%,100%{opacity:.2}
-      40%{opacity:1}
-    }
-
-    @media(max-width:600px){
-      .ai-messages{height:380px}
-      .ai-bubble{max-width:95%}
-    }
-  </style>
-
-  <div class="ai-shell">
-
-    <div class="ai-header">
-      <div class="ai-brand">✦ ANGOMODS AI</div>
-      <button class="ai-new" onclick="novaConversaAI()">
-        + Nova conversa
-      </button>
-    </div>
-
-    <div id="ai-chat" class="ai-messages">
-
-      <div class="ai-welcome" id="ai-welcome">
-        <h2>✦ ANGOMODS AI</h2>
-        <p>O que vamos criar hoje?</p>
-        <p style="color:#82988a;font-size:13px">
-          Gaming · Tecnologia · Criatividade · Programação
-        </p>
-      </div>
-
-    </div>
-
-    <div class="ai-input-area">
-
-      <div class="ai-input-box">
-
-        <textarea id="ai-message"
-        rows="1"
-        placeholder="Pergunta qualquer coisa..."></textarea>
-
-        <button id="ai-send"
-        onclick="enviarAngomodsAI()">
-          ↑
-        </button>
-
-      </div>
-
-      <div class="ai-status" id="ai-status">
-        ✦ Motor Groq
-      </div>
-
-    </div>
-
-  </div>
-</section>
-    <h2 style="color:#00ff88;text-align:center">
-      ANGOMODS AI
-    </h2>
-
-    <p style="text-align:center;color:#aaa">
-      O teu assistente inteligente.
-    </p>
-
-    <div id="ai-chat" style="
-    height:350px;
-    overflow-y:auto;
-    background:#050b08;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:15px;
-    ">
-
-      <div style="color:#00ff88;margin-bottom:12px">
-        ANGOMODS AI: Salve! Sou a ANGOMODS AI.
-        O que queres saber?
-      </div>
-
-    </div>
-
-    <div style="display:flex;gap:8px">
-
-      <input id="ai-message"
-      placeholder="Escreve a tua mensagem..."
-      style="
-      flex:1;
-      min-width:0;
-      padding:12px;
-      border-radius:10px;
-      border:1px solid #1c7d49;
-      background:#111;
-      color:white;
-      ">
-
-      <button onclick="enviarAngomodsAI()"
-      style="
-      background:#00cc66;
-      color:black;
-      border:none;
-      padding:12px;
-      border-radius:10px;
-      font-weight:bold;
-      ">
-        Enviar
-      </button>
-
-    </div>
-
-    <p id="ai-status"
-    style="font-size:12px;color:#888">
-    Motor: Groq
-    </p>
-
-  </div>
-</section>
-<script>
-<script>
-let angomodsHistorico = [];
-
-function novaConversaAI(){
-  angomodsHistorico = [];
-
-  const chat = document.getElementById("ai-chat");
-
-  chat.innerHTML = `
-    <div class="ai-welcome" id="ai-welcome">
-      <h2 style="color:#00ff88">✦ ANGOMODS AI</h2>
-      <p>O que vamos criar hoje?</p>
-      <p style="color:#82988a;font-size:13px">
-        Gaming · Tecnologia · Criatividade · Programação
-      </p>
-    </div>
+========================= */
+
+function gerarSensi(){
+  const estilo = document.getElementById("estilo").value;
+  const dispositivo = document.getElementById("dispositivo").value || "Dispositivo";
+  const dpi = document.getElementById("dpi").value || "Não informado";
+
+  let valores;
+
+  if(estilo === "rapido"){
+    valores = [195,190,185,175,160,200];
+  }else if(estilo === "preciso"){
+    valores = [170,155,145,130,100,170];
+  }else{
+    valores = [185,175,165,150,120,185];
+  }
+
+  document.getElementById("sensiResultado").classList.remove("hidden");
+
+  document.getElementById("sensiResultado").innerHTML = `
+    <h3>🎯 Configuração gerada</h3>
+    <p style="margin-top:10px">📱 ${escapeHTML(dispositivo)}</p>
+    <p>📐 DPI: ${escapeHTML(dpi)}</p>
+    <p style="margin-top:12px">Geral: <strong>${valores[0]}</strong></p>
+    <p>Red Dot: <strong>${valores[1]}</strong></p>
+    <p>2x: <strong>${valores[2]}</strong></p>
+    <p>4x: <strong>${valores[3]}</strong></p>
+    <p>AWM: <strong>${valores[4]}</strong></p>
+    <p>Olhada: <strong>${valores[5]}</strong></p>
+    <button class="btn" style="margin-top:12px" onclick="copiarTexto('${valores.join(',')}')">📋 COPIAR</button>
   `;
-
-  document.getElementById("ai-status").textContent =
-    "✦ Motor Groq";
-
-  document.getElementById("ai-message").focus();
 }
 
-function adicionarMensagemAI(tipo, texto){
-  const chat = document.getElementById("ai-chat");
+/* =========================
+   NICKNAMES
+========================= */
 
-  document.getElementById("ai-welcome")?.remove();
+function gerarNick(){
+  const base = document.getElementById("nickBase").value.trim();
 
-  const linha = document.createElement("div");
-  linha.className = "ai-msg " + tipo;
+  if(!base){
+    alert("Escreve primeiro um nome!");
+    return;
+  }
 
-  const balao = document.createElement("div");
-  balao.className = "ai-bubble";
-  balao.textContent = texto;
+  const estilos = [
+    "亗"+base+"亗",
+    "『"+base+"』",
+    "乂"+base+"乂",
+    "★"+base+"★",
+    "么"+base+"么",
+    "꧁"+base+"꧂",
+    "ツ"+base+"ツ",
+    "メ"+base+"メ",
+    "亗"+base+"ㅤ",
+    "乂"+base+"ㅤ"
+  ];
 
-  linha.appendChild(balao);
-  chat.appendChild(linha);
+  const area = document.getElementById("nickResultado");
+  area.classList.remove("hidden");
 
-  chat.scrollTop = chat.scrollHeight;
-
-  return linha;
+  area.innerHTML = estilos.map(n => `
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0;padding:10px;background:#101d14;border-radius:10px">
+      <span>${escapeHTML(n)}</span>
+      <button class="btn" onclick="copiarTexto('${escapeJS(n)}')">Copiar</button>
+    </div>
+  `).join("");
 }
 
-async function enviarAngomodsAI(){
+function copiarEspaco(){
+  copiarTexto("ㅤ");
+}
 
-  const input = document.getElementById("ai-message");
-  const botao = document.getElementById("ai-send");
-  const status = document.getElementById("ai-status");
+/* =========================
+   PACKS
+========================= */
 
-  const mensagem = input.value.trim();
+async function carregarPacks(){
+  const container = document.getElementById("packsContainer");
 
-  if(!mensagem || botao.disabled) return;
+  const {data,error} = await sb
+    .from("packs")
+    .select("*")
+    .limit(30);
 
-  input.value = "";
-  input.style.height = "auto";
+  if(error){
+    container.innerHTML = `
+      <div class="card">
+        <p>Não foi possível carregar os packs.</p>
+        <p class="small">${escapeHTML(error.message)}</p>
+      </div>`;
+    return;
+  }
 
-  adicionarMensagemAI("user",mensagem);
+  if(!data || data.length === 0){
+    container.innerHTML = `
+      <div class="card">
+        <p>📦 Ainda não existem packs publicados.</p>
+      </div>`;
+    return;
+  }
 
-  angomodsHistorico.push({
-    role:"user",
-    content:mensagem
+  container.innerHTML = data.map(p => `
+    <div class="card">
+      <span class="tag">PACK COMUNITÁRIO</span>
+      <h3>${escapeHTML(p.nome || p.name || "Pack")}</h3>
+      <p>${escapeHTML(p.descricao || p.description || "")}</p>
+      <p style="margin-top:10px">👤 ${escapeHTML(p.autor || p.author || "Jogador")}</p>
+      <div class="result">
+        <p>Geral: ${escapeHTML(String(p.geral ?? 0))}</p>
+        <p>Red Dot: ${escapeHTML(String(p.red_dot ?? p.reddot ?? 0))}</p>
+        <p>2x: ${escapeHTML(String(p.x2 ?? p.dois_x ?? 0))}</p>
+        <p>4x: ${escapeHTML(String(p.x4 ?? p.quatro_x ?? 0))}</p>
+        <p>AWM: ${escapeHTML(String(p.awm ?? 0))}</p>
+        <p>Olhada: ${escapeHTML(String(p.olhada ?? 0))}</p>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+async function adminLogin(){
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value;
+  const status = document.getElementById("adminStatus");
+
+  status.textContent = "A entrar...";
+
+  const {data,error} = await sb.auth.signInWithPassword({
+    email,
+    password
   });
 
-  botao.disabled = true;
-  status.textContent = "ANGOMODS AI está a pensar...";
+  if(error){
+    status.textContent = "Erro: " + error.message;
+    return;
+  }
 
-  const carregando = adicionarMensagemAI(
-    "bot",
-    "✦ A pensar..."
-  );
+  await verificarAdmin(data.user);
+}
+
+async function verificarAdmin(user){
+  const status = document.getElementById("adminStatus");
+
+  const {data,error} = await sb
+    .from("admins")
+    .select("*")
+    .eq("user_id",user.id)
+    .maybeSingle();
+
+  if(error || !data){
+    status.textContent = "Esta conta não possui autorização de administrador.";
+
+    await sb.auth.signOut();
+    return;
+  }
+
+  document.getElementById("adminLogin").classList.add("hidden");
+  document.getElementById("adminPanel").classList.remove("hidden");
+}
+
+async function adminLogout(){
+  await sb.auth.signOut();
+
+  document.getElementById("adminPanel").classList.add("hidden");
+  document.getElementById("adminLogin").classList.remove("hidden");
+}
+
+async function publicarPack(){
+  const status = document.getElementById("publishStatus");
+
+  const {data:{user}} = await sb.auth.getUser();
+
+  if(!user){
+    status.textContent = "Sessão expirada. Entra novamente.";
+    return;
+  }
+
+  const pack = {
+    nome: document.getElementById("packNome").value.trim(),
+    autor: document.getElementById("packAutor").value.trim(),
+    descricao: document.getElementById("packDescricao").value.trim(),
+    geral: Number(document.getElementById("packGeral").value),
+    red_dot: Number(document.getElementById("packRedDot").value),
+    x2: Number(document.getElementById("pack2x").value),
+    x4: Number(document.getElementById("pack4x").value),
+    awm: Number(document.getElementById("packSniper").value),
+    olhada: Number(document.getElementById("packOlhada").value)
+  };
+
+  if(!pack.nome){
+    status.textContent = "Coloca o nome do pack.";
+    return;
+  }
+
+  status.textContent = "A publicar...";
+
+  const {error} = await sb.from("packs").insert(pack);
+
+  if(error){
+    status.textContent = "Erro: " + error.message;
+    return;
+  }
+
+  status.textContent = "Pack publicado com sucesso! 🚀";
+
+  carregarPacks();
+}
+
+sb.auth.onAuthStateChange(async(event,session)=>{
+  if(session && session.user){
+    verificarAdmin(session.user);
+  }
+});
+
+/* =========================
+   ANGOMODS IA
+========================= */
+
+function adicionarMensagem(texto,autor){
+  const chat = document.getElementById("aiChat");
+  const div = document.createElement("div");
+
+  div.style.marginBottom = "12px";
+
+  const caixa = document.createElement("div");
+  caixa.style.cssText = `
+    padding:13px;
+    border-radius:13px;
+    display:inline-block;
+    max-width:90%;
+    background:${autor==="user" ? "rgba(255,255,255,.06)" : "rgba(57,255,136,.09)"};
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+    line-height:1.6;
+  `;
+
+  const titulo = document.createElement("strong");
+  titulo.style.color = autor==="user" ? "#ffffff" : "#39ff88";
+  titulo.textContent = autor==="user" ? "Tu" : "Angomods IA";
+
+  const conteudo = document.createElement("div");
+  conteudo.style.marginTop = "8px";
+  conteudo.textContent = texto;
+
+  caixa.appendChild(titulo);
+  caixa.appendChild(conteudo);
+  div.appendChild(caixa);
+
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+
+  return div;
+}
+
+async function enviarAI(){
+  const input = document.getElementById("aiInput");
+  const button = document.getElementById("aiSend");
+  const mensagem = input.value.trim();
+
+  if(!mensagem) return;
+
+  input.value = "";
+  adicionarMensagem(mensagem,"user");
+
+  button.disabled = true;
+  button.textContent = "...";
+
+  const typing = adicionarMensagem("A pensar...","ai");
 
   try{
-
-    const contexto = angomodsHistorico
-      .slice(-12)
-      .map(m =>
-        (m.role === "user" ? "Utilizador: " : "ANGOMODS AI: ") +
-        m.content
-      )
-      .join("\n\n");
-
-    const resposta = await fetch(
-      "https://llgqbzteoqjiyrwwylwk.supabase.co/functions/v1/angomods-ai",
+    const response = await fetch(
+      SUPABASE_URL + "/functions/v1/angomods-ai",
       {
         method:"POST",
         headers:{
           "Content-Type":"application/json",
-          "apikey":"sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU"
+          "apikey":SUPABASE_KEY,
+          "Authorization":"Bearer "+SUPABASE_KEY
         },
         body:JSON.stringify({
-          mensagem:contexto
+          mensagem:mensagem
         })
       }
     );
 
-    const dados = await resposta.json();
+    const data = await response.json();
 
-    carregando.remove();
+    typing.remove();
 
-    if(!resposta.ok || !dados.sucesso){
-      throw new Error(
-        dados.detalhes || dados.erro || "Erro na resposta"
-      );
+    if(!response.ok){
+      throw new Error(data.error || data.erro || data.message || "Erro na ligação");
     }
 
-    angomodsHistorico.push({
-      role:"assistant",
-      content:dados.resposta
-    });
+    const resposta =
+      data.resposta ||
+      data.response ||
+      data.answer ||
+      data.message ||
+      data.output ||
+      (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ||
+      JSON.stringify(data);
 
-    adicionarMensagemAI("bot",dados.resposta);
+    adicionarMensagem(String(resposta),"ai");
 
-    status.textContent = "✦ Groq · Ligado";
+  }catch(e){
+    typing.remove();
 
-  }catch(erro){
-
-    carregando.remove();
-
-    adicionarMensagemAI(
-      "bot",
-      "Não consegui responder agora. Tenta novamente."
+    adicionarMensagem(
+      "Não consegui ligar neste momento. Verifica a ligação ou tenta novamente. ("+e.message+")",
+      "ai"
     );
+  }
 
-    status.textContent = "Falha na ligação.";
+  button.disabled = false;
+  button.textContent = "➤";
+}
 
-  }finally{
+document.getElementById("aiInput").addEventListener("keydown",function(e){
+  if(e.key==="Enter"){
+    enviarAI();
+  }
+});
 
-    botao.disabled = false;
-    input.focus();
+/* =========================
+   UTILIDADES
+========================= */
 
+function escapeHTML(text){
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function escapeJS(text){
+  return String(text)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/\n/g,"\\n");
+}
+
+async function copiarTexto(texto){
+  try{
+    await navigator.clipboard.writeText(texto);
+    alert("Copiado! ✌️");
+  }catch(e){
+    const area = document.createElement("textarea");
+    area.value = texto;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    alert("Copiado! ✌️");
   }
 }
 
-const campoAI = document.getElementById("ai-message");
+/* =========================
+   INICIALIZAÇÃO
+========================= */
 
-campoAI.addEventListener("keydown",function(e){
+carregarPacks();
 
-  if(e.key === "Enter" && !e.shiftKey){
-    e.preventDefault();
-    enviarAngomodsAI();
-  }
-
-});
-
-campoAI.addEventListener("input",function(){
-
-  this.style.height = "auto";
-
-  this.style.height =
-    Math.min(this.scrollHeight,140) + "px";
-
-});
 </script>
 </body>
 </html>
