@@ -2,451 +2,430 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b08">
 <title>Angomods GAMING</title>
-<meta name="theme-color" content="#07110b">
 
 <style>
 :root{
-  --bg:#07110b;
-  --panel:#101d14;
-  --panel2:#16251a;
-  --green:#39ff88;
-  --green2:#17c964;
-  --text:#f1f5f2;
-  --muted:#99a89d;
-  --border:rgba(57,255,136,.13);
+--bg:#050b08;
+--panel:#0b1510;
+--panel2:#102019;
+--green:#39ff88;
+--green2:#12c96a;
+--text:#effff4;
+--muted:#82988a;
+--border:rgba(57,255,136,.15);
 }
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
-}
-button,input,textarea{
-  font-family:inherit;
-}
-button{
-  cursor:pointer;
+background:var(--bg);
+color:var(--text);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
 }
 a{
-  color:inherit;
-  text-decoration:none;
+text-decoration:none;
+color:inherit;
+}
+button,input,textarea,select{
+font-family:inherit;
+}
+button{
+cursor:pointer;
 }
 header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(7,17,11,.92);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(5,11,8,.94);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--border);
 }
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
+max-width:1200px;
+margin:auto;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
 }
 .logo{
-  font-weight:900;
-  font-size:20px;
-  color:var(--green);
+font-size:19px;
+font-weight:900;
+color:var(--green);
+letter-spacing:1px;
 }
 .logo span{
-  color:white;
+color:white;
 }
 .navlinks{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
 }
 .navlinks a{
-  font-size:12px;
-  color:var(--muted);
-  transition:.2s;
+font-size:11px;
+color:var(--muted);
+transition:.2s;
 }
 .navlinks a:hover{
-  color:var(--green);
+color:var(--green);
 }
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:25px 18px;
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
 .hero{
-  min-height:420px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  padding:50px 20px;
+min-height:400px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+position:relative;
+padding:40px 15px;
+overflow:hidden;
 }
 .glow{
-  position:absolute;
-  width:300px;
-  height:300px;
-  background:rgba(57,255,136,.12);
-  filter:blur(100px);
-  border-radius:50%;
-  pointer-events:none;
+position:absolute;
+width:280px;
+height:280px;
+border-radius:50%;
+background:rgba(57,255,136,.10);
+filter:blur(100px);
 }
 .hero h1{
-  font-size:clamp(35px,8vw,75px);
-  font-weight:1000;
-  line-height:1.1;
-  position:relative;
+font-size:clamp(38px,9vw,75px);
+font-weight:1000;
+position:relative;
 }
 .hero h1 span{
-  color:var(--green);
+color:var(--green);
 }
 .hero p{
-  color:var(--muted);
-  max-width:600px;
-  margin-top:20px;
-  line-height:1.7;
+position:relative;
+color:var(--muted);
+max-width:600px;
+line-height:1.7;
+margin-top:18px;
 }
 .hero-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:25px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:24px;
 }
 .btn{
-  background:var(--green);
-  color:#07110b;
-  border:none;
-  border-radius:12px;
-  padding:13px 18px;
-  font-weight:bold;
-  transition:.25s;
+background:var(--green);
+color:#041008;
+border:0;
+border-radius:12px;
+padding:13px 17px;
+font-weight:bold;
+transition:.2s;
 }
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 25px rgba(57,255,136,.2);
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(57,255,136,.2);
+}
+.btn:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
 }
 .btn2{
-  background:var(--panel);
-  color:white;
-  border:1px solid var(--border);
-}
-.section-title{
-  margin-bottom:20px;
-}
-.section-title h2{
-  font-size:25px;
-}
-.section-title p{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:8px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-.card{
-  background:linear-gradient(145deg,var(--panel),#0c1710);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  transition:.25s;
-}
-.card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(57,255,136,.4);
-}
-.card h3{
-  margin-bottom:10px;
-}
-.card p{
-  color:var(--muted);
-  line-height:1.6;
-  font-size:13px;
-}
-.tag{
-  display:inline-block;
-  background:rgba(57,255,136,.09);
-  color:var(--green);
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:11px;
-  margin-bottom:12px;
-}
-input,textarea{
-  width:100%;
-  background:#08120c;
-  color:white;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:13px;
-  outline:none;
-  margin:8px 0;
-}
-input:focus,textarea:focus{
-  border-color:var(--green);
+background:var(--panel);
+color:white;
+border:1px solid var(--border);
 }
 .section{
-  padding:35px 0;
+padding:35px 0;
 }
-.skin-img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:14px;
-  margin-bottom:12px;
-  background:#0c1710;
+.section-title{
+margin-bottom:20px;
+}
+.section-title h2{
+font-size:24px;
+}
+.section-title p{
+color:var(--muted);
+font-size:13px;
+margin-top:7px;
+line-height:1.6;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+.card{
+background:linear-gradient(145deg,#0c1711,#07100b);
+border:1px solid var(--border);
+border-radius:17px;
+padding:18px;
+transition:.25s;
+}
+.card:hover{
+border-color:rgba(57,255,136,.35);
+transform:translateY(-3px);
+}
+.card h3{
+margin-bottom:10px;
+}
+.card p{
+color:var(--muted);
+font-size:13px;
+line-height:1.6;
+}
+.tag{
+display:inline-block;
+padding:6px 10px;
+border-radius:30px;
+background:rgba(57,255,136,.08);
+color:var(--green);
+font-size:11px;
+margin-bottom:12px;
+}
+input,textarea{
+width:100%;
+padding:13px;
+background:#050b08;
+border:1px solid var(--border);
+border-radius:12px;
+color:white;
+outline:none;
+margin:8px 0;
+}
+input:focus,textarea:focus{
+border-color:var(--green);
+}
+select{
+width:100%;
+padding:12px;
+background:#050b08;
+color:white;
+border:1px solid var(--border);
+border-radius:12px;
+margin:8px 0;
 }
 .result{
-  background:#07110b;
-  border:1px solid var(--border);
-  padding:15px;
-  border-radius:12px;
-  margin-top:12px;
-  overflow-wrap:anywhere;
+margin-top:12px;
+padding:15px;
+background:#050b08;
+border:1px solid var(--border);
+border-radius:12px;
+overflow-wrap:anywhere;
 }
 .small{
-  font-size:12px;
-  color:var(--muted);
+font-size:12px;
+color:var(--muted);
 }
 .hidden{
-  display:none!important;
+display:none!important;
+}
+.skin-img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:13px;
+margin-bottom:12px;
 }
 footer{
-  border-top:1px solid var(--border);
-  padding:30px 18px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
+padding:30px;
+text-align:center;
+border-top:1px solid var(--border);
+color:var(--muted);
+font-size:12px;
 }
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
 }
 .animate{
-  animation:fadeIn .6s ease both;
+animation:fadeIn .5s ease;
 }
-@media(max-width:600px){
-  .nav{
-    flex-direction:column;
-  }
-  .navlinks{
-    justify-content:center;
-  }
-  .hero{
-    min-height:350px;
-  }
-}
-/* ANGOMODS HACKER INTERFACE */
+
+/* HACKER CHAT */
 
 #aiCard{
-  background:linear-gradient(145deg,#050b08,#0a1510);
-  border:1px solid rgba(0,255,120,.25);
-  box-shadow:0 0 30px rgba(0,255,100,.04);
-  padding:0;
-  overflow:hidden;
+padding:0;
+overflow:hidden;
+background:#070e09;
+border:1px solid rgba(57,255,136,.23);
+box-shadow:0 0 35px rgba(57,255,136,.035);
 }
-
 .ai-topbar{
-  padding:16px;
-  background:#09130d;
-  border-bottom:1px solid rgba(57,255,136,.15);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:16px;
+background:#09130d;
+border-bottom:1px solid var(--border);
 }
-
 .ai-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
-
 .ai-logo{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(57,255,136,.1);
-  border:1px solid rgba(57,255,136,.3);
-  font-size:20px;
+width:43px;
+height:43px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:13px;
+background:rgba(57,255,136,.08);
+border:1px solid rgba(57,255,136,.3);
+color:var(--green);
+font-size:23px;
 }
-
 .ai-name{
-  font-weight:900;
-  letter-spacing:1px;
-  color:#39ff88;
+color:var(--green);
+font-weight:900;
+letter-spacing:1px;
 }
-
 .ai-status{
-  font-size:10px;
-  color:#39ff88;
-  margin-top:5px;
+font-size:10px;
+color:var(--green);
+margin-top:5px;
 }
-
-.ai-status::before{
-  content:"● ";
-  animation:blink 1.5s infinite;
+.ai-status:before{
+content:"● ";
+animation:blink 1.4s infinite;
 }
-
-@keyframes blink{
-  50%{opacity:.2}
-}
-
 .ai-terminal-label{
-  color:#567462;
-  font-size:10px;
+font-size:10px;
+color:#577564;
 }
-
+@keyframes blink{
+50%{opacity:.25}
+}
 #aiChat{
-  height:400px!important;
-  padding:16px!important;
-  background:
-    radial-gradient(circle at top right,rgba(0,255,120,.04),transparent 40%),
-    #050b08!important;
-  border:none!important;
-  border-radius:0!important;
+height:390px;
+overflow-y:auto;
+padding:16px;
+background:
+radial-gradient(circle at top right,rgba(57,255,136,.035),transparent 45%),
+#050b08;
+scroll-behavior:smooth;
 }
-
-.ai-input-area{
-  padding:14px;
-  border-top:1px solid rgba(57,255,136,.15);
-  background:#09130d;
-}
-
-.ai-input-wrap{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  background:#050b08;
-  border:1px solid rgba(57,255,136,.2);
-  border-radius:14px;
-  padding:6px;
-}
-
-#aiInput{
-  border:none!important;
-  background:transparent!important;
-  margin:0!important;
-  flex:1;
-  padding:12px!important;
-}
-
-#aiInput:focus{
-  border:none!important;
-}
-
-#aiSend{
-  width:48px;
-  min-width:48px;
-  height:45px;
-  padding:0;
-  border-radius:12px;
-  font-size:18px;
-}
-
 .ai-message{
-  animation:fadeIn .3s ease;
+margin-bottom:15px;
+animation:fadeIn .3s ease;
 }
-
 .ai-bubble{
-  padding:13px;
-  border-radius:14px;
-  max-width:92%;
-  font-size:14px;
-  line-height:1.65;
-  overflow-wrap:anywhere;
-  white-space:pre-wrap;
+padding:13px;
+border-radius:14px;
+max-width:92%;
+font-size:14px;
+line-height:1.65;
+white-space:pre-wrap;
+overflow-wrap:anywhere;
 }
-
 .ai-bubble.bot{
-  background:rgba(57,255,136,.055);
-  border:1px solid rgba(57,255,136,.12);
-  color:#e6f4eb;
+background:rgba(57,255,136,.055);
+border:1px solid rgba(57,255,136,.12);
 }
-
 .ai-bubble.user{
-  background:#102219;
-  border:1px solid rgba(57,255,136,.17);
-  color:#fff;
+background:#102219;
+border:1px solid rgba(57,255,136,.17);
 }
-
 .ai-bubble-title{
-  color:#39ff88;
-  font-size:11px;
-  font-weight:bold;
-  margin-bottom:8px;
-  letter-spacing:1px;
+font-size:10px;
+font-weight:bold;
+letter-spacing:1px;
+color:var(--green);
+margin-bottom:7px;
 }
-
 .ai-bubble.user .ai-bubble-title{
-  color:#c4d4ca;
+color:#b7c9bd;
 }
-
-.ai-dots{
-  display:flex;
-  gap:5px;
-  align-items:center;
-  padding:5px 2px;
+.ai-input-area{
+padding:13px;
+background:#09130d;
+border-top:1px solid var(--border);
 }
-
-.ai-dots span{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#39ff88;
-  animation:dotPulse 1s infinite ease-in-out;
+.ai-input-wrap{
+display:flex;
+align-items:center;
+gap:8px;
+background:#050b08;
+border:1px solid rgba(57,255,136,.2);
+border-radius:14px;
+padding:5px;
 }
-
-.ai-dots span:nth-child(2){
-  animation-delay:.15s;
+#aiInput{
+flex:1;
+min-width:0;
+border:0;
+background:transparent;
+margin:0;
 }
-
-.ai-dots span:nth-child(3){
-  animation-delay:.3s;
+#aiInput:focus{
+border:0;
 }
-
-@keyframes dotPulse{
-  0%,80%,100%{
-    transform:translateY(0);
-    opacity:.3;
-  }
-  40%{
-    transform:translateY(-5px);
-    opacity:1;
-  }
+#aiSend{
+width:47px;
+height:45px;
+min-width:47px;
+padding:0;
+border-radius:12px;
 }
-
 .ai-footer{
-  display:flex;
-  justify-content:space-between;
-  font-size:10px;
-  color:#567462;
-  margin-top:10px;
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:10px;
+color:#577564;
 }
-
+.ai-dots{
+display:flex;
+align-items:center;
+gap:5px;
+padding:5px 2px;
+}
+.ai-dots span{
+width:7px;
+height:7px;
+border-radius:50%;
+background:var(--green);
+animation:dotPulse .9s infinite ease-in-out;
+}
+.ai-dots span:nth-child(2){
+animation-delay:.15s;
+}
+.ai-dots span:nth-child(3){
+animation-delay:.3s;
+}
+@keyframes dotPulse{
+0%,80%,100%{transform:translateY(0);opacity:.3}
+40%{transform:translateY(-5px);opacity:1}
+}
 @media(max-width:600px){
-  #aiChat{
-    height:380px!important;
-  }
+.nav{
+flex-direction:column;
+}
+.navlinks{
+justify-content:center;
+}
+.hero{
+min-height:330px;
+}
+#aiChat{
+height:370px;
+}
 }
 </style>
 </head>
@@ -454,618 +433,1099 @@ footer{
 <body>
 
 <header>
-  <nav class="nav">
-    <div class="logo">ANGO<span>MODS</span></div>
-    <div class="navlinks">
-      <a href="#skins">SKINS</a>
-      <a href="#sensibilidade">SENSI</a>
-      <a href="#android">ANDROID</a>
-      <a href="#nick">NICKS</a>
-      <a href="#comunidade">COMUNIDADE</a>
-      <a href="#angomods-ai">IA</a>
-    </div>
-  </nav>
+<nav class="nav">
+<div class="logo">ANGO<span>MODS</span></div>
+<div class="navlinks">
+<a href="#skins">SKINS</a>
+<a href="#sensibilidade">SENSI</a>
+<a href="#android">ANDROID</a>
+<a href="#nick">NICKS</a>
+<a href="#comunidade">PACKS</a>
+<a href="#angomods-ai">AI</a>
+</div>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="glow"></div>
-  <h1>ANGO<span>MODS</span><br>GAMING</h1>
-  <p>
-    O teu universo Free Fire. Skins, sensibilidade,
-    optimização, nicks e inteligência artificial.
-    Tudo num único lugar.
-  </p>
-  <div class="hero-buttons">
-    <a href="#sensibilidade" class="btn">⚡ SENSIBILIDADE</a>
-    <a href="#angomods-ai" class="btn btn2">🤖 ANGOMODS IA</a>
-  </div>
+<div class="glow"></div>
+<h1>ANGO<span>MODS</span><br>GAMING</h1>
+<p>O universo Free Fire. Skins, sensibilidade, optimização, comunidade e inteligência artificial.</p>
+<div class="hero-buttons">
+<a href="#sensibilidade" class="btn">⚡ SENSIBILIDADE</a>
+<a href="#angomods-ai" class="btn btn2">⌘ ANGOMODS AI</a>
+</div>
 </section>
 
 <main class="container">
-<!-- SKINS -->
+<!-- SKINS FREESTYLE -->
 <section class="section" id="skins">
-  <div class="section-title">
-    <h2>🔥 Skins Freestyle</h2>
-    <p>Combinações para diferentes estilos.</p>
-  </div>
+<div class="section-title">
+<h2>🔥 Skins Freestyle</h2>
+<p>Explora estilos e combinações.</p>
+</div>
 
-  <div class="grid">
-    <div class="card">
-      <img class="skin-img" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=500&q=80" alt="Estilo gaming">
-      <h3>💎 Versão Podre de Rico</h3>
-      <p>Combinações com estilo de jogador gemado.</p>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <img class="skin-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80" alt="Estilo gaming">
-      <h3>🗿 Versão Pobre</h3>
-      <p>Combinações simples com presença no campo.</p>
-    </div>
+<div class="card animate">
+<img class="skin-img" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80" alt="Gaming">
+<h3>💎 Podre de Rico</h3>
+<p>Combinações com estilo de jogador gemado.</p>
+</div>
 
-    <div class="card">
-      <img class="skin-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=80" alt="Gaming">
-      <h3>⚡ Freestyle</h3>
-      <p>Estilos para criar o teu visual personalizado.</p>
-    </div>
-  </div>
+<div class="card animate">
+<img class="skin-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Gaming">
+<h3>🗿 Versão Pobre</h3>
+<p>Estilos simples mas com presença.</p>
+</div>
+
+<div class="card animate">
+<img class="skin-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Gaming">
+<h3>⚡ Freestyle</h3>
+<p>Cria o teu próprio estilo de personagem.</p>
+</div>
+
+</div>
 </section>
 
 <!-- SENSIBILIDADE -->
 <section class="section" id="sensibilidade">
-  <div class="section-title">
-    <h2>🎯 Gerador de Sensibilidade</h2>
-    <p>Cria uma configuração para o teu estilo de jogo.</p>
-  </div>
 
-  <div class="card">
-    <label>Estilo de jogo</label>
-    <select id="estilo" style="width:100%;padding:12px;background:#08120c;color:white;border:1px solid var(--border);border-radius:12px">
-      <option value="rapido">Arrasto rápido / puxar capa</option>
-      <option value="preciso">Precisão</option>
-      <option value="equilibrado">Equilibrado</option>
-    </select>
+<div class="section-title">
+<h2>🎯 Gerador de Sensibilidade</h2>
+<p>Configura uma sensibilidade adaptada ao teu estilo.</p>
+</div>
 
-    <label>Dispositivo</label>
-    <input id="dispositivo" placeholder="Ex: OPPO A31">
+<div class="card">
 
-    <label>DPI (opcional)</label>
-    <input id="dpi" type="number" placeholder="Ex: 500">
+<label>Estilo</label>
+<select id="estilo">
+<option value="rapido">Arrasto rápido / puxar capa</option>
+<option value="preciso">Precisão</option>
+<option value="equilibrado">Equilibrado</option>
+</select>
 
-    <button class="btn" onclick="gerarSensi()">⚡ GERAR SENSI</button>
+<label>Dispositivo</label>
+<input id="dispositivo" placeholder="Ex: OPPO A31">
 
-    <div id="sensiResultado" class="result hidden"></div>
-  </div>
+<label>DPI (opcional)</label>
+<input id="dpi" type="number" placeholder="Ex: 500">
+
+<button class="btn" onclick="gerarSensi()">⚡ GERAR SENSI</button>
+
+<div id="sensiResultado" class="result hidden"></div>
+
+</div>
 </section>
 
 <!-- ANDROID -->
 <section class="section" id="android">
-  <div class="section-title">
-    <h2>📱 Optimização Android</h2>
-    <p>Dicas para melhorar a fluidez do jogo.</p>
-  </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>⚡ Desempenho</h3>
-      <p>Fecha aplicações desnecessárias antes de jogar e evita multitarefa durante partidas.</p>
-    </div>
+<div class="section-title">
+<h2>📱 Optimização Android</h2>
+<p>Dicas para melhorar a experiência no Free Fire.</p>
+</div>
 
-    <div class="card">
-      <h3>🌡️ Temperatura</h3>
-      <p>Evita jogar enquanto carregas e mantém o aparelho numa temperatura confortável.</p>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>🧹 Armazenamento</h3>
-      <p>Liberta espaço e elimina ficheiros temporários de aplicações.</p>
-    </div>
+<div class="card">
+<h3>⚡ Desempenho</h3>
+<p>Fecha aplicações desnecessárias antes de jogar e evita multitarefa.</p>
+</div>
 
-    <div class="card">
-      <h3>🎮 Gráficos</h3>
-      <p>Experimenta gráficos mais baixos e desliga efeitos pesados para priorizar fluidez.</p>
-    </div>
-  </div>
+<div class="card">
+<h3>🌡️ Temperatura</h3>
+<p>Evita jogar enquanto carregas e não deixes o aparelho aquecer demasiado.</p>
+</div>
+
+<div class="card">
+<h3>🧹 Limpeza</h3>
+<p>Liberta espaço e elimina ficheiros temporários das aplicações.</p>
+</div>
+
+<div class="card">
+<h3>🎮 Gráficos</h3>
+<p>Reduz os efeitos gráficos para priorizar fluidez e estabilidade.</p>
+</div>
+
+</div>
 </section>
 
-<!-- NICKNAME -->
+<!-- NICKS -->
 <section class="section" id="nick">
-  <div class="section-title">
-    <h2>👑 Gerador de Nicknames</h2>
-    <p>Cria nomes personalizados para Free Fire.</p>
-  </div>
 
-  <div class="card">
-    <input id="nickBase" placeholder="Escreve o teu nome">
-    <button class="btn" onclick="gerarNick()">GERAR NICKS</button>
+<div class="section-title">
+<h2>👑 Gerador de Nicknames</h2>
+<p>Cria nomes estilosos para Free Fire.</p>
+</div>
 
-    <div id="nickResultado" class="result hidden"></div>
+<div class="card">
 
-    <button class="btn btn2" onclick="copiarEspaco()">Copiar espaço invisível</button>
+<input id="nickBase" placeholder="Escreve o teu nome">
 
-    <div class="result">
-      <p class="small">Espaço invisível:</p>
-      <code id="espacoInvisible">ㅤ</code>
-    </div>
+<button class="btn" onclick="gerarNick()">GERAR NICKS</button>
 
-    <div class="result">
-      <p class="small">Código verde:</p>
-      <code>[00FF00]</code>
-    </div>
+<div id="nickResultado" class="result hidden"></div>
 
-    <div class="result">
-      <p class="small">Código vermelho:</p>
-      <code>[FF0000]</code>
-    </div>
+<div class="result">
+<p class="small">Espaço invisível</p>
+<div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+<code>ㅤ</code>
+<button class="btn btn2" onclick="copiarEspaco()">Copiar</button>
+</div>
+</div>
 
-    <div class="result">
-      <p class="small">Código azul:</p>
-      <code>[0000FF]</code>
-    </div>
-  </div>
+<div class="result">
+<p class="small">Código verde</p>
+<code>[00FF00]</code>
+<button class="btn btn2" onclick="copiarTexto('[00FF00]')">Copiar</button>
+</div>
+
+<div class="result">
+<p class="small">Código vermelho</p>
+<code>[FF0000]</code>
+<button class="btn btn2" onclick="copiarTexto('[FF0000]')">Copiar</button>
+</div>
+
+<div class="result">
+<p class="small">Código azul</p>
+<code>[0000FF]</code>
+<button class="btn btn2" onclick="copiarTexto('[0000FF]')">Copiar</button>
+</div>
+
+</div>
 </section>
 <!-- COMUNIDADE -->
 <section class="section" id="comunidade">
-  <div class="section-title">
-    <h2>🌍 Packs da Comunidade</h2>
-    <p>Descobre configurações partilhadas por jogadores.</p>
-  </div>
 
-  <div id="packsContainer" class="grid">
-    <div class="card">
-      <p>⏳ A carregar packs...</p>
-    </div>
-  </div>
+<div class="section-title">
+<h2>🌍 Packs Comunitários</h2>
+<p>Descobre configurações partilhadas pela comunidade.</p>
+</div>
+
+<div id="packsContainer" class="grid">
+<div class="card">
+<p>⏳ A carregar packs...</p>
+</div>
+</div>
+
 </section>
+
 
 <!-- ADMIN -->
 <section class="section" id="admin">
-  <div class="section-title">
-    <h2>🔐 Administração</h2>
-    <p>Painel de gestão Angomods.</p>
-  </div>
 
-  <div class="card">
-    <div id="adminLogin">
-      <h3>Entrar</h3>
-      <input id="adminEmail" type="email" placeholder="Email de administrador">
-      <input id="adminPassword" type="password" placeholder="Palavra-passe">
-      <button class="btn" onclick="adminLogin()">Entrar</button>
-      <p id="adminStatus" class="small"></p>
-    </div>
+<div class="section-title">
+<h2>🔐 Painel ADM</h2>
+<p>Área de administração do Angomods.</p>
+</div>
 
-    <div id="adminPanel" class="hidden">
-      <h3>📦 Publicar Pack</h3>
-      <input id="packNome" placeholder="Nome do pack">
-      <input id="packAutor" placeholder="Nome do autor">
-      <textarea id="packDescricao" placeholder="Descrição do pack"></textarea>
-      <input id="packGeral" type="number" min="0" max="200" placeholder="Geral">
-      <input id="packRedDot" type="number" min="0" max="200" placeholder="Red Dot">
-      <input id="pack2x" type="number" min="0" max="200" placeholder="2x">
-      <input id="pack4x" type="number" min="0" max="200" placeholder="4x">
-      <input id="packSniper" type="number" min="0" max="200" placeholder="AWM">
-      <input id="packOlhada" type="number" min="0" max="200" placeholder="Olhada">
-      <button class="btn" onclick="publicarPack()">🚀 PUBLICAR PACK</button>
-      <button class="btn btn2" onclick="adminLogout()">Sair</button>
-      <p id="publishStatus" class="small"></p>
-    </div>
-  </div>
+<div class="card">
+
+<div id="adminLogin">
+
+<h3>🛡️ Acesso Administrativo</h3>
+
+<input id="adminEmail" type="email" placeholder="Email de administrador">
+
+<input id="adminPassword" type="password" placeholder="Palavra-passe">
+
+<button class="btn" onclick="adminLogin()">
+ENTRAR
+</button>
+
+<p id="adminStatus" class="small"></p>
+
+</div>
+
+
+<div id="adminPanel" class="hidden">
+
+<h3>⚡ Publicar Pack</h3>
+
+<input id="packNome" placeholder="Nome do pack">
+
+<input id="packAutor" placeholder="Nome do autor">
+
+<textarea id="packDescricao" placeholder="Descrição do pack"></textarea>
+
+<label>Geral</label>
+<input id="packGeral" type="number" placeholder="Geral">
+
+<label>Ponto Vermelho</label>
+<input id="packRed" type="number" placeholder="Red Dot">
+
+<label>2x</label>
+<input id="pack2x" type="number" placeholder="Mira 2x">
+
+<label>4x</label>
+<input id="pack4x" type="number" placeholder="Mira 4x">
+
+<label>AWM</label>
+<input id="packAWM" type="number" placeholder="AWM">
+
+<label>Olhada</label>
+<input id="packOlhada" type="number" placeholder="Olhada">
+
+<button class="btn" onclick="publicarPack()">
+🚀 PUBLICAR PACK
+</button>
+
+<p id="publishStatus" class="small"></p>
+
+<hr>
+
+<button class="btn btn2" onclick="adminLogout()">
+SAIR DO ADM
+</button>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- ANGOMODS IA -->
 <section class="section" id="angomods-ai">
-  <div class="section-title">
-    <h2>🤖 Angomods IA</h2>
-    <p>O teu assistente gaming. Pergunta sobre Free Fire, sensibilidade, Android e muito mais.</p>
-  </div>
 
-  <div class="card" id="aiCard">
-    <div id="aiChat" style="height:350px;overflow-y:auto;padding:12px;background:#07110b;border:1px solid var(--border);border-radius:15px">
+<div class="section-title">
 
-      <div class="ai-message" style="margin-bottom:12px">
-        <div style="background:rgba(57,255,136,.09);padding:13px;border-radius:13px;display:inline-block;max-width:90%">
-          <strong style="color:var(--green)">Angomods IA</strong>
-          <p style="margin-top:8px;font-size:14px;line-height:1.6">
-            Yo! 🎮 Sou a Angomods IA. Bora falar de Free Fire, sensibilidade, skins ou Android?
-          </p>
-        </div>
-      </div>
+<h2>🤖 Angomods IA</h2>
 
-    </div>
+<p>Inteligência artificial para o universo Free Fire.</p>
 
-    <div style="display:flex;gap:8px;margin-top:12px">
-      <input id="aiInput" placeholder="Pergunta alguma coisa..." style="margin:0;flex:1">
-      <button class="btn" id="aiSend" onclick="enviarAI()">➤</button>
-    </div>
+</div>
 
-    <p class="small" style="margin-top:10px">
-      Angomods IA • Powered by Groq
-    </p>
-  </div>
+
+<div class="card" id="aiCard">
+
+<div class="ai-topbar">
+
+<div class="ai-brand">
+
+<div class="ai-logo">A</div>
+
+<div>
+
+<strong>ANGOMODS AI</strong>
+
+<div class="small">GAMING INTELLIGENCE</div>
+
+</div>
+
+</div>
+
+<div class="ai-status">
+
+<span class="online-dot"></span>
+
+<span>ONLINE</span>
+
+</div>
+
+</div>
+
+
+<div class="ai-terminal">
+
+<div class="terminal-line">
+<span class="terminal-green">root@angomods</span>
+<span>:~# connection established</span>
+</div>
+
+<div class="terminal-line terminal-muted">
+GROQ ENGINE // SECURE SESSION
+</div>
+
+</div>
+
+
+<div id="aiChat" class="ai-chat">
+
+<div class="ai-message bot">
+
+<div class="ai-avatar">A</div>
+
+<div class="ai-bubble">
+
+<span class="ai-name">ANGOMODS AI</span>
+
+Yo, jogador! 👾
+
+Sou a Angomods IA. Posso ajudar com Free Fire, sensibilidade, HUD, estratégias e optimização Android.
+
+Como podemos dominar hoje?
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="ai-input-area">
+
+<div class="ai-input-wrap">
+
+<input
+id="aiInput"
+type="text"
+placeholder="Escreve uma mensagem..."
+autocomplete="off"
+>
+
+<button
+id="aiSend"
+onclick="enviarAI()"
+title="Enviar"
+>
+➤
+</button>
+
+</div>
+
+<div class="ai-footer">
+
+<span>⚡ GROQ ENGINE</span>
+
+<span>ANGOMODS SYSTEM</span>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
-
-<footer>
-  <p>ANGO<span style="color:var(--green)">MODS</span> GAMING</p>
-  <p style="margin-top:8px">Feito para a comunidade Free Fire 🇦🇴</p>
-  <p style="margin-top:8px">© 2026 Angomods Gaming</p>
+<!-- FOOTER -->
+<footer style="text-align:center;padding:30px;color:#888">
+<p>⚡ ANGOMODS GAMING</p>
+<p>Feito para a comunidade Free Fire.</p>
 </footer>
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
 /* =========================
-   CONFIGURAÇÃO SUPABASE
+   SUPABASE
 ========================= */
 
 const SUPABASE_URL = "https://llgqbzteoqjiyrwwylwk.supabase.co";
+
 const SUPABASE_KEY = "sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
-const sb = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+
+const supabaseClient = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
 );
+
+
+/* =========================
+   UTILIDADES
+========================= */
+
+function escapeHTML(valor){
+
+return String(valor ?? "").replace(/[&<>"']/g, c => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[c]));
+
+}
+
+function copiarTexto(texto){
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(texto)
+.then(()=>alert("Copiado! ✌️"))
+.catch(()=>copiarFallback(texto));
+
+}else{
+
+copiarFallback(texto);
+
+}
+
+}
+
+function copiarFallback(texto){
+
+const campo=document.createElement("textarea");
+
+campo.value=texto;
+
+document.body.appendChild(campo);
+
+campo.select();
+
+try{
+
+document.execCommand("copy");
+
+alert("Copiado! ✌️");
+
+}catch(e){
+
+alert("Não foi possível copiar.");
+
+}
+
+campo.remove();
+
+}
+
+function copiarEspaco(){
+
+copiarTexto("ㅤ");
+
+}
+
 
 /* =========================
    SENSIBILIDADE
 ========================= */
 
 function gerarSensi(){
-  const estilo = document.getElementById("estilo").value;
-  const dispositivo = document.getElementById("dispositivo").value || "Dispositivo";
-  const dpi = document.getElementById("dpi").value || "Não informado";
 
-  let valores;
+const estilo=document.getElementById("estilo").value;
 
-  if(estilo === "rapido"){
-    valores = [195,190,185,175,160,200];
-  }else if(estilo === "preciso"){
-    valores = [170,155,145,130,100,170];
-  }else{
-    valores = [185,175,165,150,120,185];
-  }
+const dispositivo=document.getElementById("dispositivo").value || "Dispositivo não indicado";
 
-  document.getElementById("sensiResultado").classList.remove("hidden");
+const dpi=document.getElementById("dpi").value;
 
-  document.getElementById("sensiResultado").innerHTML = `
-    <h3>🎯 Configuração gerada</h3>
-    <p style="margin-top:10px">📱 ${escapeHTML(dispositivo)}</p>
-    <p>📐 DPI: ${escapeHTML(dpi)}</p>
-    <p style="margin-top:12px">Geral: <strong>${valores[0]}</strong></p>
-    <p>Red Dot: <strong>${valores[1]}</strong></p>
-    <p>2x: <strong>${valores[2]}</strong></p>
-    <p>4x: <strong>${valores[3]}</strong></p>
-    <p>AWM: <strong>${valores[4]}</strong></p>
-    <p>Olhada: <strong>${valores[5]}</strong></p>
-    <button class="btn" style="margin-top:12px" onclick="copiarTexto('${valores.join(',')}')">📋 COPIAR</button>
-  `;
+let valores;
+
+if(estilo==="rapido"){
+
+valores={
+geral:195,
+red:190,
+x2:185,
+x4:170,
+awm:100,
+olhada:160
+};
+
 }
 
+else if(estilo==="preciso"){
+
+valores={
+geral:160,
+red:145,
+x2:135,
+x4:120,
+awm:85,
+olhada:110
+};
+
+}
+
+else{
+
+valores={
+geral:180,
+red:175,
+x2:160,
+x4:145,
+awm:95,
+olhada:130
+};
+
+}
+
+const resultado=document.getElementById("sensiResultado");
+
+resultado.innerHTML=`
+
+<h3>🎯 Configuração sugerida</h3>
+
+<p><b>Dispositivo:</b> ${escapeHTML(dispositivo)}</p>
+
+<p><b>DPI:</b> ${escapeHTML(dpi || "Não indicado")}</p>
+
+<p>Geral: ${valores.geral}</p>
+
+<p>Red Dot: ${valores.red}</p>
+
+<p>2x: ${valores.x2}</p>
+
+<p>4x: ${valores.x4}</p>
+
+<p>AWM: ${valores.awm}</p>
+
+<p>Olhada: ${valores.olhada}</p>
+
+<p class="small">Configuração inicial. Ajusta conforme o teu arrasto.</p>
+
+`;
+
+resultado.classList.remove("hidden");
+
+}
+
+
 /* =========================
-   NICKNAMES
+   NICKNAME
 ========================= */
 
 function gerarNick(){
-  const base = document.getElementById("nickBase").value.trim();
 
-  if(!base){
-    alert("Escreve primeiro um nome!");
-    return;
-  }
+const base=document.getElementById("nickBase").value.trim();
 
-  const estilos = [
-    "亗"+base+"亗",
-    "『"+base+"』",
-    "乂"+base+"乂",
-    "★"+base+"★",
-    "么"+base+"么",
-    "꧁"+base+"꧂",
-    "ツ"+base+"ツ",
-    "メ"+base+"メ",
-    "亗"+base+"ㅤ",
-    "乂"+base+"ㅤ"
-  ];
+const resultado=document.getElementById("nickResultado");
 
-  const area = document.getElementById("nickResultado");
-  area.classList.remove("hidden");
+if(!base){
 
-  area.innerHTML = estilos.map(n => `
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0;padding:10px;background:#101d14;border-radius:10px">
-      <span>${escapeHTML(n)}</span>
-      <button class="btn" onclick="copiarTexto('${escapeJS(n)}')">Copiar</button>
-    </div>
-  `).join("");
+alert("Escreve primeiro um nome.");
+
+return;
+
 }
 
-function copiarEspaco(){
-  copiarTexto("ㅤ");
+const estilos=[
+"亗 "+base+" 亗",
+"꧁"+base+"꧂",
+"『"+base+"』",
+"乂"+base+"乂",
+"★彡"+base+"彡★",
+"么"+base+"么",
+"ツ"+base+"ツ",
+"◥"+base+"◤",
+"亗『"+base+"』",
+"꧁༒"+base+"༒꧂"
+];
+
+resultado.innerHTML="<h3>👑 Nicks</h3>";
+
+estilos.forEach(nick=>{
+
+const div=document.createElement("div");
+
+div.className="result";
+
+div.innerHTML=`
+
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+
+<span>${escapeHTML(nick)}</span>
+
+<button class="btn btn2" onclick="copiarTexto(${JSON.stringify(nick)})">Copiar</button>
+
+</div>
+
+`;
+
+resultado.appendChild(div);
+
+});
+
+resultado.classList.remove("hidden");
+
 }
+
 
 /* =========================
-   PACKS
+   PACKS COMUNITÁRIOS
 ========================= */
 
 async function carregarPacks(){
-  const container = document.getElementById("packsContainer");
 
-  const {data,error} = await sb
-    .from("packs")
-    .select("*")
-    .limit(30);
+const container=document.getElementById("packsContainer");
 
-  if(error){
-    container.innerHTML = `
-      <div class="card">
-        <p>Não foi possível carregar os packs.</p>
-        <p class="small">${escapeHTML(error.message)}</p>
-      </div>`;
-    return;
-  }
+try{
 
-  if(!data || data.length === 0){
-    container.innerHTML = `
-      <div class="card">
-        <p>📦 Ainda não existem packs publicados.</p>
-      </div>`;
-    return;
-  }
+const {data,error}=await supabaseClient
+.from("packs")
+.select("*")
+.order("created_at",{ascending:false});
 
-  container.innerHTML = data.map(p => `
-    <div class="card">
-      <span class="tag">PACK COMUNITÁRIO</span>
-      <h3>${escapeHTML(p.nome || p.name || "Pack")}</h3>
-      <p>${escapeHTML(p.descricao || p.description || "")}</p>
-      <p style="margin-top:10px">👤 ${escapeHTML(p.autor || p.author || "Jogador")}</p>
-      <div class="result">
-        <p>Geral: ${escapeHTML(String(p.geral ?? 0))}</p>
-        <p>Red Dot: ${escapeHTML(String(p.red_dot ?? p.reddot ?? 0))}</p>
-        <p>2x: ${escapeHTML(String(p.x2 ?? p.dois_x ?? 0))}</p>
-        <p>4x: ${escapeHTML(String(p.x4 ?? p.quatro_x ?? 0))}</p>
-        <p>AWM: ${escapeHTML(String(p.awm ?? 0))}</p>
-        <p>Olhada: ${escapeHTML(String(p.olhada ?? 0))}</p>
-      </div>
-    </div>
-  `).join("");
+if(error)throw error;
+
+if(!data || data.length===0){
+
+container.innerHTML=`
+
+<div class="card">
+
+<h3>📦 Comunidade vazia</h3>
+
+<p>Ainda não existem packs publicados.</p>
+
+</div>
+
+`;
+
+return;
+
 }
 
+container.innerHTML="";
+
+data.forEach(pack=>{
+
+const card=document.createElement("div");
+
+card.className="card animate";
+
+card.innerHTML=`
+
+<h3>🎮 ${escapeHTML(pack.nome)}</h3>
+
+<p>${escapeHTML(pack.descricao || "Sem descrição")}</p>
+
+<p class="small">Autor: ${escapeHTML(pack.autor || "Anónimo")}</p>
+
+<div class="result">
+
+<p>🎯 Geral: ${escapeHTML(pack.geral)}</p>
+
+<p>🔴 Red Dot: ${escapeHTML(pack.red_dot)}</p>
+
+<p>🔭 2x: ${escapeHTML(pack.x2)}</p>
+
+<p>🔭 4x: ${escapeHTML(pack.x4)}</p>
+
+<p>🎯 AWM: ${escapeHTML(pack.awm)}</p>
+
+<p>👁️ Olhada: ${escapeHTML(pack.olhada)}</p>
+
+</div>
+
+<button class="btn btn2" onclick="copiarTexto(${JSON.stringify(
+"Geral: "+pack.geral+
+" | Red Dot: "+pack.red_dot+
+" | 2x: "+pack.x2+
+" | 4x: "+pack.x4+
+" | AWM: "+pack.awm+
+" | Olhada: "+pack.olhada
+)})">Copiar configuração</button>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}catch(error){
+
+container.innerHTML=`
+
+<div class="card">
+
+<h3>⚠️ Erro ao carregar packs</h3>
+
+<p>${escapeHTML(error.message)}</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
 /* =========================
-   ADMIN
+   ADM
 ========================= */
 
 async function adminLogin(){
-  const email = document.getElementById("adminEmail").value.trim();
-  const password = document.getElementById("adminPassword").value;
-  const status = document.getElementById("adminStatus");
 
-  status.textContent = "A entrar...";
+const email=document.getElementById("adminEmail").value.trim();
 
-  const {data,error} = await sb.auth.signInWithPassword({
-    email,
-    password
-  });
+const password=document.getElementById("adminPassword").value;
 
-  if(error){
-    status.textContent = "Erro: " + error.message;
-    return;
-  }
+const status=document.getElementById("adminStatus");
 
-  await verificarAdmin(data.user);
+status.textContent="A verificar acesso...";
+
+try{
+
+const {data,error}=await supabaseClient.auth.signInWithPassword({
+
+email:email,
+
+password:password
+
+});
+
+if(error)throw error;
+
+const user=data.user;
+
+const {data:admin,error:adminError}=await supabaseClient
+.from("admins")
+.select("user_id")
+.eq("user_id",user.id)
+.maybeSingle();
+
+if(adminError)throw adminError;
+
+if(!admin){
+
+await supabaseClient.auth.signOut();
+
+status.textContent="Acesso negado. Não és administrador.";
+
+return;
+
 }
 
-async function verificarAdmin(user){
-  const status = document.getElementById("adminStatus");
+document.getElementById("adminLogin").classList.add("hidden");
 
-  const {data,error} = await sb
-    .from("admins")
-    .select("*")
-    .eq("user_id",user.id)
-    .maybeSingle();
+document.getElementById("adminPanel").classList.remove("hidden");
 
-  if(error || !data){
-    status.textContent = "Esta conta não possui autorização de administrador.";
+status.textContent="";
 
-    await sb.auth.signOut();
-    return;
-  }
+}catch(error){
 
-  document.getElementById("adminLogin").classList.add("hidden");
-  document.getElementById("adminPanel").classList.remove("hidden");
+status.textContent="Erro: "+error.message;
+
 }
+
+}
+
 
 async function adminLogout(){
-  await sb.auth.signOut();
 
-  document.getElementById("adminPanel").classList.add("hidden");
-  document.getElementById("adminLogin").classList.remove("hidden");
+await supabaseClient.auth.signOut();
+
+document.getElementById("adminPanel").classList.add("hidden");
+
+document.getElementById("adminLogin").classList.remove("hidden");
+
+document.getElementById("adminStatus").textContent="Sessão encerrada.";
+
 }
+
+
+/* =========================
+   PUBLICAR PACK
+========================= */
 
 async function publicarPack(){
-  const status = document.getElementById("publishStatus");
 
-  const {data:{user}} = await sb.auth.getUser();
+const status=document.getElementById("publishStatus");
 
-  if(!user){
-    status.textContent = "Sessão expirada. Entra novamente.";
-    return;
-  }
+status.textContent="A publicar...";
 
-  const pack = {
-    nome: document.getElementById("packNome").value.trim(),
-    autor: document.getElementById("packAutor").value.trim(),
-    descricao: document.getElementById("packDescricao").value.trim(),
-    geral: Number(document.getElementById("packGeral").value),
-    red_dot: Number(document.getElementById("packRedDot").value),
-    x2: Number(document.getElementById("pack2x").value),
-    x4: Number(document.getElementById("pack4x").value),
-    awm: Number(document.getElementById("packSniper").value),
-    olhada: Number(document.getElementById("packOlhada").value)
-  };
+try{
 
-  if(!pack.nome){
-    status.textContent = "Coloca o nome do pack.";
-    return;
-  }
+const {data:userData,error:userError}=await supabaseClient.auth.getUser();
 
-  status.textContent = "A publicar...";
+if(userError)throw userError;
 
-  const {error} = await sb.from("packs").insert(pack);
+if(!userData.user){
 
-  if(error){
-    status.textContent = "Erro: " + error.message;
-    return;
-  }
+status.textContent="Sessão não encontrada.";
 
-  status.textContent = "Pack publicado com sucesso! 🚀";
+return;
 
-  carregarPacks();
 }
 
-sb.auth.onAuthStateChange(async(event,session)=>{
-  if(session && session.user){
-    verificarAdmin(session.user);
-  }
-});
+const pack={
+
+nome:document.getElementById("packNome").value.trim(),
+
+autor:document.getElementById("packAutor").value.trim(),
+
+descricao:document.getElementById("packDescricao").value.trim(),
+
+geral:Number(document.getElementById("packGeral").value),
+
+red_dot:Number(document.getElementById("packRed").value),
+
+x2:Number(document.getElementById("pack2x").value),
+
+x4:Number(document.getElementById("pack4x").value),
+
+awm:Number(document.getElementById("packAWM").value),
+
+olhada:Number(document.getElementById("packOlhada").value)
+
+};
+
+if(!pack.nome){
+
+status.textContent="Escreve o nome do pack.";
+
+return;
+
+}
+
+const {error}=await supabaseClient
+.from("packs")
+.insert(pack);
+
+if(error)throw error;
+
+status.textContent="🔥 Pack publicado com sucesso!";
+
+document.getElementById("packNome").value="";
+
+document.getElementById("packAutor").value="";
+
+document.getElementById("packDescricao").value="";
+
+document.getElementById("packGeral").value="";
+
+document.getElementById("packRed").value="";
+
+document.getElementById("pack2x").value="";
+
+document.getElementById("pack4x").value="";
+
+document.getElementById("packAWM").value="";
+
+document.getElementById("packOlhada").value="";
+
+carregarPacks();
+
+}catch(error){
+
+status.textContent="Erro: "+error.message;
+
+}
+
+}
+
 
 /* =========================
    ANGOMODS IA
+   MEMÓRIA DE CONVERSA
 ========================= */
 
-function adicionarMensagem(texto,autor){
-  const chat = document.getElementById("aiChat");
-  const div = document.createElement("div");
+let aiHistorico=[];
 
-  div.style.marginBottom = "12px";
+let aiEmProcesso=false;
 
-  const caixa = document.createElement("div");
-  caixa.style.cssText = `
-    padding:13px;
-    border-radius:13px;
-    display:inline-block;
-    max-width:90%;
-    background:${autor==="user" ? "rgba(255,255,255,.06)" : "rgba(57,255,136,.09)"};
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
-    line-height:1.6;
-  `;
 
-  const titulo = document.createElement("strong");
-  titulo.style.color = autor==="user" ? "#ffffff" : "#39ff88";
-  titulo.textContent = autor==="user" ? "Tu" : "Angomods IA";
+function adicionarMensagem(texto,tipo){
 
-  const conteudo = document.createElement("div");
-  conteudo.style.marginTop = "8px";
-  conteudo.textContent = texto;
+const chat=document.getElementById("aiChat");
 
-  caixa.appendChild(titulo);
-  caixa.appendChild(conteudo);
-  div.appendChild(caixa);
+const mensagem=document.createElement("div");
 
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
+mensagem.className="ai-message "+tipo;
 
-  return div;
+if(tipo==="bot"){
+
+mensagem.innerHTML=`
+
+<div class="ai-avatar">A</div>
+
+<div class="ai-bubble">
+
+<span class="ai-name">ANGOMODS AI</span>
+
+<div>${escapeHTML(texto).replace(/\n/g,"<br>")}</div>
+
+</div>
+
+`;
+
+}else{
+
+mensagem.innerHTML=`
+
+<div class="ai-bubble user-bubble">
+
+${escapeHTML(texto).replace(/\n/g,"<br>")}
+
+</div>
+
+`;
+
 }
+
+chat.appendChild(mensagem);
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+
+function mostrarPensamento(){
+
+const chat=document.getElementById("aiChat");
+
+const div=document.createElement("div");
+
+div.id="aiThinking";
+
+div.className="ai-message bot";
+
+div.innerHTML=`
+
+<div class="ai-avatar">A</div>
+
+<div class="ai-bubble">
+
+<span class="ai-name">ANGOMODS AI</span>
+
+<span class="thinking-dots">
+
+<span>.</span><span>.</span><span>.</span>
+
+</span>
+
+</div>
+
+`;
+
+chat.appendChild(div);
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+
+function removerPensamento(){
+
+const el=document.getElementById("aiThinking");
+
+if(el)el.remove();
+
+}
+
 
 async function enviarAI(){
-  const input = document.getElementById("aiInput");
-  const button = document.getElementById("aiSend");
-  const mensagem = input.value.trim();
 
-  if(!mensagem) return;
+if(aiEmProcesso)return;
 
-  input.value = "";
-  adicionarMensagem(mensagem,"user");
+const input=document.getElementById("aiInput");
 
-  button.disabled = true;
-  button.textContent = "...";
+const botao=document.getElementById("aiSend");
 
-  const typing = adicionarMensagem("A pensar...","ai");
+const mensagem=input.value.trim();
 
-  try{
-    const response = await fetch(
-      SUPABASE_URL + "/functions/v1/angomods-ai",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json",
-          "apikey":SUPABASE_KEY,
-          "Authorization":"Bearer "+SUPABASE_KEY
-        },
-        body:JSON.stringify({
-          mensagem:mensagem
-        })
-      }
-    );
+if(!mensagem)return;
 
-    const data = await response.json();
+aiEmProcesso=true;
 
-    typing.remove();
+input.value="";
 
-    if(!response.ok){
-      throw new Error(data.error || data.erro || data.message || "Erro na ligação");
-    }
+botao.disabled=true;
 
-    const resposta =
-      data.resposta ||
-      data.response ||
-      data.answer ||
-      data.message ||
-      data.output ||
-      (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ||
-      JSON.stringify(data);
+adicionarMensagem(mensagem,"user");
 
-    adicionarMensagem(String(resposta),"ai");
+aiHistorico.push({
 
-  }catch(e){
-    typing.remove();
+role:"user",
 
-    adicionarMensagem(
-      "Não consegui ligar neste momento. Verifica a ligação ou tenta novamente. ("+e.message+")",
-      "ai"
-    );
-  }
+content:mensagem
 
-  button.disabled = false;
-  button.textContent = "➤";
-}
-
-document.getElementById("aiInput").addEventListener("keydown",function(e){
-  if(e.key==="Enter"){
-    enviarAI();
-  }
 });
 
-/* =========================
-   UTILIDADES
-========================= */
+mostrarPensamento();
 
-function escapeHTML(text){
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+try{
+
+const response=await fetch(
+
+SUPABASE_URL+"/functions/v1/angomods-ai",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json",
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":"Bearer "+SUPABASE_KEY
+
+},
+
+body:JSON.stringify({
+
+mensagem:mensagem,
+
+historico:aiHistorico.slice(-20)
+
+})
+
 }
 
-function escapeJS(text){
-  return String(text)
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/\n/g,"\\n");
+);
+
+const data=await response.json();
+
+if(!response.ok){
+
+throw new Error(data.erro || data.error || data.detalhes || "Falha na IA");
+
 }
 
-async function copiarTexto(texto){
-  try{
-    await navigator.clipboard.writeText(texto);
-    alert("Copiado! ✌️");
-  }catch(e){
-    const area = document.createElement("textarea");
-    area.value = texto;
-    document.body.appendChild(area);
-    area.select();
-    document.execCommand("copy");
-    area.remove();
-    alert("Copiado! ✌️");
-  }
+let resposta=
+
+data.resposta||
+
+data.response||
+
+data.answer||
+
+data.message||
+
+data.output||
+
+(data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content)||
+
+"Não recebi uma resposta válida.";
+
+removerPensamento();
+
+adicionarMensagem(resposta,"bot");
+
+aiHistorico.push({
+
+role:"assistant",
+
+content:resposta
+
+});
+
+}catch(error){
+
+removerPensamento();
+
+adicionarMensagem("Erro de conexão: "+error.message,"bot");
+
+aiHistorico.pop();
+
 }
+
+aiEmProcesso=false;
+
+botao.disabled=false;
+
+input.focus();
+
+}
+
+
+document.getElementById("aiInput").addEventListener("keydown",function(e){
+
+if(e.key==="Enter"){
+
+e.preventDefault();
+
+enviarAI();
+
+}
+
+});
+
 
 /* =========================
    INICIALIZAÇÃO
@@ -1074,5 +1534,6 @@ async function copiarTexto(texto){
 carregarPacks();
 
 </script>
+
 </body>
 </html>
