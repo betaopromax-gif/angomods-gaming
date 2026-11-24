@@ -3,2185 +3,1929 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0b0b">
-<meta name="description" content="ANGOMODS - O teu universo Free Fire.">
-<title>ANGOMODS | Free Fire Community</title>
+<meta name="theme-color" content="#090909">
+<meta name="description" content="ANGOMODS GAMING - Free Fire Community">
+<title>ANGOMODS GAMING</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#090909;
-  --bg2:#111111;
-  --card:#151515;
-  --card2:#1c1c1c;
-  --red:#ff3030;
-  --red2:#b60000;
-  --white:#f4f4f4;
-  --muted:#969696;
-  --border:#292929;
-  --radius:15px;
+--bg:#090909;
+--card:#151515;
+--card2:#1c1c1c;
+--red:#ff3030;
+--red2:#b60000;
+--white:#f4f4f4;
+--muted:#969696;
+--border:#292929;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
+scroll-padding-top:80px;
 }
 
 body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
-}
-
-body::selection{
-  background:var(--red);
-  color:white;
+background:var(--bg);
+color:var(--white);
+font-family:Inter,Arial,sans-serif;
+overflow-x:hidden;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+color:inherit;
+text-decoration:none;
 }
 
 button,input,select,textarea{
-  font:inherit;
+font:inherit;
 }
 
 button{
-  cursor:pointer;
-}
-
-img{
-  max-width:100%;
+cursor:pointer;
 }
 
 .container{
-  width:min(1150px,92%);
-  margin:auto;
+width:min(1150px,92%);
+margin:auto;
 }
 
 .hidden{
-  display:none!important;
+display:none!important;
 }
 
-/* ===== ANIMATED FIRE ===== */
-
-.fire-layer{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:0;
+@keyframes rise{
+from{transform:translateY(20px);opacity:0}
+to{transform:translateY(0);opacity:1}
 }
-
-.fire-layer span{
-  position:absolute;
-  bottom:-30px;
-  width:8px;
-  height:8px;
-  background:#ff3030;
-  border-radius:50%;
-  box-shadow:
-    0 0 10px #ff3030,
-    0 0 25px #ff3030,
-    0 0 45px #b60000;
-  animation:embers 5s linear infinite;
-  opacity:0;
-}
-
-.fire-layer span:nth-child(1){left:10%;animation-delay:0s}
-.fire-layer span:nth-child(2){left:22%;animation-delay:1.2s}
-.fire-layer span:nth-child(3){left:35%;animation-delay:2s}
-.fire-layer span:nth-child(4){left:48%;animation-delay:.5s}
-.fire-layer span:nth-child(5){left:61%;animation-delay:2.5s}
-.fire-layer span:nth-child(6){left:73%;animation-delay:1.7s}
-.fire-layer span:nth-child(7){left:86%;animation-delay:3s}
-.fire-layer span:nth-child(8){left:94%;animation-delay:1s}
 
 @keyframes embers{
-  0%{
-    transform:translateY(0) scale(.5);
-    opacity:0;
-  }
-  20%{
-    opacity:.9;
-  }
-  100%{
-    transform:translateY(-450px) translateX(30px) scale(0);
-    opacity:0;
-  }
+0%{transform:translateY(0) scale(.5);opacity:0}
+20%{opacity:.8}
+100%{transform:translateY(-420px) translateX(25px) scale(0);opacity:0}
 }
 
-@keyframes fireGlow{
-  0%,100%{
-    box-shadow:0 0 12px rgba(255,48,48,.12);
-  }
-  50%{
-    box-shadow:0 0 35px rgba(255,48,48,.25);
-  }
+@keyframes glow{
+0%,100%{box-shadow:0 0 10px rgba(255,48,48,.12)}
+50%{box-shadow:0 0 30px rgba(255,48,48,.25)}
 }
 
-@keyframes pulseRed{
-  0%,100%{
-    box-shadow:0 0 0 rgba(255,48,48,0);
-  }
-  50%{
-    box-shadow:0 0 22px rgba(255,48,48,.25);
-  }
+.fire{
+position:absolute;
+inset:0;
+overflow:hidden;
+pointer-events:none;
 }
 
-@keyframes titleGlow{
-  0%,100%{
-    text-shadow:0 0 5px rgba(255,48,48,.3);
-  }
-  50%{
-    text-shadow:0 0 25px rgba(255,48,48,.8);
-  }
+.fire span{
+position:absolute;
+bottom:-20px;
+width:6px;
+height:6px;
+border-radius:50%;
+background:#ff3030;
+box-shadow:0 0 15px #ff3030,0 0 30px #b60000;
+animation:embers 5s linear infinite;
 }
 
-@keyframes slideUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+.fire span:nth-child(1){left:10%;animation-delay:0s}
+.fire span:nth-child(2){left:20%;animation-delay:1s}
+.fire span:nth-child(3){left:30%;animation-delay:2s}
+.fire span:nth-child(4){left:45%;animation-delay:.5s}
+.fire span:nth-child(5){left:60%;animation-delay:2.5s}
+.fire span:nth-child(6){left:75%;animation-delay:1.5s}
+.fire span:nth-child(7){left:90%;animation-delay:3s}
 
-/* ===== HEADER ===== */
+/* HEADER */
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(8,8,8,.96);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(8,8,8,.96);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--border);
 }
 
 .navbar{
-  min-height:65px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+min-height:65px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
 }
 
 .logo{
-  font-family:Rajdhani,sans-serif;
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:1px;
+font-family:Rajdhani,sans-serif;
+font-size:27px;
+font-weight:800;
+letter-spacing:1px;
 }
 
 .logo span{
-  color:var(--red);
-}
-
-.logo-icon{
-  color:var(--red);
-  margin-right:5px;
+color:var(--red);
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
+display:flex;
+align-items:center;
+gap:16px;
 }
 
 .nav-links a{
-  color:#c5c5c5;
-  font-size:12px;
-  font-weight:700;
-  transition:.25s;
+font-size:11px;
+font-weight:800;
+color:#bbb;
+transition:.2s;
 }
 
 .nav-links a:hover{
-  color:var(--red);
+color:var(--red);
 }
 
 .menu-btn{
-  display:none;
-  border:1px solid var(--border);
-  background:var(--card);
-  color:white;
-  padding:9px 13px;
-  border-radius:9px;
-  font-size:18px;
+display:none;
+background:#181818;
+color:white;
+border:1px solid #333;
+border-radius:9px;
+padding:9px 13px;
+font-size:18px;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:none;
-  border-radius:10px;
-  padding:12px 16px;
-  font-size:13px;
-  font-weight:800;
-  transition:.25s;
+display:inline-flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+padding:12px 16px;
+border:none;
+border-radius:10px;
+font-size:12px;
+font-weight:800;
+transition:.2s;
 }
 
 .btn-red{
-  color:white;
-  background:linear-gradient(135deg,#ff3434,#b90000);
+color:white;
+background:linear-gradient(135deg,#ff3434,#b90000);
 }
 
 .btn-red:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 25px rgba(255,48,48,.3);
+transform:translateY(-2px);
+box-shadow:0 0 20px #ff303044;
 }
 
 .btn-dark{
-  color:white;
-  background:#222;
-  border:1px solid #353535;
+background:#222;
+border:1px solid #333;
+color:white;
 }
 
-.btn-dark:hover{
-  border-color:var(--red);
-}
-
-/* ===== HOME HERO ===== */
+/* HERO */
 
 .hero{
-  position:relative;
-  min-height:480px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  padding:55px 0;
-  background:
-    radial-gradient(ellipse at 80% 50%,rgba(180,0,0,.22),transparent 55%),
-    linear-gradient(180deg,#101010,#080808);
+position:relative;
+overflow:hidden;
+min-height:450px;
+display:flex;
+align-items:center;
+padding:55px 0;
+background:
+radial-gradient(ellipse at 80% 50%,rgba(180,0,0,.22),transparent 55%),
+linear-gradient(180deg,#101010,#080808);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:700px;
-  animation:slideUp .8s ease;
+position:relative;
+z-index:2;
+max-width:700px;
+animation:rise .7s ease;
 }
 
 .hero-label{
-  display:inline-block;
-  padding:7px 12px;
-  background:rgba(255,48,48,.1);
-  border:1px solid rgba(255,48,48,.3);
-  color:#ff5252;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:2px;
-  border-radius:6px;
-  margin-bottom:20px;
+display:inline-block;
+padding:7px 12px;
+background:#ff303310;
+border:1px solid #ff303044;
+border-radius:6px;
+color:#ff5252;
+font-size:10px;
+font-weight:800;
+letter-spacing:2px;
+margin-bottom:18px;
 }
 
 .hero h1{
-  font-family:Rajdhani,sans-serif;
-  font-size:clamp(45px,9vw,85px);
-  font-weight:800;
-  line-height:.95;
-  margin-bottom:18px;
-  animation:titleGlow 4s infinite;
+font-family:Rajdhani,sans-serif;
+font-size:clamp(45px,9vw,82px);
+line-height:.95;
+font-weight:800;
+margin-bottom:20px;
 }
 
 .hero h1 span{
-  color:var(--red);
+color:var(--red);
 }
 
 .hero p{
-  color:#aaa;
-  font-size:14px;
-  line-height:1.8;
-  max-width:520px;
+color:#aaa;
+font-size:13px;
+line-height:1.8;
+max-width:530px;
 }
 
 .hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:25px;
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:25px;
 }
 
 .hero-decoration{
-  position:absolute;
-  right:-100px;
-  top:50%;
-  transform:translateY(-50%);
-  width:450px;
-  height:450px;
-  border:1px solid rgba(255,48,48,.12);
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,48,48,.07),transparent 70%);
-  pointer-events:none;
+position:absolute;
+width:430px;
+height:430px;
+right:-100px;
+top:50%;
+transform:translateY(-50%);
+border:1px solid #ff303022;
+border-radius:50%;
+background:radial-gradient(circle,#ff303308,transparent 70%);
 }
 
-.hero-decoration::before{
-  content:"";
-  position:absolute;
-  inset:45px;
-  border:1px solid rgba(255,48,48,.15);
-  border-radius:50%;
+.hero-decoration:before{
+content:"";
+position:absolute;
+inset:50px;
+border:1px solid #ff303022;
+border-radius:50%;
 }
 
-.hero-decoration::after{
-  content:"";
-  position:absolute;
-  inset:100px;
-  border:1px dashed rgba(255,48,48,.25);
-  border-radius:50%;
+.hero-decoration:after{
+content:"";
+position:absolute;
+inset:100px;
+border:1px dashed #ff303033;
+border-radius:50%;
 }
 
-/* ===== UID SEARCH ===== */
-
-.uid-section{
-  position:relative;
-  z-index:3;
-  margin-top:-30px;
-}
-
-.uid-card{
-  background:linear-gradient(145deg,#191919,#101010);
-  border:1px solid #333;
-  border-radius:18px;
-  padding:22px;
-  animation:fireGlow 4s infinite;
-}
-
-.uid-heading{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:15px;
-}
-
-.uid-heading .icon{
-  width:45px;
-  height:45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:12px;
-  background:rgba(255,48,48,.12);
-  color:var(--red);
-  font-size:22px;
-}
-
-.uid-heading h2{
-  font-family:Rajdhani,sans-serif;
-  font-size:22px;
-  font-weight:800;
-}
-
-.uid-heading p{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-.uid-form{
-  display:flex;
-  gap:10px;
-}
-
-.uid-form input{
-  flex:1;
-  min-width:0;
-  padding:14px;
-  border-radius:10px;
-  background:#080808;
-  border:1px solid #333;
-  color:white;
-  outline:none;
-}
-
-.uid-form input:focus{
-  border-color:var(--red);
-}
-
-.uid-form button{
-  min-width:125px;
-}
-
-.uid-note{
-  color:#777;
-  font-size:10px;
-  margin-top:12px;
-}
-
-/* ===== SECTION ===== */
+/* SECTIONS */
 
 .section{
-  padding:55px 0;
+padding:48px 0;
 }
 
 .section-head{
-  margin-bottom:25px;
+margin-bottom:24px;
 }
 
 .section-head small{
-  color:var(--red);
-  font-weight:800;
-  letter-spacing:2px;
-  font-size:10px;
+color:var(--red);
+font-weight:800;
+font-size:10px;
+letter-spacing:2px;
 }
 
 .section-head h2{
-  font-family:Rajdhani,sans-serif;
-  font-size:32px;
-  font-weight:800;
-  margin-top:6px;
+font-family:Rajdhani,sans-serif;
+font-size:32px;
+font-weight:800;
+margin-top:6px;
 }
 
 .section-head p{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:8px;
-  line-height:1.6;
+font-size:12px;
+line-height:1.7;
+color:var(--muted);
+margin-top:8px;
 }
 
-/* ===== QUICK CARDS ===== */
+/* CARDS */
 
 .quick-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:14px;
 }
 
 .quick-card{
-  position:relative;
-  background:linear-gradient(145deg,#191919,#111);
-  border:1px solid #292929;
-  border-radius:16px;
-  padding:20px;
-  overflow:hidden;
-  transition:.3s;
+position:relative;
+background:linear-gradient(145deg,#191919,#111);
+border:1px solid #292929;
+border-radius:15px;
+padding:19px;
+overflow:hidden;
+transition:.25s;
 }
 
 .quick-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,48,48,.55);
-  box-shadow:0 10px 35px rgba(255,48,48,.08);
-}
-
-.quick-card::after{
-  content:"";
-  position:absolute;
-  width:90px;
-  height:90px;
-  right:-30px;
-  bottom:-30px;
-  background:radial-gradient(circle,rgba(255,48,48,.15),transparent 70%);
+transform:translateY(-3px);
+border-color:#ff303088;
 }
 
 .quick-icon{
-  width:45px;
-  height:45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#261313;
-  border:1px solid #462020;
-  border-radius:13px;
-  font-size:22px;
-  margin-bottom:15px;
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#261313;
+border:1px solid #462020;
+border-radius:12px;
+font-size:22px;
+margin-bottom:13px;
 }
 
 .quick-card h3{
-  font-family:Rajdhani,sans-serif;
-  font-size:21px;
-  font-weight:800;
+font-family:Rajdhani,sans-serif;
+font-size:20px;
+font-weight:800;
 }
 
 .quick-card p{
-  color:#929292;
-  font-size:12px;
-  line-height:1.6;
-  margin-top:8px;
+color:#929292;
+font-size:11px;
+line-height:1.7;
+margin-top:8px;
 }
 
-.quick-card .card-arrow{
-  color:var(--red);
-  font-size:20px;
-  margin-top:14px;
+.card-arrow{
+color:var(--red);
+font-size:20px;
+margin-top:12px;
 }
-
-/* ===== NEWS ===== */
 
 .news-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:15px;
+display:grid;
+grid-template-columns:1fr;
+gap:14px;
 }
 
 .news-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:18px;
-  transition:.3s;
-}
-
-.news-card:hover{
-  border-color:var(--red);
+background:var(--card);
+border:1px solid var(--border);
+border-radius:15px;
+padding:18px;
 }
 
 .news-tag{
-  color:var(--red);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1px;
+color:var(--red);
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
 }
 
 .news-card h3{
-  font-family:Rajdhani,sans-serif;
-  font-size:22px;
-  margin-top:10px;
+font-family:Rajdhani,sans-serif;
+font-size:21px;
+margin-top:8px;
 }
 
 .news-card p{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.7;
-  margin-top:8px;
+color:var(--muted);
+font-size:12px;
+line-height:1.7;
+margin-top:8px;
 }
 
-/* ===== MOBILE ===== */
+/* UID */
+
+.uid-section{
+position:relative;
+z-index:3;
+margin-top:-25px;
+}
+
+.uid-card{
+background:linear-gradient(145deg,#191919,#101010);
+border:1px solid #333;
+border-radius:17px;
+padding:20px;
+animation:glow 4s infinite;
+}
+
+.uid-heading{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:15px;
+}
+
+.uid-icon{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#ff303318;
+border-radius:12px;
+font-size:22px;
+}
+
+.uid-heading h2{
+font-family:Rajdhani,sans-serif;
+font-size:22px;
+}
+
+.uid-heading p{
+font-size:11px;
+color:var(--muted);
+margin-top:4px;
+}
+
+.uid-form{
+display:flex;
+gap:10px;
+}
+
+.uid-form input{
+flex:1;
+min-width:0;
+padding:14px;
+background:#080808;
+border:1px solid #333;
+border-radius:10px;
+color:white;
+outline:none;
+}
+
+.uid-form input:focus{
+border-color:var(--red);
+}
+
+.uid-note{
+color:#777;
+font-size:10px;
+margin-top:12px;
+}
+
+/* FIELDS */
+
+.form-group{
+margin-bottom:15px;
+}
+
+.form-group label{
+display:block;
+font-size:12px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.field{
+width:100%;
+padding:13px;
+background:#090909;
+color:white;
+border:1px solid #333;
+border-radius:10px;
+outline:none;
+}
+
+.field:focus{
+border-color:var(--red);
+}
+
+.field option{
+background:#111;
+color:white;
+}
+
+textarea.field{
+resize:vertical;
+}
+
+.result-box{
+margin-top:18px;
+}
+
+.result-item{
+background:#101010;
+border:1px solid #303030;
+border-radius:12px;
+padding:15px;
+margin-top:12px;
+overflow-wrap:anywhere;
+}
+
+.result-item p{
+font-size:12px;
+line-height:1.7;
+margin-top:5px;
+}
+
+.result-item h3{
+font-family:Rajdhani,sans-serif;
+font-size:20px;
+}
+
+.result-item button{
+margin-top:12px;
+}
+
+.toast{
+position:fixed;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+background:#222;
+border:1px solid #ff303055;
+color:white;
+padding:12px 18px;
+border-radius:12px;
+z-index:9999;
+font-size:12px;
+display:none;
+max-width:90%;
+text-align:center;
+}
+
+/* MOBILE */
 
 @media(max-width:800px){
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:65px;
-    left:0;
-    right:0;
-    background:#101010;
-    border-bottom:1px solid var(--border);
-    flex-direction:column;
-    align-items:stretch;
-    gap:0;
-    padding:10px 4%;
-  }
 
-  .nav-links.active{
-    display:flex;
-  }
+.nav-links{
+display:none;
+position:absolute;
+top:65px;
+left:0;
+right:0;
+background:#101010;
+border-bottom:1px solid var(--border);
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:10px 4%;
+}
 
-  .nav-links a{
-    padding:15px 10px;
-    border-bottom:1px solid #222;
-  }
+.nav-links.active{
+display:flex;
+}
 
-  .menu-btn{
-    display:block;
-  }
+.nav-links a{
+padding:14px 10px;
+border-bottom:1px solid #222;
+}
 
-  .hero{
-    min-height:400px;
-    padding:50px 0;
-  }
+.menu-btn{
+display:block;
+}
 
-  .hero-decoration{
-    width:300px;
-    height:300px;
-    right:-150px;
-    opacity:.6;
-  }
+.hero{
+min-height:390px;
+padding:45px 0;
+}
 
-  .hero h1{
-    font-size:57px;
-  }
+.hero h1{
+font-size:55px;
+}
 
-  .uid-form{
-    flex-direction:column;
-  }
+.hero-decoration{
+width:300px;
+height:300px;
+right:-150px;
+}
 
-  .uid-form button{
-    width:100%;
-  }
+.uid-form{
+flex-direction:column;
+}
 
-  .section{
-    padding:40px 0;
-  }
+.uid-form button{
+width:100%;
+}
 
-  .section-head h2{
-    font-size:28px;
-  }
+.section{
+padding:38px 0;
+}
+
+.section-head h2{
+font-size:28px;
+}
+
 }
 
 @media(min-width:700px){
-  .quick-grid{
-    grid-template-columns:repeat(4,minmax(0,1fr));
-  }
 
-  .news-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
+.quick-grid{
+grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.news-grid{
+grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
 }
 
 @media(max-width:380px){
-  .hero h1{
-    font-size:48px;
-  }
 
-  .quick-card{
-    padding:15px;
-  }
+.hero h1{
+font-size:47px;
+}
 
-  .quick-card h3{
-    font-size:18px;
-  }
+.quick-card{
+padding:14px;
+}
+
+.quick-card h3{
+font-size:17px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
-
 <header>
-  <div class="container navbar">
+<div class="container navbar">
 
-    <a href="#home" class="logo">
-      <span class="logo-icon">✦</span>ANGO<span>MODS</span>
-    </a>
+<a href="#home" class="logo">
+✦ ANGO<span>MODS</span>
+</a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">INÍCIO</a>
-      <a href="#arsenal">ARSENAL</a>
-      <a href="#ferramentas">FERRAMENTAS</a>
-      <a href="#eventos">EVENTOS</a>
-      <a href="#guias">GUIAS</a>
-      <a href="#scanner">SCANNER</a>
-      <a href="#nexus">NEXUS IA</a>
-      <a href="#comunidade">COMUNIDADE</a>
-    </nav>
+<nav class="nav-links" id="navLinks">
+<a href="#home">INÍCIO</a>
+<a href="#arsenal">ARSENAL</a>
+<a href="#ferramentas">FERRAMENTAS</a>
+<a href="#eventos">EVENTOS</a>
+<a href="#guias">GUIAS</a>
+<a href="#scanner">SCANNER</a>
+<a href="#nexus">NEXUS IA</a>
+<a href="#comunidade">COMUNIDADE</a>
+</nav>
 
-    <button class="menu-btn" id="menuBtn"
-      aria-label="Abrir menu">☰</button>
+<button class="menu-btn" id="menuBtn">☰</button>
 
-  </div>
+</div>
 </header>
-
-<!-- ===== HOME ===== -->
 
 <main>
 
 <section class="hero" id="home">
 
-  <div class="fire-layer">
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-  </div>
+<div class="fire">
+<span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+</div>
 
-  <div class="hero-decoration"></div>
+<div class="hero-decoration"></div>
 
-  <div class="container hero-content">
+<div class="container hero-content">
 
-    <div class="hero-label">
-      FREE FIRE COMMUNITY
-    </div>
+<div class="hero-label">
+FREE FIRE COMMUNITY
+</div>
 
-    <h1>
-      O TEU UNIVERSO<br>
-      <span>FREE FIRE.</span>
-    </h1>
+<h1>
+O TEU UNIVERSO<br>
+<span>FREE FIRE.</span>
+</h1>
 
-    <p>
-      Sensi, skins, ferramentas, novidades, guias,
-      inteligência artificial e uma comunidade feita
-      para jogadores de Free Fire.
-    </p>
+<p>
+Sensi, skins, ferramentas, novidades, guias,
+inteligência artificial e uma comunidade
+feita para jogadores de Free Fire.
+</p>
 
-    <div class="hero-buttons">
-      <a href="#ferramentas" class="btn btn-red">
-        ⚡ EXPLORAR
-      </a>
+<div class="hero-buttons">
+<a href="#ferramentas" class="btn btn-red">⚡ EXPLORAR</a>
+<a href="#scanner" class="btn btn-dark">🎯 SCANNER UID</a>
+</div>
 
-      <a href="#scanner" class="btn btn-dark">
-        🎯 SCANNER UID
-      </a>
-    </div>
-
-  </div>
+</div>
 </section>
-
-<!-- ===== UID SEARCH ===== -->
 
 <section class="uid-section container" id="scanner">
 
-  <div class="uid-card">
+<div class="uid-card">
 
-    <div class="uid-heading">
+<div class="uid-heading">
+<div class="uid-icon">🎯</div>
+<div>
+<h2>FREE FIRE UID SCANNER</h2>
+<p>Consulta de jogador por ID</p>
+</div>
+</div>
 
-      <div class="icon">🎯</div>
+<form class="uid-form" id="uidForm">
 
-      <div>
-        <h2>FREE FIRE UID SCANNER</h2>
-        <p>Consulta de jogador por ID</p>
-      </div>
+<input id="uidInput"
+type="text"
+inputmode="numeric"
+autocomplete="off"
+placeholder="Introduz o UID do jogador...">
 
-    </div>
+<button class="btn btn-red" type="submit">
+PESQUISAR UID
+</button>
 
-    <form class="uid-form" id="uidForm">
+</form>
 
-      <input
-        type="text"
-        id="uidInput"
-        placeholder="Introduz o UID do jogador..."
-        inputmode="numeric"
-        autocomplete="off"
-      >
+<p class="uid-note">
+Nunca introduzas a senha da tua conta Garena.
+</p>
 
-      <button type="submit" class="btn btn-red">
-        PESQUISAR UID
-      </button>
+<div id="uidResult" class="result-box"></div>
 
-    </form>
-
-    <p class="uid-note">
-      Consulta através de fontes disponíveis.
-      Não introduzas a senha da tua conta Garena.
-    </p>
-
-    <div id="uidResult"></div>
-
-  </div>
+</div>
 </section>
-
-<!-- ===== QUICK ACCESS ===== -->
 
 <section class="section container" id="ferramentas">
 
-  <div class="section-head">
+<div class="section-head">
+<small>TOOLS & UTILITIES</small>
+<h2>ACESSO RÁPIDO</h2>
+<p>Ferramentas para personalizar e melhorar a tua experiência.</p>
+</div>
 
-    <small>TOOLS & UTILITIES</small>
+<div class="quick-grid">
 
-    <h2>ACESSO RÁPIDO</h2>
+<a href="#sensi" class="quick-card">
+<div class="quick-icon">🎯</div>
+<h3>SENSI & DPI</h3>
+<p>Sensibilidade por dispositivo, estilos de jogo e HUD.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-    <p>
-      As ferramentas que precisas para personalizar
-      e melhorar a tua experiência no Free Fire.
-    </p>
+<a href="#nicks" class="quick-card">
+<div class="quick-icon">🔤</div>
+<h3>GERADOR NICKS</h3>
+<p>Nomes com letras, símbolos e estilos exclusivos.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-  </div>
+<a href="#codiguins" class="quick-card">
+<div class="quick-icon">💎</div>
+<h3>CODIGUINS</h3>
+<p>Informações sobre códigos e recompensas oficiais.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-  <div class="quick-grid">
+<a href="#invisivel" class="quick-card">
+<div class="quick-icon">👻</div>
+<h3>ESPAÇO INVISÍVEL</h3>
+<p>Espaços especiais para personalizar nomes.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-    <a href="#sensi" class="quick-card">
-
-      <div class="quick-icon">🎯</div>
-
-      <h3>SENSI & DPI</h3>
-
-      <p>
-        Sensibilidades por dispositivo, estilos
-        de jogo, DPI e HUD.
-      </p>
-
-      <div class="card-arrow">↗</div>
-
-    </a>
-
-    <a href="#nicks" class="quick-card">
-
-      <div class="quick-icon">🔤</div>
-
-      <h3>GERADOR NICKS</h3>
-
-      <p>
-        Cria nomes com letras, símbolos
-        e estilos exclusivos.
-      </p>
-
-      <div class="card-arrow">↗</div>
-
-    </a>
-
-    <a href="#codiguins" class="quick-card">
-
-      <div class="quick-icon">💎</div>
-
-      <h3>CODIGUINS</h3>
-
-      <p>
-        Central de códigos, recompensas
-        e informações oficiais.
-      </p>
-
-      <div class="card-arrow">↗</div>
-
-    </a>
-
-    <a href="#invisivel" class="quick-card">
-
-      <div class="quick-icon">👻</div>
-
-      <h3>ESPAÇO INVISÍVEL</h3>
-
-      <p>
-        Copia espaços especiais
-        para nomes e personalização.
-      </p>
-
-      <div class="card-arrow">↗</div>
-
-    </a>
-
-  </div>
+</div>
 </section>
-
-<!-- ===== NEWS HOME ===== -->
 
 <section class="section container" id="newsHome">
 
-  <div class="section-head">
+<div class="section-head">
+<small>NEWS & UPDATES</small>
+<h2>UNIVERSO FREE FIRE</h2>
+<p>Conteúdos, guias e novidades para a comunidade.</p>
+</div>
 
-    <small>NEWS & UPDATES</small>
+<div class="news-grid">
 
-    <h2>UNIVERSO FREE FIRE</h2>
+<article class="news-card">
+<div class="news-tag">GAMEPLAY</div>
+<h3>Guias & Estratégias</h3>
+<p>Dicas de combate, movimentação, posicionamento e estratégia.</p>
+</article>
 
-    <p>
-      Notícias, novidades, atualizações
-      e conteúdos para a comunidade.
-    </p>
+<article class="news-card">
+<div class="news-tag">CUSTOMIZAÇÃO</div>
+<h3>Skins & Combinas</h3>
+<p>Combinações de roupas, acessórios e inspiração.</p>
+</article>
 
-  </div>
+<article class="news-card">
+<div class="news-tag">ATUALIZAÇÕES</div>
+<h3>Novidades</h3>
+<p>Eventos, mudanças e conteúdos do Free Fire.</p>
+</article>
 
-  <div class="news-grid">
-
-    <article class="news-card">
-
-      <div class="news-tag">GAMEPLAY</div>
-
-      <h3>Guias & Estratégias</h3>
-
-      <p>
-        Dicas de combate, movimentação,
-        posicionamento e estratégias.
-      </p>
-
-    </article>
-
-    <article class="news-card">
-
-      <div class="news-tag">CUSTOMIZAÇÃO</div>
-
-      <h3>Skins & Combinas</h3>
-
-      <p>
-        Combinações de roupas, acessórios
-        e inspiração para o teu perfil.
-      </p>
-
-    </article>
-
-    <article class="news-card">
-
-      <div class="news-tag">ATUALIZAÇÕES</div>
-
-      <h3>Novidades do Jogo</h3>
-
-      <p>
-        Atualizações, eventos, mudanças
-        e conteúdos do Free Fire.
-      </p>
-
-    </article>
-
-  </div>
-
+</div>
 </section>
-<!-- ===== ARSENAL ===== -->
 
 <section class="section container" id="arsenal">
 
-  <div class="section-head">
-    <small>FASHION & COLLECTION</small>
-    <h2>ARSENAL FREE FIRE</h2>
-    <p>Skins, combinações, acessórios e estilo para o teu personagem.</p>
-  </div>
+<div class="section-head">
+<small>FASHION & COLLECTION</small>
+<h2>ARSENAL FREE FIRE</h2>
+<p>Skins, combinações, acessórios e estilo.</p>
+</div>
 
-  <div class="quick-grid">
+<div class="quick-grid">
 
-    <a class="quick-card" href="#skins">
-      <div class="quick-icon">👕</div>
-      <h3>SKINS & COMBINAS</h3>
-      <p>Inspiração para combinações de roupas e acessórios.</p>
-      <div class="card-arrow">↗</div>
-    </a>
+<a class="quick-card" href="#skins">
+<div class="quick-icon">👕</div>
+<h3>SKINS & COMBINAS</h3>
+<p>Inspiração para roupas e acessórios.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-    <a class="quick-card" href="#eventos">
-      <div class="quick-icon">🎰</div>
-      <h3>EVENTOS</h3>
-      <p>Incubadora, Escolha Royale e outros eventos.</p>
-      <div class="card-arrow">↗</div>
-    </a>
+<a class="quick-card" href="#eventos">
+<div class="quick-icon">🎰</div>
+<h3>EVENTOS</h3>
+<p>Incubadora, Royale e outros eventos.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-  </div>
+<a class="quick-card" href="#guias">
+<div class="quick-icon">🔫</div>
+<h3>ARMAS</h3>
+<p>Guias e informações sobre armamento.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-  <div id="skins" class="news-grid" style="margin-top:18px">
+<a class="quick-card" href="#comunidade">
+<div class="quick-icon">🏆</div>
+<h3>COMUNIDADE</h3>
+<p>Conteúdos e recursos para jogadores.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-    <article class="news-card">
-      <div class="news-tag">FASHION</div>
-      <h3>Combinações</h3>
-      <p>Ideias de conjuntos, máscaras, calças, sapatos e mochilas.</p>
-    </article>
+</div>
 
-    <article class="news-card">
-      <div class="news-tag">COLEÇÕES</div>
-      <h3>Itens & Skins</h3>
-      <p>Área de inspiração para coleções e itens do jogo.</p>
-    </article>
+<div id="skins" class="news-grid" style="margin-top:18px">
 
-  </div>
+<article class="news-card">
+<div class="news-tag">FASHION</div>
+<h3>Combinações</h3>
+<p>Ideias de conjuntos, máscaras, calças, sapatos e mochilas.</p>
+</article>
+
+<article class="news-card">
+<div class="news-tag">COLEÇÕES</div>
+<h3>Itens & Skins</h3>
+<p>Inspirando coleções e estilos de personagem.</p>
+</article>
+
+<article class="news-card">
+<div class="news-tag">PERSONALIZAÇÃO</div>
+<h3>Estilo</h3>
+<p>Personaliza o teu perfil e identidade de jogador.</p>
+</article>
+
+</div>
 
 </section>
-
 <!-- ===== SENSI ===== -->
 
 <section class="section container" id="sensi">
 
-  <div class="section-head">
-    <small>PLAYER SETTINGS</small>
-    <h2>SENSI & DPI</h2>
-    <p>Configurações orientativas para diferentes dispositivos e estilos de jogo.</p>
-  </div>
+<div class="section-head">
+<small>PLAYER SETTINGS</small>
+<h2>SENSI & DPI</h2>
+<p>Configurações orientativas adaptadas ao dispositivo e estilo.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="form-group">
-      <label for="sensiBrand">Marca do dispositivo</label>
-      <select id="sensiBrand" class="field">
-        <option value="">Selecionar marca</option>
-        <option>Samsung</option>
-        <option>Xiaomi</option>
-        <option>Redmi</option>
-        <option>OPPO</option>
-        <option>Realme</option>
-        <option>Motorola</option>
-        <option>Huawei</option>
-        <option>iPhone</option>
-        <option>Infinix</option>
-        <option>Tecno</option>
-        <option>Vivo</option>
-        <option>Outra</option>
-      </select>
-    </div>
+<div class="form-group">
+<label for="sensiBrand">Marca</label>
+<select id="sensiBrand" class="field">
+<option value="">Selecionar marca</option>
+<option value="Samsung">Samsung</option>
+<option value="Xiaomi">Xiaomi</option>
+<option value="Redmi">Redmi</option>
+<option value="OPPO">OPPO</option>
+<option value="Realme">Realme</option>
+<option value="Motorola">Motorola</option>
+<option value="Huawei">Huawei</option>
+<option value="iPhone">iPhone</option>
+<option value="Infinix">Infinix</option>
+<option value="Tecno">Tecno</option>
+<option value="Vivo">Vivo</option>
+<option value="Outra">Outra</option>
+</select>
+</div>
 
-    <div class="form-group">
-      <label for="sensiModel">Modelo do dispositivo</label>
-      <input id="sensiModel" class="field"
-        placeholder="Ex: OPPO A31">
-    </div>
+<div class="form-group">
+<label for="sensiModel">Modelo</label>
+<input id="sensiModel" class="field"
+placeholder="Ex: OPPO A31">
+</div>
 
-    <div class="form-group">
-      <label for="sensiStyle">Estilo de jogo</label>
-      <select id="sensiStyle" class="field">
-        <option value="rush">Rush / Puxar capa</option>
-        <option value="balanced">Equilibrado</option>
-        <option value="support">Suporte</option>
-        <option value="sniper">Sniper</option>
-      </select>
-    </div>
+<div class="form-group">
+<label for="sensiStyle">Estilo</label>
+<select id="sensiStyle" class="field">
+<option value="rush">Rush / Puxar capa</option>
+<option value="balanced">Equilibrado</option>
+<option value="support">Suporte</option>
+<option value="sniper">Sniper</option>
+</select>
+</div>
 
-    <div class="form-group">
-      <label for="sensiHud">HUD</label>
-      <select id="sensiHud" class="field">
-        <option value="2">2 dedos</option>
-        <option value="3">3 dedos</option>
-        <option value="4">4 dedos</option>
-        <option value="5">5 dedos</option>
-        <option value="6">6 dedos</option>
-      </select>
-    </div>
+<div class="form-group">
+<label for="sensiHud">HUD</label>
+<select id="sensiHud" class="field">
+<option value="2">2 dedos</option>
+<option value="3" selected>3 dedos</option>
+<option value="4">4 dedos</option>
+<option value="5">5 dedos</option>
+<option value="6">6 dedos</option>
+</select>
+</div>
 
-    <div class="form-group">
-      <label for="sensiDpi">DPI atual (opcional)</label>
-      <input id="sensiDpi" class="field"
-        type="number" placeholder="Ex: 400">
-    </div>
+<div class="form-group">
+<label for="sensiDpi">DPI (Android — opcional)</label>
+<input id="sensiDpi" class="field"
+type="number" placeholder="Ex: 550">
+</div>
 
-    <button class="btn btn-red" id="generateSensi">
-      ⚡ GERAR CONFIGURAÇÃO
-    </button>
+<button class="btn btn-red" id="generateSensi">
+⚡ GERAR CONFIGURAÇÃO
+</button>
 
-    <div id="sensiResult" class="result-box"></div>
+<div id="sensiResult" class="result-box"></div>
 
-  </div>
-
-  <p class="uid-note">
-    As configurações são sugestões de partida e podem variar
-    conforme o dispositivo, FPS, e preferência do jogador.
-  </p>
-
+</div>
 </section>
 
 <!-- ===== NICKS ===== -->
 
 <section class="section container" id="nicks">
 
-  <div class="section-head">
-    <small>NAME CREATOR</small>
-    <h2>GERADOR DE NICKS</h2>
-    <p>Cria nomes estilosos com símbolos e caracteres especiais.</p>
-  </div>
+<div class="section-head">
+<small>NAME CREATOR</small>
+<h2>GERADOR DE NICKS</h2>
+<p>Cria nomes com símbolos e estilos personalizados.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="form-group">
-      <label for="nickInput">O teu nome</label>
-      <input id="nickInput" class="field"
-        placeholder="Escreve um nome...">
-    </div>
+<div class="form-group">
+<label for="nickInput">Nome</label>
+<input id="nickInput" class="field"
+placeholder="Escreve um nome...">
+</div>
 
-    <div class="form-group">
-      <label for="nickStyle">Estilo</label>
-      <select id="nickStyle" class="field">
-        <option value="pro">Pro / Competitivo</option>
-        <option value="dark">Dark</option>
-        <option value="fire">Fire</option>
-        <option value="royal">Royal</option>
-        <option value="cute">Feminino / Cute</option>
-        <option value="duo">Dupla</option>
-        <option value="symbols">Símbolos</option>
-      </select>
-    </div>
+<div class="form-group">
+<label for="nickStyle">Estilo</label>
+<select id="nickStyle" class="field">
+<option value="pro">Pro / Competitivo</option>
+<option value="dark">Dark</option>
+<option value="fire">Fire</option>
+<option value="royal">Royal</option>
+<option value="cute">Feminino / Cute</option>
+<option value="duo">Dupla</option>
+<option value="symbols">Símbolos</option>
+</select>
+</div>
 
-    <button class="btn btn-red" id="generateNick">
-      🔤 GERAR NICKS
-    </button>
+<button class="btn btn-red" id="generateNick">
+🔤 GERAR NICKS
+</button>
 
-    <div id="nickResult" class="result-box"></div>
+<div id="nickResult" class="result-box"></div>
 
-  </div>
-
+</div>
 </section>
 
 <!-- ===== FF COLORS ===== -->
 
 <section class="section container" id="cores">
 
-  <div class="section-head">
-    <small>TEXT CUSTOMIZATION</small>
-    <h2>FF COLORS</h2>
-    <p>Cria frases coloridas com códigos HEX para experimentar no Free Fire.</p>
-  </div>
+<div class="section-head">
+<small>TEXT CUSTOMIZATION</small>
+<h2>FF COLORS</h2>
+<p>Experimenta códigos HEX em textos personalizados.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="form-group">
-      <label for="colorText">Texto</label>
-      <textarea id="colorText" class="field"
-        placeholder="Escreve a tua frase..." rows="3"></textarea>
-    </div>
+<div class="form-group">
+<label for="colorText">Texto</label>
+<textarea id="colorText" class="field"
+rows="3" placeholder="Escreve a tua frase..."></textarea>
+</div>
 
-    <div class="form-group">
-      <label for="colorHex">Código HEX</label>
-      <input id="colorHex" class="field"
-        value="#FF3030" placeholder="#FF3030">
-    </div>
+<div class="form-group">
+<label for="colorHex">Código HEX</label>
+<input id="colorHex" class="field"
+placeholder="Ex: FF3030">
+</div>
 
-    <div class="quick-grid" style="margin-bottom:15px">
+<button class="btn btn-red" id="generateColor">
+🎨 GERAR TEXTO
+</button>
 
-      <button class="color-chip" data-hex="#FF3030">🔴 Vermelho</button>
-      <button class="color-chip" data-hex="#FFFFFF">⚪ Branco</button>
-      <button class="color-chip" data-hex="#00FF00">🟢 Verde</button>
-      <button class="color-chip" data-hex="#00FFFF">🔵 Ciano</button>
-      <button class="color-chip" data-hex="#FFFF00">🟡 Amarelo</button>
-      <button class="color-chip" data-hex="#FF00FF">🟣 Rosa</button>
-      <button class="color-chip" data-hex="#8000FF">🟪 Roxo</button>
-      <button class="color-chip" data-hex="#FF8000">🟠 Laranja</button>
+<div id="colorResult" class="result-box"></div>
 
-    </div>
-
-    <button class="btn btn-red" id="generateColor">
-      🎨 CRIAR TEXTO
-    </button>
-
-    <div id="colorResult" class="result-box"></div>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== INVISIBLE SPACE ===== -->
 
 <section class="section container" id="invisivel">
 
-  <div class="section-head">
-    <small>NAME CUSTOMIZATION</small>
-    <h2>ESPAÇO INVISÍVEL</h2>
-    <p>Caracteres invisíveis para testar em nomes e espaços.</p>
-  </div>
+<div class="section-head">
+<small>NAME CUSTOMIZATION</small>
+<h2>ESPAÇO INVISÍVEL</h2>
+<p>Copiar caracteres invisíveis para testar nos nomes.</p>
+</div>
 
-  <div class="quick-grid">
+<div class="news-card">
 
-    <div class="quick-card">
-      <h3>ESPAÇO PEQUENO</h3>
-      <p>Caractere invisível pequeno.</p>
-      <button class="btn btn-red copy-invisible"
-        data-invisible="ㅤ">COPIAR</button>
-    </div>
+<div class="result-item">
+<h3>Espaço pequeno</h3>
+<p>ㅤ</p>
+<button class="btn btn-red copyInvisible"
+data-copy="ㅤ">COPIAR</button>
+</div>
 
-    <div class="quick-card">
-      <h3>ESPAÇO GRANDE</h3>
-      <p>Caractere invisível alternativo.</p>
-      <button class="btn btn-red copy-invisible"
-        data-invisible="　">COPIAR</button>
-    </div>
+<div class="result-item">
+<h3>Espaço alternativo</h3>
+<p>⠀</p>
+<button class="btn btn-red copyInvisible"
+data-copy="⠀">COPIAR</button>
+</div>
 
-  </div>
+<div class="result-item">
+<h3>Espaço entre nomes</h3>
+<p>ᅠ</p>
+<button class="btn btn-red copyInvisible"
+data-copy="ᅠ">COPIAR</button>
+</div>
 
-  <div class="news-card" style="margin-top:15px">
-
-    <h3>COMO UTILIZAR</h3>
-
-    <p style="color:var(--muted);line-height:1.8;margin-top:10px;font-size:13px">
-      1. Copia um dos caracteres.<br>
-      2. Abre o perfil ou campo de nome do jogo.<br>
-      3. Cola o caractere no local pretendido.<br>
-      4. Testa se o jogo aceita o espaço.
-    </p>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== EVENTS ===== -->
 
 <section class="section container" id="eventos">
 
-  <div class="section-head">
-    <small>EVENTS & REWARDS</small>
-    <h2>EVENTOS & DIAMANTES</h2>
-    <p>Simulador de gastos e estimativa de diamantes.</p>
-  </div>
+<div class="section-head">
+<small>DIAMOND CALCULATOR</small>
+<h2>CALCULADORA DE EVENTOS</h2>
+<p>Calcula o custo estimado em diamantes.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="form-group">
-      <label for="eventName">Nome do evento</label>
-      <input id="eventName" class="field"
-        placeholder="Ex: Incubadora">
-    </div>
+<div class="form-group">
+<label for="eventName">Nome do evento</label>
+<input id="eventName" class="field"
+placeholder="Ex: Incubadora">
+</div>
 
-    <div class="form-group">
-      <label for="eventCost">Diamantes por tentativa</label>
-      <input id="eventCost" class="field"
-        type="number" min="0" placeholder="Ex: 20">
-    </div>
+<div class="form-group">
+<label for="eventCost">Diamantes por tentativa</label>
+<input id="eventCost" class="field"
+type="number" min="0" placeholder="Ex: 9">
+</div>
 
-    <div class="form-group">
-      <label for="eventAttempts">Número de tentativas</label>
-      <input id="eventAttempts" class="field"
-        type="number" min="0" placeholder="Ex: 10">
-    </div>
+<div class="form-group">
+<label for="eventAttempts">Número de tentativas</label>
+<input id="eventAttempts" class="field"
+type="number" min="0" placeholder="Ex: 10">
+</div>
 
-    <button class="btn btn-red" id="calculateEvent">
-      💎 CALCULAR
-    </button>
+<button class="btn btn-red" id="calculateEvent">
+💎 CALCULAR
+</button>
 
-    <div id="eventResult" class="result-box"></div>
+<div id="eventResult" class="result-box"></div>
 
-    <p class="uid-note">
-      Simulação matemática. Não representa custos garantidos
-      nem assegura a obtenção de um item.
-    </p>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== CODIGUINS ===== -->
 
 <section class="section container" id="codiguins">
 
-  <div class="section-head">
-    <small>REWARDS CENTER</small>
-    <h2>CODIGUINS</h2>
-    <p>Informações e acesso ao resgate oficial.</p>
-  </div>
+<div class="section-head">
+<small>OFFICIAL REWARDS</small>
+<h2>CODIGUINS</h2>
+<p>Informações e acesso ao portal oficial de recompensas.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="quick-icon">💎</div>
+<div class="quick-icon">💎</div>
 
-    <h3>RESGATE OFICIAL</h3>
+<h3>Portal de recompensas Garena</h3>
 
-    <p style="color:var(--muted);line-height:1.8;font-size:13px;margin:10px 0">
-      Os códigos oficiais podem ter prazo de validade,
-      restrições regionais e condições de resgate.
-      Não vamos inventar códigos nem prometer recompensas.
-    </p>
+<p>
+Utiliza apenas códigos oficiais e verifica sempre
+a validade e região da recompensa.
+Não fornecemos códigos inventados.
+</p>
 
-    <a class="btn btn-red"
-      href="https://reward.ff.garena.com/"
-      target="_blank" rel="noopener">
-      ABRIR RESGATE GARENA ↗
-    </a>
+<a href="https://reward.ff.garena.com/"
+target="_blank" rel="noopener noreferrer"
+class="btn btn-red" style="margin-top:15px">
+ABRIR PORTAL OFICIAL
+</a>
 
-  </div>
-
-  <div class="news-card" style="margin-top:15px">
-
-    <div class="news-tag">INFORMAÇÕES</div>
-
-    <h3>Centro de códigos</h3>
-
-    <p>
-      Esta área será preparada para publicar códigos
-      verificados e informações sobre a sua disponibilidade.
-    </p>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== GUIDES ===== -->
 
 <section class="section container" id="guias">
 
-  <div class="section-head">
-    <small>PLAYER KNOWLEDGE</small>
-    <h2>GUIAS & ESTRATÉGIAS</h2>
-    <p>Conteúdo para melhorar a tua gameplay.</p>
-  </div>
+<div class="section-head">
+<small>PLAYER KNOWLEDGE</small>
+<h2>GUIAS & ESTRATÉGIAS</h2>
+<p>Conteúdo de gameplay e orientação para jogadores.</p>
+</div>
 
-  <div class="quick-grid">
+<div class="quick-grid">
 
-    <article class="quick-card">
-      <div class="quick-icon">🗺️</div>
-      <h3>MAPAS</h3>
-      <p>Posicionamento, zonas, movimentação e rotas.</p>
-    </article>
+<div class="quick-card">
+<div class="quick-icon">🎯</div>
+<h3>PUXAR CAPA</h3>
+<p>Treino de mira, arrasto, posicionamento e precisão.</p>
+</div>
 
-    <article class="quick-card">
-      <div class="quick-icon">🧱</div>
-      <h3>GOLO WALL</h3>
-      <p>Prática, colocação e utilização estratégica.</p>
-    </article>
+<div class="quick-card">
+<div class="quick-icon">🛡️</div>
+<h3>DEFESA</h3>
+<p>Utilização de cobertura e tomada de decisões.</p>
+</div>
 
-    <article class="quick-card">
-      <div class="quick-icon">🔫</div>
-      <h3>ARMAS</h3>
-      <p>Informações, estilos e dicas de utilização.</p>
-    </article>
+<div class="quick-card">
+<div class="quick-icon">🏃</div>
+<h3>MOVIMENTAÇÃO</h3>
+<p>Movimentação, ritmo e treino em combate.</p>
+</div>
 
-    <article class="quick-card">
-      <div class="quick-icon">🧠</div>
-      <h3>ESTRATÉGIAS</h3>
-      <p>Calls, decisões e leitura de combate.</p>
-    </article>
+<div class="quick-card">
+<div class="quick-icon">🔫</div>
+<h3>ARMAS</h3>
+<p>Orientação sobre armas e estilos de combate.</p>
+</div>
 
-  </div>
-
+</div>
 </section>
 
 <!-- ===== NEXUS IA ===== -->
 
 <section class="section container" id="nexus">
 
-  <div class="section-head">
-    <small>ARTIFICIAL INTELLIGENCE</small>
-    <h2>NEXUS IA</h2>
-    <p>O assistente inteligente do universo ANGOMODS.</p>
-  </div>
+<div class="section-head">
+<small>ANGOMODS INTELLIGENCE</small>
+<h2>NEXUS IA</h2>
+<p>Assistente da comunidade Angomods.</p>
+</div>
 
-  <div class="news-card">
+<div class="news-card">
 
-    <div class="uid-heading">
+<div class="uid-heading">
+<div class="uid-icon">🤖</div>
+<div>
+<h2>NEXUS</h2>
+<p>Assistente Angomods</p>
+</div>
+</div>
 
-      <div class="icon">🤖</div>
+<div id="nexusMessages" class="result-box"></div>
 
-      <div>
-        <h2>NEXUS</h2>
-        <p>Assistente ANGOMODS</p>
-      </div>
+<form id="nexusForm">
 
-    </div>
+<div class="form-group">
+<textarea id="nexusInput" class="field"
+rows="3" placeholder="Pergunta algo ao Nexus..."></textarea>
+</div>
 
-    <div id="nexusMessages" class="nexus-messages">
+<button class="btn btn-red" type="submit">
+🚀 ENVIAR
+</button>
 
-      <div class="nexus-welcome">
-        <strong>NEXUS IA</strong>
-        <p>
-          A conexão à inteligência artificial será
-          configurada no backend.
-        </p>
-      </div>
+</form>
 
-    </div>
+<p class="uid-note">
+A ligação real à IA requer backend e API configurados.
+</p>
 
-    <form id="nexusForm" class="nexus-form">
-
-      <textarea id="nexusInput"
-        class="field"
-        rows="2"
-        placeholder="Pergunta algo ao Nexus..."></textarea>
-
-      <button class="btn btn-red" type="submit">
-        ENVIAR ↗
-      </button>
-
-    </form>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== COMMUNITY ===== -->
 
 <section class="section container" id="comunidade">
 
-  <div class="section-head">
-    <small>COMMUNITY</small>
-    <h2>COMUNIDADE ANGOMODS</h2>
-    <p>Conteúdos, packs, novidades e interação.</p>
-  </div>
+<div class="section-head">
+<small>COMMUNITY</small>
+<h2>ANGOMODS COMMUNITY</h2>
+<p>Conteúdos, recursos e identidade da comunidade.</p>
+</div>
 
-  <div class="quick-grid">
+<div class="quick-grid">
 
-    <article class="quick-card">
-      <div class="quick-icon">📦</div>
-      <h3>PACKS</h3>
-      <p>Área para disponibilizar packs e conteúdos.</p>
-    </article>
+<a class="quick-card"
+href="https://www.tiktok.com/@angomods"
+target="_blank" rel="noopener noreferrer">
 
-    <article class="quick-card">
-      <div class="quick-icon">🔥</div>
-      <h3>COMMUNITY</h3>
-      <p>Uma área para conteúdos da comunidade.</p>
-    </article>
+<div class="quick-icon">🎵</div>
+<h3>TIKTOK</h3>
+<p>Segue @angomods para vídeos e conteúdos.</p>
+<div class="card-arrow">↗</div>
+</a>
 
-  </div>
+<div class="quick-card">
+<div class="quick-icon">📦</div>
+<h3>PACKS</h3>
+<p>Área preparada para packs e recursos.</p>
+<div class="card-arrow">↗</div>
+</div>
 
+<div class="quick-card">
+<div class="quick-icon">👥</div>
+<h3>COMUNIDADE</h3>
+<p>Espaço para conteúdos e recursos da comunidade.</p>
+<div class="card-arrow">↗</div>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">🔥</div>
+<h3>ANGOMODS</h3>
+<p>Free Fire, ferramentas e personalização.</p>
+<div class="card-arrow">↗</div>
+</div>
+
+</div>
 </section>
 
-<!-- ===== ADMIN AREA PLACEHOLDER ===== -->
-
-<section class="section container" id="admin">
-
-  <div class="section-head">
-    <small>MANAGEMENT</small>
-    <h2>ADMINISTRAÇÃO</h2>
-    <p>Gestão de conteúdo, comunidade e publicações.</p>
-  </div>
-
-  <div class="news-card">
-
-    <p style="color:var(--muted);font-size:13px;line-height:1.8">
-      A administração será ligada ao sistema de autenticação
-      e às permissões do Supabase na etapa de backend.
-    </p>
-
-  </div>
-
-</section>
-
-<!-- ===== LOGIN PLACEHOLDER ===== -->
+<!-- ===== LOGIN ===== -->
 
 <section class="section container" id="login">
 
-  <div class="section-head">
-    <small>ACCOUNT</small>
-    <h2>CONTA ANGOMODS</h2>
-    <p>Área de autenticação que será conectada ao Supabase.</p>
-  </div>
+<div class="section-head">
+<small>ACCOUNT</small>
+<h2>CONTA ANGOMODS</h2>
+<p>Área preparada para autenticação e histórico.</p>
+</div>
 
-  <div id="authArea" class="news-card">
+<div class="news-card">
 
-    <div class="form-group">
-      <label for="authEmail">E-mail</label>
-      <input id="authEmail" class="field"
-        type="email" placeholder="O teu e-mail">
-    </div>
+<div class="form-group">
+<label for="loginEmail">E-mail</label>
+<input id="loginEmail" class="field"
+type="email" placeholder="O teu e-mail">
+</div>
 
-    <div class="form-group">
-      <label for="authPassword">Senha</label>
-      <input id="authPassword" class="field"
-        type="password" placeholder="A tua senha">
-    </div>
+<div class="form-group">
+<label for="loginPassword">Senha</label>
+<input id="loginPassword" class="field"
+type="password" placeholder="A tua senha">
+</div>
 
-    <div class="quick-grid">
+<button class="btn btn-red" id="loginBtn">
+ENTRAR
+</button>
 
-      <button class="btn btn-red" id="loginBtn">
-        ENTRAR
-      </button>
+<button class="btn btn-dark" id="registerBtn"
+style="margin-left:8px">
+CRIAR CONTA
+</button>
 
-      <button class="btn btn-dark" id="registerBtn">
-        CRIAR CONTA
-      </button>
+<p class="uid-note">
+Autenticação e histórico serão conectados ao Supabase.
+</p>
 
-    </div>
+<div id="loginResult" class="result-box"></div>
 
-    <div id="authResult" class="result-box"></div>
-
-  </div>
-
+</div>
 </section>
 
 <!-- ===== HISTORY ===== -->
 
-<section class="section container" id="historico">
+<section class="section container" id="history">
 
-  <div class="section-head">
-    <small>USER ACCOUNT</small>
-    <h2>HISTÓRICO</h2>
-    <p>Histórico de ferramentas e interações da conta.</p>
-  </div>
+<div class="section-head">
+<small>USER DATA</small>
+<h2>HISTÓRICO</h2>
+<p>Área preparada para guardar resultados da conta.</p>
+</div>
 
-  <div class="news-card" id="historyArea">
-
-    <p style="color:var(--muted);font-size:13px">
-      O histórico será carregado através do Supabase
-      após a configuração do backend.
-    </p>
-
-  </div>
+<div class="news-card" id="historyContent">
+<p class="uid-note">
+O histórico persistente requer autenticação e base de dados.
+</p>
+</div>
 
 </section>
 
-<!-- ===== STYLES ADDITION ===== -->
+<!-- ===== ADMIN ===== -->
 
-<style>
+<section class="section container" id="admin">
 
-.form-group{
-  margin-bottom:15px;
-}
+<div class="section-head">
+<small>MANAGEMENT</small>
+<h2>ADMIN</h2>
+<p>Área preparada para gestão do Angomods.</p>
+</div>
 
-.form-group label{
-  display:block;
-  margin-bottom:8px;
-  color:#ccc;
-  font-size:12px;
-  font-weight:700;
-}
+<div class="news-card">
+<p class="uid-note">
+Painel administrativo protegido a configurar no backend.
+</p>
+</div>
 
-.field{
-  width:100%;
-  background:#090909;
-  border:1px solid #333;
-  border-radius:10px;
-  color:white;
-  padding:13px;
-  outline:none;
-}
-
-.field:focus{
-  border-color:var(--red);
-}
-
-.result-box{
-  margin-top:15px;
-  overflow-wrap:anywhere;
-}
-
-.result-box:empty{
-  display:none;
-}
-
-.result-item{
-  padding:15px;
-  background:#191919;
-  border:1px solid #333;
-  border-radius:12px;
-  margin-top:10px;
-}
-
-.result-item h3{
-  font-family:Rajdhani,sans-serif;
-  margin-bottom:10px;
-}
-
-.result-item p{
-  color:#aaa;
-  line-height:1.7;
-  font-size:13px;
-}
-
-.result-item button{
-  margin-top:10px;
-}
-
-.color-chip{
-  background:#1b1b1b;
-  color:white;
-  border:1px solid #333;
-  padding:12px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.color-chip:hover{
-  border-color:var(--red);
-}
-
-.nexus-messages{
-  background:#090909;
-  border:1px solid #292929;
-  border-radius:12px;
-  padding:15px;
-  min-height:100px;
-  max-height:350px;
-  overflow-y:auto;
-  margin-bottom:15px;
-}
-
-.nexus-welcome{
-  background:#171717;
-  border-left:3px solid var(--red);
-  padding:12px;
-  border-radius:8px;
-}
-
-.nexus-welcome p{
-  color:#aaa;
-  font-size:12px;
-  margin-top:8px;
-  line-height:1.7;
-}
-
-.nexus-form{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.nexus-form textarea{
-  resize:vertical;
-}
-
-</style>
-<!-- ===== FOOTER ===== -->
-
-<footer style="border-top:1px solid #292929;background:#090909;padding:35px 0;margin-top:20px">
-
-  <div class="container" style="text-align:center">
-
-    <div class="logo">
-      <span class="logo-icon">✦</span>ANGO<span>MODS</span>
-    </div>
-
-    <p style="color:#888;font-size:12px;line-height:1.8;margin-top:12px">
-      O teu universo Free Fire.
-      Ferramentas, comunidade e conteúdo.
-    </p>
-
-    <a href="https://www.tiktok.com/@angomods"
-       target="_blank"
-       rel="noopener"
-       class="btn btn-dark"
-       style="margin-top:15px">
-      ♬ TIKTOK @ANGOMODS
-    </a>
-
-    <p style="color:#555;font-size:10px;margin-top:20px">
-      ANGOMODS · Comunidade independente de Free Fire.
-    </p>
-
-    <p style="color:#444;font-size:10px;margin-top:8px">
-      Free Fire é uma marca da Garena. ANGOMODS não é um site oficial da Garena.
-    </p>
-
-  </div>
-
+</section>
+<footer style="text-align:center;padding:30px 15px;border-top:1px solid #333;margin-top:30px">
+ <h3 style="color:#ff3333">ANGOMODS GAMING</h3>
+ <p>O universo Free Fire. Feito para a comunidade.</p>
+ <p>
+ <a href="https://www.tiktok.com/@angomods"
+ target="_blank" rel="noopener">TikTok @angomods</a>
+ </p>
+ <p style="color:#888">© 2026 ANGOMODS</p>
 </footer>
 
+<div id="toast"></div>
+
 <script>
+/* ===============================
+   ANGOMODS GAMING - JAVASCRIPT
+================================ */
 
-/* =====================================
-   ANGOMODS JAVASCRIPT
-===================================== */
+const $ = id => document.getElementById(id);
 
-/* ===== MENU ===== */
-
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
-});
-
-
-/* ===== COPY FUNCTION ===== */
-
-async function copyText(text){
-
-  try{
-
-    await navigator.clipboard.writeText(text);
-    showToast("Copiado!");
-
-  }catch(error){
-
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-
-    document.body.appendChild(textarea);
-    textarea.select();
-
-    try{
-      document.execCommand("copy");
-      showToast("Copiado!");
-    }catch(e){
-      showToast("Não foi possível copiar.");
-    }
-
-    textarea.remove();
-
-  }
-
+function escapeHTML(value){
+ return String(value).replace(/[&<>"']/g, char => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+ }[char]));
 }
 
+/* TOAST */
 
-/* ===== TOAST ===== */
+const toast = $("toast");
+
+toast.style.cssText =
+ "position:fixed;bottom:25px;left:50%;transform:translateX(-50%);" +
+ "background:#ff2525;color:white;padding:12px 18px;border-radius:10px;" +
+ "z-index:99999;display:none;font-weight:bold;max-width:90%;" +
+ "text-align:center;box-shadow:0 0 20px #ff252555";
+
+let toastTimer;
 
 function showToast(message){
-
-  let toast = document.getElementById("angomodsToast");
-
-  if(!toast){
-
-    toast = document.createElement("div");
-    toast.id = "angomodsToast";
-
-    toast.style.position = "fixed";
-    toast.style.bottom = "25px";
-    toast.style.left = "50%";
-    toast.style.transform = "translateX(-50%)";
-    toast.style.background = "#ff3030";
-    toast.style.color = "#fff";
-    toast.style.padding = "13px 20px";
-    toast.style.borderRadius = "10px";
-    toast.style.fontSize = "13px";
-    toast.style.fontWeight = "800";
-    toast.style.zIndex = "99999";
-    toast.style.boxShadow = "0 0 25px rgba(255,48,48,.3)";
-
-    document.body.appendChild(toast);
-
-  }
-
-  toast.textContent = message;
-  toast.style.display = "block";
-
-  clearTimeout(window.angomodsToastTimer);
-
-  window.angomodsToastTimer = setTimeout(()=>{
-    toast.style.display = "none";
-  },2200);
-
+ toast.textContent = message;
+ toast.style.display = "block";
+ clearTimeout(toastTimer);
+ toastTimer = setTimeout(()=>{
+  toast.style.display = "none";
+ },2500);
 }
 
+/* COPIAR TEXTO */
 
-/* ===== INVISIBLE SPACES ===== */
-
-document.querySelectorAll(".copy-invisible").forEach(button=>{
-
-  button.addEventListener("click",()=>{
-
-    copyText(button.dataset.invisible);
-
-  });
-
-});
-
-
-/* ===== NICK GENERATOR ===== */
-
-const nickStyles = {
-
-  pro:[
-    "亗","乂","么","〆","々","メ","★","✘","⚡","☠",
-    "『","』","꧁","꧂","ツ","〤","〄","𖤍","ᴾᴿᴼ","ᴳᴬᴹᴱ"
-  ],
-
-  dark:[
-    "☠","♛","𖤍","༒","†","⚔","⛧","✞","⸸","࿐",
-    "꧁","꧂","亗","乂","〆","⛓","♱"
-  ],
-
-  fire:[
-    "🔥","♨","༄","⚡","✦","✧","☄","亗","乂",
-    "『","』","꧁","꧂","ツ","⸙"
-  ],
-
-  royal:[
-    "♛","♚","👑","✦","✧","༺","༻","꧁","꧂",
-    "亗","★","♔","♕","⚜"
-  ],
-
-  cute:[
-    "♡","♥","ღ","✿","❀","୨","ৎ","✧","★",
-    "꧁","꧂","ʚ","ɞ","☾","₊"
-  ],
-
-  duo:[
-    "♡","ツ","亗","乂","ღ","★","✦","♛",
-    "『","』","꧁","꧂","☯","∞"
-  ],
-
-  symbols:[
-    "亗","乂","〆","々","メ","★","✦","✧","☠",
-    "♛","♚","⚡","☯","༒","꧁","꧂","ツ",
-    "〤","⛧","⛓","𖤍","✘","♱","⚔","♔"
-  ]
-
-};
-
-
-function randomItem(array){
-
-  return array[Math.floor(Math.random()*array.length)];
-
+async function copyText(text){
+ try{
+  if(navigator.clipboard && window.isSecureContext){
+   await navigator.clipboard.writeText(String(text));
+  }else{
+   const area = document.createElement("textarea");
+   area.value = String(text);
+   area.style.position = "fixed";
+   area.style.opacity = "0";
+   document.body.appendChild(area);
+   area.select();
+   const ok = document.execCommand("copy");
+   area.remove();
+   if(!ok) throw new Error("copy failed");
+  }
+  showToast("Copiado com sucesso!");
+ }catch(e){
+  showToast("Não foi possível copiar. Tenta novamente.");
+ }
 }
 
+/* MENU MOBILE */
 
-function escapeHTML(text){
+const menuBtn = $("menuBtn");
+const navLinks = $("navLinks");
 
-  return String(text).replace(/[&<>"']/g,function(character){
+if(menuBtn && navLinks){
+ menuBtn.addEventListener("click",()=>{
+  navLinks.classList.toggle("active");
+ });
 
-    return {
-
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#39;"
-
-    }[character];
-
+ navLinks.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click",()=>{
+   navLinks.classList.remove("active");
   });
-
+ });
 }
 
+/* ===============================
+   GERADOR DE SENSIBILIDADE
+================================ */
 
-function generateNickList(name,style){
+$("generateSensi").addEventListener("click",()=>{
 
-  const symbols = nickStyles[style] || nickStyles.pro;
-  const results = new Set();
+ const brand = $("sensiBrand").value;
+ const model = $("sensiModel").value.trim();
+ const style = $("sensiStyle").value;
+ const hud = $("sensiHud").value;
+ const dpiText = $("sensiDpi").value.trim();
 
-  if(!name.trim()){
+ if(!brand || !model){
+  showToast("Seleciona a marca e escreve o modelo!");
+  return;
+ }
 
-    name = "PLAYER";
+ let dpi = null;
 
+ if(dpiText !== ""){
+  dpi = Number(dpiText);
+
+  if(!Number.isFinite(dpi) || dpi < 100 || dpi > 1200){
+   showToast("DPI inválido. Usa entre 100 e 1200.");
+   return;
   }
+ }
 
-  name = name.trim();
+ if(brand === "iPhone" && dpi !== null){
+  showToast("Nos iPhones, deixa o DPI vazio.");
+  return;
+ }
 
-  const patterns = [
+ /* VALIDAR MARCA E MODELO */
 
-    ()=>randomItem(symbols)+name,
-    ()=>name+randomItem(symbols),
-    ()=>randomItem(symbols)+name+randomItem(symbols),
-    ()=>"『"+name+"』",
-    ()=>"꧁"+name+"꧂",
-    ()=>"亗"+name+"乂",
-    ()=>"メ"+name+"ツ",
-    ()=>"★"+name+"★",
-    ()=>"〆"+name,
-    ()=>name+"々",
-    ()=>"༒"+name+"༒",
-    ()=>"♛"+name,
-    ()=>name+"⚡",
-    ()=>"✘"+name+"✘",
-    ()=>"𖤍"+name,
-    ()=>"『"+randomItem(symbols)+name+"』",
-    ()=>randomItem(symbols)+name+"ツ",
-    ()=>name+randomItem(symbols)+randomItem(symbols),
-    ()=>"乂"+name+"乂",
-    ()=>"✦"+name+"✦",
-    ()=>"♚"+name+"♚",
-    ()=>"⛧"+name+"⛧",
-    ()=>"⚔"+name+"⚔",
-    ()=>"༺"+name+"༻",
-    ()=>"⸸"+name+"⸸",
-    ()=>"♱"+name+"♱",
-    ()=>"〤"+name+"〤",
-    ()=>"★彡"+name+"彡★",
-    ()=>"ツ"+name+"ツ",
-    ()=>"々"+name+"々",
-    ()=>"『"+name+"』",
-    ()=>"꧁༒"+name+"༒꧂",
-    ()=>"亗"+name+"亗",
-    ()=>"♔"+name+"♔",
-    ()=>"⛓"+name+"⛓",
-    ()=>"✧"+name+"✧",
-    ()=>"⚡"+name+"⚡",
-    ()=>"☯"+name+"☯",
-    ()=>"♕"+name+"♕",
-    ()=>"『ᴾᴿᴼ』"+name,
-    ()=>"『ᴳᴬᴹᴱ』"+name,
-    ()=>"『ᶠᶠ』"+name,
-    ()=>"『ᴹᴿ』"+name,
-    ()=>"『ᴹᴿˢ』"+name,
-    ()=>"ᴳᴼᴰ"+name,
-    ()=>"ᴾᴿᴼ"+name,
-    ()=>"乂ᴾᴿᴼ乂"+name,
-    ()=>"ᵀᴹ"+name,
-    ()=>"ᶠᴮ"+name
-  ];
+ const modelUpper = model.toUpperCase();
 
-  while(results.size<30){
+ const brandPatterns = {
+  "OPPO": /\bOPPO\b/i,
+  "Samsung": /\bSAMSUNG\b|\bGALAXY\b/i,
+  "Xiaomi": /\bXIAOMI\b/i,
+  "Redmi": /\bREDMI\b/i,
+  "Realme": /\bREALME\b/i,
+  "Motorola": /\bMOTOROLA\b|\bMOTO\b/i,
+  "Huawei": /\bHUAWEI\b/i,
+  "iPhone": /\bIPHONE\b/i,
+  "Infinix": /\bINFINIX\b/i,
+  "Tecno": /\bTECNO\b/i,
+  "Vivo": /\bVIVO\b/i
+ };
 
-    results.add(randomItem(patterns)());
+ let detectedBrand = null;
 
+ for(const [name,pattern] of Object.entries(brandPatterns)){
+  if(pattern.test(modelUpper)){
+   detectedBrand = name;
+   break;
   }
+ }
 
-  return [...results];
+ if(detectedBrand && detectedBrand !== brand){
+  showToast("Erro: a marca selecionada não corresponde ao modelo!");
+  return;
+ }
 
-}
+ /* PERFIS BASE */
 
-
-document.getElementById("generateNick").addEventListener("click",()=>{
-
-  const name = document.getElementById("nickInput").value.trim();
-  const style = document.getElementById("nickStyle").value;
-
-  if(!name){
-
-    showToast("Escreve um nome primeiro!");
-    return;
-
-  }
-
-  const results = generateNickList(name,style);
-
-  const result = document.getElementById("nickResult");
-
-  result.innerHTML = "<h3 style='margin:15px 0'>NICKS GERADOS</h3>"+
-
-    results.map(n=>
-
-      "<div class='result-item'>"+
-      "<p style='color:white;font-size:15px'>"+escapeHTML(n)+"</p>"+
-      "<button class='btn btn-red copyNick' data-nick='"+encodeURIComponent(n)+"'>COPIAR</button>"+
-      "</div>"
-
-    ).join("");
-
-  result.querySelectorAll(".copyNick").forEach(button=>{
-
-    button.addEventListener("click",()=>{
-
-      copyText(decodeURIComponent(button.dataset.nick));
-
-    });
-
-  });
-
-});
-
-
-/* ===== FF COLORS ===== */
-
-document.querySelectorAll(".color-chip").forEach(button=>{
-
-  button.addEventListener("click",()=>{
-
-    document.getElementById("colorHex").value=button.dataset.hex;
-
-  });
-
-});
-
-
-document.getElementById("generateColor").addEventListener("click",()=>{
-
-  const text = document.getElementById("colorText").value.trim();
-  const hex = document.getElementById("colorHex").value.trim();
-
-  if(!text){
-
-    showToast("Escreve uma frase!");
-    return;
-
-  }
-
-  if(!/^#[0-9A-Fa-f]{6}$/.test(hex)){
-
-    showToast("HEX inválido!");
-    return;
-
-  }
-
-  const output = "["+hex+"]"+text;
-
-  document.getElementById("colorResult").innerHTML=
-
-    "<div class='result-item'>"+
-    "<h3>RESULTADO</h3>"+
-    "<p>"+escapeHTML(output)+"</p>"+
-    "<button class='btn btn-red' id='copyColor'>COPIAR TEXTO</button>"+
-    "</div>";
-
-  document.getElementById("copyColor").addEventListener("click",()=>{
-
-    copyText(output);
-
-  });
-
-});
-
-
-/* ===== SENSI GENERATOR ===== */
-
-const sensiProfiles = {
-
+ const profiles = {
   rush:{
-    label:"Rush / Puxar capa",
-    values:[190,185,175,160,100,145]
+   geral:190,
+   red:185,
+   x2:175,
+   x4:160,
+   awm:100,
+   olhada:145
   },
-
   balanced:{
-    label:"Equilibrado",
-    values:[175,165,155,140,90,130]
+   geral:175,
+   red:170,
+   x2:160,
+   x4:145,
+   awm:90,
+   olhada:130
   },
-
   support:{
-    label:"Suporte",
-    values:[160,150,140,130,85,120]
+   geral:165,
+   red:155,
+   x2:145,
+   x4:130,
+   awm:85,
+   olhada:120
   },
-
   sniper:{
-    label:"Sniper",
-    values:[145,130,120,110,75,100]
+   geral:155,
+   red:145,
+   x2:135,
+   x4:120,
+   awm:100,
+   olhada:110
   }
+ };
 
-};
+ const base = profiles[style] || profiles.rush;
 
+ let adjustment = 0;
 
-document.getElementById("generateSensi").addEventListener("click",()=>{
+ /* AJUSTE DPI */
 
-  const brand = document.getElementById("sensiBrand").value;
-  const model = document.getElementById("sensiModel").value.trim();
-  const style = document.getElementById("sensiStyle").value;
-  const hud = document.getElementById("sensiHud").value;
-  const dpi = document.getElementById("sensiDpi").value;
+ if(dpi !== null){
+  if(dpi >= 700) adjustment = -8;
+  else if(dpi >= 550) adjustment = -4;
+  else if(dpi >= 400) adjustment = 0;
+  else if(dpi >= 250) adjustment = 4;
+  else adjustment = 8;
+ }
 
-  if(!brand){
+ /* AJUSTE HUD */
 
-    showToast("Seleciona uma marca!");
-    return;
+ if(hud === "3"){
+  adjustment += 2;
+ }
 
-  }
+ if(hud === "4"){
+  adjustment += 3;
+ }
 
-  const profile = sensiProfiles[style];
+ if(hud === "2"){
+  adjustment -= 2;
+ }
 
-  const labels=[
+ function limit(value){
+  return Math.max(0,Math.min(200,value));
+ }
 
-    "Geral",
-    "Red Dot",
-    "Mira 2x",
-    "Mira 4x",
-    "AWM",
-    "Olhadinha"
+ const result = {
+  geral:limit(base.geral + adjustment),
+  red:limit(base.red + adjustment),
+  x2:limit(base.x2 + adjustment),
+  x4:limit(base.x4 + adjustment),
+  awm:limit(base.awm + Math.round(adjustment/2)),
+  olhada:limit(base.olhada + adjustment)
+ };
 
-  ];
+ const labels = {
+  rush:"Rush / Puxar capa",
+  balanced:"Equilibrado",
+  support:"Suporte",
+  sniper:"Sniper"
+ };
 
-  const result=document.getElementById("sensiResult");
+ const output =
+ `<div class="resultBox">
+ <h3>🔥 SENSI ANGOMODS</h3>
 
-  result.innerHTML=
+ <p><b>Marca:</b> ${escapeHTML(brand)}</p>
+ <p><b>Modelo:</b> ${escapeHTML(model)}</p>
+ <p><b>Estilo:</b> ${escapeHTML(labels[style] || style)}</p>
+ <p><b>HUD:</b> ${escapeHTML(hud)} dedos</p>
+ <p><b>DPI:</b> ${dpi === null ? "Não informado" : dpi}</p>
 
-    "<div class='result-item'>"+
-    "<h3>CONFIGURAÇÃO SENSI</h3>"+
-    "<p><strong>Marca:</strong> "+escapeHTML(brand)+"</p>"+
-    "<p><strong>Modelo:</strong> "+escapeHTML(model||"Não especificado")+"</p>"+
-    "<p><strong>Estilo:</strong> "+escapeHTML(profile.label)+"</p>"+
-    "<p><strong>HUD:</strong> "+escapeHTML(hud)+" dedos</p>"+
-    (dpi ? "<p><strong>DPI informado:</strong> "+escapeHTML(dpi)+"</p>":"")+
-    "<hr style='border:0;border-top:1px solid #333;margin:12px 0'>"+
-    labels.map((label,index)=>
-      "<p><strong>"+label+":</strong> "+profile.values[index]+"</p>"
-    ).join("")+
-    "<button class='btn btn-red' id='copySensi'>COPIAR CONFIGURAÇÃO</button>"+
-    "</div>";
+ <hr>
 
-  const configText=
+ <p>🎯 Geral: <b>${result.geral}</b></p>
+ <p>🔴 Red Dot: <b>${result.red}</b></p>
+ <p>🔍 Mira 2x: <b>${result.x2}</b></p>
+ <p>🔍 Mira 4x: <b>${result.x4}</b></p>
+ <p>🎯 AWM: <b>${result.awm}</b></p>
+ <p>👁️ Olhadinha: <b>${result.olhada}</b></p>
 
-    "ANGOMODS SENSI\n"+
-    "Marca: "+brand+"\n"+
-    "Modelo: "+(model||"Não especificado")+"\n"+
-    "Estilo: "+profile.label+"\n"+
-    "HUD: "+hud+" dedos\n"+
-    (dpi?"DPI: "+dpi+"\n":"")+
-    labels.map((label,index)=>label+": "+profile.values[index]).join("\n");
+ <button class="btn" onclick="copyText(${JSON.stringify(
+ "ANGOMODS SENSI\n"+
+ "Marca: "+brand+"\n"+
+ "Modelo: "+model+"\n"+
+ "Estilo: "+labels[style]+"\n"+
+ "HUD: "+hud+" dedos\n"+
+ "DPI: "+(dpi===null?"Não informado":dpi)+"\n"+
+ "Geral: "+result.geral+"\n"+
+ "Red Dot: "+result.red+"\n"+
+ "Mira 2x: "+result.x2+"\n"+
+ "Mira 4x: "+result.x4+"\n"+
+ "AWM: "+result.awm+"\n"+
+ "Olhadinha: "+result.olhada
+ )})">
+ COPIAR SENSI
+ </button>
 
-  document.getElementById("copySensi").addEventListener("click",()=>{
+ <p style="font-size:12px;color:#aaa">
+ Sugestão inicial. Testa no treino e ajusta conforme o teu arrasto.
+ </p>
+ </div>`;
 
-    copyText(configText);
-
-  });
-
+ $("sensiResult").innerHTML = output;
 });
 
+/* ===============================
+   GERADOR DE NICKS
+================================ */
 
-/* ===== EVENT CALCULATOR ===== */
+$("generateNick").addEventListener("click",()=>{
 
-document.getElementById("calculateEvent").addEventListener("click",()=>{
+ const base = $("nickInput").value.trim();
+ const style = $("nickStyle").value;
 
-  const name=document.getElementById("eventName").value.trim();
-  const cost=Number(document.getElementById("eventCost").value);
-  const attempts=Number(document.getElementById("eventAttempts").value);
+ if(!base){
+  showToast("Escreve um nome primeiro!");
+  return;
+ }
 
-  if(!Number.isFinite(cost)||!Number.isFinite(attempts)||cost<0||attempts<0){
+ const symbols = {
+  pro:["亗","么","乂","〆","メ","々","ツ","⚡"],
+  dark:["☠","♠","†","༒","꧁","꧂","𖤐"],
+  fire:["🔥","ᶠᶦʳᵉ","亗","⚡","乂"],
+  royal:["♛","♚","꧁","꧂","★","✦"],
+  cute:["♡","✿","୨","୧","ღ","✧"],
+  duo:["♡","ツ","么","✦","∞","乂"],
+  symbols:["꧁","꧂","亗","么","乂","〆","彡","ツ","々","♛","★","✦","༒","☠","♠","⚡","𖤐","〄","⸙","۝"]
+ };
 
-    showToast("Valores inválidos!");
-    return;
+ const combos = {
+  pro:[
+   "亗{n}","{n}么","乂{n}乂","〆{n}","{n}ツ",
+   "『{n}』","メ{n}","{n}々","⚡{n}","{n}亗",
+   "᭄{n}","{n}࿐","★{n}★","{n}〆","彡{n}"
+  ],
+  dark:[
+   "☠{n}☠","༒{n}༒","†{n}†","꧁☠{n}☠꧂",
+   "♠{n}","{n}†","𖤐{n}","{n}༒","⸙{n}",
+   "☽{n}☾","۝{n}","{n}☠","♣{n}","〄{n}","⛧{n}"
+  ],
+  fire:[
+   "🔥{n}","{n}🔥","亗🔥{n}","{n}⚡",
+   "ᶠᶦʳᵉ{n}","{n}ᶠᶦʳᵉ","乂🔥{n}",
+   "⚡{n}⚡","{n}亗","彡🔥{n}",
+   "『🔥{n}』","{n}༒🔥","メ{n}🔥","🔥乂{n}","{n}⚡亗"
+  ],
+  royal:[
+   "♛{n}♛","♚{n}","꧁♛{n}♛꧂","★{n}★",
+   "✦{n}✦","『{n}』","{n}♔","♕{n}",
+   "亗♛{n}","{n}✧","꧁{n}꧂","{n}♚",
+   "✯{n}✯","༺{n}༻","{n}♛"
+  ],
+  cute:[
+   "♡{n}♡","✿{n}✿","ღ{n}ღ","୨{n}୧",
+   "꧁♡{n}♡꧂","{n}✧","{n}♡",
+   "『{n}』","✿{n}","{n}ღ",
+   "ꕤ{n}ꕤ","ʚ{n}ɞ","{n}✿","♡{n}","୨୧{n}"
+  ],
+  duo:[
+   "{n}♡","♡{n}","{n}∞","∞{n}",
+   "乂{n}乂","『{n}』","{n}ღ","ღ{n}",
+   "亗{n}♡","{n}✦","ツ{n}ツ",
+   "♡彡{n}","{n}୨୧","✧{n}✧","{n}々"
+  ],
+  symbols:[
+   "꧁{n}꧂","亗{n}","么{n}","乂{n}乂",
+   "〆{n}","彡{n}","『{n}』","{n}ツ",
+   "々{n}","♛{n}","★{n}★","༒{n}༒",
+   "𖤐{n}","۝{n}","〄{n}"
+  ]
+ };
 
-  }
+ const selected = combos[style] || combos.pro;
 
-  if(!document.getElementById("eventCost").value||
-     !document.getElementById("eventAttempts").value){
+ const result = selected.map(template=>{
+  return template.replaceAll("{n}",base);
+ });
 
-    showToast("Preenche os valores!");
-    return;
+ const html =
+ "<h3>NICKS</h3>"+
+ result.map(n=>
+  "<p style='display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap'>"+
+  "<span>"+escapeHTML(n)+"</span>"+
+  "<button class='btn secondary nickCopy' data-copy='"+escapeHTML(n)+"'>COPIAR</button>"+
+  "</p>"
+ ).join("");
 
-  }
-
-  const total=cost*attempts;
-
-  document.getElementById("eventResult").innerHTML=
-
-    "<div class='result-item'>"+
-    "<h3>SIMULAÇÃO</h3>"+
-    "<p><strong>Evento:</strong> "+escapeHTML(name||"Evento")+"</p>"+
-    "<p><strong>Por tentativa:</strong> "+cost+" diamantes</p>"+
-    "<p><strong>Tentativas:</strong> "+attempts+"</p>"+
-    "<p style='font-size:18px;color:#ff3030;margin-top:12px'><strong>Total: "+total+" diamantes</strong></p>"+
-    "<button class='btn btn-red' id='copyEvent'>COPIAR</button>"+
-    "</div>";
-
-  document.getElementById("copyEvent").addEventListener("click",()=>{
-
-    copyText("Evento: "+(name||"Evento")+"\n"+
-    "Diamantes por tentativa: "+cost+"\n"+
-    "Tentativas: "+attempts+"\n"+
-    "Total: "+total);
-
-  });
-
+ $("nickResult").innerHTML = html;
 });
 
+/* COPIAR NICKS */
 
-/* ===== UID SCANNER PLACEHOLDER ===== */
+$("nickResult").addEventListener("click",event=>{
+ const button = event.target.closest(".nickCopy");
+ if(button){
+  copyText(button.getAttribute("data-copy"));
+ }
+});
 
-document.getElementById("uidForm").addEventListener("submit",event=>{
+/* ===============================
+   FF COLORS
+================================ */
 
+$("generateColor").addEventListener("click",()=>{
+
+ const textValue = $("colorText").value;
+ let hex = $("colorHex").value.trim();
+
+ if(!textValue){
+  showToast("Escreve o texto!");
+  return;
+ }
+
+ hex = hex.replace("#","");
+
+ if(!/^[0-9a-fA-F]{6}$/.test(hex)){
+  showToast("HEX inválido. Exemplo: FF0000");
+  return;
+ }
+
+ const code = "["+hex.toUpperCase()+"]"+textValue;
+
+ $("colorResult").innerHTML =
+ "<h3>FF COLORS</h3>"+
+ "<p>"+escapeHTML(code)+"</p>"+
+ "<button class='btn' id='copyColor'>COPIAR CÓDIGO</button>";
+
+ $("copyColor").addEventListener("click",()=>{
+  copyText(code);
+ });
+});
+
+/* ===============================
+   ESPAÇO INVISÍVEL
+================================ */
+
+document.querySelectorAll(".copyInvisible").forEach(button=>{
+ button.addEventListener("click",()=>{
+  copyText(button.dataset.copy);
+ });
+});
+
+/* ===============================
+   CALCULADORA DE EVENTOS
+================================ */
+
+$("calculateEvent").addEventListener("click",()=>{
+
+ const name = $("eventName").value.trim();
+ const cost = Number($("eventCost").value);
+ const attempts = Number($("eventAttempts").value);
+
+ if(!Number.isFinite(cost) || !Number.isFinite(attempts) ||
+ cost <= 0 || attempts <= 0 ||
+ !Number.isInteger(attempts)){
+  showToast("Preenche os valores corretamente!");
+  return;
+ }
+
+ const total = cost * attempts;
+
+ $("eventResult").innerHTML =
+ "<div class='resultBox'>"+
+ "<h3>💎 CALCULADORA</h3>"+
+ "<p><b>Evento:</b> "+escapeHTML(name || "Evento FF")+"</p>"+
+ "<p><b>Diamantes por tentativa:</b> "+cost+"</p>"+
+ "<p><b>Tentativas:</b> "+attempts+"</p>"+
+ "<hr>"+
+ "<h2 style='color:#ff3333'>"+total+" DIAMANTES</h2>"+
+ "<button class='btn' id='copyEvent'>COPIAR</button>"+
+ "</div>";
+
+ $("copyEvent").addEventListener("click",()=>{
+  copyText(
+   "ANGOMODS - CALCULADORA\n"+
+   "Evento: "+(name||"Evento FF")+"\n"+
+   "Diamantes por tentativa: "+cost+"\n"+
+   "Tentativas: "+attempts+"\n"+
+   "Total: "+total+" diamantes"
+  );
+ });
+});
+
+/* ===============================
+   UID SCANNER
+================================ */
+
+const uidForm = $("uidForm");
+
+if(uidForm){
+ uidForm.addEventListener("submit",event=>{
   event.preventDefault();
 
-  const uid=document.getElementById("uidInput").value.trim();
+  const uid = $("uidInput").value.trim();
 
-  if(!uid){
-
-    showToast("Introduz o UID!");
-    return;
-
+  if(!/^[0-9]{5,20}$/.test(uid)){
+   showToast("UID inválido!");
+   return;
   }
 
-  if(!/^\d+$/.test(uid)){
+  $("uidResult").innerHTML =
+  "<div class='resultBox'>"+
+  "<h3>UID RECEBIDO</h3>"+
+  "<p>UID: "+escapeHTML(uid)+"</p>"+
+  "<p style='color:#ff3333'>"+
+  "O scanner está preparado para receber uma API real de jogadores. "+
+  "Neste momento, a consulta externa ainda não está conectada."+
+  "</p>"+
+  "<button class='btn' id='copyUID'>COPIAR UID</button>"+
+  "</div>";
 
-    showToast("O UID deve conter números!");
-    return;
+  $("copyUID").addEventListener("click",()=>{
+   copyText(uid);
+  });
+ });
+}
 
-  }
+/* ===============================
+   NEXUS IA
+================================ */
 
-  document.getElementById("uidResult").innerHTML=
+const nexusForm = $("nexusForm");
 
-    "<div class='result-item'>"+
-    "<h3>UID RECEBIDO</h3>"+
-    "<p>UID: "+escapeHTML(uid)+"</p>"+
-    "<p style='margin-top:10px'>"+
-    "A consulta real de perfil necessita de uma API de dados de jogadores. "+
-    "O scanner ainda não está ligado a essa fonte."+
-    "</p>"+
-    "</div>";
-
-});
-
-
-/* ===== NEXUS IA PLACEHOLDER ===== */
-
-document.getElementById("nexusForm").addEventListener("submit",event=>{
-
+if(nexusForm){
+ nexusForm.addEventListener("submit",event=>{
   event.preventDefault();
 
-  const input=document.getElementById("nexusInput");
-  const messages=document.getElementById("nexusMessages");
+  const input = $("nexusInput");
+  const message = input.value.trim();
 
-  const question=input.value.trim();
+  if(!message) return;
 
-  if(!question){
+  const messages = $("nexusMessages");
 
-    showToast("Escreve uma mensagem!");
-    return;
+  messages.innerHTML +=
+  "<div class='message userMessage'>"+
+  escapeHTML(message)+
+  "</div>";
 
-  }
+  messages.innerHTML +=
+  "<div class='message botMessage'>"+
+  "<b>NEXUS:</b> "+
+  "Recebi a tua mensagem! O sistema Nexus está no interface, "+
+  "mas a IA ainda precisa de uma ligação real ao backend/API. "+
+  "Não vou simular uma resposta de IA como se estivesse conectado. "+
+  "</div>";
 
-  messages.innerHTML+=
+  input.value = "";
 
-    "<div class='result-item'>"+
-    "<p><strong>Tu:</strong> "+escapeHTML(question)+"</p>"+
-    "</div>"+
+  messages.scrollTop = messages.scrollHeight;
+ });
+}
 
-    "<div class='result-item'>"+
-    "<p><strong>NEXUS:</strong> A ligação à inteligência artificial "+
-    "ainda será configurada através do backend. "+
-    "Esta interface ainda não está ligada a uma API de IA.</p>"+
-    "</div>";
+/* ===============================
+   LOGIN / REGISTO
+================================ */
 
-  input.value="";
+$("loginBtn").addEventListener("click",()=>{
+ const email = $("loginEmail").value.trim();
+ const password = $("loginPassword").value;
 
-  messages.scrollTop=messages.scrollHeight;
+ if(!email || !password){
+  showToast("Preenche o e-mail e a senha!");
+  return;
+ }
 
+ showToast("Login ainda precisa da conexão Supabase.");
 });
 
+$("registerBtn").addEventListener("click",()=>{
+ const email = $("loginEmail").value.trim();
+ const password = $("loginPassword").value;
 
-/* ===== LOGIN PLACEHOLDER ===== */
+ if(!email || !password){
+  showToast("Preenche o e-mail e a senha!");
+  return;
+ }
 
-document.getElementById("loginBtn").addEventListener("click",()=>{
+ if(password.length < 6){
+  showToast("A senha deve ter pelo menos 6 caracteres.");
+  return;
+ }
 
-  showToast("Login será ligado ao Supabase.");
-
+ showToast("Registo ainda precisa da conexão Supabase.");
 });
 
+/* ===============================
+   HISTÓRICO
+================================ */
 
-document.getElementById("registerBtn").addEventListener("click",()=>{
+if($("historyContent")){
+ $("historyContent").innerHTML =
+ "<p>O histórico pessoal será disponibilizado "+
+ "quando a autenticação e a base de dados estiverem conectadas.</p>";
+}
 
-  showToast("Registo será ligado ao Supabase.");
+/* ===============================
+   ADMIN
+================================ */
 
+if($("admin")){
+ $("admin").style.display = "none";
+}
+
+/* ===============================
+   ANIMAÇÃO / INTERFACE
+================================ */
+
+document.querySelectorAll("button").forEach(button=>{
+ if(!button.hasAttribute("type")){
+  button.setAttribute("type","button");
+ }
 });
 
-
-/* ===== INITIALIZATION ===== */
-
-console.log("ANGOMODS frontend inicializado.");
+console.log("ANGOMODS GAMING carregado!");
 
 </script>
-
 </body>
 </html>
