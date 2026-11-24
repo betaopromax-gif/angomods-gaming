@@ -2,856 +2,873 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090909">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ANGOMODS GAMING</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 :root{
- --red:#ff2525;
- --dark:#090909;
- --card:#151515;
- --border:#292929;
- --muted:#aaa;
+ --red:#ff1744;
+ --dark:#080808;
+ --card:#141414;
+ --border:#282828;
  --white:#fff;
+ --muted:#999;
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:var(--dark);color:var(--white);overflow-x:hidden}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--dark);color:var(--white);
+ font-family:Arial,sans-serif;
+}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-.hidden{display:none!important}
-a{color:inherit;text-decoration:none}
-html{scroll-behavior:smooth}
-
-body::before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:-1;
- background:radial-gradient(circle at 50% 0%,#30000055,transparent 45%);
-}
-
 header{
- position:sticky;top:0;z-index:100;
- background:#090909ed;
+ position:sticky;top:0;z-index:20;
+ background:#090909;border-bottom:1px solid var(--border);
+ padding:14px;display:flex;align-items:center;
+ justify-content:space-between;
+}
+.logo{font-weight:900;font-size:20px;color:var(--red)}
+.logo span{color:white}
+#menuBtn{
+ background:#191919;border:1px solid var(--border);
+ color:white;border-radius:9px;padding:9px 13px
+}
+nav{
+ display:none;background:#111;padding:10px;
  border-bottom:1px solid var(--border);
- backdrop-filter:blur(15px)
+ position:sticky;top:60px;z-index:19
 }
-.nav{
- max-width:1150px;margin:auto;padding:15px;
- display:flex;align-items:center;justify-content:space-between
+nav.open{display:flex;flex-wrap:wrap;gap:8px}
+nav button{
+ background:#1a1a1a;color:white;border:1px solid #333;
+ padding:10px;border-radius:8px
 }
-.logo{font-weight:1000;font-size:23px;letter-spacing:1px}
-.logo span{color:var(--red)}
-.menu{display:flex;gap:17px}
-.menu a{font-size:12px;font-weight:bold;color:#ddd}
-.menu a:hover{color:var(--red)}
-.menuBtn{display:none;background:none;color:white;border:0;font-size:25px}
-
-.btn{
- background:var(--red);color:white;border:0;
- padding:12px 17px;border-radius:9px;
- font-weight:bold;transition:.25s
+nav button:hover{border-color:var(--red);color:var(--red)}
+main{max-width:1000px;margin:auto;padding:14px}
+section{display:none}
+section.active{display:block}
+.hero{
+ padding:24px 16px;border:1px solid #333;
+ border-radius:16px;background:
+ linear-gradient(140deg,#200009,#111 65%);
+ margin-bottom:16px
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 20px #ff252544}
-.btn.secondary{background:#292929}
-.btn.outline{background:transparent;border:1px solid var(--red)}
-button:disabled{opacity:.5;cursor:not-allowed}
-
-input,select,textarea{
- width:100%;padding:13px;margin:8px 0;
- background:#101010;color:white;border:1px solid #333;
- border-radius:9px;outline:none
-}
-input:focus,select:focus,textarea:focus{border-color:var(--red)}
-label{display:block;color:#ddd;font-size:13px;margin-top:10px}
-
+.hero h1{font-size:30px;margin:5px 0;color:var(--red)}
+.hero p{color:#bbb;line-height:1.5}
 .card{
  background:var(--card);border:1px solid var(--border);
- padding:18px;border-radius:15px;transition:.3s
+ border-radius:14px;padding:16px;margin:12px 0
 }
-.card:hover{border-color:#552222}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.container{max-width:1150px;margin:auto;padding:25px 15px}
-.section{margin:38px 0;scroll-margin-top:80px}
-.sectionTitle{font-size:24px;margin-bottom:18px}
-.sectionTitle span{color:var(--red)}
-.badge{
- display:inline-block;background:#320000;color:#ff7070;
- border-radius:50px;padding:6px 12px;font-size:12px;margin-bottom:12px
+h2{font-size:21px}
+h3{font-size:17px}
+small,.muted{color:var(--muted)}
+label{display:block;margin:12px 0 6px}
+input,select,textarea{
+ width:100%;background:#090909;color:white;
+ border:1px solid #333;border-radius:9px;
+ padding:12px;outline:none
 }
-.result{
- margin-top:15px;background:#101010;border:1px solid #333;
- border-radius:10px;padding:15px;line-height:1.8;overflow-wrap:anywhere
+input:focus,select:focus,textarea:focus{
+ border-color:var(--red)
 }
-
-.hero{
- min-height:370px;display:flex;align-items:center;justify-content:center;
- text-align:center;padding:55px 20px;
- background:radial-gradient(ellipse at center,#4b0000,#160000 40%,#090909 75%);
- position:relative;overflow:hidden
+.btn{
+ background:var(--red);color:white;border:none;
+ padding:12px 15px;border-radius:9px;
+ font-weight:bold;margin-top:10px
 }
-.hero h1{font-size:clamp(32px,7vw,60px);font-weight:1000}
-.hero h1 span{color:var(--red)}
-.hero p{max-width:650px;margin:15px auto;color:#bbb;line-height:1.7}
-.heroBtn{display:inline-block;margin-top:18px}
-.animate{animation:fade .65s ease}
-@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fire{
- 0%,100%{text-shadow:0 0 10px #ff0000,0 0 20px #ff4500}
- 50%{text-shadow:0 0 18px #ff4500,0 0 35px #ff0000,0 0 50px #ff6600}
+.btn.secondary{
+ background:#222;border:1px solid #444
 }
-.fireLogo{animation:fire 2s infinite}
-
-.skinGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px}
-.skin{background:#151515;border:1px solid #292929;border-radius:13px;overflow:hidden}
-.skin img{width:100%;height:175px;object-fit:cover}
-.skin div{padding:12px;font-weight:bold;font-size:14px}
-.skin:hover{border-color:var(--red);transform:translateY(-3px)}
-
-.chatBox{border:1px solid #292929;border-radius:14px;padding:15px;background:#111}
-.chatMessages{height:330px;overflow-y:auto;margin-bottom:12px}
-.message{padding:12px;border-radius:11px;margin:10px 0;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
-.userMessage{background:#400000;margin-left:12%}
-.aiMessage{background:#202020;margin-right:12%}
-.chatInput{display:flex;gap:8px}
-.chatInput input{margin:0}
-.chatInput button{min-width:55px}
-.loading{animation:pulse 1s infinite;color:#ff5555}
-@keyframes pulse{50%{opacity:.4}}
-
-.pack{padding:15px;border:1px solid #333;border-radius:12px;background:#111;margin-bottom:12px}
-.pack small{color:#aaa}
-.adminArea{border:1px dashed #555;border-radius:12px;padding:15px}
-footer{text-align:center;padding:35px 15px;color:#888;border-top:1px solid #222}
-footer span{color:var(--red)}
-.status{margin-top:10px;font-size:13px;color:#ff7777}
-.topInfo{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-
+.btn.full{width:100%}
+.btn:hover{filter:brightness(1.12)}
+.grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px
+}
+@media(min-width:650px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.stat{padding:14px;background:#111;border-radius:12px}
+.red{color:var(--red)}
+.hidden{display:none!important}
 #authScreen{
- min-height:100vh;display:flex;align-items:center;justify-content:center;
- padding:20px;background:radial-gradient(circle at top,#420000,#090909 65%)
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:20px
 }
-.authCard{width:100%;max-width:420px;background:#141414;border:1px solid #333;border-radius:18px;padding:25px}
-.authCard h1{text-align:center;margin-bottom:10px}
-.authCard h1 span{color:var(--red)}
-.authCard p{text-align:center;color:#aaa;margin-bottom:15px}
-.authSwitch{text-align:center;color:#aaa;margin-top:15px;font-size:14px}
-.authSwitch button{background:none;color:var(--red);border:0;font-weight:bold}
-#appScreen{display:none}
-
-@media(max-width:700px){
- .menu{display:none;position:absolute;top:60px;left:0;right:0;background:#101010;padding:20px;flex-direction:column;border-bottom:1px solid #333}
- .menu.active{display:flex}
- .menuBtn{display:block}
- .hero{min-height:290px}
- .chatMessages{height:260px}
- .chatInput{align-items:stretch}
+.authbox{
+ width:100%;max-width:420px;background:#111;
+ border:1px solid #333;border-radius:16px;padding:22px
 }
+.authbox h1{text-align:center;color:var(--red)}
+.authbox p{text-align:center;color:#aaa}
+.tabs{display:flex;gap:8px;margin:12px 0}
+.tabs button{
+ flex:1;background:#222;color:white;border:1px solid #333;
+ padding:10px;border-radius:9px
+}
+.tabs button.selected{background:var(--red)}
+#app{display:none}
+.skin{
+ overflow:hidden;border-radius:12px;border:1px solid #333;
+ background:#111
+}
+.skin img{
+ width:100%;height:220px;object-fit:cover;
+ display:block
+}
+.skin p{padding:10px;margin:0;font-size:13px}
+.chat{
+ min-height:260px;max-height:430px;overflow:auto;
+ background:#090909;border:1px solid #333;
+ padding:12px;border-radius:12px
+}
+.msg{
+ padding:11px;margin:8px 0;border-radius:10px;
+ line-height:1.5;overflow-wrap:anywhere
+}
+.msg.user{background:#292929}
+.msg.ai{background:#240008;border:1px solid #48101b}
+.chatrow{display:flex;gap:8px;margin-top:10px}
+.chatrow input{flex:1;min-width:0}
+.chatrow button{margin:0}
+.result{
+ background:#101010;border:1px solid #333;
+ border-radius:10px;padding:12px;margin:8px 0;
+ overflow-wrap:anywhere
+}
+footer{
+ text-align:center;padding:25px;color:#777;
+ border-top:1px solid #222;margin-top:25px
+}
+footer a{color:var(--red)}
+hr{border:0;border-top:1px solid #333}
 </style>
 </head>
-
 <body>
 
-<!-- AUTENTICAÇÃO -->
 <div id="authScreen">
- <div class="authCard animate">
-  <h1 class="fireLogo">ANGO<span>MODS</span></h1>
+ <div class="authbox">
+  <h1>ANGOMODS</h1>
   <p>FREE FIRE COMMUNITY</p>
-
-  <div id="loginForm">
-   <h2>Entrar</h2>
-   <label>Email</label>
-   <input id="loginEmail" type="email" placeholder="O teu email">
-   <label>Senha</label>
-   <input id="loginPassword" type="password" placeholder="A tua senha">
-   <button class="btn" style="width:100%" onclick="login()">ENTRAR</button>
-   <div id="loginStatus" class="status"></div>
-   <div class="authSwitch">
-    Ainda não tens conta?
-    <button onclick="showSignup()">CRIAR CONTA</button>
-   </div>
+  <div class="tabs">
+   <button id="loginTab" class="selected"
+    onclick="showAuth('login')">ENTRAR</button>
+   <button id="registerTab"
+    onclick="showAuth('register')">CRIAR CONTA</button>
   </div>
-
-  <div id="signupForm" class="hidden">
-   <h2>Criar conta</h2>
-   <label>Email</label>
-   <input id="signupEmail" type="email" placeholder="O teu email">
+  <div id="loginBox">
+   <label>E-mail</label>
+   <input id="loginEmail" type="email"
+    placeholder="O teu e-mail">
    <label>Senha</label>
-   <input id="signupPassword" type="password" placeholder="Mínimo 6 caracteres">
-   <button class="btn" style="width:100%" onclick="signup()">REGISTAR</button>
-   <div id="signupStatus" class="status"></div>
-   <div class="authSwitch">
-    Já tens conta?
-    <button onclick="showLogin()">ENTRAR</button>
-   </div>
+   <input id="loginPass" type="password"
+    placeholder="A tua senha">
+   <button class="btn full" onclick="login()">ENTRAR</button>
   </div>
+  <div id="registerBox" class="hidden">
+   <label>E-mail</label>
+   <input id="registerEmail" type="email"
+    placeholder="O teu e-mail">
+   <label>Senha</label>
+   <input id="registerPass" type="password"
+    placeholder="Mínimo 6 caracteres">
+   <button class="btn full" onclick="register()">
+    CRIAR CONTA
+   </button>
+  </div>
+  <p id="authMessage"></p>
  </div>
 </div>
 
-<!-- SITE -->
-<div id="appScreen">
-
+<div id="app">
 <header>
- <nav class="nav">
-  <div class="logo fireLogo">ANGO<span>MODS</span></div>
-  <button class="menuBtn" onclick="toggleMenu()">☰</button>
-  <div class="menu" id="menu">
-   <a href="#skins" onclick="toggleMenu()">SKINS</a>
-   <a href="#sensi" onclick="toggleMenu()">SENSI</a>
-   <a href="#android" onclick="toggleMenu()">ANDROID</a>
-   <a href="#nicks" onclick="toggleMenu()">NICKS</a>
-   <a href="#packs" onclick="toggleMenu()">PACKS</a>
-   <a href="#ai" onclick="toggleMenu()">NEXUS IA</a>
-   <a href="#admin" onclick="toggleMenu()">ADMIN</a>
-  </div>
- </nav>
+ <div class="logo">ANGO<span>MODS</span></div>
+ <button id="menuBtn" onclick="toggleMenu()">☰</button>
 </header>
 
-<section class="hero">
- <div class="animate">
-  <div class="badge">FREE FIRE COMMUNITY</div>
-  <h1>ANGOMODS <span>GAMING</span></h1>
-  <p>Skins, sensibilidade, Android, nicks, packs e inteligência artificial. O teu espaço gamer.</p>
-  <a href="#sensi" class="btn heroBtn">EXPLORAR</a>
+<nav id="nav">
+ <button onclick="go('home')">INÍCIO</button>
+ <button onclick="go('skins')">SKINS</button>
+ <button onclick="go('sensi')">SENSI</button>
+ <button onclick="go('android')">ANDROID</button>
+ <button onclick="go('nicks')">NICKS</button>
+ <button onclick="go('invisible')">INVISÍVEL</button>
+ <button onclick="go('colors')">CORES FF</button>
+ <button onclick="go('packs')">PACKS</button>
+ <button onclick="go('ai')">NEXUS IA</button>
+ <button onclick="go('admin')">ADM</button>
+ <button onclick="logout()">SAIR</button>
+</nav>
+
+<main>
+
+<section id="home" class="active">
+ <div class="hero">
+  <h1>ANGOMODS GAMING</h1>
+  <p>O universo Free Fire. Skins, sensibilidade,
+  optimização Android, packs, comunidade e inteligência artificial.</p>
+  <button class="btn" onclick="go('sensi')">GERAR SENSI</button>
+  <button class="btn secondary" onclick="go('ai')">NEXUS IA</button>
+ </div>
+ <div class="grid">
+  <div class="stat"><h3>🔥 SKINS</h3>
+   <p class="muted">Galeria da comunidade</p>
+   <button class="btn secondary" onclick="go('skins')">EXPLORAR</button>
+  </div>
+  <div class="stat"><h3>⚡ SENSI</h3>
+   <p class="muted">Configurações de jogo</p>
+   <button class="btn secondary" onclick="go('sensi')">GERAR</button>
+  </div>
+  <div class="stat"><h3>✦ NICKS</h3>
+   <p class="muted">Nomes estilosos</p>
+   <button class="btn secondary" onclick="go('nicks')">CRIAR</button>
+  </div>
+  <div class="stat"><h3>🎨 CORES</h3>
+   <p class="muted">Texto colorido no FF</p>
+   <button class="btn secondary" onclick="go('colors')">EXPLORAR</button>
+  </div>
  </div>
 </section>
 
-<main class="container">
-
-<div class="topInfo card">
- <div>
-  <small style="color:#aaa">Sessão iniciada</small>
-  <div id="userEmail"></div>
- </div>
- <button class="btn secondary" onclick="logout()">SAIR</button>
-</div>
-
-<section class="section" id="skins">
- <h2 class="sectionTitle">SKINS <span>FREE FIRE</span></h2>
- <div class="skinGrid">
-  <div class="skin">
-   <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80" alt="Gaming">
-   <div>🤑 Podre de rico 🤑</div>
-  </div>
-  <div class="skin">
-   <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Gaming">
-   <div>Versão Gemada</div>
-  </div>
-  <div class="skin">
-   <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Gaming">
-   <div>Versão Mendigo</div>
-  </div>
-  <div class="skin">
-   <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Gaming">
-   <div>Pro Setup</div>
-  </div>
- </div>
-</section>
-
-<!-- SENSI -->
-<section class="section" id="sensi">
- <h2 class="sectionTitle">GERADOR <span>SENSI</span></h2>
+<section id="skins">
  <div class="card">
-  <p style="color:#aaa">Sensibilidade experimental de acordo com o dispositivo e estilo.</p>
-  <label>Dispositivo</label>
-  <select id="device" onchange="deviceChanged()">
-   <option value="">Selecionar</option>
+  <h2 class="red">SKINS FREE FIRE</h2>
+  <p>Galeria ANGOMODS com imagens originais.</p>
+ </div>
+ <div class="grid" id="skinGrid"></div>
+</section>
+
+<section id="sensi">
+ <div class="card">
+  <h2 class="red">GERADOR DE SENSI</h2>
+  <p>Cria uma configuração inicial adaptada
+  ao dispositivo. Testa e ajusta no jogo.</p>
+  <label>Tipo de dispositivo</label>
+  <select id="deviceType" onchange="deviceChange()">
    <option value="android">Android</option>
    <option value="iphone">iPhone</option>
   </select>
-  <label>Modelo</label>
-  <input id="model" placeholder="Ex: OPPO A31">
-  <div id="dpiBox">
+  <label>Modelo do dispositivo</label>
+  <input id="deviceModel" placeholder="Ex: OPPO A31">
+  <div id="dpiField">
    <label>DPI (Android)</label>
-   <input id="dpi" type="number" placeholder="Ex: 400">
+   <input id="dpi" type="number" placeholder="Ex: 440">
   </div>
-  <label>Estilo</label>
-  <select id="style">
-   <option value="fast">Arrasto rápido</option>
+  <label>Estilo de jogo</label>
+  <select id="playStyle">
+   <option value="fast">Arrasto rápido / puxar capa</option>
    <option value="balanced">Equilibrado</option>
-   <option value="close">Trocação</option>
    <option value="precision">Precisão</option>
   </select>
-  <button class="btn" onclick="generateSensi()">GERAR SENSI</button>
-  <div id="sensiResult" class="result hidden"></div>
+  <button class="btn full" onclick="generateSensi()">
+   GERAR SENSI
+  </button>
+  <div id="sensiResult"></div>
  </div>
 </section>
 
-<!-- ANDROID -->
-<section class="section" id="android">
- <h2 class="sectionTitle">ANDROID <span>OPTIMIZER</span></h2>
- <div class="grid">
-  <div class="card"><div style="font-size:30px">⚡</div><h3>Desempenho</h3><p style="color:#aaa">Dicas para estabilidade e FPS.</p></div>
-  <div class="card"><div style="font-size:30px">📱</div><h3>Configuração</h3><p style="color:#aaa">Configurações úteis do Android.</p></div>
-  <div class="card"><div style="font-size:30px">🎮</div><h3>Gaming</h3><p style="color:#aaa">Preparação para jogar.</p></div>
- </div>
- <div class="card" style="margin-top:15px">
-  <label>Modelo</label>
+<section id="android">
+ <div class="card">
+  <h2 class="red">ANDROID OPTIMIZER</h2>
+  <p>Recomendações para melhorar a estabilidade
+  e reduzir o peso durante o jogo.</p>
+  <label>Dispositivo</label>
   <input id="androidModel" placeholder="Ex: OPPO A31">
-  <label>Problema</label>
-  <select id="androidProblem">
-   <option value="fps">FPS baixo</option>
-   <option value="heat">Aquecimento</option>
-   <option value="lag">Lag</option>
-   <option value="touch">Touch lento</option>
-   <option value="all">Todos</option>
+  <label>RAM disponível (opcional)</label>
+  <select id="ram">
+   <option value="">Não sei</option>
+   <option>2 GB</option>
+   <option>3 GB</option>
+   <option>4 GB</option>
+   <option>6 GB</option>
+   <option>8 GB ou mais</option>
   </select>
-  <button class="btn" onclick="androidTips()">OPTIMIZAR</button>
-  <div id="androidResult" class="result hidden"></div>
+  <button class="btn full" onclick="optimizeAndroid()">
+   OPTIMIZAR
+  </button>
+  <div id="androidResult"></div>
  </div>
 </section>
 
-<!-- NICKS -->
-<section class="section" id="nicks">
- <h2 class="sectionTitle">NICK <span>LAB</span></h2>
+<section id="nicks">
  <div class="card">
-  <label>Nome</label>
-  <input id="nickInput" placeholder="Escreve o teu nick">
-  <button class="btn" onclick="generateNicks()">GERAR NICKS</button>
-  <div id="nickResult" class="result hidden"></div>
+  <h2 class="red">GERADOR DE NICKS</h2>
+  <p>Gera nomes estilosos para Free Fire.</p>
+  <label>Nome base</label>
+  <input id="nickBase" placeholder="Escreve o teu nome">
+  <button class="btn full" onclick="generateNicks()">
+   GERAR NICKS
+  </button>
+  <div id="nickResult"></div>
  </div>
 </section>
 
-<!-- PACKS -->
-<section class="section" id="packs">
- <h2 class="sectionTitle">ANGOMODS <span>PACKS</span></h2>
+<section id="invisible">
  <div class="card">
-  <p style="color:#aaa">Publicações da comunidade.</p>
-  <button class="btn secondary" onclick="loadPacks()">ATUALIZAR PACKS</button>
+  <h2 class="red">ESPAÇO INVISÍVEL</h2>
+  <p>Experimenta o carácter invisível para nomes
+  ou espaços, dependendo das regras do jogo.</p>
+  <div class="result">
+   <p>Carácter invisível</p>
+   <code id="invisibleCode">ㅤ</code>
+  </div>
+  <button class="btn full"
+   onclick="copyText('ㅤ')">COPIAR ESPAÇO</button>
+  <hr>
+  <p class="muted">Espaço pequeno</p>
+  <button class="btn secondary full"
+   onclick="copyText('⠀')">COPIAR ALTERNATIVO</button>
  </div>
- <div id="packsList" style="margin-top:15px"></div>
 </section>
 
-<!-- IA -->
-<section class="section" id="ai">
- <h2 class="sectionTitle">NEXUS <span>IA</span></h2>
- <div class="chatBox">
-  <div class="topInfo" style="margin-bottom:12px">
-   <strong>NEXUS IA — ANGOMODS</strong>
-   <button class="btn secondary" onclick="clearChat()">LIMPAR CHAT</button>
+<section id="colors">
+ <div class="card">
+  <h2 class="red">CÓDIGOS DE CORES FF</h2>
+  <p>Usa os códigos hexadecimais no texto,
+  quando o Free Fire aceitar o formato.</p>
+  <label>Texto</label>
+  <input id="colorText" placeholder="Escreve o texto">
+  <label>Cor</label>
+  <select id="colorCode">
+   <option value="#FF0000">Vermelho</option>
+   <option value="#00FF00">Verde</option>
+   <option value="#0000FF">Azul</option>
+   <option value="#FFFF00">Amarelo</option>
+   <option value="#FF00FF">Rosa</option>
+   <option value="#00FFFF">Ciano</option>
+   <option value="#FFFFFF">Branco</option>
+   <option value="#000000">Preto</option>
+   <option value="#FFA500">Laranja</option>
+   <option value="#800080">Roxo</option>
+   <option value="#FFC0CB">Rosa claro</option>
+   <option value="#A52A2A">Castanho</option>
+  </select>
+  <button class="btn full" onclick="makeColor()">
+   GERAR CÓDIGO
+  </button>
+  <div id="colorResult"></div>
+  <hr>
+  <h3>Exemplos</h3>
+  <div id="colorSamples"></div>
+ </div>
+</section>
+
+<section id="packs">
+ <div class="card">
+  <h2 class="red">ANGOMODS PACKS</h2>
+  <p>Publicações da comunidade.</p>
+  <button class="btn secondary" onclick="loadPacks()">
+   ATUALIZAR PACKS
+  </button>
+  <div id="packsList"></div>
+ </div>
+</section>
+
+<section id="ai">
+ <div class="card">
+  <h2 class="red">NEXUS IA — ANGOMODS</h2>
+  <button class="btn secondary" onclick="clearChat()">
+   LIMPAR CHAT
+  </button>
+  <div id="chat" class="chat">
+   <div class="msg ai">
+    🔥 Olá! Sou a Nexus IA do Angomods.
+    Pergunta-me sobre Free Fire, sensibilidade,
+    Android e gaming.
+   </div>
   </div>
-  <div class="chatMessages" id="chatMessages">
-   <div class="message aiMessage">🔥 Olá! Sou a Nexus IA do Angomods. Pergunta-me sobre Free Fire, sensibilidade, Android e gaming.</div>
-  </div>
-  <div class="chatInput">
-   <input id="chatInput" placeholder="Pergunta à Nexus..." onkeydown="if(event.key==='Enter')sendAI()">
+  <div class="chatrow">
+   <input id="aiInput" placeholder="Pergunta à Nexus IA..."
+    onkeydown="if(event.key==='Enter')sendAI()">
    <button class="btn" onclick="sendAI()">➤</button>
   </div>
-  <div id="aiStatus" class="status"></div>
+  <p id="aiStatus" class="muted"></p>
  </div>
 </section>
 
-<!-- ADMIN -->
-<section class="section" id="admin">
- <h2 class="sectionTitle">PAINEL <span>ADMIN</span></h2>
- <div class="adminArea">
-  <div id="adminPanel" class="hidden">
-   <h3>Publicar Pack</h3>
-   <label>Título</label>
-   <input id="packTitle" placeholder="Título do pack">
+<section id="admin">
+ <div class="card">
+  <h2 class="red">PAINEL ADMIN</h2>
+  <p id="adminStatus">A verificar permissões...</p>
+  <div id="adminContent" class="hidden">
+   <label>Título da publicação</label>
+   <input id="packTitle" placeholder="Título">
    <label>Categoria</label>
-   <select id="packCategory">
-    <option value="Sensi">Sensi</option>
-    <option value="Android">Android</option>
-    <option value="Mods">Mods</option>
-    <option value="Outros">Outros</option>
-   </select>
-   <label>Conteúdo ou link</label>
-   <textarea id="packContent" rows="4" placeholder="Conteúdo ou link"></textarea>
-   <button class="btn" onclick="publishPack()">PUBLICAR</button>
-   <div id="publishStatus" class="status"></div>
+   <input id="packCategory" placeholder="Categoria">
+   <label>Conteúdo</label>
+   <textarea id="packContent" rows="5"
+    placeholder="Conteúdo da publicação"></textarea>
+   <button class="btn full" onclick="publishPack()">
+    PUBLICAR
+   </button>
+   <div id="adminResult"></div>
   </div>
-  <div id="adminMessage">A área administrativa depende das permissões configuradas no Supabase.</div>
  </div>
 </section>
 
 </main>
 
 <footer>
- <p>ANGOMODS <span>GAMING</span></p>
- <p>Free Fire Community • Angola</p>
- <p>TikTok: <a href="https://www.tiktok.com/@angomods" target="_blank" style="color:#ff5555">@angomods</a></p>
- <p>© 2026 ANGOMODS</p>
+ <p>ANGOMODS GAMING</p>
+ <p>Free Fire Community</p>
+ <p>TikTok: <a href="https://www.tiktok.com/@angomods"
+ target="_blank">@angomods</a></p>
 </footer>
 </div>
 
 <script>
-/* CONFIGURAÇÃO */
-const SUPABASE_URL="https://vhidhwxsjzpvlpwxjpmi.supabase.co";
-const SUPABASE_KEY="sb_publishable_AaQj1O0FFly8eHUhLM0b4w_PN9_Ig53";
-const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+// ===== SUPABASE =====
+const SUPABASE_URL="https://llgqbzteoqjiyrwwylwk.supabase.co";
+const SUPABASE_KEY="sb_publishable_HyLeiqrov870USieHfBTNw_OzMfm8QU";
 
+let db=null;
 let currentUser=null;
 let chatHistory=[];
 
-/* AUTENTICAÇÃO */
-function showSignup(){
- document.getElementById("loginForm").classList.add("hidden");
- document.getElementById("signupForm").classList.remove("hidden");
+function loadSupabase(){
+ return new Promise((resolve,reject)=>{
+  if(window.supabase){resolve();return;}
+  const s=document.createElement("script");
+  s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+  s.onload=resolve;
+  s.onerror=()=>reject(new Error("Supabase JS não carregou."));
+  document.head.appendChild(s);
+ });
 }
-function showLogin(){
- document.getElementById("signupForm").classList.add("hidden");
- document.getElementById("loginForm").classList.remove("hidden");
+
+async function init(){
+ try{
+  await loadSupabase();
+  db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+  const {data}=await db.auth.getSession();
+  if(data.session){
+   currentUser=data.session.user;
+   showApp();
+  }
+ }catch(e){
+  console.error(e);
+  document.getElementById("authMessage").textContent=
+   "Erro ao carregar o Supabase.";
+ }
 }
+init();
 
-async function signup(){
- const email=document.getElementById("signupEmail").value.trim();
- const password=document.getElementById("signupPassword").value;
- const status=document.getElementById("signupStatus");
-
- if(!email||password.length<6){
-  status.textContent="Introduz email e senha com pelo menos 6 caracteres.";
-  return;
- }
-
- status.textContent="A criar conta...";
- const {data,error}=await sb.auth.signUp({email,password});
-
- if(error){
-  status.textContent=error.message;
-  return;
- }
-
- status.textContent=data.session
-  ?"Conta criada!"
-  :"Conta criada. Confirma o email, se a confirmação estiver activada.";
+// ===== AUTH =====
+function showAuth(type){
+ document.getElementById("loginBox").classList.toggle("hidden",type!=="login");
+ document.getElementById("registerBox").classList.toggle("hidden",type!=="register");
+ document.getElementById("loginTab").classList.toggle("selected",type==="login");
+ document.getElementById("registerTab").classList.toggle("selected",type==="register");
+ document.getElementById("authMessage").textContent="";
 }
 
 async function login(){
+ if(!db)return;
  const email=document.getElementById("loginEmail").value.trim();
- const password=document.getElementById("loginPassword").value;
- const status=document.getElementById("loginStatus");
+ const password=document.getElementById("loginPass").value;
+ const msg=document.getElementById("authMessage");
+ msg.textContent="A entrar...";
+ const {data,error}=await db.auth.signInWithPassword({
+  email,password
+ });
+ if(error){msg.textContent=error.message;return;}
+ currentUser=data.user;
+ showApp();
+}
 
- status.textContent="A entrar...";
- const {data,error}=await sb.auth.signInWithPassword({email,password});
-
- if(error){
-  status.textContent=error.message;
+async function register(){
+ if(!db)return;
+ const email=document.getElementById("registerEmail").value.trim();
+ const password=document.getElementById("registerPass").value;
+ const msg=document.getElementById("authMessage");
+ if(password.length<6){
+  msg.textContent="A senha precisa de pelo menos 6 caracteres.";
   return;
  }
-
- await openApp(data.user);
+ msg.textContent="A criar conta...";
+ const {data,error}=await db.auth.signUp({
+  email,password
+ });
+ if(error){msg.textContent=error.message;return;}
+ if(data.session){
+  currentUser=data.user;
+  showApp();
+ }else{
+  msg.textContent="Conta criada! Verifica o e-mail se a confirmação estiver activa.";
+ }
 }
 
 async function logout(){
- await sb.auth.signOut();
+ if(db)await db.auth.signOut();
  currentUser=null;
- document.getElementById("appScreen").style.display="none";
+ document.getElementById("app").style.display="none";
  document.getElementById("authScreen").style.display="flex";
- showLogin();
 }
 
-async function openApp(user){
- currentUser=user;
+function showApp(){
  document.getElementById("authScreen").style.display="none";
- document.getElementById("appScreen").style.display="block";
- document.getElementById("userEmail").textContent=user.email;
- await loadChatHistory();
- await loadPacks();
- await checkAdmin();
+ document.getElementById("app").style.display="block";
+ go("home");
+ loadPacks();
+ loadHistory();
+ checkAdmin();
 }
 
-sb.auth.getSession().then(async ({data})=>{
- if(data.session) await openApp(data.session.user);
-});
-
-/* MENU */
+// ===== NAVEGAÇÃO =====
 function toggleMenu(){
- document.getElementById("menu").classList.toggle("active");
+ document.getElementById("nav").classList.toggle("open");
 }
 
-/* SENSI */
-function deviceChanged(){
- const device=document.getElementById("device").value;
- document.getElementById("dpiBox").style.display=device==="android"?"block":"none";
- if(device==="iphone")document.getElementById("dpi").value="";
+function go(id){
+ document.querySelectorAll("main section").forEach(s=>{
+  s.classList.remove("active");
+ });
+ const target=document.getElementById(id);
+ if(target)target.classList.add("active");
+ document.getElementById("nav").classList.remove("open");
+ if(id==="packs")loadPacks();
+ if(id==="admin")checkAdmin();
 }
+
+// ===== COPIAR =====
+async function copyText(text){
+ try{
+  await navigator.clipboard.writeText(text);
+  alert("Copiado!");
+ }catch(e){
+  const t=document.createElement("textarea");
+  t.value=text;
+  document.body.appendChild(t);
+  t.select();
+  document.execCommand("copy");
+  t.remove();
+  alert("Copiado!");
+ }
+}
+
+// ===== GERADOR DE NICKS =====
+function escapeHTML(s){
+ return String(s).replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+function generateNicks(){
+ const base=document.getElementById("nickBase").value.trim();
+ if(!base){alert("Escreve um nome primeiro.");return;}
+ const styles=[
+ "亗"+base+"亗",
+ "꧁"+base+"꧂",
+ "么"+base+"么",
+ "『"+base+"』",
+ "乂"+base+"乂",
+ "★"+base+"★",
+ "ツ"+base+"ツ",
+ "メ"+base+"メ",
+ "〆"+base,
+ base+"々",
+ "ᎫᎫ"+base,
+ "ᴳᵒᵈ"+base,
+ "ᎪᏞᏢᎻᎪ "+base,
+ "☠"+base+"☠",
+ "♛"+base+"♛",
+ "᭄"+base+"࿐",
+ "乄"+base+"乄",
+ "✿"+base+"✿",
+ "⚡"+base+"⚡",
+ "♠"+base+"♠",
+ "◥"+base+"◤",
+ "༒"+base+"༒",
+ "⸙"+base+"⸙",
+ "ᵀᴹ"+base,
+ "『ᴹᴿ』"+base,
+ "ꜰꜰ "+base,
+ "么ᴮᴼˢˢ "+base,
+ "乂ᴳᴬᴹᴱ乂"+base,
+ "★彡"+base+"彡★",
+ "꧁༺"+base+"༻꧂",
+ "『ᎷᏒ』"+base,
+ "᭄ᴳᵒᵈ"+base+"࿐",
+ "╰‿╯"+base,
+ "⫷"+base+"⫸",
+ "◉"+base+"◉",
+ "⟡"+base+"⟡",
+ "༄"+base+"༄",
+ "♜"+base+"♜",
+ "♨"+base+"♨",
+ "ᵛᶰ"+base,
+ "乂ᏞᎬᎶᎬᏁᎠ乂"+base,
+ "꧁ঔৣ"+base+"ঔৣ꧂",
+ "ツ『"+base+"』",
+ "亗ᴹᴿ "+base,
+ "ᴳᴳ "+base+" ᴳᴳ",
+ "꧁𓊈𒆜"+base+"𒆜𓊉꧂",
+ "𓆩"+base+"𓆪",
+ "☯"+base+"☯",
+ "✧"+base+"✧"
+ ];
+ document.getElementById("nickResult").innerHTML=
+ "<h3>NICKS</h3>"+styles.map(n=>
+ "<div class='result'>"+escapeHTML(n)+
+ " <button class='btn secondary' onclick='copyText("+JSON.stringify(n)+")'>COPIAR</button></div>"
+ ).join("");
+}
+
+// ===== SENSI =====
+function deviceChange(){
+ const type=document.getElementById("deviceType").value;
+ document.getElementById("dpiField").style.display=
+ type==="android"?"block":"none";
+}
+deviceChange();
 
 function generateSensi(){
- const device=document.getElementById("device").value;
- const model=document.getElementById("model").value.trim();
- const dpi=document.getElementById("dpi").value.trim();
- const style=document.getElementById("style").value;
- const result=document.getElementById("sensiResult");
+ const type=document.getElementById("deviceType").value;
+ const model=document.getElementById("deviceModel").value.trim();
+ const dpi=Number(document.getElementById("dpi").value)||400;
+ const style=document.getElementById("playStyle").value;
+ if(!model){alert("Indica o modelo do dispositivo.");return;}
 
- if(!device||!model){
-  result.classList.remove("hidden");
-  result.textContent="Preenche o dispositivo e o modelo.";
-  return;
- }
- if(device==="android"&&dpi&&(Number(dpi)<100||Number(dpi)>1000)){
-  result.classList.remove("hidden");
-  result.textContent="DPI inválido. Introduz um valor entre 100 e 1000.";
-  return;
- }
+ let factor=style==="fast"?1.08:
+ style==="precision"?0.88:1;
 
- let values;
- if(style==="fast")values=[200,195,190,185,180];
- else if(style==="balanced")values=[185,180,175,170,165];
- else if(style==="close")values=[195,190,185,175,170];
- else values=[170,160,150,140,130];
+ let base=type==="iphone"?175:
+ dpi>=600?165:dpi>=450?155:dpi>=350?145:135;
 
- const labels=["Geral","Red Dot","2x","4x","AWM"];
- let out="<h3>SENSI GERADA</h3>";
- out+="<p><b>Dispositivo:</b> "+escapeHTML(device)+"</p>";
- out+="<p><b>Modelo:</b> "+escapeHTML(model)+"</p>";
- if(device==="android"&&dpi)out+="<p><b>DPI:</b> "+escapeHTML(dpi)+"</p>";
-
- labels.forEach((l,i)=>out+="<p><b>"+l+":</b> "+values[i]+"</p>");
- out+="<p><b>Botão de tiro:</b> 48%</p>";
- out+="<p><small>Valores experimentais, ajusta no treino.</small></p>";
- const copy=labels.map((l,i)=>l+": "+values[i]).join("\n")+"\nBotão: 48%";
- out+='<button class="btn" onclick="copyText('+JSON.stringify(copy)+')">COPIAR SENSI</button>';
- result.innerHTML=out;
- result.classList.remove("hidden");
-}
-
-/* OPTIMIZADOR */
-function androidTips(){
- const model=document.getElementById("androidModel").value.trim();
- const problem=document.getElementById("androidProblem").value;
- const result=document.getElementById("androidResult");
-
- if(!model){
-  result.textContent="Introduz o modelo.";
-  result.classList.remove("hidden");
-  return;
- }
-
- const tips={
- fps:["Reduz os gráficos do jogo.","Desactiva sombras.","Fecha aplicações em segundo plano.","Evita jogar enquanto carregas.","Reinicia o dispositivo antes de sessões longas."],
- heat:["Evita jogar enquanto carregas.","Retira capas muito grossas.","Evita sol directo.","Faz pausas entre partidas."],
- lag:["Verifica a estabilidade da internet.","Fecha aplicações desnecessárias.","Evita VPN durante a partida.","Mantém espaço livre."],
- touch:["Limpa o ecrã.","Verifica a película.","Desactiva aplicações de sobreposição.","Testa a sensibilidade no treino."],
- all:["Reduz os gráficos.","Fecha aplicações em segundo plano.","Evita jogar enquanto carregas.","Verifica a internet.","Mantém espaço livre.","Faz pausas."]
- };
-
- result.innerHTML="<h3>"+escapeHTML(model)+"</h3><ul>"+tips[problem].map(t=>"<li>"+t+"</li>").join("")+"</ul>";
- result.classList.remove("hidden");
-}
-
-/* NICKS */
-function generateNicks(){
- const name=document.getElementById("nickInput").value.trim();
- const result=document.getElementById("nickResult");
-
- if(!name){
-  result.textContent="Escreve um nick primeiro.";
-  result.classList.remove("hidden");
-  return;
- }
-
- const styles=[
- "亗 "+name+" 亗",
- "『"+name+"』",
- "乂"+name+"乂",
- "么"+name+"么",
- "★彡"+name+"彡★",
- "メ"+name+"メ",
- "〆"+name,
- "꧁"+name+"꧂",
- "ᴹᴿメ"+name,
- "亗『"+name+"』",
- "乂『"+name+"』乂",
- "♛"+name+"♛",
- "⸙"+name+"⸙",
- "ঔৣ"+name+"ঔৣ",
- "☯"+name+"☯",
- "◥"+name+"◤",
- "ꜰᴛ."+name,
- "᭄"+name+"࿐",
- "⿻"+name+"⿻",
- "×͜× "+name,
- "⳻"+name+"⳺",
- "𓆩"+name+"𓆪",
- "༒"+name+"༒",
- "♠"+name+"♠",
- "♜"+name+"♜",
- "★"+name+"★",
- "✘"+name+"✘",
- "⪻"+name+"⪼",
- "⚡"+name+"⚡",
- "꧁༺"+name+"༻꧂",
- "『亗』"+name,
- "么"+name+"〆",
- "乂"+name+"࿐",
- "ᯓ"+name+"ᯓ",
- "𖤍"+name+"𖤍",
- "♤"+name+"♤",
- "◈"+name+"◈",
- "⟆"+name+"⟅",
- "彡"+name+"彡",
- "⛧"+name+"⛧"
+ const values=[
+  Math.min(200,Math.round(base*factor)),
+  Math.min(200,Math.round((base-5)*factor)),
+  Math.min(200,Math.round((base-15)*factor)),
+  Math.min(200,Math.round((base-20)*factor)),
+  Math.min(200,Math.round((base-30)*factor)),
+  Math.min(200,Math.round((base-10)*factor))
  ];
 
- result.innerHTML="<h3>NICKS</h3>"+styles.map(n=>
- "<p>"+escapeHTML(n)+" <button class='btn secondary' onclick='copyText("+JSON.stringify(n)+")'>COPIAR</button></p>"
+ const names=["Geral","Red Dot","2x","4x","Sniper","Olhadinha"];
+ let html="<div class='result'><h3>SENSI — "+escapeHTML(model)+"</h3>";
+ names.forEach((n,i)=>{
+  html+="<p><b>"+n+":</b> "+values[i]+"</p>";
+ });
+ html+="<button class='btn' onclick='copyText("+JSON.stringify(names.map((n,i)=>n+": "+values[i]).join("\n"))+")'>COPIAR SENSI</button>";
+ html+="<p class='muted'>Configuração estimada. Ajusta no jogo conforme o teu toque.</p></div>";
+ document.getElementById("sensiResult").innerHTML=html;
+}
+
+// ===== ANDROID =====
+function optimizeAndroid(){
+ const model=document.getElementById("androidModel").value.trim();
+ const ram=document.getElementById("ram").value;
+ if(!model){alert("Indica o modelo.");return;}
+
+ const tips=[
+ "Fecha aplicações em segundo plano antes de abrir o Free Fire.",
+ "Evita jogar enquanto o telefone está a carregar.",
+ "Reduz gráficos e sombras se houver quedas de FPS.",
+ "Desactiva gravações de ecrã desnecessárias.",
+ "Mantém pelo menos alguns GB de espaço livre.",
+ "Evita aplicações de optimização que prometem FPS irreais.",
+ "Reinicia o telefone antes de sessões longas se estiver lento."
+ ];
+ let html="<div class='result'><h3>"+escapeHTML(model)+"</h3>";
+ if(ram)html+="<p>RAM: "+escapeHTML(ram)+"</p>";
+ html+="<ul>"+tips.map(t=>"<li>"+t+"</li>").join("")+"</ul></div>";
+ document.getElementById("androidResult").innerHTML=html;
+}
+
+// ===== CORES FF =====
+function makeColor(){
+ const text=document.getElementById("colorText").value;
+ const color=document.getElementById("colorCode").value;
+ if(!text){alert("Escreve o texto.");return;}
+ const code=color+text;
+ document.getElementById("colorResult").innerHTML=
+ "<div class='result'><p>"+escapeHTML(code)+"</p>"+
+ "<button class='btn' onclick='copyText("+JSON.stringify(code)+")'>COPIAR</button></div>";
+}
+
+function initColors(){
+ const samples=[
+ ["Vermelho","#FF0000"],
+ ["Verde","#00FF00"],
+ ["Azul","#0000FF"],
+ ["Amarelo","#FFFF00"],
+ ["Rosa","#FF00FF"],
+ ["Ciano","#00FFFF"],
+ ["Laranja","#FFA500"],
+ ["Branco","#FFFFFF"],
+ ["Roxo","#800080"]
+ ];
+ document.getElementById("colorSamples").innerHTML=
+ samples.map(([name,color])=>
+ "<div class='result'><b>"+name+"</b> "+
+ color+" <button class='btn secondary' onclick='copyText("+JSON.stringify(color)+")'>COPIAR</button></div>"
  ).join("");
- result.classList.remove("hidden");
+}
+initColors();
+
+// ===== SKINS =====
+const skinFiles=[
+ "05c81049f89ab585d91b9745e7b0482d.webp",
+ "Capturar.png",
+ "Screenshot_2026-10-11-23-17-05-159_com.zhiliaoapp.musically.jpg",
+ "Screenshot_2026-10-11-23-17-12-910_com.zhiliaoapp.musically.jpg",
+ "Screenshot_20260519-1024042.jpg",
+ "Screenshot_20261023_165924_Free_Fire.jpg",
+ "rn_image_picker_lib_temp_0e0e5988-90fe-43d0-a19e-ae8d1d80c35d.jpg",
+ "rn_image_picker_lib_temp_4d963fe2-7c83-414e-bf78-964cf3f20710.jpg",
+ "rn_image_picker_lib_temp_5c1a9020-b618-4e4a-959e-9c12d3ace770.jpg"
+];
+
+function loadSkins(){
+ document.getElementById("skinGrid").innerHTML=
+ skinFiles.map((f,i)=>
+ "<div class='skin'><img src='assets/"+encodeURIComponent(f)+"' alt='Skin "+(i+1)+"' loading='lazy' onerror='this.style.display=\"none\"'><p>Skin "+(i+1)+"</p></div>"
+ ).join("");
+}
+loadSkins();
+
+// ===== PACKS =====
+async function loadPacks(){
+ const box=document.getElementById("packsList");
+ if(!db){box.textContent="A carregar...";return;}
+ const {data,error}=await db.from("packs")
+  .select("*").order("created_at",{ascending:false});
+ if(error){
+  box.textContent="Não foi possível carregar os Packs.";
+  console.error(error);
+  return;
+ }
+ if(!data||!data.length){
+  box.textContent="Ainda não existem publicações.";
+  return;
+ }
+ box.innerHTML=data.map(p=>
+ "<div class='result'><h3>"+escapeHTML(p.titulo||"Pack")+"</h3>"+
+ "<p class='muted'>"+escapeHTML(p.categoria||"")+"</p>"+
+ "<p>"+escapeHTML(p.conteudo||"")+"</p></div>"
+ ).join("");
 }
 
-function copyText(text){
-  navigator.clipboard.writeText(text).then(()=>{
-    alert("Nick copiado!");
-  }).catch(()=>{
-    prompt("Copia o nick:",text);
-  });
-}
-
-function escapeHTML(str){
-  return String(str).replace(/[&<>"']/g,function(c){
-    return {
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#39;"
-    }[c];
-  });
-}
-
-function generateAndroid(){
-  const device=document.getElementById("androidDevice").value;
-  const output=document.getElementById("androidResult");
-
-  let tips=[];
-
-  tips.push("Fecha aplicações em segundo plano.");
-  tips.push("Reduz os gráficos do Free Fire.");
-  tips.push("Desativa animações desnecessárias.");
-  tips.push("Mantém pelo menos 3 GB de espaço livre.");
-  tips.push("Evita jogar enquanto carregas o telefone.");
-  tips.push("Reinicia o dispositivo antes de sessões longas.");
-  tips.push("Mantém o sistema e o jogo atualizados.");
-
-  output.innerHTML="<h3>OPTIMIZAÇÃO "+escapeHTML(device)+"</h3>"+
-    tips.map(t=>"<p>⚡ "+t+"</p>").join("");
-
-  output.classList.remove("hidden");
-}
-
-function generateSensi(){
-  const device=document.getElementById("sensiDevice").value;
-  const dpi=document.getElementById("sensiDpi").value;
-  const output=document.getElementById("sensiResult");
-
-  let base=Math.floor(Math.random()*15)+180;
-  let sensi={
-    general:base,
-    red:Math.max(150,base-5),
-    scope2:Math.max(140,base-15),
-    scope4:Math.max(120,base-25),
-    sniper:Math.max(80,base-60),
-    free:Math.max(150,base-10)
-  };
-
-  if(device.toLowerCase().includes("iphone")){
-    sensi={
-      general:Math.floor(Math.random()*10)+190,
-      red:Math.floor(Math.random()*10)+185,
-      scope2:Math.floor(Math.random()*10)+175,
-      scope4:Math.floor(Math.random()*10)+160,
-      sniper:Math.floor(Math.random()*10)+100,
-      free:Math.floor(Math.random()*10)+180
-    };
-  }
-
-  output.innerHTML=
-    "<h3>SENSIBILIDADE</h3>"+
-    "<p>📱 "+escapeHTML(device)+"</p>"+
-    (dpi? "<p>⚙️ DPI: "+escapeHTML(dpi)+"</p>":"")+
-    "<p>🎯 Geral: "+sensi.general+"</p>"+
-    "<p>🔴 Red Dot: "+sensi.red+"</p>"+
-    "<p>🔍 2x: "+sensi.scope2+"</p>"+
-    "<p>🔭 4x: "+sensi.scope4+"</p>"+
-    "<p>🎯 Sniper: "+sensi.sniper+"</p>"+
-    "<p>👁️ Olhadinha: "+sensi.free+"</p>";
-
-  output.classList.remove("hidden");
-}
-
-function saveHistory(message){
-  if(!currentUser)return;
-
-  supabase.from("ai_history").insert({
-    user_id:currentUser.id,
-    role:"user",
-    content:message
-  });
-}
-
+// ===== HISTÓRICO IA =====
 async function loadHistory(){
-  if(!currentUser)return;
-
-  const {data,error}=await supabase
-    .from("ai_history")
-    .select("*")
-    .eq("user_id",currentUser.id)
-    .order("created_at",{ascending:true});
-
-  if(error)return;
-
-  const chat=document.getElementById("aiChat");
-
+ if(!db||!currentUser)return;
+ const {data,error}=await db.from("ai_history")
+  .select("*").eq("user_id",currentUser.id)
+  .order("created_at",{ascending:true});
+ if(error){console.warn(error);return;}
+ if(data){
+  chatHistory=data;
+  const chat=document.getElementById("chat");
   chat.innerHTML="";
-
-  data.forEach(item=>{
-    const bubble=document.createElement("div");
-    bubble.className="chatBubble "+item.role;
-    bubble.textContent=item.content;
-    chat.appendChild(bubble);
+  data.forEach(m=>{
+   addMessage(m.role,m.content,false);
   });
+ }
+}
+
+function addMessage(role,text,scroll=true){
+ const chat=document.getElementById("chat");
+ const div=document.createElement("div");
+ div.className="msg "+(role==="user"?"user":"ai");
+ div.textContent=text;
+ chat.appendChild(div);
+ if(scroll)chat.scrollTop=chat.scrollHeight;
+}
+
+async function saveMessage(role,content){
+ if(!db||!currentUser)return;
+ const {error}=await db.from("ai_history").insert({
+  user_id:currentUser.id,role,content
+ });
+ if(error)console.warn("Histórico:",error.message);
 }
 
 async function sendAI(){
-  const input=document.getElementById("aiInput");
-  const chat=document.getElementById("aiChat");
-  const message=input.value.trim();
+ const input=document.getElementById("aiInput");
+ const status=document.getElementById("aiStatus");
+ const message=input.value.trim();
+ if(!message)return;
+ if(!currentUser){status.textContent="Faz login primeiro.";return;}
 
-  if(!message)return;
-
-  if(!currentUser){
-    alert("Faz login primeiro!");
-    return;
-  }
-
-  input.value="";
-
-  const userBubble=document.createElement("div");
-  userBubble.className="chatBubble user";
-  userBubble.textContent=message;
-  chat.appendChild(userBubble);
-
-  await supabase.from("ai_history").insert({
-    user_id:currentUser.id,
-    role:"user",
-    content:message
+ input.value="";
+ addMessage("user",message);
+ await saveMessage("user",message);
+ status.textContent="Nexus está a pensar...";
+ try{
+  const {data,error}=await db.functions.invoke("angomods-ai",{
+   body:{message,history:chatHistory.slice(-10)}
   });
-
-  const loading=document.createElement("div");
-  loading.className="chatBubble assistant";
-  loading.textContent="Angomods IA está a pensar...";
-  chat.appendChild(loading);
-
-  try{
-    const {data,error}=await supabase.functions.invoke("angomods-ai",{
-      body:{message:message}
-    });
-
-    loading.remove();
-
-    if(error)throw error;
-
-    const answer=data.answer||"Não consegui responder.";
-
-    const aiBubble=document.createElement("div");
-    aiBubble.className="chatBubble assistant";
-    aiBubble.textContent=answer;
-    chat.appendChild(aiBubble);
-
-    await supabase.from("ai_history").insert({
-      user_id:currentUser.id,
-      role:"assistant",
-      content:answer
-    });
-
-  }catch(err){
-    loading.textContent="Erro ao conectar à Angomods IA.";
-    console.error(err);
-  }
-
-  chat.scrollTop=chat.scrollHeight;
+  if(error)throw error;
+  const answer=data?.answer||data?.response||data?.message;
+  if(!answer)throw new Error("A função não devolveu uma resposta.");
+  addMessage("ai",answer);
+  await saveMessage("assistant",answer);
+  status.textContent="";
+ }catch(e){
+  status.textContent="A Nexus IA ainda não está ligada correctamente.";
+  console.error(e);
+ }
 }
 
-async function loadPacks(){
-  const container=document.getElementById("packsResult");
+async function clearChat(){
+ if(!db||!currentUser)return;
+ if(!confirm("Apagar o teu histórico da Nexus IA?"))return;
+ const {error}=await db.from("ai_history")
+  .delete().eq("user_id",currentUser.id);
+ if(error){
+  alert("Erro ao apagar histórico.");
+  return;
+ }
+ chatHistory=[];
+ document.getElementById("chat").innerHTML=
+ "<div class='msg ai'>🔥 Olá! Sou a Nexus IA do Angomods.</div>";
+}
 
-  const {data,error}=await supabase
-    .from("packs")
-    .select("*")
-    .order("created_at",{ascending:false});
-
-  if(error){
-    container.innerHTML="Erro ao carregar packs.";
-    return;
-  }
-
-  container.innerHTML=data.map(pack=>
-    "<div class='packCard'>"+
-    "<h3>"+escapeHTML(pack.titulo)+"</h3>"+
-    "<p>"+escapeHTML(pack.categoria)+"</p>"+
-    "<pre>"+escapeHTML(pack.conteudo)+"</pre>"+
-    "</div>"
-  ).join("");
-
-  container.classList.remove("hidden");
+// ===== ADM =====
+async function checkAdmin(){
+ const status=document.getElementById("adminStatus");
+ const content=document.getElementById("adminContent");
+ content.classList.add("hidden");
+ if(!db||!currentUser){
+  status.textContent="Faz login para verificar.";
+  return;
+ }
+ const {data,error}=await db.from("profiles")
+  .select("is_admin").eq("id",currentUser.id).maybeSingle();
+ if(error){
+  status.textContent="Não foi possível verificar permissões.";
+  return;
+ }
+ if(data&&data.is_admin===true){
+  status.textContent="Administrador autorizado.";
+  content.classList.remove("hidden");
+ }else{
+  status.textContent="A área administrativa depende das permissões configuradas no Supabase.";
+ }
 }
 
 async function publishPack(){
-  if(!currentUser){
-    alert("Faz login!");
-    return;
-  }
-
-  const title=document.getElementById("packTitle").value;
-  const category=document.getElementById("packCategory").value;
-  const content=document.getElementById("packContent").value;
-
-  if(!title||!content){
-    alert("Preenche os campos!");
-    return;
-  }
-
-  const {error}=await supabase.from("packs").insert({
-    titulo:title,
-    categoria:category,
-    conteudo:content,
-    created_by:currentUser.id
-  });
-
-  if(error){
-    alert("Erro ao publicar pack: "+error.message);
-    return;
-  }
-
-  alert("Pack publicado!");
-  loadPacks();
+ if(!db||!currentUser)return;
+ const titulo=document.getElementById("packTitle").value.trim();
+ const categoria=document.getElementById("packCategory").value.trim();
+ const conteudo=document.getElementById("packContent").value.trim();
+ if(!titulo||!conteudo){
+  alert("Preenche o título e conteúdo.");
+  return;
+ }
+ const {error}=await db.from("packs").insert({
+  titulo,categoria,conteudo,created_by:currentUser.id
+ });
+ if(error){
+  document.getElementById("adminResult").textContent=error.message;
+  return;
+ }
+ document.getElementById("adminResult").textContent="Publicado!";
+ document.getElementById("packTitle").value="";
+ document.getElementById("packCategory").value="";
+ document.getElementById("packContent").value="";
+ loadPacks();
 }
-
-async function checkAdmin(){
-  if(!currentUser)return;
-
-  const {data}=await supabase
-    .from("profiles")
-    .select("is_admin")
-    .eq("id",currentUser.id)
-    .single();
-
-  if(data&&data.is_admin){
-    document.getElementById("adminPanel").classList.remove("hidden");
-  }
-}
-
-async function logout(){
-  await supabase.auth.signOut();
-  location.reload();
-}
-
-document.addEventListener("DOMContentLoaded",async()=>{
-  const {data}=await supabase.auth.getSession();
-
-  if(data.session){
-    currentUser=data.session.user;
-    showSite();
-    loadHistory();
-    loadPacks();
-    checkAdmin();
-  }
-});
 </script>
 </body>
 </html>
